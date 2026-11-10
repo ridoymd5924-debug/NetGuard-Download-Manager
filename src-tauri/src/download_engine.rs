@@ -111,7 +111,12 @@ fn is_retryable_segment_error(e: &str) -> bool {
     }
     // Parse "HTTP <status>" errors — only retry specific server-side codes
     if let Some(code_str) = e.strip_prefix("HTTP ") {
-        let code: u16 = code_str.trim().parse().unwrap_or(0);
+        // Accept both "HTTP 503" and "HTTP 503 Service Unavailable" (status code is the first token).
+        let code: u16 = code_str
+            .split_whitespace()
+            .next()
+            .and_then(|t| t.parse().ok())
+            .unwrap_or(0);
         return matches!(code, 408 | 429 | 500 | 502 | 503 | 504);
     }
     // Network / IO errors (connection reset, timeout, DNS) → retryable
