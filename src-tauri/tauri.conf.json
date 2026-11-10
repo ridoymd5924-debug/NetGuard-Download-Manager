@@ -1,0 +1,72 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "NetGuard Download Manager",
+  "version": "1.0.0",
+  "identifier": "com.netguard.downloadmanager",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:5173",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "NetGuard Download Manager",
+        "width": 1200,
+        "height": 720,
+        "minWidth": 900,
+        "minHeight": 600,
+        "resizable": true,
+        "visible": false,
+        "fullscreen": false,
+        "decorations": false,
+        "backgroundColor": "#080f1f"
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis"
+    ],
+    "resources": [
+      "resources/yt-dlp*",
+      "licenses/*"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "copyright": "Copyright © 2026 NetGuard contributors. Based on Quantum Download Manager, Copyright © 2026 Parveen Bhadoo (MIT License).",
+    "category": "Utility",
+    "shortDescription": "NetGuard Download Manager",
+    "longDescription": "NetGuard Download Manager — multi-segment download manager with browser integration and system tray support. Based on Quantum Download Manager (MIT).",
+    "windows": {
+      "digestAlgorithm": "sha256",
+      "certificateThumbprint": null,
+      "timestampUrl": "",
+      "nsis": {
+        "languages": [
+          "English"
+        ],
+        "displayLanguageSelector": false,
+        "installMode": "currentUser",
+        "installerIcon": "icons/icon.ico",
+        "headerImage": "installer/header.bmp",
+        "sidebarImage": "installer/sidebar.bmp",
+        "startMenuFolder": "NetGuard",
+        "installerHooks": "installer-hooks.nsh",
+        "compression": "lzma"
+      }
+    }
+  },
+  "mainBinaryName": "NetGuard"
+}

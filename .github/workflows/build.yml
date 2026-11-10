@@ -1,0 +1,163 @@
+name: NetGuard - build and test (Windows)
+
+# Trigger it yourself:  GitHub -> Actions -> "NetGuard - build and test (Windows)" -> Run workflow
+# (also runs on every push to main, on pull requests, and on tags named v*).
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: netguard-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: pwsh
+    env:
+      CARGO_TERM_COLOR: never
+      TAURI_TARGET: x86_64-pc-windows-msvc
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # Stable Rust satisfies the crate requirements (tauri 2.x needs >= 1.77.2).
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-msvc
+          components: rustfmt, clippy
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri
+
+      # NSIS is preinstalled on windows-latest and Tauri downloads its own NSIS plugins on demand,
+      # so no separate NSIS install step is needed. WebView2 is part of the runner image.
+      - name: Tool versions
+        run: |
+          New-Item -ItemType Directory -Force logs | Out-Null
+          node -v; npm -v; python --version; rustc -V; cargo -V
+          if (Get-Command makensis -ErrorAction SilentlyContinue) { makensis /VERSION } else { 'makensis not on PATH (Tauri fetches its own NSIS)' }
+
+      - name: Install JS dependencies
+        run: npm ci 2>&1 | Tee-Object logs/npm-ci.log
+
+      # tauri-build validates the bundle resource globs (resources/yt-dlp*) even for `cargo test`,
+      # so the (checksum-verified) yt-dlp binary must exist before ANY cargo step.
+      - name: Fetch yt-dlp (SHA-256 verified)
+        run: node scripts/fetch-yt-dlp.js 2>&1 | Tee-Object logs/fetch-yt-dlp.log
+
+      - name: Static validation (manifests, licences, config, extension syntax)
+        run: python scripts/validate.py 2>&1 | Tee-Object logs/validate.log
+
+      - name: Extension logic tests
+        run: node extension/tests/ng-core.test.js 2>&1 | Tee-Object logs/extension-tests.log
+
+      - name: TypeScript strict type check
+        run: npm run typecheck 2>&1 | Tee-Object logs/typecheck.log
+
+      - name: Frontend production build
+        run: npm run build 2>&1 | Tee-Object logs/frontend-build.log
+
+      # Cargo.lock in the source package predates some dependencies (winreg, sha2,
+      # tauri-plugin-single-instance). `cargo fetch` adds the missing entries; the resulting file is
+      # uploaded as an artifact so you can commit it. `cargo metadata --locked` then proves the
+      # regenerated lock is consistent with Cargo.toml.
+      - name: Regenerate and validate Cargo.lock
+        working-directory: src-tauri
+        run: |
+          cargo fetch --target $env:TAURI_TARGET 2>&1 | Tee-Object ../logs/cargo-fetch.log
+          cargo metadata --locked --format-version 1 --filter-platform $env:TAURI_TARGET > $null
+
+      - name: Rust formatting check (advisory)
+        working-directory: src-tauri
+        continue-on-error: true
+        run: cargo fmt --all -- --check 2>&1 | Tee-Object ../logs/cargo-fmt.log
+
+      - name: Rust compile check
+        working-directory: src-tauri
+        run: cargo check --locked --all-targets --target $env:TAURI_TARGET 2>&1 | Tee-Object ../logs/cargo-check.log
+
+      - name: Rust clippy (advisory)
+        working-directory: src-tauri
+        continue-on-error: true
+        run: cargo clippy --locked --target $env:TAURI_TARGET 2>&1 | Tee-Object ../logs/cargo-clippy.log
+
+      - name: Rust unit tests (engine, scheduler, migration, startup registry round-trip)
+        working-directory: src-tauri
+        run: cargo test --locked --target $env:TAURI_TARGET 2>&1 | Tee-Object ../logs/cargo-test.log
+
+      - name: Dependency licence report
+        run: python scripts/license_report.py 2>&1 | Tee-Object logs/licenses.log
+
+      - name: Build NSIS installer
+        run: npm run tauri:build:win 2>&1 | Tee-Object logs/tauri-build.log
+
+      - name: Package browser extensions
+        run: python scripts/package_extensions.py 2>&1 | Tee-Object logs/extensions.log
+
+      - name: Normalise installer name and checksum
+        run: |
+          $f = Get-ChildItem "src-tauri/target/$env:TAURI_TARGET/release/bundle/nsis/*-setup.exe" | Select-Object -First 1
+          if (-not $f) { throw "NSIS installer was not produced" }
+          Copy-Item $f.FullName NetGuard-Setup.exe
+          (Get-FileHash NetGuard-Setup.exe -Algorithm SHA256).Hash.ToLower() + "  NetGuard-Setup.exe" | Out-File -Encoding ascii NetGuard-Setup.exe.sha256
+
+      - name: Installer install / uninstall test
+        run: ./scripts/ci/test-installer.ps1 -Installer "$PWD/NetGuard-Setup.exe" 2>&1 | Tee-Object logs/installer-test.log
+
+      - name: Upload installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: NetGuard-Installer
+          path: |
+            NetGuard-Setup.exe
+            NetGuard-Setup.exe.sha256
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Upload browser extension packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: NetGuard-Browser-Extensions
+          path: dist/extensions/*.zip
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Upload regenerated Cargo.lock and licence report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: NetGuard-Lockfile-and-Licenses
+          path: |
+            src-tauri/Cargo.lock
+            THIRD_PARTY_LICENSES.md
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload build logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: NetGuard-Build-Logs
+          path: logs/
+          retention-days: 30
+          if-no-files-found: warn
