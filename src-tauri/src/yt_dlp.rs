@@ -47,81 +47,302 @@ pub async fn get_installed_version(bin: &PathBuf) -> Option<String> {
     Some(String::from_utf8_lossy(&out.stdout).trim().to_string())
 }
 
-/// Fetch the latest yt-dlp release tag from GitHub.
-/// Returns (tag_name, asset_download_url) for the platform-appropriate binary.
-pub async fn get_latest_release() -> Result<(String, String), String> {
-    let client = reqwest::Client::builder()
-        .user_agent("NetGuard/1.0.0")
-        .timeout(std::time::Duration::from_secs(15))
-        .build()
-        .map_err(|e| e.to_string())?;
+const GITHUB_LATEST_API: &str = "https://api.github.com/repos/yt-dlp/yt-dlp/releases/latest";
+const GITHUB_LATEST_PAGE: &str = "https://github.com/yt-dlp/yt-dlp/releases/latest";
+const GITHUB_DOWNLOAD_BASE: &str = "https://github.com/yt-dlp/yt-dlp/releases/download";
+const GITHUB_ASSET_PREFIX: &str = "https://github.com/yt-dlp/yt-dlp/";
+const SUMS_FILE: &str = "SHA2-256SUMS";
+/// A real yt-dlp binary is >10 MB; anything smaller is an error page or truncated download.
+const MIN_BINARY_BYTES: usize = 1_000_000;
 
-    let resp = client
-        .get("https://api.github.com/repos/yt-dlp/yt-dlp/releases/latest")
-        .send()
-        .await
-        .map_err(|e| e.to_string())?;
-
-    let json: serde_json::Value = resp.json().await.map_err(|e| e.to_string())?;
-    let tag = json["tag_name"].as_str().unwrap_or("").to_string();
-    if tag.is_empty() {
-        return Err("No tag_name in GitHub response".to_string());
-    }
-
-    // Pick the right asset name for the current platform
-    let asset_name = if cfg!(windows) {
+/// Name of the release asset for the current platform.
+pub fn release_asset_name() -> &'static str {
+    if cfg!(windows) {
         "yt-dlp.exe"
     } else if cfg!(target_os = "macos") {
         "yt-dlp_macos"
     } else {
         "yt-dlp"
-    };
+    }
+}
 
-    let url = json["assets"]
+fn http_client(timeout_secs: u64, follow_redirects: bool) -> Result<reqwest::Client, String> {
+    let mut b = reqwest::Client::builder()
+        .user_agent("NetGuard/1.0.0")
+        .timeout(std::time::Duration::from_secs(timeout_secs));
+    if !follow_redirects {
+        b = b.redirect(reqwest::redirect::Policy::none());
+    }
+    b.build().map_err(|e| format!("Could not create HTTP client: {e}"))
+}
+
+fn valid_tag(tag: &str) -> bool {
+    !tag.is_empty()
+        && tag.len() <= 64
+        && tag.chars().all(|c| c.is_ascii_alphanumeric() || matches!(c, '.' | '-' | '_'))
+}
+
+/// Interpret a GitHub "latest release" API response.
+/// Pure function (no I/O) so every failure mode can be unit-tested.
+pub fn parse_latest_release(
+    status: u16,
+    ratelimit_remaining: Option<&str>,
+    body: &str,
+    asset_name: &str,
+) -> Result<(String, String), String> {
+    let json: Option<serde_json::Value> = serde_json::from_str(body).ok();
+    let api_message = json
+        .as_ref()
+        .and_then(|j| j["message"].as_str())
+        .map(|m| m.to_string());
+
+    if !(200..300).contains(&status) {
+        let lower = api_message.clone().unwrap_or_default().to_lowercase();
+        if status == 429
+            || (status == 403 && (ratelimit_remaining == Some("0") || lower.contains("rate limit")))
+        {
+            return Err(format!(
+                "GitHub API rate limit exceeded (HTTP {status}); try again later"
+            ));
+        }
+        return Err(match api_message {
+            Some(m) => format!("GitHub API returned HTTP {status}: {m}"),
+            None => format!("GitHub API returned HTTP {status}"),
+        });
+    }
+
+    let json = json.ok_or_else(|| {
+        format!("GitHub API returned a non-JSON response ({} bytes)", body.len())
+    })?;
+
+    let tag = json["tag_name"]
+        .as_str()
+        .map(str::trim)
+        .filter(|t| !t.is_empty())
+        .ok_or_else(|| match &api_message {
+            Some(m) => format!("GitHub response had no tag_name (message: {m})"),
+            None => "GitHub response had no tag_name".to_string(),
+        })?
+        .to_string();
+    if !valid_tag(&tag) {
+        return Err(format!("GitHub returned an unexpected tag_name: {tag:?}"));
+    }
+
+    let assets = json["assets"]
         .as_array()
-        .and_then(|arr| {
-            arr.iter().find(|a| {
-                a["name"].as_str().unwrap_or("") == asset_name
-            })
-        })
+        .ok_or_else(|| format!("Release {tag} has no assets list"))?;
+    let url = assets
+        .iter()
+        .find(|a| a["name"].as_str() == Some(asset_name))
         .and_then(|a| a["browser_download_url"].as_str())
-        .map(String::from)
-        .ok_or_else(|| format!("Asset '{}' not found in release {}", asset_name, tag))?;
-
+        .ok_or_else(|| format!("Asset '{asset_name}' not found in release {tag}"))?
+        .to_string();
+    if !url.starts_with(GITHUB_ASSET_PREFIX) {
+        return Err(format!("Refusing unexpected download host for {asset_name}: {url}"));
+    }
     Ok((tag, url))
 }
 
+/// Extract the release tag from a `Location: .../releases/tag/<tag>` header value.
+pub fn tag_from_location(location: &str) -> Option<String> {
+    let tag = location.rsplit_once("/tag/")?.1.trim().trim_end_matches('/');
+    if valid_tag(tag) { Some(tag.to_string()) } else { None }
+}
+
+async fn fetch_release_via_api(api_url: &str, asset: &str) -> Result<(String, String), String> {
+    let client = http_client(15, true)?;
+    let resp = client
+        .get(api_url)
+        .header("Accept", "application/vnd.github+json")
+        .header("X-GitHub-Api-Version", "2022-11-28")
+        .send()
+        .await
+        .map_err(|e| format!("network error contacting GitHub API: {e}"))?;
+    let status = resp.status().as_u16();
+    let remaining = resp
+        .headers()
+        .get("x-ratelimit-remaining")
+        .and_then(|v| v.to_str().ok())
+        .map(String::from);
+    let body = resp
+        .text()
+        .await
+        .map_err(|e| format!("could not read GitHub API response: {e}"))?;
+    parse_latest_release(status, remaining.as_deref(), &body, asset)
+}
+
+/// Fallback that does not use the rate-limited API: `/releases/latest` redirects to `/releases/tag/<tag>`.
+async fn fetch_release_via_redirect(
+    page_url: &str,
+    download_base: &str,
+    asset: &str,
+) -> Result<(String, String), String> {
+    let client = http_client(15, false)?;
+    let resp = client
+        .get(page_url)
+        .send()
+        .await
+        .map_err(|e| format!("network error contacting GitHub: {e}"))?;
+    let status = resp.status();
+    let location = resp
+        .headers()
+        .get(reqwest::header::LOCATION)
+        .and_then(|v| v.to_str().ok())
+        .ok_or_else(|| format!("expected a redirect from {page_url}, got HTTP {status}"))?;
+    let tag = tag_from_location(location)
+        .ok_or_else(|| format!("could not read a release tag from redirect target {location:?}"))?;
+    let url = format!("{download_base}/{tag}/{asset}");
+    Ok((tag, url))
+}
+
+async fn get_latest_release_from(
+    api_url: &str,
+    page_url: &str,
+    download_base: &str,
+    asset: &str,
+) -> Result<(String, String), String> {
+    let api_err = match fetch_release_via_api(api_url, asset).await {
+        Ok(r) => return Ok(r),
+        Err(e) => e,
+    };
+    log::warn!("[yt-dlp] GitHub API lookup failed ({api_err}); trying release-page fallback");
+    match fetch_release_via_redirect(page_url, download_base, asset).await {
+        Ok(r) => Ok(r),
+        Err(fb) => Err(format!(
+            "Could not determine the latest yt-dlp release. GitHub API: {api_err}. Fallback: {fb}"
+        )),
+    }
+}
+
+/// Fetch the latest yt-dlp release tag from GitHub.
+/// Returns (tag_name, asset_download_url) for the platform-appropriate binary.
+/// Uses the Releases API and falls back to the `/releases/latest` redirect when the API
+/// is rate-limited, blocked or returns an unexpected payload.
+pub async fn get_latest_release() -> Result<(String, String), String> {
+    get_latest_release_from(
+        GITHUB_LATEST_API,
+        GITHUB_LATEST_PAGE,
+        GITHUB_DOWNLOAD_BASE,
+        release_asset_name(),
+    )
+    .await
+}
+
+// ── Integrity checks ──────────────────────────────────────────────────────────
+
+/// Find the SHA-256 for `name` in a `SHA2-256SUMS` file ("<hash>  <file>" per line).
+pub fn parse_sha256sums(text: &str, name: &str) -> Option<String> {
+    for line in text.lines() {
+        let mut it = line.split_whitespace();
+        let (Some(hash), Some(file)) = (it.next(), it.next()) else { continue };
+        if file.trim_start_matches('*') == name
+            && hash.len() == 64
+            && hash.chars().all(|c| c.is_ascii_hexdigit())
+        {
+            return Some(hash.to_lowercase());
+        }
+    }
+    None
+}
+
+fn asset_name_from_url(url: &str) -> &str {
+    url.rsplit('/').next().unwrap_or("")
+}
+
+/// Validate downloaded bytes: plausible size, correct executable header and SHA-256.
+pub fn check_binary_bytes(bytes: &[u8], asset_name: &str, expected_sha256: &str) -> Result<(), String> {
+    use sha2::{Digest, Sha256};
+    if bytes.len() < MIN_BINARY_BYTES {
+        return Err(format!(
+            "Downloaded {asset_name} is only {} bytes — not a valid yt-dlp binary",
+            bytes.len()
+        ));
+    }
+    if asset_name.ends_with(".exe") && !bytes.starts_with(b"MZ") {
+        return Err(format!("Downloaded {asset_name} is not a Windows executable"));
+    }
+    let got = hex::encode(Sha256::digest(bytes));
+    if !got.eq_ignore_ascii_case(expected_sha256) {
+        return Err(format!(
+            "Checksum mismatch for {asset_name}: expected {expected_sha256}, got {got}"
+        ));
+    }
+    Ok(())
+}
+
+/// Download `SHA2-256SUMS` next to the asset and return the expected hash for it.
+pub async fn fetch_expected_hash(asset_url: &str) -> Result<String, String> {
+    let name = asset_name_from_url(asset_url);
+    let (dir, _) = asset_url
+        .rsplit_once('/')
+        .ok_or_else(|| format!("Invalid download URL: {asset_url}"))?;
+    let sums_url = format!("{dir}/{SUMS_FILE}");
+    let client = http_client(30, true)?;
+    let resp = client
+        .get(&sums_url)
+        .send()
+        .await
+        .map_err(|e| format!("Could not fetch {SUMS_FILE}: {e}"))?;
+    if !resp.status().is_success() {
+        return Err(format!("HTTP {} fetching {SUMS_FILE}", resp.status()));
+    }
+    let text = resp.text().await.map_err(|e| format!("Could not read {SUMS_FILE}: {e}"))?;
+    parse_sha256sums(&text, name).ok_or_else(|| format!("No checksum for {name} in {SUMS_FILE}"))
+}
+
+/// Verify a file already written to disk (used by the Settings → Install flow).
+pub async fn verify_file(path: &std::path::Path, asset_url: &str) -> Result<(), String> {
+    let expected = fetch_expected_hash(asset_url).await?;
+    let bytes = tokio::fs::read(path)
+        .await
+        .map_err(|e| format!("Cannot read downloaded file {}: {e}", path.display()))?;
+    check_binary_bytes(&bytes, asset_name_from_url(asset_url), &expected)
+}
+
 /// Download the latest yt-dlp binary and write it to `dest`.
+/// The file is verified (size, header, SHA-256) before it replaces `dest`.
 /// On Unix sets executable bit.
 pub async fn download_yt_dlp(download_url: &str, dest: &PathBuf) -> Result<(), String> {
-    let client = reqwest::Client::builder()
-        .user_agent("NetGuard/1.0.0")
-        .timeout(std::time::Duration::from_secs(120))
-        .build()
-        .map_err(|e| e.to_string())?;
+    let client = http_client(300, true)?;
 
     let resp = client
         .get(download_url)
         .send()
         .await
-        .map_err(|e| e.to_string())?;
+        .map_err(|e| format!("Download request failed: {e}"))?;
 
     if !resp.status().is_success() {
         return Err(format!("HTTP {} downloading yt-dlp", resp.status()));
     }
 
-    let bytes = resp.bytes().await.map_err(|e| e.to_string())?;
-    tokio::fs::write(dest, &bytes).await.map_err(|e| e.to_string())?;
+    let bytes = resp.bytes().await.map_err(|e| format!("Download interrupted: {e}"))?;
+    let expected = fetch_expected_hash(download_url).await?;
+    check_binary_bytes(&bytes, asset_name_from_url(download_url), &expected)?;
+
+    let part = dest.with_file_name(format!(
+        "{}.part",
+        dest.file_name().and_then(|n| n.to_str()).unwrap_or("yt-dlp")
+    ));
+    tokio::fs::write(&part, &bytes)
+        .await
+        .map_err(|e| format!("Cannot write {}: {e}", part.display()))?;
 
     // Make executable on Unix
     #[cfg(unix)]
     {
         use std::os::unix::fs::PermissionsExt;
-        let mut perms = tokio::fs::metadata(dest).await.map_err(|e| e.to_string())?.permissions();
+        let mut perms = tokio::fs::metadata(&part).await.map_err(|e| e.to_string())?.permissions();
         perms.set_mode(0o755);
-        tokio::fs::set_permissions(dest, perms).await.map_err(|e| e.to_string())?;
+        tokio::fs::set_permissions(&part, perms).await.map_err(|e| e.to_string())?;
     }
 
+    if let Err(e) = tokio::fs::rename(&part, dest).await {
+        let _ = tokio::fs::remove_file(&part).await;
+        return Err(format!(
+            "Cannot replace {} (is yt-dlp running?): {e}",
+            dest.display()
+        ));
+    }
     Ok(())
 }
 
@@ -837,5 +1058,147 @@ fn parse_eta_str(s: &str) -> Option<i64> {
             Some(h * 3600 + m * 60 + s)
         }
         _ => None,
+    }
+}
+
+#[cfg(test)]
+mod release_tests {
+    use super::*;
+    use tokio::io::{AsyncReadExt, AsyncWriteExt};
+
+    const OK_BODY: &str = r#"{"tag_name":"2025.01.15","assets":[
+        {"name":"yt-dlp","browser_download_url":"https://github.com/yt-dlp/yt-dlp/releases/download/2025.01.15/yt-dlp"},
+        {"name":"yt-dlp.exe","browser_download_url":"https://github.com/yt-dlp/yt-dlp/releases/download/2025.01.15/yt-dlp.exe"}]}"#;
+
+    #[test]
+    fn parses_good_release_for_windows_asset() {
+        let (tag, url) = parse_latest_release(200, None, OK_BODY, "yt-dlp.exe").unwrap();
+        assert_eq!(tag, "2025.01.15");
+        assert!(url.ends_with("/2025.01.15/yt-dlp.exe"));
+    }
+
+    #[test]
+    fn rate_limit_is_reported_clearly_not_as_missing_tag() {
+        let body = r#"{"message":"API rate limit exceeded for 1.2.3.4.","documentation_url":"x"}"#;
+        let e = parse_latest_release(403, Some("0"), body, "yt-dlp.exe").unwrap_err();
+        assert!(e.contains("rate limit"), "{e}");
+        assert!(!e.contains("No tag_name"));
+        assert!(parse_latest_release(429, None, "{}", "yt-dlp.exe").unwrap_err().contains("rate limit"));
+    }
+
+    #[test]
+    fn http_errors_include_status_and_api_message() {
+        let e = parse_latest_release(404, None, r#"{"message":"Not Found"}"#, "yt-dlp.exe").unwrap_err();
+        assert!(e.contains("404") && e.contains("Not Found"), "{e}");
+        let e = parse_latest_release(502, None, "<html>Bad gateway</html>", "yt-dlp.exe").unwrap_err();
+        assert!(e.contains("502"), "{e}");
+    }
+
+    #[test]
+    fn missing_or_empty_tag_and_bad_json_are_errors() {
+        assert!(parse_latest_release(200, None, r#"{"assets":[]}"#, "yt-dlp.exe").unwrap_err().contains("no tag_name"));
+        assert!(parse_latest_release(200, None, r#"{"tag_name":"  ","assets":[]}"#, "yt-dlp.exe").unwrap_err().contains("no tag_name"));
+        assert!(parse_latest_release(200, None, "not json", "yt-dlp.exe").unwrap_err().contains("non-JSON"));
+        assert!(parse_latest_release(200, None, r#"{"tag_name":"../evil","assets":[]}"#, "yt-dlp.exe").is_err());
+    }
+
+    #[test]
+    fn missing_asset_or_foreign_host_rejected() {
+        let e = parse_latest_release(200, None, r#"{"tag_name":"1","assets":[]}"#, "yt-dlp.exe").unwrap_err();
+        assert!(e.contains("not found"), "{e}");
+        let evil = r#"{"tag_name":"1","assets":[{"name":"yt-dlp.exe","browser_download_url":"https://evil.example/yt-dlp.exe"}]}"#;
+        assert!(parse_latest_release(200, None, evil, "yt-dlp.exe").unwrap_err().contains("unexpected download host"));
+    }
+
+    #[test]
+    fn redirect_location_tag_parsing() {
+        assert_eq!(tag_from_location("https://github.com/yt-dlp/yt-dlp/releases/tag/2025.01.15").as_deref(), Some("2025.01.15"));
+        assert_eq!(tag_from_location("/yt-dlp/yt-dlp/releases/tag/2025.01.15/").as_deref(), Some("2025.01.15"));
+        assert!(tag_from_location("https://github.com/login").is_none());
+    }
+
+    #[test]
+    fn sha256sums_parsing() {
+        let h = "a".repeat(64);
+        let txt = format!("{h}  yt-dlp\n{}  yt-dlp.exe\nbad  yt-dlp_x\n", "B".repeat(64));
+        assert_eq!(parse_sha256sums(&txt, "yt-dlp").unwrap(), h);
+        assert_eq!(parse_sha256sums(&txt, "yt-dlp.exe").unwrap(), "b".repeat(64));
+        assert!(parse_sha256sums(&txt, "yt-dlp_x").is_none());
+        assert!(parse_sha256sums(&txt, "missing").is_none());
+    }
+
+    #[test]
+    fn binary_validation_rejects_bad_downloads() {
+        use sha2::{Digest, Sha256};
+        let mut good = vec![0u8; MIN_BINARY_BYTES + 10];
+        good[0] = b'M';
+        good[1] = b'Z';
+        let h = hex::encode(Sha256::digest(&good));
+        assert!(check_binary_bytes(&good, "yt-dlp.exe", &h).is_ok());
+        assert!(check_binary_bytes(&good, "yt-dlp.exe", &"0".repeat(64)).unwrap_err().contains("Checksum mismatch"));
+        assert!(check_binary_bytes(b"<html>rate limited</html>", "yt-dlp.exe", &h).unwrap_err().contains("not a valid"));
+        let mut not_exe = good.clone();
+        not_exe[0] = b'X';
+        let h2 = hex::encode(Sha256::digest(&not_exe));
+        assert!(check_binary_bytes(&not_exe, "yt-dlp.exe", &h2).unwrap_err().contains("not a Windows executable"));
+    }
+
+    /// Minimal one-shot-per-connection HTTP server: maps request path → raw response.
+    async fn mock_server(routes: Vec<(&'static str, String)>) -> String {
+        let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let addr = listener.local_addr().unwrap();
+        tokio::spawn(async move {
+            loop {
+                let Ok((mut sock, _)) = listener.accept().await else { break };
+                let routes = routes.clone();
+                tokio::spawn(async move {
+                    let mut buf = vec![0u8; 8192];
+                    let n = sock.read(&mut buf).await.unwrap_or(0);
+                    let req = String::from_utf8_lossy(&buf[..n]).to_string();
+                    let path = req.split_whitespace().nth(1).unwrap_or("/").to_string();
+                    let resp = routes
+                        .iter()
+                        .find(|(p, _)| *p == path)
+                        .map(|(_, r)| r.clone())
+                        .unwrap_or_else(|| "HTTP/1.1 404 Not Found\r\nContent-Length: 0\r\nConnection: close\r\n\r\n".to_string());
+                    let _ = sock.write_all(resp.as_bytes()).await;
+                    let _ = sock.shutdown().await;
+                });
+            }
+        });
+        format!("http://{addr}")
+    }
+
+    fn json_resp(status: &str, body: &str) -> String {
+        format!(
+            "HTTP/1.1 {status}\r\nContent-Type: application/json\r\nContent-Length: {}\r\nConnection: close\r\n\r\n{body}",
+            body.len()
+        )
+    }
+
+    #[tokio::test]
+    async fn api_success_over_http() {
+        let base = mock_server(vec![("/api", json_resp("200 OK", OK_BODY))]).await;
+        let (tag, url) = get_latest_release_from(&format!("{base}/api"), &format!("{base}/latest"), &format!("{base}/dl"), "yt-dlp.exe").await.unwrap();
+        assert_eq!(tag, "2025.01.15");
+        assert!(url.starts_with("https://github.com/yt-dlp/yt-dlp/"));
+    }
+
+    #[tokio::test]
+    async fn rate_limited_api_falls_back_to_redirect() {
+        let limited = json_resp("403 Forbidden", r#"{"message":"API rate limit exceeded"}"#);
+        let redirect = "HTTP/1.1 302 Found\r\nLocation: https://github.com/yt-dlp/yt-dlp/releases/tag/2025.02.01\r\nContent-Length: 0\r\nConnection: close\r\n\r\n".to_string();
+        let base = mock_server(vec![("/api", limited), ("/latest", redirect)]).await;
+        let dl = format!("{base}/dl");
+        let (tag, url) = get_latest_release_from(&format!("{base}/api"), &format!("{base}/latest"), &dl, "yt-dlp.exe").await.unwrap();
+        assert_eq!(tag, "2025.02.01");
+        assert_eq!(url, format!("{dl}/2025.02.01/yt-dlp.exe"));
+    }
+
+    #[tokio::test]
+    async fn api_without_tag_name_falls_back_and_both_failures_are_reported() {
+        let base = mock_server(vec![("/api", json_resp("200 OK", r#"{"message":"Moved"}"#))]).await;
+        let e = get_latest_release_from(&format!("{base}/api"), &format!("{base}/latest"), &format!("{base}/dl"), "yt-dlp.exe").await.unwrap_err();
+        assert!(e.contains("no tag_name") && e.contains("Fallback"), "{e}");
     }
 }

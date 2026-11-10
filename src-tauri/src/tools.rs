@@ -239,7 +239,25 @@ pub async fn install_ytdlp(app: &AppHandle) -> Result<String, String> {
         5,
         &format!("Downloading yt-dlp {}…", tag),
     );
-    download_to_file(app, "ytdlp", &url, &dest).await?;
+    // Download to a temporary file, verify it, and only then replace the installed binary,
+    // so a failed/truncated download never destroys a working yt-dlp.
+    let part = dest.with_file_name(format!(
+        "{}.part",
+        dest.file_name().and_then(|n| n.to_str()).unwrap_or("yt-dlp")
+    ));
+    if let Err(e) = download_to_file(app, "ytdlp", &url, &part).await {
+        let _ = std::fs::remove_file(&part);
+        return Err(e);
+    }
+    emit_progress(app, "ytdlp", "verifying", 90, "Verifying checksum…");
+    if let Err(e) = crate::yt_dlp::verify_file(&part, &url).await {
+        let _ = std::fs::remove_file(&part);
+        return Err(e);
+    }
+    if let Err(e) = std::fs::rename(&part, &dest) {
+        let _ = std::fs::remove_file(&part);
+        return Err(format!("Cannot replace {} (is yt-dlp running?): {e}", dest.display()));
+    }
 
     #[cfg(unix)]
     set_executable(&dest)?;
