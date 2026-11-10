@@ -23,10 +23,21 @@ cargo = tomllib.loads(read("src-tauri", "Cargo.toml"))
 check("Cargo.toml parses", True)
 try:
     import yaml
-    wf = yaml.safe_load(read(".github", "workflows", "build.yml"))
-    check("workflow YAML parses", "jobs" in wf)
 except ImportError:
-    check("workflow YAML parses (PyYAML missing)", False)
+    yaml = None
+check("PyYAML installed (pip install -r scripts/requirements-ci.txt)", yaml is not None)
+if yaml is not None:
+    try:
+        wf = yaml.safe_load(read(".github", "workflows", "build.yml"))
+        steps = wf["jobs"]["windows"]["steps"]
+        names = " ".join(str(s.get("name", "")) + str(s.get("run", "")) for s in steps)
+        check("workflow YAML parses (.github/workflows/build.yml)", True)
+        check("workflow installs requirements before validate.py",
+              "requirements-ci.txt" in names and names.index("requirements-ci.txt") < names.index("scripts/validate.py"))
+        check("workflow has installer build + artifact upload",
+              "tauri:build:win" in names and any("upload-artifact" in str(s.get("uses", "")) for s in steps))
+    except Exception as e:
+        check("workflow YAML parses (.github/workflows/build.yml)", False, str(e))
 
 # ── package.json <-> package-lock.json ────────────────────────────────────────
 pj, pl = load("package.json"), load("package-lock.json")

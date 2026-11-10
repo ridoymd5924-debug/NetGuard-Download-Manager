@@ -65,6 +65,10 @@ jobs:
       - name: Fetch yt-dlp (SHA-256 verified)
         run: node scripts/fetch-yt-dlp.js 2>&1 | Tee-Object logs/fetch-yt-dlp.log
 
+      # scripts/validate.py parses .github/workflows/build.yml with PyYAML and FAILS if it is missing.
+      - name: Install Python validation dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-ci.txt 2>&1 | Tee-Object logs/pip-install.log
+
       - name: Static validation (manifests, licences, config, extension syntax)
         run: python scripts/validate.py 2>&1 | Tee-Object logs/validate.log
 

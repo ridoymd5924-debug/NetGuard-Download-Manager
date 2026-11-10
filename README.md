@@ -33,6 +33,7 @@ WebView2 runtime (preinstalled on Windows 11), Python 3.
 ```powershell
 npm ci
 node scripts/fetch-yt-dlp.js            # must come BEFORE any cargo command (bundle resource glob)
+python -m pip install -r scripts/requirements-ci.txt   # PyYAML, needed by validate.py
 python scripts/validate.py
 npm run test:extension
 npm run typecheck
