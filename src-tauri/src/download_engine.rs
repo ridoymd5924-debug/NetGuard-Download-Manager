@@ -101,6 +101,46 @@ fn validate_range_response(
     }
 }
 
+/// Smoothed transfer-speed estimator driven by the real cumulative byte counter.
+/// The first sample only sets the baseline, so resuming a half-finished download never reports
+/// the bytes that were already on disk as a burst of speed.
+pub(crate) struct SpeedMeter {
+    last: Option<(u64, Instant)>,
+    ema: f64,
+}
+
+impl SpeedMeter {
+    pub(crate) fn new() -> Self {
+        Self { last: None, ema: 0.0 }
+    }
+
+    /// Feed the current cumulative downloaded byte count; returns smoothed bytes/second.
+    pub(crate) fn sample(&mut self, downloaded: u64, now: Instant) -> f64 {
+        if let Some((prev_bytes, prev_time)) = self.last {
+            let dt = now.saturating_duration_since(prev_time).as_secs_f64();
+            if dt > 0.0 {
+                let instant = downloaded.saturating_sub(prev_bytes) as f64 / dt;
+                self.ema = if self.ema > 0.0 { 0.3 * instant + 0.7 * self.ema } else { instant };
+                // A decayed value below 1 B/s is "stopped"; never report fractions of a byte.
+                if self.ema < 1.0 {
+                    self.ema = 0.0;
+                }
+            }
+        }
+        self.last = Some((downloaded, now));
+        self.ema
+    }
+}
+
+/// Seconds left at the current speed; 0 when the total size or the speed is unknown.
+pub(crate) fn eta_seconds(file_size: i64, downloaded: u64, speed: f64) -> i64 {
+    if file_size <= 0 || speed < 1.0 {
+        return 0;
+    }
+    let remaining = (file_size as u64).saturating_sub(downloaded);
+    (remaining as f64 / speed).ceil() as i64
+}
+
 fn is_retryable_segment_error(e: &str) -> bool {
     if e == "cancelled" || e == "link_expired" || e.starts_with("auth_required:") {
         return false;
@@ -134,7 +174,7 @@ fn parse_content_range_total(value: &str) -> i64 {
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 
-fn category_subfolder_name(cat: &DownloadCategory) -> &'static str {
+pub(crate) fn category_subfolder_name(cat: &DownloadCategory) -> &'static str {
     match cat {
         DownloadCategory::Videos     => "Video",
         DownloadCategory::Music      => "Music",
@@ -145,7 +185,7 @@ fn category_subfolder_name(cat: &DownloadCategory) -> &'static str {
     }
 }
 
-fn get_category(file_name: &str) -> DownloadCategory {
+pub(crate) fn get_category(file_name: &str) -> DownloadCategory {
     let ext = Path::new(file_name)
         .extension()
         .and_then(|e| e.to_str())
@@ -669,6 +709,7 @@ impl DownloadEngine {
                 .as_ref()
                 .map(|h| h.trim().to_ascii_lowercase())
                 .filter(|h| !h.is_empty()),
+            description: None,
         };
 
         let id = item.id.clone();
@@ -813,10 +854,16 @@ impl DownloadEngine {
         let engine_prog = Arc::clone(&self);
         let id_prog = id.clone();
         let cancel_prog = cancel_token.clone();
+        let is_ytdlp_item = yt_dlp::is_yt_dlp_url(&url);
         let prog_handle = tauri::async_runtime::spawn(async move {
-            let mut last_bytes = 0u64;
-            let mut last_time = Instant::now();
-            let mut speed_ema = 0f64;
+            let mut meter = SpeedMeter::new();
+            // Baseline before the first tick: a resumed download starts from what is on disk.
+            {
+                let state = engine_prog.state.lock().await;
+                if let Some(item) = state.downloads.get(&id_prog) {
+                    meter.sample(item.downloaded, Instant::now());
+                }
+            }
 
             loop {
                 tokio::select! {
@@ -824,7 +871,7 @@ impl DownloadEngine {
                     _ = tokio::time::sleep(Duration::from_millis(500)) => {}
                 }
 
-                let (downloaded, file_size, status, segs, state_progress, state_eta) = {
+                let (downloaded, file_size, status, segs, state_progress, state_eta, state_speed) = {
                     let state = engine_prog.state.lock().await;
                     match state.downloads.get(&id_prog) {
                         Some(item) => (
@@ -834,6 +881,7 @@ impl DownloadEngine {
                             item.segments.clone(),
                             item.progress,
                             item.eta,
+                            item.speed,
                         ),
                         None => break,
                     }
@@ -843,45 +891,26 @@ impl DownloadEngine {
                     break;
                 }
 
-                let elapsed = last_time.elapsed().as_secs_f64();
-                if elapsed > 0.0 {
-                    let instant_speed = (downloaded.saturating_sub(last_bytes)) as f64 / elapsed;
-                    speed_ema = if speed_ema > 0.0 {
-                        0.3 * instant_speed + 0.7 * speed_ema
-                    } else {
-                        instant_speed
-                    };
-                    speed_ema = speed_ema.max(0.0);
-                }
-                last_bytes = downloaded;
-                last_time = Instant::now();
+                let measured = meter.sample(downloaded, Instant::now());
 
-                // If file_size is known, calculate progress from bytes; otherwise use
-                // whatever the yt-dlp stdout task already wrote into state.
-                let (progress, eta) = if file_size > 0 {
-                    let prog = ((downloaded as f64 / file_size as f64) * 100.0)
-                        .min(100.0)
-                        .floor();
-                    let eta = if speed_ema > 0.0 {
-                        ((file_size as u64).saturating_sub(downloaded) as f64 / speed_ema).ceil()
-                            as i64
-                    } else {
-                        0
-                    };
-                    (prog, eta)
+                // yt-dlp reports its own progress / speed / ETA (parsed from its output into the
+                // item); the native engine derives them from real byte counters.
+                let (speed, progress, eta) = if is_ytdlp_item {
+                    (state_speed, state_progress, state_eta)
+                } else if file_size > 0 {
+                    let pct = ((downloaded as f64 / file_size as f64) * 100.0).min(100.0).floor();
+                    (measured, pct, eta_seconds(file_size, downloaded, measured))
                 } else {
-                    (state_progress, state_eta)
+                    (measured, state_progress, 0)
                 };
 
-                // Update item with calculated speed; only override progress/eta when
-                // file_size is known (otherwise yt-dlp's own progress values are correct).
-                {
+                if !is_ytdlp_item {
                     let mut state = engine_prog.state.lock().await;
                     if let Some(item) = state.downloads.get_mut(&id_prog) {
-                        item.speed = speed_ema;
+                        item.speed = speed;
+                        item.eta = eta;
                         if file_size > 0 {
                             item.progress = progress;
-                            item.eta = eta;
                         }
                     }
                 }
@@ -890,10 +919,11 @@ impl DownloadEngine {
                     id: id_prog.clone(),
                     downloaded,
                     progress,
-                    speed: speed_ema,
+                    speed,
                     eta,
                     segments: segs,
                     status: DownloadStatus::Downloading,
+                    file_size,
                 };
                 engine_prog.emit("download:progress", &prog);
             }
@@ -1412,6 +1442,11 @@ impl DownloadEngine {
                 match assemble_result {
                     Ok(digest) => {
                         item.sha256 = Some(digest);
+                        if item.file_size <= 0 {
+                            if let Ok(m) = std::fs::metadata(&output_path) {
+                                item.file_size = m.len() as i64;
+                            }
+                        }
                         item.status = DownloadStatus::Completed;
                         item.progress = 100.0;
                         item.speed = 0.0;
@@ -1501,6 +1536,7 @@ impl DownloadEngine {
                 eta: item.eta,
                 segments: item.segments.clone(),
                 status: item.status.clone(),
+                file_size: item.file_size,
             };
             drop(state);
             self.emit("download:progress", &prog);
@@ -1739,6 +1775,17 @@ impl DownloadEngine {
         std::fs::remove_dir_all(&temp_dir).ok();
 
         self.start_download(id).await
+    }
+
+    /// Attach (or clear) the free-text description entered in the File Download dialog.
+    pub async fn set_description(&self, id: &str, description: Option<String>) {
+        {
+            let mut state = self.state.lock().await;
+            if let Some(item) = state.downloads.get_mut(id) {
+                item.description = description.filter(|d| !d.trim().is_empty());
+            }
+        }
+        self.save_state().await;
     }
 
     pub async fn pause_all(&self) {
@@ -2261,6 +2308,19 @@ async fn download_segment_task(
         }
     }
 
+    // Total size unknown at probe time (HEAD refused, no Content-Length on HEAD, ...): learn it
+    // from this plain 200 response so the UI can show total size, percentage and ETA.
+    if expected_total <= 0 && status.as_u16() == 200 {
+        if let Some(len) = response.content_length().filter(|l| *l > 0) {
+            let mut st = state_arc.lock().await;
+            if let Some(item) = st.downloads.get_mut(&item_id) {
+                if item.file_size <= 0 {
+                    item.file_size = len as i64;
+                }
+            }
+        }
+    }
+
     // Exactly how many bytes this request must deliver (None when the size is unknown).
     let remaining: Option<u64> = if segment.length > 0 {
         Some(segment.length as u64 - actual_downloaded)
@@ -2523,6 +2583,67 @@ mod tests {
     }
 
     #[test]
+    fn speed_meter_first_sample_is_baseline_not_a_burst() {
+        // Resuming a download that already has 500 MB on disk must not look like 1 GB/s.
+        let t0 = Instant::now();
+        let mut m = SpeedMeter::new();
+        assert_eq!(m.sample(500_000_000, t0), 0.0);
+        let v = m.sample(500_000_000 + 1_000_000, t0 + Duration::from_secs(1));
+        assert!((v - 1_000_000.0).abs() < 1.0, "got {v}");
+    }
+
+    #[test]
+    fn speed_meter_smooths_and_drops_to_zero_when_stalled() {
+        let t0 = Instant::now();
+        let mut m = SpeedMeter::new();
+        m.sample(0, t0);
+        let fast = m.sample(2_000_000, t0 + Duration::from_secs(1));
+        assert!((fast - 2_000_000.0).abs() < 1.0);
+        // Next second only 1 MB: EMA moves toward it but does not jump.
+        let mid = m.sample(3_000_000, t0 + Duration::from_secs(2));
+        assert!(mid < 2_000_000.0 && mid > 1_000_000.0, "got {mid}");
+        // Fully stalled for a long time: decays to exactly 0, never a tiny fraction.
+        let mut now = t0 + Duration::from_secs(2);
+        let mut v = mid;
+        for _ in 0..200 {
+            now += Duration::from_secs(1);
+            v = m.sample(3_000_000, now);
+        }
+        assert_eq!(v, 0.0);
+    }
+
+    #[test]
+    fn speed_meter_ignores_counter_going_backwards() {
+        let t0 = Instant::now();
+        let mut m = SpeedMeter::new();
+        m.sample(10_000, t0);
+        assert_eq!(m.sample(5_000, t0 + Duration::from_secs(1)), 0.0);
+    }
+
+    #[test]
+    fn eta_requires_known_size_and_speed() {
+        assert_eq!(eta_seconds(1_000_000, 0, 100_000.0), 10);
+        assert_eq!(eta_seconds(1_000_000, 900_000, 100_000.0), 1);
+        assert_eq!(eta_seconds(1_000_000, 1_500_000, 100_000.0), 0); // overshoot never negative
+        assert_eq!(eta_seconds(-1, 500, 100.0), 0); // unknown size
+        assert_eq!(eta_seconds(0, 500, 100.0), 0);
+        assert_eq!(eta_seconds(1_000_000, 0, 0.0), 0); // no speed yet
+        assert_eq!(eta_seconds(1_000_000, 0, 0.5), 0); // below 1 B/s counts as stopped
+    }
+
+    #[test]
+    fn progress_event_carries_total_size() {
+        // The UI learns a size discovered after the item was added only through this field.
+        let p = DownloadProgress {
+            id: "x".into(), downloaded: 57, progress: 57.0, speed: 10.0, eta: 4, segments: vec![],
+            status: DownloadStatus::Downloading, file_size: 100,
+        };
+        let v = serde_json::to_value(&p).unwrap();
+        assert_eq!(v["fileSize"], 100);
+        assert_eq!(v["downloaded"], 57);
+    }
+
+    #[test]
     fn non_retryable_content_errors() {
         assert!(!is_retryable_segment_error("file_changed:x"));
         assert!(!is_retryable_segment_error("range_not_honoured:HTTP 200"));
@@ -2551,7 +2672,7 @@ mod tests {
             date_added: String::new(), date_completed: None, save_path: String::new(), resumable: true,
             segments, max_segments: 8, error: None, headers: None, runtime_cookie: None, runtime_auth: None,
             source_page_url: None, ytdlp_quality: None, ytdlp_cookies: None,
-            etag: None, last_modified: None, sha256: None, expected_sha256: None,
+            etag: None, last_modified: None, sha256: None, expected_sha256: None, description: None,
         }
     }
 

@@ -664,7 +664,8 @@ chrome.downloads.onCreated.addListener(async (item) => {
   const ok = await sendToNG('/download', {
     url: item.url,
     file: item.filename ? item.filename.split(/[/\\]/).pop() : '',
-    tabUrl: tab?.url || item.referrer || '',
+    // The page that actually linked to the file (used as Referer) beats "whatever tab is active".
+    tabUrl: item.referrer || tab?.url || '',
     tabId: (tab?.id || -1).toString(),
     contentType: item.mime || '',
     contentLength: item.totalBytes || 0,

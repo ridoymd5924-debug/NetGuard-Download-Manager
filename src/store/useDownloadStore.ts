@@ -113,6 +113,8 @@ export const useDownloadStore = create<DownloadStore>((set, get) => ({
         eta: progress.eta,
         segments: progress.segments,
         status: progress.status,
+        // A size discovered after the row was created (HEAD refused, yt-dlp estimate, ...).
+        fileSize: typeof progress.fileSize === 'number' && progress.fileSize > 0 ? progress.fileSize : d.fileSize,
       } : d
     )
   })),

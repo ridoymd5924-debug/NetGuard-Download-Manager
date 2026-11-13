@@ -18,8 +18,15 @@ export function ProgressWindow({ id }: { id: string }) {
 
   useEffect(() => {
     invoke<DownloadItem[]>('download_get_all').then((all) => setItem(all.find((d) => d.id === id) ?? null)).catch(() => {})
+    const refetch = () =>
+      invoke<DownloadItem[]>('download_get_all').then((all) => { setItem(all.find((d) => d.id === id) ?? null); setP(null) }).catch(() => {})
     const subs = [
       listen<DownloadProgress>('download:progress', (e) => { if (e.payload.id === id) setP(e.payload) }),
+      // Pause / cancel / resume do not always come with a progress event: re-read the real state.
+      listen<DownloadItem>('download:paused', (e) => { if (e.payload.id === id) { setItem(e.payload); setP(null) } }),
+      listen<{ id: string }>('download:cancelled', (e) => { if (e.payload.id === id) refetch() }),
+      listen<{ id: string }>('download:started', (e) => { if (e.payload.id === id) { setError(null); refetch() } }),
+      listen<{ id: string }>('download:auth_required', (e) => { if (e.payload.id === id) setError('This server requires a sign-in. Enter your credentials in the NetGuard main window.') }),
       listen<DownloadItem>('download:completed', (e) => { if (e.payload.id === id) { setItem(e.payload); setP(null) } }),
       listen<{ id: string; error?: string }>('download:failed', (e) => { if (e.payload.id === id) setError(e.payload.error ?? 'Download failed') }),
     ]
@@ -31,7 +38,8 @@ export function ProgressWindow({ id }: { id: string }) {
   }
 
   const status = error ? 'failed' : (p?.status ?? item.status)
-  const total = item.fileSize
+  // The engine can learn the total size after the window opened; progress events carry it.
+  const total = p?.fileSize && p.fileSize > 0 ? p.fileSize : item.fileSize
   const downloaded = p?.downloaded ?? item.downloaded
   const pct = status === 'completed' ? 100 : Math.max(0, Math.min(100, p?.progress ?? item.progress ?? 0))
   const segs = p?.segments ?? item.segments ?? []
@@ -64,6 +72,7 @@ export function ProgressWindow({ id }: { id: string }) {
         <div className="text-center text-2xl font-semibold tabular-nums">{total > 0 ? `${pct.toFixed(1)}%` : formatBytes(downloaded)}</div>
 
         <dl className="grid grid-cols-[110px_1fr] gap-y-1.5 text-xs">
+          <dt className="text-ng-textSecondary">File size</dt><dd>{total > 0 ? formatBytes(total) : 'Unknown'}</dd>
           <dt className="text-ng-textSecondary">Downloaded</dt><dd>{formatBytes(downloaded)}{total > 0 && <span className="text-ng-textMuted"> of {formatBytes(total)}</span>}</dd>
           <dt className="text-ng-textSecondary">Speed</dt><dd>{status === 'downloading' ? formatSpeed(p?.speed ?? 0) : '—'}</dd>
           <dt className="text-ng-textSecondary">Time left</dt><dd>{status === 'downloading' ? formatEta(p?.eta ?? 0) : '—'}</dd>

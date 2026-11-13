@@ -95,6 +95,9 @@ pub struct DownloadItem {
     /// Optional checksum the user/extension expects; completion fails on mismatch.
     #[serde(rename = "expectedSha256", default, skip_serializing_if = "Option::is_none")]
     pub expected_sha256: Option<String>,
+    /// Optional free-text note entered in the "File Download" dialog.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub description: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -132,6 +135,10 @@ pub struct DownloadProgress {
     pub eta: i64,
     pub segments: Vec<DownloadSegment>,
     pub status: DownloadStatus,
+    /// Total size in bytes as currently known by the engine (-1 = unknown). Sent with every
+    /// progress event so the UI learns a size discovered *after* the item was added.
+    #[serde(rename = "fileSize", default)]
+    pub file_size: i64,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

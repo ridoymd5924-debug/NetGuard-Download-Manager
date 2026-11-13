@@ -106,6 +106,20 @@ check("About dialog keeps QDM attribution", "Parveen Bhadoo" in read("src", "com
 check("extension packages ship LICENSE + NOTICE", 'LICENSE' in read("scripts", "package_extensions.py") and 'NOTICE.md' in read("scripts", "package_extensions.py"))
 
 # ── Branding ─────────────────────────────────────────────────────────────────
+# ── Branding / dialog wiring (static) ─────────────────────────────────────────
+check("About shows 'Made by Torik' next to the version", "versionLine(version)" in read("src", "components", "AboutDialog.tsx") and "Made by Torik" in read("src", "branding.ts"))
+check("Settings shows 'Made by Torik' next to the version", "versionLine(appVersion)" in read("src", "components", "SettingsDialog.tsx"))
+check("product name stays NetGuard Download Manager", "PRODUCT_NAME = 'NetGuard Download Manager'" in read("src", "branding.ts"))
+_lib = read("src-tauri", "src", "lib.rs")
+for _cmd in ("dialog_pending_get", "dialog_category_info", "dialog_pending_confirm", "dialog_pending_cancel", "progress_window_open"):
+    check(f"command registered in invoke_handler: {_cmd}", f"dialogs::{_cmd}" in _lib)
+_cap = load("src-tauri", "capabilities", "default.json")
+check("capabilities cover dialog and progress windows", all(w in _cap["windows"] for w in ("main", "dlinfo-*", "progress-*")))
+_dlg = read("src", "components", "DownloadInfoWindow.tsx")
+check("File Download dialog has the required buttons", all(x in _dlg for x in ("Download Later", "Start Download", "Cancel")))
+check("File Download dialog has the required fields", all(x in _dlg for x in ("URL", "File name", "File size", "Category", "Save As", "Remember this path", "Description")))
+check("progress event carries fileSize (Rust + TS)", "fileSize" in read("src-tauri", "src", "types.rs") and "fileSize?: number" in read("src", "types", "download.ts"))
+
 check("index.html title is NetGuard", "<title>NetGuard Download Manager</title>" in read("index.html"))
 check("no remote font requests in index.html", "fonts.googleapis.com" not in read("index.html"))
 bad = []

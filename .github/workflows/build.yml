@@ -73,7 +73,10 @@ jobs:
         run: python scripts/validate.py 2>&1 | Tee-Object logs/validate.log
 
       - name: Extension logic tests
-        run: node extension/tests/ng-core.test.js 2>&1 | Tee-Object logs/extension-tests.log
+        run: npm run test:extension 2>&1 | Tee-Object logs/extension-tests.log
+
+      - name: UI logic tests (size / speed / ETA formatting, branding)
+        run: npm run test:ui 2>&1 | Tee-Object logs/ui-tests.log
 
       - name: TypeScript strict type check
         run: npm run typecheck 2>&1 | Tee-Object logs/typecheck.log

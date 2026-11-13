@@ -67,6 +67,7 @@ export interface DownloadItem {
   referer?: string;
   lastModified?: string;
   sourcePageUrl?: string;
+  description?: string;
 }
 
 export interface NewDownloadRequest {
@@ -86,6 +87,8 @@ export interface DownloadProgress {
   eta: number;
   segments: DownloadSegment[];
   status: DownloadStatus;
+  /** Total size known by the engine right now (-1 = unknown). */
+  fileSize?: number;
 }
 
 export interface AppConfig {

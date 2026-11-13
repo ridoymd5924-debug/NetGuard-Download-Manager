@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import { invoke } from '@tauri-apps/api/core'
 import { listen } from '@tauri-apps/api/event'
 import { X, Settings, FolderOpen, Gauge, Monitor, Wrench, RefreshCw, Download, CheckCircle2, AlertCircle, Youtube } from 'lucide-react'
+import { getVersion } from '@tauri-apps/api/app'
 import { useDownloadStore } from '../store/useDownloadStore'
+import { PRODUCT_NAME, versionLine } from '../branding'
 
 interface ToolInfo { installed: boolean; version?: string; path: string }
 interface ToolsStatus { ytdlp: ToolInfo; ffmpeg: ToolInfo; toolsDir: string }
@@ -68,6 +70,7 @@ export function SettingsDialog() {
   const [showDownloadDialog, setShowDownloadDialog] = useState(config?.showDownloadDialog ?? true)
   const [theme, setTheme] = useState<'dark' | 'light'>(config?.theme === 'light' ? 'light' : 'dark')
   const [saveError, setSaveError] = useState<string | null>(null)
+  const [appVersion, setAppVersion] = useState('')
   const [ytdlpBrowser, setYtdlpBrowser] = useState(config?.ytdlpBrowser || 'chrome')
 
   const [toolsStatus, setToolsStatus] = useState<ToolsStatus | null>(null)
@@ -93,6 +96,7 @@ export function SettingsDialog() {
         setShowDownloadDialog(c.showDownloadDialog ?? true)
         setYtdlpBrowser(c.ytdlpBrowser || 'chrome')
       }
+      getVersion().then(setAppVersion).catch(() => {})
       refreshToolsStatus()
 
       // Listen for download progress events
@@ -463,7 +467,10 @@ export function SettingsDialog() {
 
         {/* Footer */}
         {saveError && <p className="px-5 py-2 text-xs text-red-400">{saveError}</p>}
-        <div className="flex justify-end gap-2 px-5 py-4 border-t border-ng-border">
+        <div className="flex items-center justify-end gap-2 px-5 py-4 border-t border-ng-border">
+          <span className="mr-auto text-[11px] text-ng-textMuted select-text" data-testid="settings-version">
+            {PRODUCT_NAME}{appVersion ? ` ${versionLine(appVersion)}` : ''}
+          </span>
           <button onClick={() => setShowSettings(false)} className="btn-secondary">
             Cancel
           </button>

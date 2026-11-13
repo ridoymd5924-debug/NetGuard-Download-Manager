@@ -919,13 +919,33 @@ pub fn run() {
                                 let show_dialog = engine.config.lock().await.show_download_dialog;
                                 if show_dialog {
                                     // Separate desktop window; the main window stays hidden (tray).
-                                    dialogs::open_download_dialog(&app_for_dialog, dialogs::PendingDownload {
-                                        url: actual_url,
-                                        file_name: actual_file_name,
-                                        headers: headers_opt,
-                                        source_page_url: source_page,
-                                        ytdlp_cookies,
+                                    let opened = dialogs::open_download_dialog(&app_for_dialog, dialogs::PendingDownload {
+                                        url: actual_url.clone(),
+                                        file_name: actual_file_name.clone(),
+                                        headers: headers_opt.clone(),
+                                        source_page_url: source_page.clone(),
+                                        ytdlp_cookies: ytdlp_cookies.clone(),
                                     });
+                                    if let Err(e) = opened {
+                                        // The browser's own copy was already cancelled by the extension,
+                                        // so never drop the download: start it directly instead.
+                                        log::error!("[dialog] {e}; starting the download without the dialog");
+                                        engine
+                                            .add_download(NewDownloadRequest {
+                                                url: actual_url,
+                                                file_name: actual_file_name,
+                                                save_path: None,
+                                                headers: headers_opt,
+                                                max_segments: None,
+                                                auto_start: Some(true),
+                                                source_page_url: source_page,
+                                                ytdlp_quality: None,
+                                                ytdlp_cookies,
+                                                expected_sha256: None,
+                                            })
+                                            .await
+                                            .ok();
+                                    }
                                 } else {
                                     engine
                                         .add_download(NewDownloadRequest {
@@ -998,6 +1018,13 @@ pub fn run() {
                     "id": p["id"],
                     "error": p["error"],
                 }).to_string());
+            });
+
+            // A download started from the stand-alone dialog needs credentials: the sign-in prompt
+            // lives in the main window, which may be hidden in the tray, so bring it up.
+            let app_for_auth = app_handle.clone();
+            app_handle.listen("download:auth_required", move |_event| {
+                show_main_window(&app_for_auth);
             });
 
             // OS notifications for completed downloads
@@ -1130,6 +1157,7 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             window_minimize,
             dialogs::dialog_pending_get,
+            dialogs::dialog_category_info,
             dialogs::dialog_pending_confirm,
             dialogs::dialog_pending_cancel,
             dialogs::progress_window_open,

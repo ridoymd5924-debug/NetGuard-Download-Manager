@@ -16,9 +16,10 @@
     "tauri:build:win": "node scripts/fetch-yt-dlp.js && tauri build --target x86_64-pc-windows-msvc --bundles nsis",
     "fetch-yt-dlp": "node scripts/fetch-yt-dlp.js",
     "typecheck": "tsc --noEmit",
-    "test:extension": "node extension/tests/ng-core.test.js",
+    "test:extension": "node extension/tests/ng-core.test.js && node extension/tests/background-flow.test.js",
     "validate": "python scripts/validate.py",
-    "package:extensions": "python scripts/package_extensions.py"
+    "package:extensions": "python scripts/package_extensions.py",
+    "test:ui": "node --experimental-strip-types scripts/ui-logic.test.mts"
   },
   "dependencies": {
     "@tauri-apps/api": "^2.10.1"

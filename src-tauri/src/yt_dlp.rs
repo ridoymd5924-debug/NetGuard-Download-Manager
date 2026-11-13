@@ -988,7 +988,9 @@ fn parse_progress_line(line: &str) -> Option<(f64, f64, i64, u64, u64)> {
 
     // Extract total size from "of X.XXMiB"
     let total_bytes = if let Some(of_pos) = line.find(" of ") {
-        let after = &line[of_pos + 4..];
+        // yt-dlp prints "of ~  12.34MiB" (note the "~" and padding) when the size is only an
+        // estimate, which is the normal case for YouTube DASH/HLS formats.
+        let after = line[of_pos + 4..].trim_start_matches(|c: char| c == '~' || c.is_whitespace());
         let size_end = after.find(|c: char| c.is_whitespace()).unwrap_or(after.len());
         parse_size_str(&after[..size_end]).unwrap_or(0)
     } else {
@@ -1200,5 +1202,50 @@ mod release_tests {
         let base = mock_server(vec![("/api", json_resp("200 OK", r#"{"message":"Moved"}"#))]).await;
         let e = get_latest_release_from(&format!("{base}/api"), &format!("{base}/latest"), &format!("{base}/dl"), "yt-dlp.exe").await.unwrap_err();
         assert!(e.contains("no tag_name") && e.contains("Fallback"), "{e}");
+    }
+}
+
+#[cfg(test)]
+mod progress_parse_tests {
+    use super::*;
+
+    #[test]
+    fn exact_size_line() {
+        let (pct, speed, eta, got, total) =
+            parse_progress_line("[download]  50.0% of   10.00MiB at    2.00MiB/s ETA 00:02").unwrap();
+        assert_eq!(pct, 50.0);
+        assert_eq!(total, 10 * 1_048_576);
+        assert_eq!(got, 5 * 1_048_576);
+        assert_eq!(speed, 2.0 * 1_048_576.0);
+        assert_eq!(eta, 2);
+    }
+
+    #[test]
+    fn estimated_size_with_tilde_is_not_lost() {
+        // Regression: "of ~" made the size parse as 0, so the table showed "0 B" at 57%.
+        let (pct, speed, eta, got, total) =
+            parse_progress_line("[download]  57.0% of ~  100.00MiB at    4.00MiB/s ETA 00:10 (frag 5/9)").unwrap();
+        assert_eq!(pct, 57.0);
+        assert_eq!(total, 100 * 1_048_576);
+        assert_eq!(got, (104_857_600.0_f64 * 57.0 / 100.0) as u64);
+        assert_eq!(speed, 4.0 * 1_048_576.0);
+        assert_eq!(eta, 10);
+    }
+
+    #[test]
+    fn unknown_speed_and_eta_are_zero_not_garbage() {
+        let (_, speed, eta, _, total) =
+            parse_progress_line("[download]  10.0% of   20.00MiB at  Unknown B/s ETA Unknown").unwrap();
+        assert_eq!(speed, 0.0);
+        assert_eq!(eta, 0);
+        assert_eq!(total, 20 * 1_048_576);
+    }
+
+    #[test]
+    fn hour_long_eta_and_kib_sizes() {
+        let (_, _, eta, _, total) =
+            parse_progress_line("[download]   1.0% of  512.00KiB at  1.00KiB/s ETA 01:02:03").unwrap();
+        assert_eq!(eta, 3723);
+        assert_eq!(total, 512 * 1024);
     }
 }

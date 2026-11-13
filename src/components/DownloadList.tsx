@@ -6,7 +6,7 @@ import {
   Copy, Plus, Link2
 } from 'lucide-react'
 import { useDownloadStore } from '../store/useDownloadStore'
-import { formatBytes, formatSpeed, formatEta, formatDateTime, categoryLabel, getFileIcon } from '../utils/format'
+import { formatSizeCell, formatSpeed, formatEta, formatDateTime, categoryLabel, getFileIcon } from '../utils/format'
 import type { DownloadItem, DownloadSegment } from '../types/download'
 
 // ── Status Badge ──────────────────────────────────────────────────────────────
@@ -305,6 +305,9 @@ function DownloadRow({ item }: { item: DownloadItem }) {
         case 'pause':
           await invoke('download_pause', { id: item.id })
           break
+        case 'start':
+          await invoke('download_start', { id: item.id })
+          break
         case 'resume':
           await invoke('download_resume', { id: item.id })
           break
@@ -364,6 +367,11 @@ function DownloadRow({ item }: { item: DownloadItem }) {
                 <Pause size={13} />
               </ActionBtn>
             )}
+            {isQueued && (
+              <ActionBtn onClick={(e) => handleAction(e, 'start')} title="Start now" className="hover:bg-ng-accent/20 text-ng-accent">
+                <Play size={13} />
+              </ActionBtn>
+            )}
             {isPaused && (
               <ActionBtn onClick={(e) => handleAction(e, 'resume')} title="Resume" className="hover:bg-ng-accent/20 text-ng-accent">
                 <Play size={13} />
@@ -390,7 +398,7 @@ function DownloadRow({ item }: { item: DownloadItem }) {
 
         {/* Size */}
         <span className="text-[11px] font-mono text-ng-textSecondary truncate">
-          {item.fileSize > 0 ? formatBytes(item.fileSize) : formatBytes(item.downloaded)}
+          {formatSizeCell(item.fileSize, item.downloaded, item.status)}
         </span>
 
         {/* Status + progress */}

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { invoke } from '@tauri-apps/api/core'
 import { listen } from '@tauri-apps/api/event'
 import { getVersion } from '@tauri-apps/api/app'
+import { versionLine } from '../branding'
 import { X, Zap, Github, Heart, ExternalLink, RefreshCw, Download, CheckCircle } from 'lucide-react'
 import { useDownloadStore } from '../store/useDownloadStore'
 
@@ -96,7 +97,7 @@ export function AboutDialog() {
           <h1 className="text-xl font-bold text-ng-text mb-1">
             NetGuard Download Manager
           </h1>
-          <p className="text-xs font-mono text-ng-textMuted mb-4">v{version}</p>
+          <p className="text-xs font-mono text-ng-textMuted mb-4">{versionLine(version)}</p>
 
           <p className="text-xs text-ng-textMuted mb-1">Based on Quantum Download Manager by <span className="text-ng-accent font-semibold">Parveen Bhadoo</span></p>
           <p className="text-sm text-ng-textSecondary leading-relaxed mb-6 max-w-sm mx-auto">

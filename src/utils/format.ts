@@ -3,17 +3,32 @@
  */
 
 export function formatBytes(bytes: number): string {
-  if (bytes < 0) return 'Unknown'
-  if (bytes === 0) return '0 B'
+  if (!Number.isFinite(bytes) || bytes < 0) return 'Unknown'
+  if (bytes < 1) return '0 B'
   const k = 1024
   const sizes = ['B', 'KB', 'MB', 'GB', 'TB']
-  const i = Math.floor(Math.log(bytes) / Math.log(k))
+  const i = Math.min(sizes.length - 1, Math.floor(Math.log(bytes) / Math.log(k)))
   return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
 }
 
 export function formatSpeed(bytesPerSec: number): string {
-  if (bytesPerSec <= 0) return '—'
+  if (!Number.isFinite(bytesPerSec) || bytesPerSec < 1) return '—'
   return formatBytes(bytesPerSec) + '/s'
+}
+
+/**
+ * Size column of the download table, built only from engine-reported numbers:
+ *  - completed            -> total size (or the bytes received when the server never reported one)
+ *  - total known, started -> "downloaded / total"
+ *  - total known, idle    -> total
+ *  - total unknown        -> "downloaded / Unknown" (or just "Unknown" before any byte arrived)
+ */
+export function formatSizeCell(fileSize: number, downloaded: number, status: string): string {
+  const total = Number.isFinite(fileSize) && fileSize > 0 ? fileSize : -1
+  const got = Number.isFinite(downloaded) && downloaded > 0 ? downloaded : 0
+  if (status === 'completed') return formatBytes(total > 0 ? total : got)
+  if (total > 0) return got > 0 ? `${formatBytes(got)} / ${formatBytes(total)}` : formatBytes(total)
+  return got > 0 ? `${formatBytes(got)} / Unknown` : 'Unknown'
 }
 
 export function formatEta(seconds: number): string {
