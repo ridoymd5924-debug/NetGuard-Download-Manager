@@ -1,4 +1,4 @@
-<!-- How Serbian (Cyrillic) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Serbian (Cyrillic) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Формулишите команде у облику заповести. У упутствима се кориснику обраћајте учтивим обликом множине; не користите неформално „ти“. (Изаберите фасциклу.; Унесите адресу везе.)
 - Натписи на дугмадима нека буду кратке команде или устаљени називи радњи. Користите устаљене облике, а не реченице. (Преузми; Настави)
 - Ставке менија формулишите као команде, у истом облику као сродна дугмад. (Додај везу; Отвори фасциклу)

@@ -1,4 +1,4 @@
-<!-- How Tamil writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Tamil writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Commands, buttons, and action menu items use a concise, polite imperative ending in “-வும்”. Use the same wording for the same action wherever it appears. (பதிவிறக்கத்தைத் தொடங்கவும்; கோப்பை நீக்கவும்)
 - Checkbox labels name an option or state; do not phrase them as commands or questions. (பதிவிறக்கம் முடிந்ததும் கணினியை அணைக்கவும்; தானாகத் தொடங்கு)
 - Do not address the user directly unless needed. When direct address is necessary, use the respectful “நீங்கள்”; keep the register clear and courteous. (கடவுச்சொல்லை உள்ளிடவும்; நீங்கள் தேர்ந்தெடுத்த கோப்புறை)

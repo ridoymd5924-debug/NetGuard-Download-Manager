@@ -1,5 +1,5 @@
 """The README's four block icons (faster, languages, free, torrent), drawn in the art style of
-NetGuard Download Manager's own icon (art/NetGuard Download Manager.png, given to the model as the
+Mister Download Manager's own icon (art/Mister Download Manager.png, given to the model as the
 reference): the same glossy 3D rendering, lighting, colours and its green arrow. Our own
 pictures; nothing taken from any other program.
 
@@ -23,7 +23,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "target" / "readme-icons"
-LOGO = ROOT / "art" / "NetGuard Download Manager.png"
+LOGO = ROOT / "art" / "Mister Download Manager.png"
 MODEL = "openai/gpt-5-image-mini"
 
 STYLE = (

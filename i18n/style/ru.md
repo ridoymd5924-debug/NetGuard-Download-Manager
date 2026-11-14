@@ -1,4 +1,4 @@
-<!-- How Russian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Russian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the infinitive for commands, menu items, and action buttons. In instructions to the user, use the polite plural imperative. (Открыть; Приостановить)
 - Phrase check box labels as concise actions or conditions, usually with an infinitive; make clear what enabling the box does. (Запускать при входе в Windows; Показывать уведомления)
 - Address the user formally as «вы» when needed. Keep the tone neutral and helpful; omit the pronoun when Russian grammar allows. (Выберите файл; Не удалось подключиться к серверу)

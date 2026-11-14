@@ -1,4 +1,4 @@
-//! What the browser extension may hand to NetGuard Download Manager: Options → General ("Use
+//! What the browser extension may hand to Mister Download Manager: Options → General ("Use
 //! advanced browser integration", the browsers to capture from) and Options → File types (the
 //! types to take, the sites and addresses to leave alone). One implementation for the app and
 //! the native messaging host: the host reads the app's saved settings at every hand-off (so a

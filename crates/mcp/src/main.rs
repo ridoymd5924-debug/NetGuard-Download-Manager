@@ -1,4 +1,4 @@
-//! misterdownloadmanager-mcp: NetGuard Download Manager's MCP server. An AI assistant starts it and
+//! misterdownloadmanager-mcp: Mister Download Manager's MCP server. An AI assistant starts it and
 //! speaks MCP with it on stdin and stdout; it hands what the assistant asks to the running app
 //! (docs/ai-assistants.md).
 
@@ -10,10 +10,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     if let Some(arg) = std::env::args().nth(1) {
         match arg.as_str() {
             "--version" | "-V" => {
-                println!("misterdownloadmanager-mcp {}", mdm_ipc::PRODUCT_VERSION)
+                println!("misterdownloadmanager-mcp {}", env!("CARGO_PKG_VERSION"))
             }
             _ => println!(
-                "misterdownloadmanager-mcp: NetGuard Download Manager's MCP server, for AI \
+                "misterdownloadmanager-mcp: Mister Download Manager's MCP server, for AI \
                  assistants. The assistant starts it (no arguments) and talks to it on stdin and \
                  stdout. Setup: \
                  https://misterdownloadmanager.com/help/ai-assistants.html"

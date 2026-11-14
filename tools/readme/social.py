@@ -3,10 +3,6 @@ the name, the one-line promise and the main window. Built from the repo's own fi
 
     python tools/readme/social.py        # → docs/images/social-preview.png
 
-NOTE (NetGuard): docs/images/social-preview.png is now drawn by tools/icon/build_icon.py
-(the logo, the name, version and credit on navy); running this script would replace it with the
-original project's layout, which uses its light-theme screenshot.
-
 Fonts are Windows' own Segoe UI (rendered into the picture, not shipped).
 """
 
@@ -41,9 +37,9 @@ def main():
     card.paste(shot, (x0, y0), mask)
 
     # The words, upper left.
-    icon = Image.open(ROOT / "art/NetGuard Download Manager.png").convert("RGBA").resize((112, 112), Image.LANCZOS)
+    icon = Image.open(ROOT / "art/Mister Download Manager.png").convert("RGBA").resize((112, 112), Image.LANCZOS)
     card.paste(icon, (64, 56), icon)
-    draw.text((196, 58), "NetGuard Download Manager", font=font("segoeuib.ttf", 56), fill=INK)
+    draw.text((196, 58), "Mister Download Manager", font=font("segoeuib.ttf", 56), fill=INK)
     draw.text((198, 132), "Downloads faster than IDM. Free, forever.", font=font("segoeui.ttf", 34), fill=ACCENT)
     draw.text((66, 196), "Windows, macOS and Linux  ·  86 languages  ·  no ads, no trial, no sign-up",
               font=font("segoeui.ttf", 24), fill=MUTED)

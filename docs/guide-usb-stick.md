@@ -1,14 +1,14 @@
-# Tutorial: carry NetGuard on a USB stick
+# Tutorial: carry MDM on a USB stick
 
 [← Back to docs index](README.md)
 
 The portable copy runs straight from a USB stick and keeps its list and settings there. With a few settings, it saves your downloads to the stick too.
 
-## 1. Put NetGuard on the stick
+## 1. Put MDM on the stick
 
-1. Download `MisterDownloadManager-<version>-portable.zip` from [Releases](../../../releases).
+1. Download `MisterDownloadManager-<version>-portable.zip` from [Releases](https://github.com/anefzaoui/misterdownloadmanager/releases).
 2. Unzip it onto the stick, for example to `E:\MDM`.
-3. Check that there is a `data` folder next to `misterdownloadmanager.exe`. That folder is what makes NetGuard portable. Don't delete it.
+3. Check that there is a `data` folder next to `misterdownloadmanager.exe`. That folder is what makes MDM portable. Don't delete it.
 4. Run `misterdownloadmanager.exe` and pick your language.
 
 ## 2. Save downloads to the stick
@@ -28,11 +28,11 @@ By default, downloads go to the Downloads folder of the computer you're using. T
 
 - Add downloads with **Add URL**, the clipboard (**Options → General → Offer to download links copied to the clipboard**) or the drop target (**Tasks → Show drop target**).
 - The browser extension can't send downloads to a portable copy, because that needs the installer.
-- Before you unplug the stick, quit NetGuard with **Tasks → Exit** so it saves everything. Closing the window only hides it in the tray.
+- Before you unplug the stick, quit MDM with **Tasks → Exit** so it saves everything. Closing the window only hides it in the tray.
 
 ## On another computer
 
-Windows may give the stick another drive letter, such as `F:` instead of `E:`. The folders you set, and the downloads already in the list, still point at the old letter. Check **Options → Save to** and change the folders if needed. When NetGuard is about to save into a folder that doesn't exist, it asks whether to create it.
+Windows may give the stick another drive letter, such as `F:` instead of `E:`. The folders you set, and the downloads already in the list, still point at the old letter. Check **Options → Save to** and change the folders if needed. When MDM is about to save into a folder that doesn't exist, it asks whether to create it.
 
 ## Next steps
 

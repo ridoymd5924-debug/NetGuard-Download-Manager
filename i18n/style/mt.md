@@ -1,4 +1,4 @@
-<!-- How Maltese writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Maltese writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the direct, concise style of Windows interface text. Address the user as singular ‘you’; normally omit the pronoun and use a direct imperative for an action. (Agħżel folder.; Daħħal l-indirizz.)
 - Phrase action commands as imperatives. Keep the verb first where natural; use the same wording for the same action throughout the app. (Ibda t-tniżżil.; Iftaħ il-ħolqa.)
 - Use concise imperatives for buttons. Use a noun only when it names a destination or a setting rather than an action. (Issospendi; Settings)

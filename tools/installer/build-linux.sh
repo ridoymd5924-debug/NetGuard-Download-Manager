@@ -15,8 +15,8 @@ set -euo pipefail
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 dist="$root/target/dist"
 bin="$root/target/release"
-version="$(grep -A3 'macro_rules! product_version' "$root/crates/ipc/src/lib.rs" | grep -o '"[^"]*"' | head -1 | tr -d '"')"
-[ -n "$version" ] || { echo "no product version in crates/ipc/src/lib.rs" >&2; exit 1; }
+version="$(sed -n 's/^version *= *"\([^"]*\)".*/\1/p' "$root/Cargo.toml" | head -1)"
+[ -n "$version" ] || { echo "no version in Cargo.toml" >&2; exit 1; }
 name="MisterDownloadManager-$version-linux-x86_64"
 programs=(misterdownloadmanager misterdownloadmanager-nmhost misterdownloadmanager-cli misterdownloadmanager-mcp)
 
@@ -54,7 +54,7 @@ glibc=$(for p in "${programs[@]}"; do objdump -T "$tree/usr/bin/$p"; done \
 echo "the programs need glibc $glibc or newer"
 cp -r "$root/target/extension/chromium" "$tree/usr/share/misterdownloadmanager/extension-chromium"
 cp "$root/target/extension/mdm-firefox.xpi" "$tree/usr/share/misterdownloadmanager/"
-cp "$root/LICENSE" "$root/ATTRIBUTION.md" "$root/NOTICE" "$root/MODIFICATIONS.md" "$tree/usr/share/doc/misterdownloadmanager/"
+cp "$root/LICENSE" "$root/ATTRIBUTION.md" "$tree/usr/share/doc/misterdownloadmanager/"
 python3 - "$root/art/NetGuard Download Manager.png" \
   "$tree/usr/share/icons/hicolor/256x256/apps/misterdownloadmanager.png" <<'EOF'
 import sys
@@ -79,7 +79,7 @@ mkdir -p "$plain"
 for p in "${programs[@]}"; do cp "$tree/usr/bin/$p" "$plain/"; done
 cp -r "$tree/usr/share/misterdownloadmanager/extension-chromium" "$plain/extension-chromium"
 cp "$tree/usr/share/misterdownloadmanager/mdm-firefox.xpi" "$plain/"
-cp "$root/LICENSE" "$root/ATTRIBUTION.md" "$root/NOTICE" "$root/MODIFICATIONS.md" "$plain/"
+cp "$root/LICENSE" "$root/ATTRIBUTION.md" "$plain/"
 tar -C "$stage" -czf "$dist/$name.tar.gz" "$name"
 
 # .deb. Its dependencies, and the .rpm's: the libraries the window loads at run time. Without

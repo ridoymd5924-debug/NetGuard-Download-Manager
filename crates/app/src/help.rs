@@ -11,18 +11,13 @@ use egui::{pos2, vec2};
 use crate::dialogs::{Outcome, window};
 use crate::winui::{self, ButtonKind, r};
 
-/// The repository: problem reports, releases, source, licences. NetGuard's release workflow
-/// builds with `NETGUARD_REPO_URL` set to its own repository; a build without it (from a plain
-/// checkout) points at the upstream project this one is based on.
-pub const REPO: &str = match option_env!("NETGUARD_REPO_URL") {
-    Some(url) => url,
-    None => "https://github.com/anefzaoui/misterdownloadmanager",
-};
+/// The repository: problem reports, releases, source, licences.
+pub const REPO: &str = "https://github.com/anefzaoui/misterdownloadmanager";
 /// The creator's GitHub Sponsors page: Help → Support MDM, About's last line. The website, the
 /// extension's popup and the repository's Sponsor button (.github/FUNDING.yml) point there too.
 pub const SPONSORS: &str = "https://github.com/sponsors/anefzaoui";
 const LATEST: &str = "https://api.github.com/repos/anefzaoui/misterdownloadmanager/releases/latest";
-pub const VERSION: &str = mdm_ipc::PRODUCT_VERSION;
+pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 pub const COMMIT: &str = env!("MDM_COMMIT");
 /// While MDM runs, the automatic check comes again this often (it also checks at every start).
 pub const CHECK_EVERY: i64 = 24 * 3600;
@@ -31,12 +26,7 @@ pub const CHECK_AFTER_START: std::time::Duration = std::time::Duration::from_sec
 
 /// The official website: the home page and the user guide, docs/*.md made into pages by
 /// tools/website/build.py. GitHub (REPO) keeps what is GitHub's: issues, releases, the source.
-/// `NETGUARD_SITE_URL` at build time names NetGuard's own site; without it this is the upstream
-/// project's.
-pub const SITE: &str = match option_env!("NETGUARD_SITE_URL") {
-    Some(url) => url,
-    None => "https://misterdownloadmanager.com",
-};
+pub const SITE: &str = "https://misterdownloadmanager.com";
 
 /// The website's languages besides English, its folders (`/de/help/`): tools/website/sitei18n.py's
 /// LANGS, which a test keeps this list equal to. English is at the root.
@@ -189,10 +179,7 @@ pub fn check(rt: &tokio::runtime::Handle, ctx: &egui::Context) -> Slot {
 async fn latest() -> Result<Found, String> {
     // MDM_UPDATE_FEED: another address for the latest release (tests of Update now, as
     // MDM_DATA_DIR is for a separate list).
-    // Else the feed the build was made with (`NETGUARD_UPDATE_FEED`: the release workflow gives
-    // its own repository's), else the upstream project's.
-    let feed = std::env::var("MDM_UPDATE_FEED")
-        .unwrap_or_else(|_| option_env!("NETGUARD_UPDATE_FEED").unwrap_or(LATEST).to_owned());
+    let feed = std::env::var("MDM_UPDATE_FEED").unwrap_or_else(|_| LATEST.to_owned());
     let net = crate::settings::own_net();
     // The chosen DNS and network adapter, as downloads have them (#36, #35).
     let client = mdm_engine::net::client_builder(&net.dns, &net.route, &feed)
@@ -727,7 +714,7 @@ impl About {
             ctx,
             "about",
             "About NetGuard Download Manager",
-            [420.0, 268.0 + extra],
+            [420.0, 236.0 + extra],
             false,
             winui::BG(),
             |ui, o| {
@@ -752,12 +739,10 @@ impl About {
                 // Copyable: bug reports ask for it.
                 let rect = winui::text(&p, o.x + 80.0, o.y + 46.0, &version, winui::MUTED());
                 winui::copyable(ui, rect, "about-version", &version, false);
-                // NetGuard's credit: the product's maker (not translated: a name).
-                winui::text(&p, o.x + 80.0, o.y + 62.0, "Made by Torik", winui::MUTED());
                 let lines = winui::paragraph(
                     &p,
                     o.x + 80.0,
-                    o.y + 88.0,
+                    o.y + 72.0,
                     crate::i18n::t(
                         "The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.",
                     ),
@@ -765,22 +750,9 @@ impl About {
                     o.x + 404.0,
                     13.0,
                 );
-                // Where this program comes from (GPL-3.0 attribution), under the description.
-                let based_y = o.y + 88.0 + 13.0 * lines as f32 + 6.0;
-                let based = winui::paragraph(
-                    &p,
-                    o.x + 80.0,
-                    based_y,
-                    crate::i18n::t(
-                        "Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.",
-                    ),
-                    winui::MUTED(),
-                    o.x + 404.0,
-                    13.0,
-                );
                 // The links in a row, 18 px apart; one that would pass the paragraph's right
                 // edge (a long translation) starts the next row.
-                let (mut x, mut y) = (o.x + 80.0, based_y + 13.0 * based as f32 + 14.0);
+                let (mut x, mut y) = (o.x + 80.0, o.y + 72.0 + 13.0 * lines as f32 + 14.0);
                 let mut place = |label: &str| {
                     let w = winui::text_width(&p, crate::i18n::t(label));
                     if x > o.x + 80.0 && x + w > o.x + 404.0 {
@@ -811,23 +783,23 @@ impl About {
                 ) {
                     crate::launch::open(format!("{REPO}/blob/main/ATTRIBUTION.md"));
                 }
-                // Its own row under them: the original author's Sponsors page.
+                // Its own row under them: the creator's Sponsors page (Help → Support MDM).
                 y += 22.0;
                 if winui::link(
                     ui,
                     &p,
                     o.x + 80.0,
                     y,
-                    "Support the original project on GitHub Sponsors",
+                    "Support MDM on GitHub Sponsors",
                     "support",
                 ) {
                     support();
                 }
-                // The last row ends above OK (at 236 when it fits as planned).
-                crate::dialogs::grow_px(ui.ctx(), "about", y + 12.0 - (o.y + 226.0));
+                // The last row ends above OK (at 204 when it fits as planned).
+                crate::dialogs::grow_px(ui.ctx(), "about", y + 12.0 - (o.y + 194.0));
                 let ok = winui::button(
                     ui,
-                    r(o, 336.0, 236.0 + extra, 73.0, 21.0),
+                    r(o, 336.0, 204.0 + extra, 73.0, 21.0),
                     "OK",
                     ButtonKind::Default,
                     false,

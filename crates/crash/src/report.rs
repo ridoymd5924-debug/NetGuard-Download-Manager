@@ -40,7 +40,7 @@ const SORRY: &[&str] = &[
 pub fn text(input: &Input, home: Option<&Path>) -> String {
     let kind = input.kind.unwrap_or(Kind::Crash);
     let mut s = String::new();
-    let _ = writeln!(s, "---- NetGuard Download Manager crash report ----");
+    let _ = writeln!(s, "---- Mister Download Manager crash report ----");
     let n = input.time.bytes().map(usize::from).sum::<usize>();
     let _ = writeln!(s, "// {}", SORRY[n % SORRY.len()]);
     let _ = writeln!(s);
@@ -102,7 +102,7 @@ pub fn text(input: &Input, home: Option<&Path>) -> String {
                             secs(b.wall_ms)
                         ),
                         (Some(Stuck::Starved), Some(b)) => format!(
-                            ". Its thread ran only {} of {} s, and not in a wait: the computer was too busy to run NetGuard, or slow to load it from disk{}. Most likely not a bug in NetGuard.",
+                            ". Its thread ran only {} of {} s, and not in a wait: the computer was too busy to run MDM, or slow to load it from disk{}. Most likely not a bug in MDM.",
                             secs(b.cpu_ms),
                             secs(b.wall_ms),
                             b.faults
@@ -125,7 +125,7 @@ pub fn text(input: &Input, home: Option<&Path>) -> String {
                 _ => {
                     let _ = writeln!(
                         s,
-                        "A dump asked for while NetGuard was running (a freeze or a panic): the window thread first."
+                        "A dump asked for while MDM was running (a freeze or a panic): the window thread first."
                     );
                 }
             }
@@ -146,7 +146,7 @@ pub fn text(input: &Input, home: Option<&Path>) -> String {
         Kind::Exit => {
             let _ = writeln!(
                 s,
-                "NetGuard ended without closing normally, and no crash was caught (it may have been ended from outside, or the system stopped it)."
+                "MDM ended without closing normally, and no crash was caught (it may have been ended from outside, or the system stopped it)."
             );
         }
     }
@@ -179,7 +179,7 @@ pub fn text(input: &Input, home: Option<&Path>) -> String {
 
     // What MDM was doing.
     if !input.log_tail.is_empty() {
-        let _ = writeln!(s, "-- What NetGuard was doing (its log) --");
+        let _ = writeln!(s, "-- What MDM was doing (its log) --");
         for l in &input.log_tail {
             let _ = writeln!(s, "{l}");
         }
@@ -189,7 +189,7 @@ pub fn text(input: &Input, home: Option<&Path>) -> String {
     // The system.
     let _ = writeln!(s, "-- System details --");
     if let Some(ss) = &input.notes.session {
-        let _ = writeln!(s, "NetGuard: {} ({})", ss.version, ss.commit);
+        let _ = writeln!(s, "MDM: {} ({})", ss.version, ss.commit);
         let _ = writeln!(s, "Installed with: {}", ss.install);
         let _ = writeln!(s, "System: {} ({})", ss.os_version, ss.arch);
         let _ = writeln!(s, "Language: {}", ss.language);
@@ -345,11 +345,11 @@ pub fn make(
 /// The kind in a sentence.
 pub fn description(kind: Kind, notes: &Notes) -> &'static str {
     match kind {
-        Kind::Crash => "NetGuard crashed",
-        Kind::Panic => "NetGuard hit an internal error and closed",
+        Kind::Crash => "MDM crashed",
+        Kind::Panic => "MDM hit an internal error and closed",
         Kind::Freeze if notes.recovered => "The window stopped responding (it recovered)",
         Kind::Freeze => "The window stopped responding",
-        Kind::Exit => "NetGuard closed unexpectedly",
+        Kind::Exit => "MDM closed unexpectedly",
     }
 }
 
@@ -821,7 +821,7 @@ mod tests {
         let t = text(&input, None);
         assert!(t.contains("Its thread ran only 0.4 of 7.5 s, and not in a wait"));
         assert!(t.contains("(12000 page faults meanwhile)"));
-        assert!(t.contains("Most likely not a bug in NetGuard."));
+        assert!(t.contains("Most likely not a bug in MDM."));
         // Without symbols, MDM's own module counts as ordinary code, a system one as a wait.
         let mut bare = stopped_in_own_code();
         bare.modules = vec![crate::analyze::ModuleInfo {

@@ -1,4 +1,4 @@
-//! NetGuard Download Manager download engine. See notes/ENGINE.md.
+//! Mister Download Manager download engine. See notes/ENGINE.md.
 
 pub mod disk;
 pub mod dns;

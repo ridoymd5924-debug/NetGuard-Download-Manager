@@ -1,22 +1,41 @@
-/* NetGuard Download Manager's remote control page: Windows 11's controls, one emerald. */
-/* NetGuard's palette: dark navy and emerald green, in light and dark alike. */
+/* Mister Download Manager's remote control page: Windows 11's controls, one blue. */
 :root {
-  --bg: #0b1220;
-  --card: #17243a;
-  --text: #f8fafc;
-  --muted: #94a3b8;
-  --line: #26354b;
-  --field: #111c2e;
-  --field-line: #4a5d78;
-  --accent: #10b981;
-  --accent-hover: #059669;
-  --on-accent: #04201a;
-  --track: #26354b;
-  --good: #34d399;
-  --bad: #f87171;
-  --chip: #1f2f49;
-  --shadow: none;
-  color-scheme: dark;
+  --bg: #f3f3f3;
+  --card: #ffffff;
+  --text: #1b1b1b;
+  --muted: #5f5f5f;
+  --line: #e0e0e0;
+  --field: #ffffff;
+  --field-line: #8a8a8a;
+  --accent: #0078d4;
+  --accent-hover: #106ebe;
+  --on-accent: #ffffff;
+  --track: #e6e6e6;
+  --good: #0f7b0f;
+  --bad: #c42b1c;
+  --chip: #ebebeb;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #202020;
+    --card: #2b2b2b;
+    --text: #f0f0f0;
+    --muted: #b4b4b4;
+    --line: #3d3d3d;
+    --field: #1f1f1f;
+    --field-line: #9a9a9a;
+    --accent: #4cc2ff;
+    --accent-hover: #6fceff;
+    --on-accent: #000000;
+    --track: #3d3d3d;
+    --good: #6ccb5f;
+    --bad: #ff99a4;
+    --chip: #333333;
+    --shadow: none;
+    color-scheme: dark;
+  }
 }
 
 * { box-sizing: border-box; }

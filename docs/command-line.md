@@ -2,13 +2,13 @@
 
 [← Back to docs index](README.md)
 
-NetGuard can be driven without its window in three ways:
+MDM can be driven without its window in three ways:
 
 - **The app's own command line**, the same switches as IDM's: hand a download to the running app from a script, a batch file or another program.
 - **`misterdownloadmanager-cli`**, a separate command-line tool: download files, videos and torrents in a terminal, with progress, without the app.
-- **The automation API**: other programs list the running app's downloads (as JSON) and pause, start, remove or delete them, over a local, token-protected channel. AI assistants use it through NetGuard's MCP server: see [AI assistants](ai-assistants.md).
+- **The automation API**: other programs list the running app's downloads (as JSON) and pause, start, remove or delete them, over a local, token-protected channel. AI assistants use it through MDM's MCP server: see [AI assistants](ai-assistants.md).
 
-To run the whole app without a window, on a home server or a NAS, see [Run NetGuard on a server](server.md) (`misterdownloadmanager --headless`); to control it from a phone, [Control NetGuard from your phone](remote-control.md).
+To run the whole app without a window, on a home server or a NAS, see [Run MDM on a server](server.md) (`misterdownloadmanager --headless`); to control it from a phone, [Control MDM from your phone](remote-control.md).
 
 The examples use Windows' paths; on macOS and Linux the programs have the same names without `.exe`.
 
@@ -27,10 +27,10 @@ misterdownloadmanager.exe /d URL [/p folder] [/f name] [/a] [/n] [/s]
 | `/n` | Silent: no **Download File Info** window, the download starts (or is queued, with `/a`) at once. |
 | `/s` | Start the main download queue. |
 | `/exit` | Save and close the running app (the installer uses it before an upgrade). |
-| `/startup` | Start in the notification area, the window hidden: what **Launch NetGuard Download Manager on startup** starts NetGuard with when you sign in. Where no notification area shows NetGuard's icon (some Linux desktops), NetGuard starts minimized. A running NetGuard stays as it is. |
-| *a `.torrent` file or `magnet:` link* | Open it in **Add torrent** (what Windows passes when NetGuard opens torrents). |
+| `/startup` | Start in the notification area, the window hidden: what **Launch Mister Download Manager on startup** starts MDM with when you sign in. Where no notification area shows MDM's icon (some Linux desktops), MDM starts minimized. A running MDM stays as it is. |
+| *a `.torrent` file or `magnet:` link* | Open it in **Add torrent** (what Windows passes when MDM opens torrents). |
 
-Switches can start with `/` or `-`, in any case. If NetGuard is running, the command goes to it; if not, NetGuard starts and carries it out. For example:
+Switches can start with `/` or `-`, in any case. If MDM is running, the command goes to it; if not, MDM starts and carries it out. For example:
 
 ```
 misterdownloadmanager.exe /d https://example.com/files/report.pdf /p D:\Reports /n
@@ -40,7 +40,7 @@ misterdownloadmanager.exe /s
 
 ## misterdownloadmanager-cli
 
-It comes with every download of NetGuard, next to the app (the installer puts it in NetGuard's folder). It works on its own: the app needn't run, except for `status` and `api`.
+It comes with every download of MDM, next to the app (the installer puts it in MDM's folder). It works on its own: the app needn't run, except for `status` and `api`.
 
 | Command | What it does |
 |---|---|
@@ -52,7 +52,7 @@ It comes with every download of NetGuard, next to the app (the installer puts it
 | `playlist-info URL [--from N] [--count N]` | A playlist's or channel's videos, one line each as they're listed: its place, length, title and address. |
 | `playlist-get URL [-f selector] [-o folder] [--from N] [--count N]` | Download a playlist's or channel's videos one after another, into a folder named after the list inside `-o`. `-f` is one quality for all, as for `video-get` (by default each video's best; `bv*[height<=720]+ba/b[height<=720]` = up to 720p; `ba` = the original sound; `mp3:320`, `opus:`, `flac:` as for `video-get`). |
 | `video-get URL [-f selector] [-o folder] [--subs langs] [--auto-subs] [--embed-subs] [--adapter name]` | Download a video; `-f` takes a quality's selector from `video-info` (`b` = the best single file; `ba` = the sound alone as the site has it, not converted; `mp3:320`, `mp3:256`, `mp3:192` or `mp3:128` = the sound as an MP3 at that bitrate, `mp3:0` at its best variable one; `opus:` = as Opus; `flac:` = as FLAC, lossless but no better than the site's sound; conversions need ffmpeg). `--subs` saves subtitles beside it: language codes from `video-info` (`en,fr`), or `all` for every one the uploader gave; `--auto-subs` takes the site's automatic captions instead; `--embed-subs` puts them into the video (needs ffmpeg, MP4 or MKV). `--adapter` sends yt-dlp's connections (and ffmpeg's) through one network adapter, as for `get`; when it isn't connected, nothing starts. |
-| `install-ytdlp`, `install-ffmpeg` | Install or update the helpers videos need: yt-dlp (checked against its signing key) and ffmpeg (Windows; on macOS and Linux NetGuard uses the system's). |
+| `install-ytdlp`, `install-ffmpeg` | Install or update the helpers videos need: yt-dlp (checked against its signing key) and ffmpeg (Windows; on macOS and Linux MDM uses the system's). |
 | `torrent-info SOURCE` | A torrent's name, files (numbered) and size; `SOURCE` is a magnet link or a `.torrent` file. |
 | `torrent-get SOURCE [-o folder] [--files 0,2] [--use-existing]` | Download a torrent, or only some of its files. If some of its files are already in the folder, it stops and names them; `--use-existing` uses them instead (what matches is kept, the rest downloaded). |
 | `torrent-create PATH -o file.torrent` | Make a `.torrent` of a file or folder (peers find it through the DHT). |
@@ -97,9 +97,9 @@ misterdownloadmanager-cli --json get https://example.com/big.iso -o D:\Downloads
 
 Other programs can ask the running app what it is downloading, and pause, start, remove or delete downloads. The API is **off by default**; turn it on with `misterdownloadmanager-cli api on` (and off with `api off`).
 
-### How a program talks to NetGuard
+### How a program talks to MDM
 
-1. While it runs, NetGuard listens on a port of `127.0.0.1` (this computer only) and writes the port and a secret token to `ipc.json` in its data folder:
+1. While it runs, MDM listens on a port of `127.0.0.1` (this computer only) and writes the port and a secret token to `ipc.json` in its data folder:
    - Windows: `%APPDATA%\misterdownloadmanager\ipc.json`
    - macOS: `~/Library/Application Support/misterdownloadmanager/ipc.json`
    - Linux: `~/.local/share/misterdownloadmanager/ipc.json`
@@ -107,7 +107,7 @@ Other programs can ask the running app what it is downloading, and pause, start,
 
    The token changes at every start; only programs that can read your data folder (yours) can use it.
 2. Connect to that port and send one line of JSON: the token and the command's fields, e.g. `{"token": "<token>", "query": "list"}`.
-3. NetGuard answers with one line: `ok` for a command, or a JSON object for a question.
+3. MDM answers with one line: `ok` for a command, or a JSON object for a question.
 
 ### What it understands
 

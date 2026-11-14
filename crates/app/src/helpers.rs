@@ -205,7 +205,7 @@ impl Helpers {
                     .to_owned()
                 } else {
                     crate::i18n::t(
-                        "Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.",
+                        "Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.",
                     )
                     .to_owned()
                 },
@@ -215,7 +215,7 @@ impl Helpers {
                 // i18n: a promise in the helpers window: the helpers are free, official and checked
                 "Free, official and checked",
                 crate::i18n::t(
-                    "Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.",
+                    "Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.",
                 )
                 .to_owned(),
             ),
@@ -536,7 +536,7 @@ impl Programs {
                 (Some(old), _) => crate::i18n::fmt(
                     // i18n: Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
                     crate::i18n::t(
-                        "Your own program ({version}) is too old: NetGuard needs {oldest} or newer",
+                        "Your own program ({version}) is too old: MDM needs {oldest} or newer",
                     ),
                     &[
                         ("version", &old.version),
@@ -580,7 +580,7 @@ impl Programs {
                 &p,
                 &[
                     ("Use another program...", 14.0, 180.0),
-                    ("Use NetGuard's own copy", 202.0, 180.0),
+                    ("Use MDM's own copy", 202.0, 180.0),
                 ],
                 8.0,
                 486.0,
@@ -614,7 +614,7 @@ impl Programs {
                 ui,
                 r(o, own_at.0, y - o.y + 46.0, own_at.1, 21.0),
                 // i18n: Video helpers: button: go back to the copy MDM downloads and checks itself
-                "Use NetGuard's own copy",
+                "Use MDM's own copy",
                 if mine && !busy {
                     ButtonKind::Normal
                 } else {

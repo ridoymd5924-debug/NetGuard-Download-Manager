@@ -1,11 +1,11 @@
 # Image galleries
 
-NetGuard downloads the pictures of a gallery (a Wikimedia Commons category, a Flickr album, a DeviantArt gallery, an Imgur album and many more) with [gallery-dl](https://codeberg.org/mikf/gallery-dl), a free program that reads several hundred sites. Like yt-dlp for videos, it's an optional helper: NetGuard installs it the first time you need it, or uses your own copy.
+MDM downloads the pictures of a gallery (a Wikimedia Commons category, a Flickr album, a DeviantArt gallery, an Imgur album and many more) with [gallery-dl](https://codeberg.org/mikf/gallery-dl), a free program that reads several hundred sites. Like yt-dlp for videos, it's an optional helper: MDM installs it the first time you need it, or uses your own copy.
 
 ## Download a gallery
 
 1. Click **Add URL** and paste the gallery's address, for example `https://commons.wikimedia.org/wiki/Category:Featured_pictures_of_birds`.
-2. NetGuard opens **Download a gallery** instead of downloading the page as a file. The first time, click **Install gallery-dl**.
+2. MDM opens **Download a gallery** instead of downloading the page as a file. The first time, click **Install gallery-dl**.
 3. gallery-dl checks the address on your computer, without going online. When the line reads **gallery-dl can download this gallery's files**, you're ready.
 4. Check **Save to** (the General category's folder by default). The pictures go into a folder of their own there, named after the gallery.
 5. Optionally, type a number in **Files at most** to download only the first ones the site lists. On most sites those are the newest. Leave it empty for all of them.
@@ -39,11 +39,11 @@ A picture's own address (one ending in `.jpg` or `.png`) downloads as a file, as
 
 ## gallery-dl itself
 
-- **Where it comes from:** NetGuard downloads gallery-dl from its releases on Codeberg. It accepts it only when the release's checksum list is signed by gallery-dl's author's key, pinned in NetGuard, and the program matches that list. It keeps the previous version and never goes back to an older one. On Windows and on Linux (x86-64) NetGuard installs it; on macOS, install it with Homebrew (`brew install gallery-dl`) or pip and choose it in **Helpers...**.
-- **Your own copy:** **Helpers...** (in the gallery window or the video window) lists yt-dlp, ffmpeg and gallery-dl, and **Use another program...** takes your own copy of each instead of NetGuard's.
-- **How it asks:** gallery-dl asks sites as NetGuard, one picture a second at most. Wikimedia's servers refuse tools that ask faster or without a name. It uses no configuration file of yours.
-- **Network adapter:** while one is chosen (**Options → Proxy / Socks → [Network adapter](options.md#proxy--socks)**), galleries go through it too, as video pages do: NetGuard gives gallery-dl a proxy of its own on this computer, opens every connection through the adapter and looks the names up with the DNS you chose. When the adapter disconnects, the gallery stops with the other downloads; nothing goes out through your normal connection.
-- **The gallery-dl of your Linux distribution:** chosen in **Helpers...**, the one your distribution ships works too, from 1.20 (Ubuntu 22.04) on: NetGuard passes only the options that version knows. One older than that (Debian 11's 1.17) is refused, saying which version NetGuard needs.
+- **Where it comes from:** MDM downloads gallery-dl from its releases on Codeberg. It accepts it only when the release's checksum list is signed by gallery-dl's author's key, pinned in MDM, and the program matches that list. It keeps the previous version and never goes back to an older one. On Windows and on Linux (x86-64) MDM installs it; on macOS, install it with Homebrew (`brew install gallery-dl`) or pip and choose it in **Helpers...**.
+- **Your own copy:** **Helpers...** (in the gallery window or the video window) lists yt-dlp, ffmpeg and gallery-dl, and **Use another program...** takes your own copy of each instead of MDM's.
+- **How it asks:** gallery-dl asks sites as MDM, one picture a second at most. Wikimedia's servers refuse tools that ask faster or without a name. It uses no configuration file of yours.
+- **Network adapter:** while one is chosen (**Options → Proxy / Socks → [Network adapter](options.md#proxy--socks)**), galleries go through it too, as video pages do: MDM gives gallery-dl a proxy of its own on this computer, opens every connection through the adapter and looks the names up with the DNS you chose. When the adapter disconnects, the gallery stops with the other downloads; nothing goes out through your normal connection.
+- **The gallery-dl of your Linux distribution:** chosen in **Helpers...**, the one your distribution ships works too, from 1.20 (Ubuntu 22.04) on: MDM passes only the options that version knows. One older than that (Debian 11's 1.17) is refused, saying which version MDM needs.
 
 ## On the command line
 

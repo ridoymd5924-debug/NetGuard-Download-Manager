@@ -9,7 +9,7 @@
 ; Windows Credential Manager (misterdownloadmanager --forget-sign-ins).
 
 #ifndef AppVersion
-  #define AppVersion "2.2.1.9"
+  #define AppVersion "0.5.2"
 #endif
 #define AppName "NetGuard Download Manager"
 #define AppExe "misterdownloadmanager.exe"
@@ -23,11 +23,11 @@ AppId={{667DB4D8-32C2-4487-A0E5-5825BF29778C}
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppVerName={#AppName} {#AppVersion}
-AppPublisher=Torik (based on work by Ahmed Nefzaoui)
+AppPublisher=Ahmed Nefzaoui
 AppPublisherURL=https://github.com/anefzaoui/misterdownloadmanager
 AppSupportURL=https://github.com/anefzaoui/misterdownloadmanager/issues
 AppUpdatesURL=https://github.com/anefzaoui/misterdownloadmanager/releases
-AppCopyright=Copyright (C) 2026 Ahmed Nefzaoui; NetGuard modifications by Torik
+AppCopyright=Copyright (C) 2026 Ahmed Nefzaoui
 DefaultDirName={autopf}\{#AppName}
 DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
@@ -53,7 +53,7 @@ ChangesAssociations=yes
 ; fallback for anything else holding the files (a browser running the host).
 CloseApplications=yes
 VersionInfoVersion={#AppVersion}
-VersionInfoCompany=Torik (based on work by Ahmed Nefzaoui)
+VersionInfoCompany=Ahmed Nefzaoui
 VersionInfoDescription={#AppName} setup
 VersionInfoProductName={#AppName}
 #ifdef Sign
@@ -93,8 +93,6 @@ Source: "{#Root}\target\extension\chromium\*"; DestDir: "{app}\extension\chromiu
 Source: "{#Root}\target\extension\mdm-firefox.xpi"; DestDir: "{app}\extension"; Flags: ignoreversion
 Source: "{#Root}\LICENSE"; DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
 Source: "{#Root}\ATTRIBUTION.md"; DestDir: "{app}"; DestName: "ATTRIBUTION.txt"; Flags: ignoreversion
-Source: "{#Root}\NOTICE"; DestDir: "{app}"; DestName: "NOTICE.txt"; Flags: ignoreversion
-Source: "{#Root}\MODIFICATIONS.md"; DestDir: "{app}"; DestName: "MODIFICATIONS.txt"; Flags: ignoreversion
 
 [Icons]
 Name: "{autoprograms}\{#AppName}"; Filename: "{app}\{#AppExe}"

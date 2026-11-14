@@ -1,4 +1,4 @@
-# NetGuard Download Manager in Kazakh (Қазақ тілі): tools/i18n/translate.py
+# Mister Download Manager in Kazakh (Қазақ тілі): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	Қазақ тілі
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from NetGuard Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from NetGuard Download Manager list of downloads?	NetGuard Download Manager жүктеулер тізімінен {n} жүктеуді жойғыңыз келетініне сенімдісіз бе?|NetGuard Download Manager жүктеулер тізімінен осы {n} жүктеуді жойғыңыз келетініне сенімдісіз бе?
+@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Mister Download Manager жүктеулер тізімінен {n} жүктеуді жойғыңыз келетініне сенімдісіз бе?|Mister Download Manager жүктеулер тізімінен осы {n} жүктеуді жойғыңыз келетініне сенімдісіз бе?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Дебрид қызметі файл хостының сілтемесін сіздің төленген есептік жазбаңызбен жүктеп алып, NetGuard-ге тікелей сілтеме береді. Тек өзіңіздің есептік жазбаңызды пайдаланыңыз: есептік жазбаны немесе оның сілтемелерін бөлісу қызметтердің шарттарын бұзады және оның тоқтатылуына әкелуі мүмкін. Браузер бастаған жүктеулер өзгеріссіз қалады.
+	A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Дебрид қызметі файл хостының сілтемесін сіздің төленген есептік жазбаңызбен жүктеп алып, MDM-ге тікелей сілтеме береді. Тек өзіңіздің есептік жазбаңызды пайдаланыңыз: есептік жазбаны немесе оның сілтемелерін бөлісу қызметтердің шарттарын бұзады және оның тоқтатылуына әкелуі мүмкін. Браузер бастаған жүктеулер өзгеріссіз қалады.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -226,7 +226,7 @@
 	a volume of it is missing	оның бір томы жоқ
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About NetGuard Download Manager	NetGuard Download Manager туралы
+	About Mister Download Manager	Mister Download Manager туралы
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -280,7 +280,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add NetGuard Download Manager to your browser	NetGuard Download Manager қолданбасын браузеріңізге қосыңыз
+	Add Mister Download Manager to your browser	Mister Download Manager қолданбасын браузеріңізге қосыңыз
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -344,7 +344,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): a magnet link or .torrent file was added; MDM reads the torrent's files first
 #, machine
-	Added. NetGuard is reading the torrent: it joins the list in a moment.	Қосылды. NetGuard торрентті оқып жатыр: ол бір сәтте тізімге қосылады.
+	Added. MDM is reading the torrent: it joins the list in a moment.	Қосылды. MDM торрентті оқып жатыр: ол бір сәтте тізімге қосылады.
 #. text in the Batch download window; text in a dialog box; label in the Options window; text in a download's progress window
 #. noun: the web address (URL)
 #. column title: the web address (URL)
@@ -447,7 +447,7 @@
 	Always into a folder named after it	Әрқашан атауымен аталған қалтаға
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on NetGuard Download Manager startup	NetGuard Download Manager іске қосылғанда жылдамдық шектегіш әрқашан қосулы болсын
+	Always turn on Speed Limiter on Mister Download Manager startup	Mister Download Manager іске қосылғанда жылдамдық шектегіш әрқашан қосулы болсын
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -513,7 +513,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from NetGuard Download Manager list of downloads?	NetGuard Download Manager жүктеп алу тізімінен «{name}» файлын жойғыңыз келе ме?
+	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	Mister Download Manager жүктеп алу тізімінен «{name}» файлын жойғыңыз келе ме?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -603,9 +603,6 @@
 #. a country's name (where a download's server is)
 #, machine
 	Barbados	Барбадос
-#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#, machine
-	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.
 #. window title in the Batch download window
 #, machine
 	Batch download	Топтап жүктеп алу
@@ -655,7 +652,7 @@
 	Bosnia and Herzegovina	Босния және Герцеговина
 #. text in helpers.rs
 #, machine
-	Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	Екеуі де ашық бастапқы кодты. NetGuard оларды ресми шығарылымдарынан өзінің жүктеушісімен алады және іске қоспас бұрын әр файлдың қолтаңбасын тексереді. Шамамен 100 МБ, бір рет.
+	Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	Екеуі де ашық бастапқы кодты. MDM оларды ресми шығарылымдарынан өзінің жүктеушісімен алады және іске қоспас бұрын әр файлдың қолтаңбасын тексереді. Шамамен 100 МБ, бір рет.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -685,7 +682,7 @@
 	Browse...	Шолу...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach NetGuard Download Manager yet.	Бұл компьютерде браузер интеграциясы орнатылмаған, сондықтан әзірге ешбір браузер NetGuard Download Manager қолданбасына жете алмайды.
+	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	Бұл компьютерде браузер интеграциясы орнатылмаған, сондықтан әзірге ешбір браузер Mister Download Manager қолданбасына жете алмайды.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	Браузер/Жүйе интеграциясы
@@ -826,7 +823,7 @@
 #. text in the Options window
 #. tooltip of the close-setting: checked keeps MDM running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
 #, machine
-	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	Құсбелгі қойылса, терезе жабылғанда NetGuard жұмысын жалғастырады: ол қолжетімді болса, хабарландыру аймағында жасырылады немесе басқаша жағдайда тапсырмалар тақтасына жиырылады және жүктеп алулар жалғасады; құсбелгі қойылмаса, жабылғанда NetGuard шығады
+	Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM	Құсбелгі қойылса, терезе жабылғанда MDM жұмысын жалғастырады: ол қолжетімді болса, хабарландыру аймағында жасырылады немесе басқаша жағдайда тапсырмалар тақтасына жиырылады және жүктеп алулар жалғасады; құсбелгі қойылмаса, жабылғанда MDM шығады
 #. message or event log entry in the main window
 #. event log entry after Recheck: {have} and {total} are sizes ("1.2 GB of 4 GB there")
 #, machine
@@ -885,7 +882,7 @@
 	Choose a language	Тілді таңдаңыз
 #. text in langpick.rs
 #, machine
-	Choose the language NetGuard Download Manager shows its windows in:	NetGuard Download Manager терезелерін көрсететін тілді таңдаңыз:
+	Choose the language Mister Download Manager shows its windows in:	Mister Download Manager терезелерін көрсететін тілді таңдаңыз:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1041,13 +1038,13 @@
 	Customize "Download progress" dialog	«Жүктеп алу барысы» диалогтік терезесін реттеу
 #. text in the Options window
 #, machine
-	Customize keys to prevent or force downloading with NetGuard	NetGuard арқылы жүктеп алуға тыйым салатын немесе мәжбүрлейтін пернелерді реттеу
+	Customize keys to prevent or force downloading with MDM	MDM арқылы жүктеп алуға тыйым салатын немесе мәжбүрлейтін пернелерді реттеу
 #. text in the Options window
 #, machine
-	Customize NetGuard Download panels in browsers	Браузерлердегі NetGuard жүктеп алу панельдерін реттеу
+	Customize MDM Download panels in browsers	Браузерлердегі MDM жүктеп алу панельдерін реттеу
 #. text in the Options window
 #, machine
-	Customize NetGuard menu items in context menu of browsers	Браузерлердің контекстік мәзіріндегі NetGuard мәзір элементтерін реттеу
+	Customize MDM menu items in context menu of browsers	Браузерлердің контекстік мәзіріндегі MDM мәзір элементтерін реттеу
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -1422,7 +1419,7 @@
 #. text in crashui.rs
 #. crash report window button: end the frozen MDM and start it again
 #, machine
-	End and restart NetGuard	NetGuard-ді аяқтау және қайта іске қосу
+	End and restart MDM	MDM-ді аяқтау және қайта іске қосу
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	Магнит сілтемесін енгізіңіз немесе .torrent файлын таңдаңыз
@@ -1505,7 +1502,7 @@
 	Exit	Шығу
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit NetGuard Download Manager when done	Аяқталған кезде NetGuard Download Manager бағдарламасынан шығу
+	Exit Mister Download Manager when done	Аяқталған кезде Mister Download Manager бағдарламасынан шығу
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Күтілетін бақылау сомасы (MD5, SHA-1, SHA-256, SHA-512 немесе CRC32):
@@ -1941,7 +1938,7 @@
 	Hide web pages	Веб-беттерді жасыру
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of NetGuard Download Manager.	Браузер сілтемені NetGuard Download Manager орнына жүктеп алуы үшін, сілтемені басқанда Alt пернесін басып тұрыңыз.
+	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Браузер сілтемені Mister Download Manager орнына жүктеп алуы үшін, сілтемені басқанда Alt пернесін басып тұрыңыз.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	Басты бет
@@ -1977,7 +1974,7 @@
 	Hungary	Венгрия
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}	Мен NetGuard Download Manager арқылы жүктеп аламын: жылдам, тегін және сіз білетін жүктеп алу менеджеріне ұқсайды. {link}
+	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	Мен Mister Download Manager арқылы жүктеп аламын: жылдам, тегін және сіз білетін жүктеп алу менеджеріне ұқсайды. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2104,7 +2101,7 @@
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
-	it is not an archive NetGuard extracts	ол NetGuard шығара алмайтын мұрағат
+	it is not an archive MDM extracts	ол MDM шығара алмайтын мұрағат
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
@@ -2125,7 +2122,7 @@
 #. text in the Batch download window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.	img001.jpg, img002.jpg және т.б., img100.jpg сияқты реттік файл атауларының тобын NetGuard жүктеу кезегіне қосуға болады. Файл атауы үлгісі үшін жұлдызша таңбасын пайдаланыңыз.
+	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.	img001.jpg, img002.jpg және т.б., img100.jpg сияқты реттік файл атауларының тобын MDM жүктеу кезегіне қосуға болады. Файл атауы үлгісі үшін жұлдызша таңбасын пайдаланыңыз.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2252,7 +2249,7 @@
 	Latvia	Латвия
 #. text in the Options window
 #, machine
-	Launch NetGuard Download Manager on startup	Жүйе іске қосылғанда NetGuard Download Manager бағдарламасын іске қосу
+	Launch Mister Download Manager on startup	Жүйе іске қосылғанда Mister Download Manager бағдарламасын іске қосу
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2264,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control NetGuard	Жергілікті желідегі телефондар мен компьютерлерге NetGuard-ді басқаруға рұқсат беру
+	Let phones and computers on the local network control MDM	Жергілікті желідегі телефондар мен компьютерлерге MDM-ді басқаруға рұқсат беру
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2482,32 +2479,32 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
 #, machine
-	NetGuard can't be reached on the network now: Options → Remote says why.	NetGuard желіде қазір қолжетімді емес: Параметрлер → Қашықтан басқару не себепті екенін көрсетеді.
+	MDM can't be reached on the network now: Options → Remote says why.	MDM желіде қазір қолжетімді емес: Параметрлер → Қашықтан басқару не себепті екенін көрсетеді.
 #. text in remote.rs
 #. remote control page (on a phone): the address typed isn't one MDM downloads (not http, https, ftp or magnet)
 #, machine
-	NetGuard cannot download this address.	NetGuard бұл мекенжайды жүктей алмайды.
+	MDM cannot download this address.	MDM бұл мекенжайды жүктей алмайды.
 #. text in remote.rs
 #. remote control page (on a phone): adding a download failed
 #, machine
-	NetGuard could not add it.	NetGuard оны қоса алмады.
+	MDM could not add it.	MDM оны қоса алмады.
 #. text in remote.rs
 #. remote control page (on a phone): an action failed
 #, machine
-	NetGuard could not do it.	NetGuard оны жасай алмады.
+	MDM could not do it.	MDM оны жасай алмады.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached while pairing
 #, machine
-	NetGuard does not answer. Check that it is running and on the same network.	NetGuard жауап бермейді. Оның жұмыс істеп тұрғанын және бір желіде екенін тексеріңіз.
+	MDM does not answer. Check that it is running and on the same network.	MDM жауап бермейді. Оның жұмыс істеп тұрғанын және бір желіде екенін тексеріңіз.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached now; the page keeps trying by itself
 #. the trailing ... means it is still going on: keep it
 #, machine
-	NetGuard does not answer. Trying again...	NetGuard жауап бермейді. Қайта әрекеттенуде...
+	MDM does not answer. Trying again...	MDM жауап бермейді. Қайта әрекеттенуде...
 #. text in remote.rs
 #. remote control page (on a phone): no pairing code is shown in MDM; "Pair a device" is MDM's button
 #, machine
-	NetGuard shows no code now. Click Pair a device there first.	NetGuard қазір код көрсетпейді. Алдымен «Құрылғыны жұптастыру» түймесін басыңыз.
+	MDM shows no code now. Click Pair a device there first.	MDM қазір код көрсетпейді. Алдымен «Құрылғыны жұптастыру» түймесін басыңыз.
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 #, machine
@@ -2539,54 +2536,54 @@
 	Missing	Жоқ
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	NetGuard Download Manager	NetGuard Download Manager
+	Mister Download Manager	Mister Download Manager
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	NetGuard Download Manager can't open its window: this system lacks {libraries}.	NetGuard Download Manager терезесін аша алмайды: бұл жүйеде {libraries} жоқ.
+	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager терезесін аша алмайды: бұл жүйеде {libraries} жоқ.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	NetGuard Download Manager closed unexpectedly	NetGuard Download Manager күтпеген жерден жабылды
+	Mister Download Manager closed unexpectedly	Mister Download Manager күтпеген жерден жабылды
 #. window title in the Options window
 #, machine
-	NetGuard Download Manager Configuration	NetGuard Download Manager параметрлері
+	Mister Download Manager Configuration	Mister Download Manager параметрлері
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager crash report	NetGuard Download Manager істен шығу есебі
+	Mister Download Manager crash report	Mister Download Manager істен шығу есебі
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	NetGuard Download Manager hit an internal error	NetGuard Download Manager ішкі қатеге тап болды
+	Mister Download Manager hit an internal error	Mister Download Manager ішкі қатеге тап болды
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	NetGuard Download Manager is running the queue "{queue}"	NetGuard Download Manager «{queue}» кезегін орындауда
+	Mister Download Manager is running the queue "{queue}"	Mister Download Manager «{queue}» кезегін орындауда
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	NetGuard Download Manager stopped responding	NetGuard Download Manager жауап беруді тоқтатты
+	Mister Download Manager stopped responding	Mister Download Manager жауап беруді тоқтатты
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager stopped responding for a while	NetGuard Download Manager біраз уақыт жауап бермеді
+	Mister Download Manager stopped responding for a while	Mister Download Manager біраз уақыт жауап бермеді
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	NetGuard Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	NetGuard Download Manager әрбір қосылымды тікелей соңғы файлға\n(оның жанындағы сирек бөлік файлы) жазады, сондықтан уақытша каталог\nжәне құрастыру қадамы қажет емес.
+	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager әрбір қосылымды тікелей соңғы файлға\n(оның жанындағы сирек бөлік файлы) жазады, сондықтан уақытша каталог\nжәне құрастыру қадамы қажет емес.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager {version} is available (released {date}).	NetGuard Download Manager {version} қолжетімді (шығарылған күні {date}).
+	Mister Download Manager {version} is available (released {date}).	Mister Download Manager {version} қолжетімді (шығарылған күні {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager's own copy, version {version}	NetGuard Download Manager жеке көшірмесі, нұсқасы {version}
+	Mister Download Manager's own copy, version {version}	Mister Download Manager жеке көшірмесі, нұсқасы {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	NetGuard Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	NetGuard Download Manager X11 терезесіне {libraries} қажет, бірақ бұл жүйеде олар жоқ: оның орнына Wayland-та ашылады, онда мәзірлер тақырыптарынан алыс ашылуы мүмкін.
+	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Mister Download Manager X11 терезесіне {libraries} қажет, бірақ бұл жүйеде олар жоқ: оның орнына Wayland-та ашылады, онда мәзірлер тақырыптарынан алыс ашылуы мүмкін.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -2793,7 +2790,7 @@
 #. text in extension.rs
 #. a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
 #, machine
-	No browser NetGuard can connect to was found	NetGuard қосыла алатын браузер табылмады
+	No browser MDM can connect to was found	MDM қосыла алатын браузер табылмады
 #. text in extension.rs
 #. a check of Test browser integration: no browser's extension has reached MDM
 #, machine
@@ -2863,7 +2860,7 @@
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Жүйелік кілттік жауап бермеді, сондықтан кіру деректері мен құпия сөздер NetGuard параметрлерінде сақталады, оны тек сіз оқи аласыз.
+	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	Жүйелік кілттік жауап бермеді, сондықтан кіру деректері мен құпия сөздер MDM параметрлерінде сақталады, оны тек сіз оқи аласыз.
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -2994,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach NetGuard.	Өшірулі: желідегі ешнәрсе NetGuard-ге жете алмайды.
+	Off: nothing on the network can reach MDM.	Өшірулі: желідегі ешнәрсе MDM-ге жете алмайды.
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	Алмасу буферіне көшірілген сілтемелерді жүктеп алуды ұсыну
@@ -3070,7 +3067,7 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Тек жұптастырылған құрылғылар ғана көре алады немесе өзгерте алады. Бірінші рет телефон браузері NetGuard-нің жеке сертификаты туралы ескертеді: оның саусақ ізі жоғарыдағымен бірдей.
+	Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.	Тек жұптастырылған құрылғылар ғана көре алады немесе өзгерте алады. Бірінші рет телефон браузері MDM-нің жеке сертификаты туралы ескертеді: оның саусақ ізі жоғарыдағымен бірдей.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than MDM lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
@@ -3092,10 +3089,10 @@
 	Open folder	Қалтаны ашу
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with NetGuard Download Manager	Магнит сілтемелері мен .torrent файлдарын NetGuard Download Manager арқылы ашу
+	Open magnet links and .torrent files with Mister Download Manager	Магнит сілтемелері мен .torrent файлдарын Mister Download Manager арқылы ашу
 #. text in the tray icon's menu
 #, machine
-	Open NetGuard Download Manager	NetGuard Download Manager бағдарламасын ашу
+	Open Mister Download Manager	Mister Download Manager бағдарламасын ашу
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3166,7 +3163,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with NetGuard Download Manager	NetGuard Download Manager қолданбасымен жұптастыру
+	Pair with Mister Download Manager	Mister Download Manager қолданбасымен жұптастыру
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3481,7 +3478,7 @@
 #. text in crashui.rs
 #. crash report window button: start MDM again
 #, machine
-	Restart NetGuard	NetGuard-ді қайта іске қосу
+	Restart MDM	MDM-ді қайта іске қосу
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	Кірістірілген санаттарды қалпына келтіру
@@ -3652,7 +3649,7 @@
 	Select or unselect the download with the dotted outline	Нүктелі жиегі бар жүктемені таңдау немесе таңдауды алып тастау
 #. group box title in the Options window
 #, machine
-	Select sounds for NetGuard Download Manager events	NetGuard Download Manager оқиғаларының дыбыстарын таңдау
+	Select sounds for Mister Download Manager events	Mister Download Manager оқиғаларының дыбыстарын таңдау
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	Қораптағы жүктемелерді таңдау
@@ -3868,7 +3865,7 @@
 	Sites Logins	Сайттарға кіру
 #. text in helpers.rs
 #, machine
-	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.	Сайттар ең жақсы сапаны бөлек бейне және аудио ретінде жібереді, ал ffmpeg оларды біріктіреді. Бұл жүйеде NetGuard сіздікін пайдаланады: ffmpeg-ті пакеттік менеджеріңізбен орнатыңыз.
+	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.	Сайттар ең жақсы сапаны бөлек бейне және аудио ретінде жібереді, ал ffmpeg оларды біріктіреді. Бұл жүйеде MDM сіздікін пайдаланады: ffmpeg-ті пакеттік менеджеріңізбен орнатыңыз.
 #. text in helpers.rs
 #, machine
 	Sites send their best quality as separate video and audio. ffmpeg puts them together into one file that plays anywhere.	Сайттар ең жақсы сапаны бөлек бейне және аудио ретінде жібереді. ffmpeg оларды кез келген жерде ойнатылатын бір файлға біріктіреді.
@@ -3978,7 +3975,7 @@
 	Start download at	Жүктеуді бастау
 #. checkbox in the Scheduler window
 #, machine
-	Start download on NetGuard Download Manager startup	NetGuard Download Manager іске қосылғанда жүктеуді бастау
+	Start download on Mister Download Manager startup	Mister Download Manager іске қосылғанда жүктеуді бастау
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	"Файл туралы ақпаратты жүктеу" диалогын көрсетіп тұрып, бірден жүктеуді бастау
@@ -4013,7 +4010,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	Компьютермен бірге іске қосылғанда, ол кішірейтілген күйде басталады: мұнда оның белгішесі хабарландыру аймағында көрсетілмейді
 #. text in the Options window
-#. tooltip of "Launch NetGuard Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	Компьютермен бірге іске қосылғанда, ол хабарландыру аймағында күтеді
 #. message or event log entry in the main window
@@ -4117,7 +4114,7 @@
 	Sunday	Жексенбі
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Support the original project on GitHub Sponsors	Support the original project on GitHub Sponsors
+	Support MDM on GitHub Sponsors	GitHub Sponsors-та MDM-ді қолдау
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -4234,7 +4231,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find NetGuard Download Manager	Браузерлер NetGuard Download Manager таба алады
+	The browsers can find Mister Download Manager	Браузерлер Mister Download Manager таба алады
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4258,7 +4255,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. NetGuard Download Manager has to be running (it can wait in the notification area).	Компьютер басталу уақытынан бір минут бұрын оянады және кезек жұмыс істеп тұрғанда ояу күйде болады. NetGuard Download Manager іске қосылып тұруы керек (оны хабарландыру аймағында күту күйінде қалдыруға болады).
+	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	Компьютер басталу уақытынан бір минут бұрын оянады және кезек жұмыс істеп тұрғанда ояу күйде болады. Mister Download Manager іске қосылып тұруы керек (оны хабарландыру аймағында күту күйінде қалдыруға болады).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4303,7 +4300,7 @@
 #. message or event log entry in the main window
 #. {error} = an error message (keep the braces as they are)
 #, machine
-	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	Жүктеп алу тізімін сақтау мүмкін болмады: {error}. NetGuard жұмыс істеп тұрған кезде өзгерістер сақталады.
+	The download list could not be saved: {error}. Changes are kept while MDM runs.	Жүктеп алу тізімін сақтау мүмкін болмады: {error}. MDM жұмыс істеп тұрған кезде өзгерістер сақталады.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.	Сіз білетін жүктеу менеджері жылдамырақ болу үшін қайта құрастырылды. GNU GPL, 3-нұсқа немесе одан кейінгі нұсқасы бойынша тегін және ашық бастапқы кодты. Бейнелерді yt-dlp табады; торренттер librqbit-те жұмыс істейді.
@@ -4429,7 +4426,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?	Таңдалған жүктеп алу аяқталмаған. Оны NetGuard Download Manager жүктеп алулар тізімінен\nжойғыңыз келе ме?
+	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	Таңдалған жүктеп алу аяқталмаған. Оны Mister Download Manager жүктеп алулар тізімінен\nжойғыңыз келе ме?
 #. text in errors.rs
 #, machine
 	the server answered {status}	сервер {status} деп жауап берді
@@ -4466,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (MDM never unlocks it: that would ask for its password), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Жүйелік кілттер қоймасы құлыптаулы және NetGuard оның құлпын ашпайды, сондықтан жүйеге кіру деректері мен құпиясөздер NetGuard параметрлерінде сақталады. Оларды тек сіз оқи аласыз.
+	The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.	Жүйелік кілттер қоймасы құлыптаулы және MDM оның құлпын ашпайды, сондықтан жүйеге кіру деректері мен құпиясөздер MDM параметрлерінде сақталады. Оларды тек сіз оқи аласыз.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4656,7 +4653,7 @@
 #. message or event log entry in the main window
 #. event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
 #, machine
-	Through {service}: the service downloads the torrent, then NetGuard its files	{service} арқылы: қызмет торрентті жүктеп алады, содан кейін NetGuard оның файлдарын жүктеп алады
+	Through {service}: the service downloads the torrent, then MDM its files	{service} арқылы: қызмет торрентті жүктеп алады, содан кейін MDM оның файлдарын жүктеп алады
 #. text in the Scheduler window
 #, machine
 	Thursday	Бейсенбі
@@ -4793,7 +4790,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "NetGuard Download Manager" and allow it on all websites.	«NetGuard Download Manager» кеңейтімін қосып, оған барлық веб-сайттарда рұқсат беріңіз.
+	Turn on "Mister Download Manager" and allow it on all websites.	«Mister Download Manager» кеңейтімін қосып, оған барлық веб-сайттарда рұқсат беріңіз.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -4849,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	Бұл кодты {page} мекенжайында енгізіп, NetGuard-ге рұқсат беріңіз; сізді күтіп отырмыз (кодтың мерзімі {time} ішінде аяқталады).
+	Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).	Бұл кодты {page} мекенжайында енгізіп, MDM-ге рұқсат беріңіз; сізді күтіп отырмыз (кодтың мерзімі {time} ішінде аяқталады).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4946,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy MDM downloads and checks itself
 #, machine
-	Use NetGuard's own copy	NetGuard-нің өз көшірмесін пайдалану
+	Use MDM's own copy	MDM-нің өз көшірмесін пайдалану
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5142,7 +5139,7 @@
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in MDM's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows тіркелгі деректері диспетчері жауап бермеді, сондықтан кіру деректері мен құпиясөздер NetGuard параметрлерінде сақталады және тек сіздің Windows тіркелгіңіз оқи алатындай шифрланған.
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.	Windows тіркелгі деректері диспетчері жауап бермеді, сондықтан кіру деректері мен құпиясөздер MDM параметрлерінде сақталады және тек сіздің Windows тіркелгіңіз оқи алатындай шифрланған.
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine
@@ -5174,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in NetGuard and try again.	Қате код. NetGuard-де жаңа кодты көрсетіп, қайталап көріңіз.
+	Wrong code. Show a new code in MDM and try again.	Қате код. MDM-де жаңа кодты көрсетіп, қайталап көріңіз.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5206,7 +5203,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of NetGuard Download Manager ({version}).	NetGuard Download Manager бағдарламасының соңғы нұсқасы ({version}) орнатылған.
+	You have the latest version of Mister Download Manager ({version}).	Mister Download Manager бағдарламасының соңғы нұсқасы ({version}) орнатылған.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -5232,7 +5229,7 @@
 #. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	Өз бағдарламаңыз ({version}) ескірген: NetGuard-ге {oldest} немесе одан жаңа нұсқа қажет
+	Your own program ({version}) is too old: MDM needs {oldest} or newer	Өз бағдарламаңыз ({version}) ескірген: MDM-ге {oldest} немесе одан жаңа нұсқа қажет
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -5327,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control NetGuard now.	{device} жұптастырылды. Ол енді NetGuard-ді басқара алады.
+	{device} is paired. It can control MDM now.	{device} жұптастырылды. Ол енді MDM-ді басқара алады.
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5407,7 +5404,7 @@
 #. in the "7-Zip needed" window: {name} is the archive's file name; 7-Zip is a program's name
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	{name} is a 7z or RAR archive. NetGuard extracts those with 7-Zip, which isn't installed.	{name} – 7z немесе RAR мұрағаты. NetGuard мұндай мұрағаттарды орнатылмаған 7-Zip бағдарламасы арқылы шығарады.
+	{name} is a 7z or RAR archive. MDM extracts those with 7-Zip, which isn't installed.	{name} – 7z немесе RAR мұрағаты. MDM мұндай мұрағаттарды орнатылмаған 7-Zip бағдарламасы арқылы шығарады.
 #. text in extracting archives (a download's log, the Archive password window)
 #. in Archive password: {name} is the archive's file name
 #. {name} = a file name (keep the braces as they are)
@@ -5422,7 +5419,7 @@
 #. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one MDM can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
 #, machine
-	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version} ескірген: NetGuard-ге {oldest} немесе одан жаңа нұсқа қажет
+	{name} {version} is too old: MDM needs {oldest} or newer	{name} {version} ескірген: MDM-ге {oldest} немесе одан жаңа нұсқа қажет
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
@@ -5447,7 +5444,7 @@
 #. text in errors.rs
 #. a debrid service's error: too many requests; MDM waits and retries
 #, machine
-	{service} asks to slow down; NetGuard will try again in a minute	{service} сұрауларды баяулатуды сұрады; NetGuard бір минуттан кейін қайталап көреді
+	{service} asks to slow down; MDM will try again in a minute	{service} сұрауларды баяулатуды сұрады; MDM бір минуттан кейін қайталап көреді
 #. text in errors.rs
 #. a debrid service's error: it wants the user to allow this computer (it sent an email)
 #, machine
@@ -5457,7 +5454,7 @@
 	{service} can't get this torrent: nobody shares it, or its link can't be read	{service} бұл торрентті ала алмайды: оны ешкім бөліспейді немесе оның сілтемесін оқу мүмкін емес
 #. text in errors.rs
 #, machine
-	{service} can't reach this file host right now; NetGuard will try again later	{service} қазір бұл файл хостына қосыла алмайды; NetGuard кейінірек қайталап көреді
+	{service} can't reach this file host right now; MDM will try again later	{service} қазір бұл файл хостына қосыла алмайды; MDM кейінірек қайталап көреді
 #. text in errors.rs
 #. a debrid service's error: it isn't answering
 #, machine
@@ -5492,7 +5489,7 @@
 	{service}: this needs a premium account	{service}: бұған премиум есептік жазба қажет
 #. text in errors.rs
 #, machine
-	{service}: too many downloads at once through your account; NetGuard will try again	{service}: есептік жазбаңыз арқылы бір уақытта тым көп жүктеу жүріп жатыр; NetGuard қайта әрекет етеді
+	{service}: too many downloads at once through your account; MDM will try again	{service}: есептік жазбаңыз арқылы бір уақытта тым көп жүктеу жүріп жатыр; MDM қайта әрекет етеді
 #. text in errors.rs
 #. a debrid service's error: the account's limit (traffic) for this host is used up
 #, machine
@@ -5593,15 +5590,15 @@ column	Time left	Қалған уақыт
 #, machine
 column	Transfer rate	Тасымалдау жылдамдығы
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
 #, machine
-extension	Another NetGuard Download Manager (a server)	Басқа NetGuard Download Manager (сервер)
+extension	Another Mister Download Manager (a server)	Басқа Mister Download Manager (сервер)
 #. text in the browser extension
 #. the name this browser gets in the other MDM's list of paired devices
 #, machine
 extension	Browser extension	Браузер кеңейтімі
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in NetGuard Download Manager
+#. menu command of the download button over a video: opens its settings in Mister Download Manager
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	Түйме параметрлері...
@@ -5610,34 +5607,34 @@ extension	Button settings...	Түйме параметрлері...
 #, machine
 extension	Can't tell which video this is: open its own page and try there	Бұл қай бейне екенін анықтау мүмкін емес: оның өз бетін ашып, сонда қайталап көріңіз
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
 #, machine
-extension	Connected to NetGuard Download Manager	NetGuard Download Manager қолданбасына қосылған
+extension	Connected to Mister Download Manager	Mister Download Manager қолданбасына қосылған
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to NetGuard Download Manager {version}	NetGuard Download Manager {version} қолданбасына қосылған
+extension	Connected to Mister Download Manager {version}	Mister Download Manager {version} қолданбасына қосылған
 #. text in the browser extension
 #. button beside a video, sound or stream in the toolbar button's popup: download it with the app; verb; short
 #, machine
 extension	Download	Жүктеп алу
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
 #, machine
-extension	Download all links with NetGuard Download Manager	Барлық сілтемелерді NetGuard Download Manager арқылы жүктеп алу
+extension	Download all links with Mister Download Manager	Барлық сілтемелерді Mister Download Manager арқылы жүктеп алу
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
 #, machine
-extension	Download selected links with NetGuard Download Manager	Таңдалған сілтемелерді NetGuard Download Manager арқылы жүктеп алу
+extension	Download selected links with Mister Download Manager	Таңдалған сілтемелерді Mister Download Manager арқылы жүктеп алу
 #. text in the browser extension
 #. the button over a video on a web page that downloads it; verb; short (it sits on the video)
 #, machine
 extension	Download video	Бейнені жүктеп алу
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
 #, machine
-extension	Download with NetGuard Download Manager	NetGuard Download Manager арқылы жүктеп алу
+extension	Download with Mister Download Manager	Mister Download Manager арқылы жүктеп алу
 #. text in the browser extension
 #. shown in the toolbar button's popup after the site was excluded
 #. {site} = a web site's name such as "example.com" (keep the braces as they are)
@@ -5656,9 +5653,9 @@ extension	Drag to move it along the video's edge	Бейненің шетімен
 #, machine
 extension	Enter its https:// address.	Оның https:// мекенжайын енгізіңіз.
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name NetGuard Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
 #, machine
-extension	Hands downloads from the browser to NetGuard Download Manager.	Жүктеп алуларды браузерден NetGuard Download Manager қолданбасына береді.
+extension	Hands downloads from the browser to Mister Download Manager.	Жүктеп алуларды браузерден Mister Download Manager қолданбасына береді.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -5713,33 +5710,33 @@ extension	Live	Тікелей
 #, machine
 extension	Media on this page	Беттегі медиа
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name NetGuard Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager	NetGuard Download Manager
+extension	Mister Download Manager	Mister Download Manager
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name NetGuard Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager didn't start in time	NetGuard Download Manager уақытында іске қосылмады
+extension	Mister Download Manager didn't start in time	Mister Download Manager уақытында іске қосылмады
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name NetGuard Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager doesn't accept this copy of the extension	NetGuard Download Manager кеңейтімнің бұл көшірмесін қабылдамайды
+extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager кеңейтімнің бұл көшірмесін қабылдамайды
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed or didn't start	NetGuard Download Manager орнатылмаған немесе іске қосылмаған
+extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager орнатылмаған немесе іске қосылмаған
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name NetGuard Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed, or its browser integration isn't set up	NetGuard Download Manager орнатылмаған немесе оның браузер интеграциясы орнатылмаған
+extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager орнатылмаған немесе оның браузер интеграциясы орнатылмаған
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	NetGuard Download Manager содан кейін осы шолғышпен бір прокси арқылы жүктеп алады. Шолушы сізден бір рет рұқсат беруді сұрайды; мұны өшіру оны қайтарады.
+extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Mister Download Manager содан кейін осы шолғышпен бір прокси арқылы жүктеп алады. Шолушы сізден бір рет рұқсат беруді сұрайды; мұны өшіру оны қайтарады.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	NetGuard Download Manager жүктеп алуларды осы браузермен бір прокси арқылы жүргізеді. Бұл өшірулі болса, кеңейтім браузердің проксиін оқымайды.
+extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager жүктеп алуларды осы браузермен бір прокси арқылы жүргізеді. Бұл өшірулі болса, кеңейтім браузердің проксиін оқымайды.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -5771,9 +5768,9 @@ extension	Open it	Ашу
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	Оның мекенжайын бір рет ашып, сертификатын қабылдаңыз, содан кейін Опциялар, Қашықтан басқару, Құрылғыны жұптау (немесе misterdownloadmanager-cli pair) бөлімінен кодты енгізіңіз.
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name NetGuard Download Manager as it is
+#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
 #, machine
-extension	Open NetGuard Download Manager	NetGuard Download Manager ашу
+extension	Open Mister Download Manager	Mister Download Manager ашу
 #. text in the browser extension
 #. button in the toolbar button's popup: open the app's Options
 #. the trailing ... means it is still going on: keep it
@@ -5812,13 +5809,13 @@ extension	Send downloads through this browser's proxy or VPN extension	Жүкт�
 #, machine
 extension	Send downloads to	Жүктеулерді жіберу
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
 #, machine
-extension	Sent to NetGuard Download Manager	NetGuard Download Manager қолданбасына жіберілді
+extension	Sent to Mister Download Manager	Mister Download Manager қолданбасына жіберілді
 #. text in the browser extension
 #. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (MDM is free; this is an optional donation)
 #, machine
-extension	Support the original project	Support the original project
+extension	Support MDM	MDM қолдау
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine
@@ -5828,9 +5825,9 @@ extension	Take downloads from this browser	Осы браузерден жүкт�
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome Web Store ережелеріне байланысты қосымша құралдың осы көшірмесі бұл сайттың бейнелерімен жұмыс істемейді. Не істеуге болатыны Анықтамада жазылған.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name NetGuard Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
 #, machine
-extension	The connection to NetGuard Download Manager failed	NetGuard Download Manager қолданбасына қосылу сәтсіз аяқталды
+extension	The connection to Mister Download Manager failed	Mister Download Manager қолданбасына қосылу сәтсіз аяқталды
 #. text in the browser extension
 #. shown briefly on the download button over a video when the app's settings keep the button off on this web site
 #, machine
@@ -5848,7 +5845,7 @@ extension	The last download was left to the browser.	Соңғы жүктеу б�
 #, machine
 extension	This browser isn't ticked in Options → General.	Бұл браузер «Параметрлер → Жалпы» бөлімінде белгіленбеген.
 #. text in the browser extension
-#. choice under Send downloads to: the NetGuard Download Manager on this computer
+#. choice under Send downloads to: the Mister Download Manager on this computer
 #, machine
 extension	This computer	Осы компьютер
 #. text in the browser extension
@@ -5860,9 +5857,9 @@ extension	This download's details were too large to hand over	Бұл жүкте�
 #, machine
 extension	This page's player streams its video in pieces, so there's no file to list. Point at the video and use its Download video button.	Бұл беттегі ойнатқыш бейнені бөліктермен ағынмен жібереді, сондықтан тізімде көрсетілетін файл жоқ. Бейнеге меңзеп, оның «Бейнені жүктеп алу» түймесін пайдаланыңыз.
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name NetGuard Download Manager as it is
+#. status when the app is older than the extension; keep the name Mister Download Manager as it is
 #, machine
-extension	Update NetGuard Download Manager to use everything this extension offers	Осы кеңейтім ұсынатын барлық мүмкіндіктерді пайдалану үшін NetGuard Download Manager қолданбасын жаңартыңыз
+extension	Update Mister Download Manager to use everything this extension offers	Осы кеңейтім ұсынатын барлық мүмкіндіктерді пайдалану үшін Mister Download Manager қолданбасын жаңартыңыз
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -5978,7 +5975,7 @@ key	Up / Down	Жоғары / Төмен
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About NetGuard Download Manager	NetGuard Download Manager туралы(&A)
+menu	&About Mister Download Manager	Mister Download Manager туралы(&A)
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6133,7 +6130,7 @@ menu	Aero	Aero
 #. menu command in the main window
 #. View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
 #, machine
-menu	Applies the next time NetGuard starts	NetGuard келесі іске қосылғанда қолданылады
+menu	Applies the next time MDM starts	MDM келесі іске қосылғанда қолданылады
 #. menu command in the main window
 #. View → Theme: a style theme's name (Mac OS X's look), a name: keep "Aqua" as written
 #, machine
@@ -6338,12 +6335,9 @@ menu	Metal didn't start here: OpenGL draws	Metal бұл компьютерде �
 #, machine
 menu	Metro	Метро
 #. menu command in the main window
-#. View → Theme: NetGuard's own look, the default (dark navy and emerald green), a name: keep "NetGuard" as written
-menu	NetGuard	NetGuard
-#. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	NetGuard Download Manager &Home Page	NetGuard Download Manager &басты беті
+menu	Mister Download Manager &Home Page	Mister Download Manager &басты беті
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	Жылжыту/Атын өзгерту (Ctrl-M)
@@ -6456,7 +6450,7 @@ menu	Select &all	Бәрін &таңдау
 menu	Show &drop target	Апару нысанасын &көрсету
 #. menu command in the main window
 #, machine
-menu	Show NetGuard Download Manager	NetGuard Download Manager көрсету
+menu	Show Mister Download Manager	Mister Download Manager көрсету
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6478,7 +6472,7 @@ menu	Stop Download	Жүктеп алуды тоқтату
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Support the &original project	Support the &original project
+menu	Support &MDM	MDM-ге &қолдау көрсету
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

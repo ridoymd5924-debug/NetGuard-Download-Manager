@@ -1,4 +1,4 @@
-<!-- How Valencian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Valencian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Adreça’t a la persona de tu, amb un to clar, cordial i directe. Evita «vosté» i les fórmules excessivament formals. (Vols cancel·lar la baixada?; Pots canviar esta opció més avant.)
 - Redacta les ordres amb l’imperatiu de tu. Mantín la mateixa forma en botons que executen una acció. (Afig; Desa)
 - En els menús, usa etiquetes breus i coherents: imperatius per a accions i substantius per a categories. (Fitxer; Edita)

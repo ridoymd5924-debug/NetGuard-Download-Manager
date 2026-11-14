@@ -5,18 +5,6 @@ Each release's notes on GitHub come from its section here (`## [X.Y.Z]`, see
 
 ## [Unreleased]
 
-## [2.2.1.9] - 2026-11-14
-
-NetGuard Download Manager's first release: Mister Download Manager 0.5.2 rebranded, with a navy-and-emerald theme. The program's features and behaviour are the original's; see [MODIFICATIONS.md](MODIFICATIONS.md).
-
-### Changed
-
-- **New name, logo and icons:** NetGuard Download Manager, everywhere the original said Mister Download Manager or MDM, in all languages.
-- **A new default theme, NetGuard** (**View → Theme**): dark navy with emerald-green accents. The other nine themes, Classic (the original look) among them, are still there, and a saved choice is kept.
-- **Help → About** shows the version (2.2.1.9) and *Made by Torik*, and the program's origin: Mister Download Manager 0.5.2 by Ahmed Nefzaoui, GPL-3.0.
-- The Support item and About's Sponsors link say they are for the original project.
-- Releases built by this repository's workflow look for updates, take problem and crash reports and link their source at this repository. They are not signed with the original project's key, so **Update now** leaves them to be downloaded from the release page.
-
 ## [0.5.2] - 2026-11-09
 
 A big fixes release: YouTube and video downloads, crashes and freezes, downloads on slow disks, the Mac helper, plus a Safari extension, far more file types and a few new columns and options.

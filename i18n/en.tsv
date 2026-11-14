@@ -1,4 +1,4 @@
-# NetGuard Download Manager: every English text of the interface (tools/i18n/extract.py).
+# Mister Download Manager: every English text of the interface (tools/i18n/extract.py).
 # context	source	translation; a catalog for another language has the same rows.
 # A '#.' line is the translator note for the row under it.
 @id	language.name	English
@@ -9,7 +9,7 @@
 #. count in a dialog box
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
-@plural	Are you sure you want to delete {n} download from NetGuard Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from NetGuard Download Manager list of downloads?	Are you sure you want to delete {n} download from NetGuard Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from NetGuard Download Manager list of downloads?
+@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -145,7 +145,7 @@
 	<< Hide details	<< Hide details
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.
+	A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -175,7 +175,7 @@
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 	a volume of it is missing	a volume of it is missing
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-	About NetGuard Download Manager	About NetGuard Download Manager
+	About Mister Download Manager	About Mister Download Manager
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 	about {ms} ms ({reach})	about {ms} ms ({reach})
@@ -215,7 +215,7 @@
 	Add many downloads	Add many downloads
 #. window title in extension.rs
 #. title of the window that offers the browser extension
-	Add NetGuard Download Manager to your browser	Add NetGuard Download Manager to your browser
+	Add Mister Download Manager to your browser	Add Mister Download Manager to your browser
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 	Add new download	Add new download
@@ -262,7 +262,7 @@
 	Added.	Added.
 #. text in remote.rs
 #. remote control page (on a phone): a magnet link or .torrent file was added; MDM reads the torrent's files first
-	Added. NetGuard is reading the torrent: it joins the list in a moment.	Added. NetGuard is reading the torrent: it joins the list in a moment.
+	Added. MDM is reading the torrent: it joins the list in a moment.	Added. MDM is reading the torrent: it joins the list in a moment.
 #. text in the Batch download window; text in a dialog box; label in the Options window; text in a download's progress window
 #. noun: the web address (URL)
 #. column title: the web address (URL)
@@ -338,7 +338,7 @@
 #. Options → Archives: where extracted files go
 	Always into a folder named after it	Always into a folder named after it
 #. checkbox in a dialog box
-	Always turn on Speed Limiter on NetGuard Download Manager startup	Always turn on Speed Limiter on NetGuard Download Manager startup
+	Always turn on Speed Limiter on Mister Download Manager startup	Always turn on Speed Limiter on Mister Download Manager startup
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 	AM	AM
@@ -388,7 +388,7 @@
 	Archives and Link grabber	Archives and Link grabber
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
-	Are you sure you want to delete "{name}" from NetGuard Download Manager list of downloads?	Are you sure you want to delete "{name}" from NetGuard Download Manager list of downloads?
+	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Argentina	Argentina
@@ -455,8 +455,6 @@
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Barbados	Barbados
-#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.
 #. window title in the Batch download window
 	Batch download	Batch download
 #. text in countries.rs
@@ -493,7 +491,7 @@
 #. a country's name (where a download's server is)
 	Bosnia and Herzegovina	Bosnia and Herzegovina
 #. text in helpers.rs
-	Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.
+	Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Botswana	Botswana
@@ -515,7 +513,7 @@
 #. the trailing ... means it opens a window: keep it
 	Browse...	Browse...
 #. text in extension.rs
-	Browser integration isn't set up on this computer, so no browser can reach NetGuard Download Manager yet.	Browser integration isn't set up on this computer, so no browser can reach NetGuard Download Manager yet.
+	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.
 #. page title in the Options window
 	Browser/System Integration	Browser/System Integration
 #. text in countries.rs
@@ -618,7 +616,7 @@
 	Check your connection, then try again, or get them later from the video window.	Check your connection, then try again, or get them later from the video window.
 #. text in the Options window
 #. tooltip of the close-setting: checked keeps MDM running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
-	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard
+	Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM	Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM
 #. message or event log entry in the main window
 #. event log entry after Recheck: {have} and {total} are sizes ("1.2 GB of 4 GB there")
 	Checked: {have} of {total} there	Checked: {have} of {total} there
@@ -663,7 +661,7 @@
 #. text in langpick.rs
 	Choose a language	Choose a language
 #. text in langpick.rs
-	Choose the language NetGuard Download Manager shows its windows in:	Choose the language NetGuard Download Manager shows its windows in:
+	Choose the language Mister Download Manager shows its windows in:	Choose the language Mister Download Manager shows its windows in:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 	Choose the profile's folder	Choose the profile's folder
@@ -779,11 +777,11 @@
 #. text in the Options window
 	Customize "Download progress" dialog	Customize "Download progress" dialog
 #. text in the Options window
-	Customize keys to prevent or force downloading with NetGuard	Customize keys to prevent or force downloading with NetGuard
+	Customize keys to prevent or force downloading with MDM	Customize keys to prevent or force downloading with MDM
 #. text in the Options window
-	Customize NetGuard Download panels in browsers	Customize NetGuard Download panels in browsers
+	Customize MDM Download panels in browsers	Customize MDM Download panels in browsers
 #. text in the Options window
-	Customize NetGuard menu items in context menu of browsers	Customize NetGuard menu items in context menu of browsers
+	Customize MDM menu items in context menu of browsers	Customize MDM menu items in context menu of browsers
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Cyprus	Cyprus
@@ -1057,7 +1055,7 @@
 	Empty: all of them. On most sites the newest come first.	Empty: all of them. On most sites the newest come first.
 #. text in crashui.rs
 #. crash report window button: end the frozen MDM and start it again
-	End and restart NetGuard	End and restart NetGuard
+	End and restart MDM	End and restart MDM
 #. text in the Add torrent window
 	Enter a magnet link or choose a .torrent file	Enter a magnet link or choose a .torrent file
 #. text in the Scheduler window
@@ -1118,7 +1116,7 @@
 #. verb: quit the app
 	Exit	Exit
 #. checkbox in a download's progress window; checkbox in the Scheduler window
-	Exit NetGuard Download Manager when done	Exit NetGuard Download Manager when done
+	Exit Mister Download Manager when done	Exit Mister Download Manager when done
 #. text in the Checksum window
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):
 #. message or event log entry in the main window
@@ -1438,7 +1436,7 @@
 #. Link grabber check box (IDM's "Hide HTML files"): links to web pages are not shown
 	Hide web pages	Hide web pages
 #. text in the Options window
-	Hold Alt while clicking a link to let the browser download it instead of NetGuard Download Manager.	Hold Alt while clicking a link to let the browser download it instead of NetGuard Download Manager.
+	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 	Home page	Home page
 #. text in countries.rs
@@ -1464,7 +1462,7 @@
 #. a country's name (where a download's server is)
 	Hungary	Hungary
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-	I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}	I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}
+	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Iceland	Iceland
@@ -1558,7 +1556,7 @@
 	it is damaged, or not the archive its name says	it is damaged, or not the archive its name says
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
-	it is not an archive NetGuard extracts	it is not an archive NetGuard extracts
+	it is not an archive MDM extracts	it is not an archive MDM extracts
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 	it needs a password	it needs a password
@@ -1574,7 +1572,7 @@
 	it would write {size}, more than the {limit} there is room or reason for	it would write {size}, more than the {limit} there is room or reason for
 #. text in the Batch download window
 #. \\n starts a new line: break lines where they fit the translation
-	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.
+	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Italy	Italy
@@ -1667,7 +1665,7 @@
 #. a country's name (where a download's server is)
 	Latvia	Latvia
 #. text in the Options window
-	Launch NetGuard Download Manager on startup	Launch NetGuard Download Manager on startup
+	Launch Mister Download Manager on startup	Launch Mister Download Manager on startup
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Lebanon	Lebanon
@@ -1676,7 +1674,7 @@
 	Lesotho	Lesotho
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
-	Let phones and computers on the local network control NetGuard	Let phones and computers on the local network control NetGuard
+	Let phones and computers on the local network control MDM	Let phones and computers on the local network control MDM
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 	Letters	Letters
@@ -1836,6 +1834,28 @@
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Mayotte	Mayotte
+#. text in the Options window
+#. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
+	MDM can't be reached on the network now: Options → Remote says why.	MDM can't be reached on the network now: Options → Remote says why.
+#. text in remote.rs
+#. remote control page (on a phone): the address typed isn't one MDM downloads (not http, https, ftp or magnet)
+	MDM cannot download this address.	MDM cannot download this address.
+#. text in remote.rs
+#. remote control page (on a phone): adding a download failed
+	MDM could not add it.	MDM could not add it.
+#. text in remote.rs
+#. remote control page (on a phone): an action failed
+	MDM could not do it.	MDM could not do it.
+#. text in remote.rs
+#. remote control page (on a phone): MDM can't be reached while pairing
+	MDM does not answer. Check that it is running and on the same network.	MDM does not answer. Check that it is running and on the same network.
+#. text in remote.rs
+#. remote control page (on a phone): MDM can't be reached now; the page keeps trying by itself
+#. the trailing ... means it is still going on: keep it
+	MDM does not answer. Trying again...	MDM does not answer. Trying again...
+#. text in remote.rs
+#. remote control page (on a phone): no pairing code is shown in MDM; "Pair a device" is MDM's button
+	MDM shows no code now. Click Pair a device there first.	MDM shows no code now. Click Pair a device there first.
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 	medium	medium
@@ -1858,6 +1878,43 @@
 #. text in a download's progress window
 #. legend: pieces not downloaded yet
 	Missing	Missing
+#. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
+	Mister Download Manager	Mister Download Manager
+#. text in unix.rs
+#. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
+	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager can't open its window: this system lacks {libraries}.
+#. text in crashui.rs
+#. crash report window heading: MDM crashed and is gone
+	Mister Download Manager closed unexpectedly	Mister Download Manager closed unexpectedly
+#. window title in the Options window
+	Mister Download Manager Configuration	Mister Download Manager Configuration
+#. text in crashui.rs
+	Mister Download Manager crash report	Mister Download Manager crash report
+#. text in crashui.rs
+#. crash report window heading: an internal error, MDM still running
+	Mister Download Manager hit an internal error	Mister Download Manager hit an internal error
+#. text in wake.rs
+#. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
+#. {queue} = a queue name such as "Main queue" (keep the braces as they are)
+	Mister Download Manager is running the queue "{queue}"	Mister Download Manager is running the queue "{queue}"
+#. text in crashui.rs
+#. crash report window heading: MDM's window doesn't answer (frozen)
+	Mister Download Manager stopped responding	Mister Download Manager stopped responding
+#. text in crashui.rs
+	Mister Download Manager stopped responding for a while	Mister Download Manager stopped responding for a while
+#. text in the Options window
+#. \\n starts a new line: break lines where they fit the translation
+	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.
+#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
+#. {version} = a version number (keep the braces as they are)
+	Mister Download Manager {version} is available (released {date}).	Mister Download Manager {version} is available (released {date}).
+#. text in helpers.rs
+#. Video helpers: {version} = the version of MDM's own copy
+#. {version} = a version number (keep the braces as they are)
+	Mister Download Manager's own copy, version {version}	Mister Download Manager's own copy, version {version}
+#. text in unix.rs
+#. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
+	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 	Mo	Mo
@@ -1961,64 +2018,6 @@
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Nepal	Nepal
-#. text in the Options window
-#. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
-	NetGuard can't be reached on the network now: Options → Remote says why.	NetGuard can't be reached on the network now: Options → Remote says why.
-#. text in remote.rs
-#. remote control page (on a phone): the address typed isn't one MDM downloads (not http, https, ftp or magnet)
-	NetGuard cannot download this address.	NetGuard cannot download this address.
-#. text in remote.rs
-#. remote control page (on a phone): adding a download failed
-	NetGuard could not add it.	NetGuard could not add it.
-#. text in remote.rs
-#. remote control page (on a phone): an action failed
-	NetGuard could not do it.	NetGuard could not do it.
-#. text in remote.rs
-#. remote control page (on a phone): MDM can't be reached while pairing
-	NetGuard does not answer. Check that it is running and on the same network.	NetGuard does not answer. Check that it is running and on the same network.
-#. text in remote.rs
-#. remote control page (on a phone): MDM can't be reached now; the page keeps trying by itself
-#. the trailing ... means it is still going on: keep it
-	NetGuard does not answer. Trying again...	NetGuard does not answer. Trying again...
-#. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-	NetGuard Download Manager	NetGuard Download Manager
-#. text in unix.rs
-#. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
-	NetGuard Download Manager can't open its window: this system lacks {libraries}.	NetGuard Download Manager can't open its window: this system lacks {libraries}.
-#. text in crashui.rs
-#. crash report window heading: MDM crashed and is gone
-	NetGuard Download Manager closed unexpectedly	NetGuard Download Manager closed unexpectedly
-#. window title in the Options window
-	NetGuard Download Manager Configuration	NetGuard Download Manager Configuration
-#. text in crashui.rs
-	NetGuard Download Manager crash report	NetGuard Download Manager crash report
-#. text in crashui.rs
-	NetGuard Download Manager hit an internal error	NetGuard Download Manager hit an internal error
-#. text in wake.rs
-#. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
-#. {queue} = a queue name such as "Main queue" (keep the braces as they are)
-	NetGuard Download Manager is running the queue "{queue}"	NetGuard Download Manager is running the queue "{queue}"
-#. text in crashui.rs
-#. crash report window heading: MDM's window doesn't answer (frozen)
-	NetGuard Download Manager stopped responding	NetGuard Download Manager stopped responding
-#. text in crashui.rs
-	NetGuard Download Manager stopped responding for a while	NetGuard Download Manager stopped responding for a while
-#. text in the Options window
-#. \\n starts a new line: break lines where they fit the translation
-	NetGuard Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	NetGuard Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.
-#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#. {version} = a version number (keep the braces as they are)
-	NetGuard Download Manager {version} is available (released {date}).	NetGuard Download Manager {version} is available (released {date}).
-#. text in helpers.rs
-#. Video helpers: {version} = the version of MDM's own copy
-#. {version} = a version number (keep the braces as they are)
-	NetGuard Download Manager's own copy, version {version}	NetGuard Download Manager's own copy, version {version}
-#. text in unix.rs
-#. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
-	NetGuard Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	NetGuard Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.
-#. text in remote.rs
-#. remote control page (on a phone): no pairing code is shown in MDM; "Pair a device" is MDM's button
-	NetGuard shows no code now. Click Pair a device there first.	NetGuard shows no code now. Click Pair a device there first.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Netherlands	Netherlands
@@ -2066,7 +2065,7 @@
 	No addresses yet	No addresses yet
 #. text in extension.rs
 #. a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
-	No browser NetGuard can connect to was found	No browser NetGuard can connect to was found
+	No browser MDM can connect to was found	No browser MDM can connect to was found
 #. text in extension.rs
 #. a check of Test browser integration: no browser's extension has reached MDM
 	No browser's extension has connected yet	No browser's extension has connected yet
@@ -2117,7 +2116,7 @@
 	No proxy/socks	No proxy/socks
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.
+	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 	No tracker added: it has them already	No tracker added: it has them already
@@ -2211,7 +2210,7 @@
 	Off: a finished torrent stops, like any download.	Off: a finished torrent stops, like any download.
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
-	Off: nothing on the network can reach NetGuard.	Off: nothing on the network can reach NetGuard.
+	Off: nothing on the network can reach MDM.	Off: nothing on the network can reach MDM.
 #. text in the Options window
 	Offer to download links copied to the clipboard	Offer to download links copied to the clipboard
 #. text in the Link grabber window
@@ -2266,7 +2265,7 @@
 	Only MP4 and MKV videos can hold subtitles	Only MP4 and MKV videos can hold subtitles
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.
+	Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.	Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than MDM lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
@@ -2283,9 +2282,9 @@
 #. button that opens the torrent's containing folder in the file manager
 	Open folder	Open folder
 #. checkbox in the Add torrent window
-	Open magnet links and .torrent files with NetGuard Download Manager	Open magnet links and .torrent files with NetGuard Download Manager
+	Open magnet links and .torrent files with Mister Download Manager	Open magnet links and .torrent files with Mister Download Manager
 #. text in the tray icon's menu
-	Open NetGuard Download Manager	Open NetGuard Download Manager
+	Open Mister Download Manager	Open Mister Download Manager
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 	Open Safari's settings (Cmd+,).	Open Safari's settings (Cmd+,).
@@ -2337,7 +2336,7 @@
 	Pair a device...	Pair a device...
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
-	Pair with NetGuard Download Manager	Pair with NetGuard Download Manager
+	Pair with Mister Download Manager	Pair with Mister Download Manager
 #. text in the Options window
 #. column title: when the device was paired
 	Paired	Paired
@@ -2572,7 +2571,7 @@
 	Replace asterisk to	Replace asterisk to
 #. text in crashui.rs
 #. crash report window button: start MDM again
-	Restart NetGuard	Restart NetGuard
+	Restart MDM	Restart MDM
 #. button in the Options window; text in the Options window
 	Restore the built-in categories	Restore the built-in categories
 #. text in a download's Properties window
@@ -2698,7 +2697,7 @@
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 	Select or unselect the download with the dotted outline	Select or unselect the download with the dotted outline
 #. group box title in the Options window
-	Select sounds for NetGuard Download Manager events	Select sounds for NetGuard Download Manager events
+	Select sounds for Mister Download Manager events	Select sounds for Mister Download Manager events
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 	Select the downloads in the box	Select the downloads in the box
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
@@ -2856,7 +2855,7 @@
 #. tab title: user names and passwords for sites
 	Sites Logins	Sites Logins
 #. text in helpers.rs
-	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.
+	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.
 #. text in helpers.rs
 	Sites send their best quality as separate video and audio. ffmpeg puts them together into one file that plays anywhere.	Sites send their best quality as separate video and audio. ffmpeg puts them together into one file that plays anywhere.
 #. text in the Link grabber window; text in a download's progress window; text in the Scheduler window; text in the Add torrent window
@@ -2937,7 +2936,7 @@
 #. text in the Scheduler window; checkbox in the Scheduler window
 	Start download at	Start download at
 #. checkbox in the Scheduler window
-	Start download on NetGuard Download Manager startup	Start download on NetGuard Download Manager startup
+	Start download on Mister Download Manager startup	Start download on Mister Download Manager startup
 #. checkbox in the Options window
 	Start downloading immediately while displaying "Download File Info" dialog	Start downloading immediately while displaying "Download File Info" dialog
 #. text in the tray icon's menu
@@ -2963,7 +2962,7 @@
 #. the same tooltip where no notification area (system tray) shows MDM's icon (some Linux desktops): its window starts minimized instead
 	Started with the computer, it starts minimized: no notification area shows its icon here	Started with the computer, it starts minimized: no notification area shows its icon here
 #. text in the Options window
-#. tooltip of "Launch NetGuard Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 	Started with the computer, it waits in the notification area	Started with the computer, it waits in the notification area
 #. message or event log entry in the main window
 #. {version} = a version number; {format} = a video format code (keep the braces as they are)
@@ -3040,7 +3039,7 @@
 #. text in the Options window; text in the Scheduler window
 	Sunday	Sunday
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-	Support the original project on GitHub Sponsors	Support the original project on GitHub Sponsors
+	Support MDM on GitHub Sponsors	Support MDM on GitHub Sponsors
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Suriname	Suriname
@@ -3126,7 +3125,7 @@
 	the browser's proxy (a VPN or proxy extension) asks for a login only that extension has: use the VPN's own app, or choose its network adapter in Options → Proxy / Socks	the browser's proxy (a VPN or proxy extension) asks for a login only that extension has: use the VPN's own app, or choose its network adapter in Options → Proxy / Socks
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
-	The browsers can find NetGuard Download Manager	The browsers can find NetGuard Download Manager
+	The browsers can find Mister Download Manager	The browsers can find Mister Download Manager
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 	The changes apply when you click OK.	The changes apply when you click OK.
@@ -3144,7 +3143,7 @@
 	The computer could not be turned off: {error}	The computer could not be turned off: {error}
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
-	The computer is woken a minute before the start time and kept awake while the queue runs. NetGuard Download Manager has to be running (it can wait in the notification area).	The computer is woken a minute before the start time and kept awake while the queue runs. NetGuard Download Manager has to be running (it can wait in the notification area).
+	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -3177,7 +3176,7 @@
 	the download link has expired (refresh the download address)	the download link has expired (refresh the download address)
 #. message or event log entry in the main window
 #. {error} = an error message (keep the braces as they are)
-	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	The download list could not be saved: {error}. Changes are kept while NetGuard runs.
+	The download list could not be saved: {error}. Changes are kept while MDM runs.	The download list could not be saved: {error}. Changes are kept while MDM runs.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.
 #. text in a dialog box
@@ -3268,7 +3267,7 @@
 	the secure connection failed	the secure connection failed
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
-	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?
+	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?
 #. text in errors.rs
 	the server answered {status}	the server answered {status}
 #. text in errors.rs
@@ -3294,7 +3293,7 @@
 	The symbols couldn't be fetched: some lines of the report show addresses instead of names (the developers can still read them).	The symbols couldn't be fetched: some lines of the report show addresses instead of names (the developers can still read them).
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (MDM never unlocks it: that would ask for its password), so the sign-ins stay in MDM's settings folder, which only the user's account may read
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.
+	The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.	The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 	The system's DNS	The system's DNS
@@ -3434,7 +3433,7 @@
 	Through {service}	Through {service}
 #. message or event log entry in the main window
 #. event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
-	Through {service}: the service downloads the torrent, then NetGuard its files	Through {service}: the service downloads the torrent, then NetGuard its files
+	Through {service}: the service downloads the torrent, then MDM its files	Through {service}: the service downloads the torrent, then MDM its files
 #. text in the Scheduler window
 	Thursday	Thursday
 #. text in the Scheduler window
@@ -3535,7 +3534,7 @@
 	Turn on "Allow unsigned extensions".	Turn on "Allow unsigned extensions".
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
-	Turn on "NetGuard Download Manager" and allow it on all websites.	Turn on "NetGuard Download Manager" and allow it on all websites.
+	Turn on "Mister Download Manager" and allow it on all websites.	Turn on "Mister Download Manager" and allow it on all websites.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 	Turn on "Show features for web developers".	Turn on "Show features for web developers".
@@ -3577,7 +3576,7 @@
 #. text in the Options window
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).
+	Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).	Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 	Type what to find, and tick at least one place to look	Type what to find, and tick at least one place to look
@@ -3649,7 +3648,7 @@
 	Use FTP in PASV mode	Use FTP in PASV mode
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy MDM downloads and checks itself
-	Use NetGuard's own copy	Use NetGuard's own copy
+	Use MDM's own copy	Use MDM's own copy
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 	Use one * only	Use one * only
@@ -3793,7 +3792,7 @@
 	Windows allows wake timers only while plugged in	Windows allows wake timers only while plugged in
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in MDM's settings, encrypted so that only this Windows account can read them
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 	Windows refused	Windows refused
@@ -3816,7 +3815,7 @@
 	Write dates and times	Write dates and times
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
-	Wrong code. Show a new code in NetGuard and try again.	Wrong code. Show a new code in NetGuard and try again.
+	Wrong code. Show a new code in MDM and try again.	Wrong code. Show a new code in MDM and try again.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -3840,7 +3839,7 @@
 	Yes, download them (recommended)	Yes, download them (recommended)
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
-	You have the latest version of NetGuard Download Manager ({version}).	You have the latest version of NetGuard Download Manager ({version}).
+	You have the latest version of Mister Download Manager ({version}).	You have the latest version of Mister Download Manager ({version}).
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -3860,7 +3859,7 @@
 #. text in helpers.rs
 #. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
 #. {version} = a version number (keep the braces as they are)
-	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	Your own program ({version}) is too old: NetGuard needs {oldest} or newer
+	Your own program ({version}) is too old: MDM needs {oldest} or newer	Your own program ({version}) is too old: MDM needs {oldest} or newer
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -3932,7 +3931,7 @@
 	{count}, {speed}	{count}, {speed}
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
-	{device} is paired. It can control NetGuard now.	{device} is paired. It can control NetGuard now.
+	{device} is paired. It can control MDM now.	{device} is paired. It can control MDM now.
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -3993,7 +3992,7 @@
 #. text in extracting archives (a download's log, the Archive password window)
 #. in the "7-Zip needed" window: {name} is the archive's file name; 7-Zip is a program's name
 #. {name} = a file name (keep the braces as they are)
-	{name} is a 7z or RAR archive. NetGuard extracts those with 7-Zip, which isn't installed.	{name} is a 7z or RAR archive. NetGuard extracts those with 7-Zip, which isn't installed.
+	{name} is a 7z or RAR archive. MDM extracts those with 7-Zip, which isn't installed.	{name} is a 7z or RAR archive. MDM extracts those with 7-Zip, which isn't installed.
 #. text in extracting archives (a download's log, the Archive password window)
 #. in Archive password: {name} is the archive's file name
 #. {name} = a file name (keep the braces as they are)
@@ -4005,7 +4004,7 @@
 #. text in errors.rs
 #. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one MDM can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
-	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version} is too old: NetGuard needs {oldest} or newer
+	{name} {version} is too old: MDM needs {oldest} or newer	{name} {version} is too old: MDM needs {oldest} or newer
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
@@ -4024,14 +4023,14 @@
 	{problem} ({cause})	{problem} ({cause})
 #. text in errors.rs
 #. a debrid service's error: too many requests; MDM waits and retries
-	{service} asks to slow down; NetGuard will try again in a minute	{service} asks to slow down; NetGuard will try again in a minute
+	{service} asks to slow down; MDM will try again in a minute	{service} asks to slow down; MDM will try again in a minute
 #. text in errors.rs
 #. a debrid service's error: it wants the user to allow this computer (it sent an email)
 	{service} asks you to allow this computer first: see its email	{service} asks you to allow this computer first: see its email
 #. text in errors.rs
 	{service} can't get this torrent: nobody shares it, or its link can't be read	{service} can't get this torrent: nobody shares it, or its link can't be read
 #. text in errors.rs
-	{service} can't reach this file host right now; NetGuard will try again later	{service} can't reach this file host right now; NetGuard will try again later
+	{service} can't reach this file host right now; MDM will try again later	{service} can't reach this file host right now; MDM will try again later
 #. text in errors.rs
 #. a debrid service's error: it isn't answering
 	{service} is not responding; try again later	{service} is not responding; try again later
@@ -4057,7 +4056,7 @@
 #. a debrid service's error: the account has no premium (or it ended)
 	{service}: this needs a premium account	{service}: this needs a premium account
 #. text in errors.rs
-	{service}: too many downloads at once through your account; NetGuard will try again	{service}: too many downloads at once through your account; NetGuard will try again
+	{service}: too many downloads at once through your account; MDM will try again	{service}: too many downloads at once through your account; MDM will try again
 #. text in errors.rs
 #. a debrid service's error: the account's limit (traffic) for this host is used up
 	{service}: your limit for this file host is used up for now	{service}: your limit for this file host is used up for now
@@ -4133,40 +4132,40 @@ column	Time left	Time left
 #. column title in the download list in the download list
 column	Transfer rate	Transfer rate
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
-extension	Another NetGuard Download Manager (a server)	Another NetGuard Download Manager (a server)
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
+extension	Another Mister Download Manager (a server)	Another Mister Download Manager (a server)
 #. text in the browser extension
 #. the name this browser gets in the other MDM's list of paired devices
 extension	Browser extension	Browser extension
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in NetGuard Download Manager
+#. menu command of the download button over a video: opens its settings in Mister Download Manager
 #. the trailing ... means it is still going on: keep it
 extension	Button settings...	Button settings...
 #. text in the browser extension
 #. shown briefly on the download button when nothing on the page says which video the player is playing, so nothing was sent
 extension	Can't tell which video this is: open its own page and try there	Can't tell which video this is: open its own page and try there
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name NetGuard Download Manager as it is
-extension	Connected to NetGuard Download Manager	Connected to NetGuard Download Manager
+#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
+extension	Connected to Mister Download Manager	Connected to Mister Download Manager
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
 #. {version} = a version number (keep the braces as they are)
-extension	Connected to NetGuard Download Manager {version}	Connected to NetGuard Download Manager {version}
+extension	Connected to Mister Download Manager {version}	Connected to Mister Download Manager {version}
 #. text in the browser extension
 #. button beside a video, sound or stream in the toolbar button's popup: download it with the app; verb; short
 extension	Download	Download
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name NetGuard Download Manager as it is
-extension	Download all links with NetGuard Download Manager	Download all links with NetGuard Download Manager
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
+extension	Download all links with Mister Download Manager	Download all links with Mister Download Manager
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name NetGuard Download Manager as it is
-extension	Download selected links with NetGuard Download Manager	Download selected links with NetGuard Download Manager
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
+extension	Download selected links with Mister Download Manager	Download selected links with Mister Download Manager
 #. text in the browser extension
 #. the button over a video on a web page that downloads it; verb; short (it sits on the video)
 extension	Download video	Download video
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name NetGuard Download Manager as it is
-extension	Download with NetGuard Download Manager	Download with NetGuard Download Manager
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
+extension	Download with Mister Download Manager	Download with Mister Download Manager
 #. text in the browser extension
 #. shown in the toolbar button's popup after the site was excluded
 #. {site} = a web site's name such as "example.com" (keep the braces as they are)
@@ -4181,8 +4180,8 @@ extension	Drag to move it along the video's edge	Drag to move it along the video
 #. the address typed isn't an https:// address
 extension	Enter its https:// address.	Enter its https:// address.
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name NetGuard Download Manager as it is
-extension	Hands downloads from the browser to NetGuard Download Manager.	Hands downloads from the browser to NetGuard Download Manager.
+#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
+extension	Hands downloads from the browser to Mister Download Manager.	Hands downloads from the browser to Mister Download Manager.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 extension	Help	Help
@@ -4224,29 +4223,29 @@ extension	Live	Live
 #. heading in the toolbar button's popup over the list of the videos, sounds and streams the current web page has loaded
 extension	Media on this page	Media on this page
 #. text in the browser extension
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
+extension	Mister Download Manager	Mister Download Manager
+#. text in the browser extension
+#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
+extension	Mister Download Manager didn't start in time	Mister Download Manager didn't start in time
+#. text in the browser extension
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
+extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager doesn't accept this copy of the extension
+#. text in the browser extension
+#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
+extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager isn't installed or didn't start
+#. text in the browser extension
+#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
+extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager isn't installed, or its browser integration isn't set up
+#. text in the browser extension
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
+extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.
+#. text in the browser extension
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
+extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.
+#. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 extension	More options	More options
-#. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name NetGuard Download Manager as it is
-extension	NetGuard Download Manager	NetGuard Download Manager
-#. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name NetGuard Download Manager as it is
-extension	NetGuard Download Manager didn't start in time	NetGuard Download Manager didn't start in time
-#. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name NetGuard Download Manager as it is
-extension	NetGuard Download Manager doesn't accept this copy of the extension	NetGuard Download Manager doesn't accept this copy of the extension
-#. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name NetGuard Download Manager as it is
-extension	NetGuard Download Manager isn't installed or didn't start	NetGuard Download Manager isn't installed or didn't start
-#. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name NetGuard Download Manager as it is
-extension	NetGuard Download Manager isn't installed, or its browser integration isn't set up	NetGuard Download Manager isn't installed, or its browser integration isn't set up
-#. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name NetGuard Download Manager as it is
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	NetGuard Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.
-#. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name NetGuard Download Manager as it is
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	NetGuard Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.
 #. text in the browser extension
 #. menu command of the download button over a video: never show the button on this web site again
 #. {site} = a web site's name such as "example.com" (keep the braces as they are)
@@ -4268,8 +4267,8 @@ extension	Open it	Open it
 #. help under the pairing boxes; Options, Remote and Pair a device are the app's window, tab and button; keep misterdownloadmanager-cli pair as it is
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name NetGuard Download Manager as it is
-extension	Open NetGuard Download Manager	Open NetGuard Download Manager
+#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
+extension	Open Mister Download Manager	Open Mister Download Manager
 #. text in the browser extension
 #. button in the toolbar button's popup: open the app's Options
 #. the trailing ... means it is still going on: keep it
@@ -4299,11 +4298,11 @@ extension	Send downloads through this browser's proxy or VPN extension	Send down
 #. heading in the toolbar button's popup, above the choice of where downloads go
 extension	Send downloads to	Send downloads to
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name NetGuard Download Manager as it is
-extension	Sent to NetGuard Download Manager	Sent to NetGuard Download Manager
+#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
+extension	Sent to Mister Download Manager	Sent to Mister Download Manager
 #. text in the browser extension
-#. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (the app is free; this is an optional donation to the original author)
-extension	Support the original project	Support the original project
+#. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (MDM is free; this is an optional donation)
+extension	Support MDM	Support MDM
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 extension	Take downloads from this browser	Take downloads from this browser
@@ -4311,8 +4310,8 @@ extension	Take downloads from this browser	Take downloads from this browser
 #. in the toolbar button's popup, on a site where the Chrome Web Store's copy of the extension shows no download button; Help is the link at the bottom of the popup
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name NetGuard Download Manager as it is
-extension	The connection to NetGuard Download Manager failed	The connection to NetGuard Download Manager failed
+#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
+extension	The connection to Mister Download Manager failed	The connection to Mister Download Manager failed
 #. text in the browser extension
 #. shown briefly on the download button over a video when the app's settings keep the button off on this web site
 extension	The download button is off on this site	The download button is off on this site
@@ -4326,7 +4325,7 @@ extension	The last download was left to the browser.	The last download was left 
 #. why a download stayed with the browser: the app's Options don't capture downloads from this browser (its box is unticked in the list of browsers)
 extension	This browser isn't ticked in Options → General.	This browser isn't ticked in Options → General.
 #. text in the browser extension
-#. choice under Send downloads to: the NetGuard Download Manager on this computer
+#. choice under Send downloads to: the Mister Download Manager on this computer
 extension	This computer	This computer
 #. text in the browser extension
 #. status when a download carried too much data (very large cookies) to give to the app
@@ -4335,8 +4334,8 @@ extension	This download's details were too large to hand over	This download's de
 #. in the toolbar button's popup, when the page's player plays from a stream built in the page (a blob:): the list of the page's media has nothing to show; Download video is the name of the button over videos
 extension	This page's player streams its video in pieces, so there's no file to list. Point at the video and use its Download video button.	This page's player streams its video in pieces, so there's no file to list. Point at the video and use its Download video button.
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name NetGuard Download Manager as it is
-extension	Update NetGuard Download Manager to use everything this extension offers	Update NetGuard Download Manager to use everything this extension offers
+#. status when the app is older than the extension; keep the name Mister Download Manager as it is
+extension	Update Mister Download Manager to use everything this extension offers	Update Mister Download Manager to use everything this extension offers
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 extension	Use advanced browser integration is off in Options → General.	Use advanced browser integration is off in Options → General.
@@ -4423,7 +4422,7 @@ key	Type a name	Type a name
 key	Up / Down	Up / Down
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-menu	&About NetGuard Download Manager	&About NetGuard Download Manager
+menu	&About Mister Download Manager	&About Mister Download Manager
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	&Add new download	&Add new download
@@ -4542,7 +4541,7 @@ menu	Adwaita	Adwaita
 menu	Aero	Aero
 #. menu command in the main window
 #. View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
-menu	Applies the next time NetGuard starts	Applies the next time NetGuard starts
+menu	Applies the next time MDM starts	Applies the next time MDM starts
 #. menu command in the main window
 #. View → Theme: a style theme's name (Mac OS X's look), a name: keep "Aqua" as written
 menu	Aqua	Aqua
@@ -4599,7 +4598,7 @@ menu	C&ustomize URL List...	C&ustomize URL List...
 #. the trailing ... means it opens a window: keep it
 menu	Check for &updates...	Check for &updates...
 #. menu command in the main window
-#. View → Theme: the original look (IDM's layout, Windows 11's controls)
+#. View → Theme: MDM's own look, the default (IDM's layout, Windows 11's controls)
 menu	Classic	Classic
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
@@ -4696,16 +4695,13 @@ menu	Metal didn't start here: OpenGL draws	Metal didn't start here: OpenGL draws
 #. View → Theme: a style theme's name (Windows 8's flat look); keep "Metro" unless your language writes it otherwise
 menu	Metro	Metro
 #. menu command in the main window
+#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
+menu	Mister Download Manager &Home Page	Mister Download Manager &Home Page
+#. menu command in the main window
 menu	Move/Rename (Ctrl-M)	Move/Rename (Ctrl-M)
 #. menu command in the main window
 #. View → Theme: the system's own colours (its accent colour, its high contrast)
 menu	Native	Native
-#. menu command in the main window
-#. View → Theme: NetGuard's own look, the default (dark navy and emerald green), a name: keep "NetGuard" as written
-menu	NetGuard	NetGuard
-#. menu command in the main window
-#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-menu	NetGuard Download Manager &Home Page	NetGuard Download Manager &Home Page
 #. menu command in the main window
 #. View → Draw with: a greyed note under "… didn't start here"; why: no graphics card here has a driver for that graphics system ("it")
 menu	No graphics card here has a driver for it	No graphics card here has a driver for it
@@ -4785,7 +4781,7 @@ menu	Select &all	Select &all
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	Show &drop target	Show &drop target
 #. menu command in the main window
-menu	Show NetGuard Download Manager	Show NetGuard Download Manager
+menu	Show Mister Download Manager	Show Mister Download Manager
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	Speed &Limiter	Speed &Limiter
@@ -4801,7 +4797,7 @@ menu	Stop	Stop
 menu	Stop Download	Stop Download
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-menu	Support the &original project	Support the &original project
+menu	Support &MDM	Support &MDM
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	Tell a &friend	Tell a &friend

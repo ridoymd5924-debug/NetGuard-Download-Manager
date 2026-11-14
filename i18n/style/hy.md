@@ -1,4 +1,4 @@
-<!-- How Armenian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Armenian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the Armenian infinitive for commands in buttons and menu items. Keep the form consistent across the interface. (Բացել; Պահպանել)
 - Write check box labels as short noun phrases or clear actions; omit final punctuation. (Ավտոմատ ներբեռնում; Սկսել ներբեռնումը Windows-ը գործարկելիս)
 - Address users respectfully with Դուք when direct address is necessary. Prefer impersonal wording that avoids addressing the user. (Մուտքագրեք հղումը; Ներբեռնումն ավարտված է)
@@ -13,5 +13,5 @@
 - When the subject is understood from context, make the status phrase agree naturally with it. Armenian has no grammatical gender; observe number agreement where the wording requires it. (Ներբեռնումը դադարեցված է։; Ֆայլերը պատրաստ են։)
 - Prefer natural Armenian word order. Keep the action and its object close together, and place variable values where they are easy to scan. (Ընտրեք ներբեռնման պանակը; Չափը՝ {size})
 - Use established Armenian technical terms and translate ordinary interface concepts. Retain familiar loanwords where they are standard, and do not introduce English unnecessarily. (ֆայլ; հղում)
-- Keep product and organization names unchanged. Do not translate or transliterate a brand name unless an approved Armenian form exists. (NetGuard Download Manager)
+- Keep product and organization names unchanged. Do not translate or transliterate a brand name unless an approved Armenian form exists. (Mister Download Manager)
 - Use the same Armenian term for the same concept throughout the interface, including menus, tooltips, statuses, and logs. (Ներբեռնել; Ներբեռնում)

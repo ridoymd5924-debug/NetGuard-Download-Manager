@@ -1,4 +1,4 @@
-<!-- How Indonesian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Indonesian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Gunakan kata kerja imperatif yang ringkas untuk perintah, tombol, dan item menu. Hindari akhiran perintah yang tidak perlu seperti “-lah”. (Unduh; Jeda)
 - Tulis label kotak centang sebagai kondisi atau tindakan yang jelas, bukan sebagai perintah kepada pengguna. Jangan akhiri label dengan tanda titik. (Mulai saat Windows dimulai)
 - Gunakan sapaan “Anda” bila perlu menyebut pengguna; utamakan kalimat yang tidak memerlukan sapaan. Gunakan ragam baku dan netral, bukan bahasa percakapan seperti “kamu”. (Pilih folder untuk menyimpan file.; File Anda siap diunduh.)

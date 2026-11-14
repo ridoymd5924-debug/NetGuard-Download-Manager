@@ -117,7 +117,7 @@
     "message": "Guida"
   },
   "popup_support": {
-    "message": "Support the original project"
+    "message": "Sostieni MDM"
   },
   "popup_fix": {
     "message": "Come risolvere"
@@ -165,10 +165,10 @@
     "message": "Nessun video o audio trovato ancora in questa pagina. Avvialo, poi riapri questo menu."
   },
   "popup_media_streamed": {
-    "message": "Il lettore di questa pagina trasmette il video a pezzi, quindi non c'è nessun file da elencare. Passa il puntatore sul video e usa il suo pulsante Scarica video."
+    "message": "Il lettore di questa pagina trasmette il video a pezzi, quindi non c'è alcun file da elencare. Punta il video e usa il suo pulsante «Scarica video»."
   },
   "popup_media_store": {
-    "message": "Le regole del Chrome Web Store non consentono a questa copia dell'estensione di scaricare i video di questo sito. La Guida spiega cosa puoi fare."
+    "message": "Le regole del Chrome Web Store tengono questa copia del componente lontana dai video di questo sito. La Guida spiega cosa puoi fare."
   },
   "popup_media_download": {
     "message": "Scarica"

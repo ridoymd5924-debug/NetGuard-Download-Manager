@@ -2,12 +2,12 @@
 
 [← Back to docs index](README.md)
 
-NetGuard's interface comes in 86 languages: every display language Windows 11 offers, from Afrikaans to Vietnamese, including both Chinese scripts, Spanish for Spain and Mexico, French for France and Canada, Portuguese for Portugal and Brazil, and Serbian in Cyrillic and Latin.
+MDM's interface comes in 86 languages: every display language Windows 11 offers, from Afrikaans to Vietnamese, including both Chinese scripts, Spanish for Spain and Mexico, French for France and Canada, Portuguese for Portugal and Brazil, and Serbian in Cyrillic and Latin.
 
 ## Choosing the language
 
-- **With the setup:** the setup asks for its language first, with Windows' display language selected. NetGuard starts in the language you choose there.
-- **Without the setup** (a zip copy): on the first start, NetGuard shows every language with its flag and its own name. Pick yours.
+- **With the setup:** the setup asks for its language first, with Windows' display language selected. MDM starts in the language you choose there.
+- **Without the setup** (a zip copy): on the first start, MDM shows every language with its flag and its own name. Pick yours.
 
 ![Choosing a language on first start](images/language-picker.webp)
 
@@ -15,17 +15,17 @@ NetGuard's interface comes in 86 languages: every display language Windows 11 of
 
 Open **View → Language...**. The same window as on the first start opens: every language by its flag, its own name and its English name. Type in **Search** to narrow the list, then double-click a language or select it and click **OK**. The window switches at once; there is nothing to restart.
 
-**Windows' language**, at the top, follows Windows' display language. When Windows uses a language NetGuard doesn't have, NetGuard shows English.
+**Windows' language**, at the top, follows Windows' display language. When Windows uses a language MDM doesn't have, MDM shows English.
 
 ## Right-to-left languages
 
 In Arabic, Hebrew, Persian, Urdu and Uyghur the whole window is mirrored: the menus, toolbar and categories run from right to left, as Windows does for these languages. File names, addresses and folder paths keep their own direction inside translated sentences, so they stay readable.
 
-![NetGuard in Arabic](images/arabic-main.webp)
+![MDM in Arabic](images/arabic-main.webp)
 
 ## Numbers and dates
 
-**Numbers** (counts, sizes, speeds, percentages and the list's columns) are written the way the interface language writes them, whatever the Windows region: German `10.200` and `1,50 MB`, French `10 200`, Hindi `1,00,000`. When your system's region is in that same language, its own way wins (Swiss German `10’200`, or a separator you set in Windows). In English, NetGuard writes plain digits, as IDM does (`10200`, `1.50 MB`).
+**Numbers** (counts, sizes, speeds, percentages and the list's columns) are written the way the interface language writes them, whatever the Windows region: German `10.200` and `1,50 MB`, French `10 200`, Hindi `1,00,000`. When your system's region is in that same language, its own way wins (Swiss German `10’200`, or a separator you set in Windows). In English, MDM writes plain digits, as IDM does (`10200`, `1.50 MB`).
 
 **Dates and times** in the list (**Last Try Date**, **Added**) and the Scheduler follow the system's region by default (on Windows **Settings → Time & language → Language & region → Regional format**; on macOS and Linux, your language's usual way), or your own date order, clock and first day of the week in [Options → Regional](options.md#regional). In English the list keeps IDM's own date text (`Oct 30 21:44:12 2026`), on the system's 12- or 24-hour clock (`Oct 30 9:44:12 PM 2026`).
 
@@ -54,8 +54,8 @@ context	source	translation
 
 To send your changes:
 
-- Open a pull request on [GitHub](../../..) with the edited catalog, or
-- [open an issue](../../../issues) describing what should change, if you'd rather not edit the file.
+- Open a pull request on [GitHub](https://github.com/anefzaoui/misterdownloadmanager) with the edited catalog, or
+- [open an issue](https://github.com/anefzaoui/misterdownloadmanager/issues) describing what should change, if you'd rather not edit the file.
 
 ## Next steps
 

@@ -1,4 +1,4 @@
-<!-- How Romanian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Romanian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the polite second-person plural imperative for instructions addressed to the user. Avoid informal singular forms. (Selectați fișierul.; Introduceți adresa URL.)
 - Keep button labels short. Prefer established action nouns or infinitive forms for common actions; use a clear imperative when the button is phrased as an instruction. (Salvare; Anulare)
 - Use the same concise action-label style in menus. Keep menu items parallel when they are part of the same group. (Pauză; Reluare)

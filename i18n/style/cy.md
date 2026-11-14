@@ -1,4 +1,4 @@
-<!-- How Welsh writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Welsh writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use Welsh verb-nouns for short commands, buttons and menu items. Use the same form for equivalent actions throughout the app. (Agor; Oedi)
 - In instructions addressed to the user, use the polite plural form with chi; do not switch between formal and informal address. (Dewiswch ffolder ar gyfer y ffeil.)
 - Phrase check-box labels as concise descriptions of an option, not as instructions to the user. (Lawrlwytho'n awtomatig)
@@ -14,7 +14,7 @@
 - Use standard Welsh punctuation and spacing: no space before punctuation and one space after it. Use an ellipsis only when text is genuinely incomplete or an action opens another view. (Dewiswch ffeil…; Wedi'i gwblhau.)
 - Use Welsh quotation marks for quoted text, and avoid quotation marks around ordinary interface labels. (Dewiswch “Agor”.)
 - Retain placeholders exactly, including their braces and spelling. Place Welsh punctuation and surrounding words naturally around them. (Methu cysylltu â {server}.)
-- Use established Welsh technical vocabulary in preference to English borrowing. Keep product names and untranslatable identifiers unchanged. (lawrlwytho; NetGuard Download Manager)
+- Use established Welsh technical vocabulary in preference to English borrowing. Keep product names and untranslatable identifiers unchanged. (lawrlwytho; Mister Download Manager)
 - Use Welsh mutations and contractions correctly; do not remove them just to match the English string structure. (yn y ffolder; Wrthi'n lawrlwytho)
 - Use complete, natural Welsh syntax when a status or message is a sentence; avoid translating each English word in place. (Mae'r lawrlwythiad wedi'i oedi.)
 - Keep terminology consistent across buttons, menus, status messages and help text. Distinguish pausing temporarily from stopping an operation. (Oedi; Atal)

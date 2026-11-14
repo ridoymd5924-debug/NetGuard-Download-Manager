@@ -3,12 +3,7 @@
 
 use serde::Deserialize;
 
-/// The repository crash reports go to (`owner/name`): NetGuard's release workflow sets
-/// `NETGUARD_REPO` to its own; without it, the upstream project's.
-pub const REPO: &str = match option_env!("NETGUARD_REPO") {
-    Some(repo) => repo,
-    None => "anefzaoui/misterdownloadmanager",
-};
+pub const REPO: &str = "anefzaoui/misterdownloadmanager";
 
 /// GitHub turns away very long addresses: the form's address is kept under this, the report cut
 /// to fit (the full one goes in as the attached file).

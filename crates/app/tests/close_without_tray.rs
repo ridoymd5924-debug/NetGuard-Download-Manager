@@ -14,10 +14,7 @@ use std::time::{Duration, Instant};
 
 const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
 /// The main window's title (main.rs MAIN_TITLE).
-const MAIN: &str = concat!(
-    "NetGuard Download Manager ",
-    mdm_ipc::product_version!()
-);
+const MAIN: &str = concat!("Mister Download Manager ", env!("CARGO_PKG_VERSION"));
 
 /// The app, ended and reaped however the test leaves it (a failed assert too).
 struct Process(Child);

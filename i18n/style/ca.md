@@ -1,4 +1,4 @@
-<!-- How Catalan writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Catalan writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Adreça’t a l’usuari de tu, amb un registre neutre i directe. Omet el pronom «tu» si no cal per aclarir o emfatitzar qui fa l’acció. (Baixa el fitxer.; Pots canviar aquesta opció més endavant.)
 - Formula les ordres en imperatiu de segona persona del singular. Fes servir la mateixa forma als botons quan indiquin una acció. (Baixa; Desa)
 - Als elements de menú, fes servir l’imperatiu per a les accions i un sintagma nominal per a les categories o opcions. (Fitxer > Obre; Eines > Programador)
@@ -11,7 +11,7 @@
 - Escriu les línies del registre d’esdeveniments com a frases completes, normalment en passat, amb punt final. (S’ha iniciat la baixada de {file}.; S’ha completat la comprovació.)
 - Fes concordar els verbs i els adjectius amb el subjecte o el nom implícit. Si el context no deixa clar a què es refereix un participi, explicita el nom. (Baixada completada; Fitxer baixat)
 - Segueix l’ordre natural de les paraules en català. Reorganitza la frase si cal; no copiïs l’ordre anglès ni separis elements que van junts. (S’ha baixat {file}; La baixada s’ha completat)
-- Fes servir la majúscula inicial només a la primera paraula dels títols i dels noms d’opcions, llevat dels noms propis. (Configuració de la baixada; NetGuard Download Manager)
+- Fes servir la majúscula inicial només a la primera paraula dels títols i dels noms d’opcions, llevat dels noms propis. (Configuració de la baixada; Mister Download Manager)
 - Escriu els dies de la setmana i els mesos amb minúscula, també en dates. (dilluns; 14 de gener)
 - No posis espai abans de la coma, el punt, els dos punts o el signe d’interrogació; posa’n un després quan la frase continuï. (Estat: en pausa; Vols continuar?)
 - Fes servir les cometes angulars (« ») per a citacions i textos literals. Reserva les cometes interiors (“ ”) per a una citació dins d’una altra. (Es mostra «Baixada completada».; El missatge diu «selecciona “Desa”».)

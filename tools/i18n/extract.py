@@ -457,7 +457,7 @@ def describe(texts, info):
 
 def render(rows, plurals):
     lines = [
-        "# NetGuard Download Manager: every English text of the interface (tools/i18n/extract.py).",
+        "# Mister Download Manager: every English text of the interface (tools/i18n/extract.py).",
         "# context\tsource\ttranslation; a catalog for another language has the same rows.",
         "# A '#.' line is the translator note for the row under it.",
         "@id\tlanguage.name\tEnglish",

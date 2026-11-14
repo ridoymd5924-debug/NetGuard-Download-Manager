@@ -1,4 +1,4 @@
-<!-- How Urdu writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Urdu writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - احکامات اور بٹنوں کے لیے مختصر، مؤدبانہ جمع کا صیغہ استعمال کریں۔ فعل عموماً جملے کے آخر میں آئے۔ (ڈاؤن لوڈ شروع کریں; فائل محفوظ کریں)
 - مینو کے عملی آئٹم بھی فعلِ امر میں لکھیں؛ نیویگیشن یا زمرے کے نام اسم کے طور پر رکھیں۔ (تمام ڈاؤن لوڈ روکیں; ڈاؤن لوڈز)
 - چیک باکس کا متن اس اختیار یا رویے کو مثبت انداز میں بیان کرے جسے فعال کیا جائے گا۔ (ڈاؤن لوڈ مکمل ہونے پر اطلاع دیں; ونڈوز شروع ہونے پر ایپ چلائیں)

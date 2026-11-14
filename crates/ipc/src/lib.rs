@@ -1,4 +1,4 @@
-//! NetGuard Download Manager's command channel (shared by the app, its command line and the browser host).
+//! Mister Download Manager's command channel (shared by the app, its command line and the browser host).
 //! Single-instance command channel. The running app listens on a localhost port and writes
 //! `{port, token}` to `%APPDATA%\misterdownloadmanager\ipc.json`; a second launch (IDM-style command line)
 //! or the browser's native messaging host sends one JSON line per command, carrying the token.
@@ -16,20 +16,6 @@ use std::sync::mpsc::Sender;
 use std::time::Duration;
 
 use serde::{Deserialize, Serialize};
-
-/// NetGuard Download Manager's product version, shown in the window title, About, the command
-/// line, the browser host and the crash reports. Cargo only accepts three-part versions, so the
-/// workspace manifest says `2.2.1` and this carries the full four-part product version. It is a
-/// macro as well so `concat!` can build a window title from it.
-#[macro_export]
-macro_rules! product_version {
-    () => {
-        "2.2.1.9"
-    };
-}
-
-/// The product version (what `product_version!` expands to).
-pub const PRODUCT_VERSION: &str = product_version!();
 
 /// A request to the running app.
 #[derive(Clone, Debug, Default, Serialize, Deserialize, schemars::JsonSchema)]
@@ -343,7 +329,7 @@ impl std::fmt::Display for SendError {
     }
 }
 
-/// Send `cmd` to a running NetGuard Download Manager.
+/// Send `cmd` to a running Mister Download Manager.
 pub fn send(cmd: &Command) -> Result<(), SendError> {
     let ack = exchange(cmd)?;
     if ack.trim() == "ok" {

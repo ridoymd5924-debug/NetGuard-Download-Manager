@@ -1,4 +1,4 @@
-# NetGuard Download Manager in Korean (한국어): tools/i18n/translate.py
+# Mister Download Manager in Korean (한국어): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	한국어
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from NetGuard Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from NetGuard Download Manager list of downloads?	NetGuard Download Manager 다운로드 목록에서 {n}개 다운로드를 삭제하시겠습니까?
+@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Mister Download Manager 다운로드 목록에서 {n}개 다운로드를 삭제하시겠습니까?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	디브리드 서비스는 사용자의 유료 계정으로 파일 호스트의 링크를 다운로드하고 MDM에 직접 링크를 제공합니다. 본인 계정만 사용하세요. 계정이나 링크를 공유하면 서비스 약관을 위반하게 되며 계정이 정지될 수 있습니다. 브라우저에서 이미 시작된 다운로드는 그대로 유지됩니다.
+	A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	디브리드 서비스는 사용자의 유료 계정으로 파일 호스트의 링크를 다운로드하고 MDM에 직접 링크를 제공합니다. 본인 계정만 사용하세요. 계정이나 링크를 공유하면 서비스 약관을 위반하게 되며 계정이 정지될 수 있습니다. 브라우저에서 이미 시작된 다운로드는 그대로 유지됩니다.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -226,7 +226,7 @@
 	a volume of it is missing	볼륨이 없습니다.
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About NetGuard Download Manager	NetGuard Download Manager 정보
+	About Mister Download Manager	Mister Download Manager 정보
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -280,7 +280,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add NetGuard Download Manager to your browser	브라우저에 NetGuard Download Manager 추가
+	Add Mister Download Manager to your browser	브라우저에 Mister Download Manager 추가
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -344,7 +344,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): a magnet link or .torrent file was added; MDM reads the torrent's files first
 #, machine
-	Added. NetGuard is reading the torrent: it joins the list in a moment.	추가됨. MDM이 토렌트를 읽는 중입니다. 잠시 후 목록에 추가됩니다.
+	Added. MDM is reading the torrent: it joins the list in a moment.	추가됨. MDM이 토렌트를 읽는 중입니다. 잠시 후 목록에 추가됩니다.
 #. text in the Batch download window; text in a dialog box; label in the Options window; text in a download's progress window
 #. noun: the web address (URL)
 #. column title: the web address (URL)
@@ -447,7 +447,7 @@
 	Always into a folder named after it	항상 이름과 같은 폴더에
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on NetGuard Download Manager startup	NetGuard Download Manager 시작 시 항상 속도 제한기 켜기
+	Always turn on Speed Limiter on Mister Download Manager startup	Mister Download Manager 시작 시 항상 속도 제한기 켜기
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -513,7 +513,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from NetGuard Download Manager list of downloads?	NetGuard Download Manager 다운로드 목록에서 "{name}"을(를) 삭제하시겠습니까?
+	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	Mister Download Manager 다운로드 목록에서 "{name}"을(를) 삭제하시겠습니까?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -603,9 +603,6 @@
 #. a country's name (where a download's server is)
 #, machine
 	Barbados	바베이도스
-#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#, machine
-	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.
 #. window title in the Batch download window
 #, machine
 	Batch download	일괄 다운로드
@@ -655,7 +652,7 @@
 	Bosnia and Herzegovina	보스니아 헤르체고비나
 #. text in helpers.rs
 #, machine
-	Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	둘 다 오픈 소스입니다. MDM은 자체 다운로더로 공식 릴리스에서 가져오며 실행하기 전에 각 파일의 서명을 확인합니다. 약 100MB, 한 번.
+	Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	둘 다 오픈 소스입니다. MDM은 자체 다운로더로 공식 릴리스에서 가져오며 실행하기 전에 각 파일의 서명을 확인합니다. 약 100MB, 한 번.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -685,7 +682,7 @@
 	Browse...	찾아보기...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach NetGuard Download Manager yet.	이 컴퓨터에 브라우저 통합이 설정되지 않아 브라우저가 아직 NetGuard Download Manager에 연결할 수 없습니다.
+	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	이 컴퓨터에 브라우저 통합이 설정되지 않아 브라우저가 아직 Mister Download Manager에 연결할 수 없습니다.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	브라우저/시스템 통합
@@ -826,7 +823,7 @@
 #. text in the Options window
 #. tooltip of the close-setting: checked keeps MDM running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
 #, machine
-	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	이 옵션을 선택하면 창을 닫아도 MDM이 계속 실행됩니다. 사용 가능한 경우 알림 영역으로 숨겨지거나, 그렇지 않으면 작업 표시줄로 최소화되고 다운로드는 계속됩니다. 선택하지 않으면 창을 닫을 때 MDM이 종료됩니다.
+	Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM	이 옵션을 선택하면 창을 닫아도 MDM이 계속 실행됩니다. 사용 가능한 경우 알림 영역으로 숨겨지거나, 그렇지 않으면 작업 표시줄로 최소화되고 다운로드는 계속됩니다. 선택하지 않으면 창을 닫을 때 MDM이 종료됩니다.
 #. message or event log entry in the main window
 #. event log entry after Recheck: {have} and {total} are sizes ("1.2 GB of 4 GB there")
 #, machine
@@ -885,7 +882,7 @@
 	Choose a language	언어 선택
 #. text in langpick.rs
 #, machine
-	Choose the language NetGuard Download Manager shows its windows in:	표시할 NetGuard Download Manager 창의 언어를 선택하세요:
+	Choose the language Mister Download Manager shows its windows in:	표시할 Mister Download Manager 창의 언어를 선택하세요:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1041,13 +1038,13 @@
 	Customize "Download progress" dialog	"다운로드 진행률" 대화 상자 사용자 지정
 #. text in the Options window
 #, machine
-	Customize keys to prevent or force downloading with NetGuard	MDM으로 다운로드를 차단하거나 강제하는 키 사용자 지정
+	Customize keys to prevent or force downloading with MDM	MDM으로 다운로드를 차단하거나 강제하는 키 사용자 지정
 #. text in the Options window
 #, machine
-	Customize NetGuard Download panels in browsers	브라우저의 NetGuard 다운로드 패널 사용자 지정
+	Customize MDM Download panels in browsers	브라우저의 MDM 다운로드 패널 사용자 지정
 #. text in the Options window
 #, machine
-	Customize NetGuard menu items in context menu of browsers	브라우저의 상황에 맞는 메뉴에서 NetGuard 메뉴 항목 사용자 지정
+	Customize MDM menu items in context menu of browsers	브라우저의 상황에 맞는 메뉴에서 MDM 메뉴 항목 사용자 지정
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -1422,7 +1419,7 @@
 #. text in crashui.rs
 #. crash report window button: end the frozen MDM and start it again
 #, machine
-	End and restart NetGuard	NetGuard 종료 및 다시 시작
+	End and restart MDM	MDM 종료 및 다시 시작
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	마그넷 링크를 입력하거나 .torrent 파일을 선택하세요.
@@ -1505,7 +1502,7 @@
 	Exit	끝내기
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit NetGuard Download Manager when done	완료 시 NetGuard Download Manager 종료
+	Exit Mister Download Manager when done	완료 시 Mister Download Manager 종료
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	예상 체크섬(MD5, SHA-1, SHA-256, SHA-512 또는 CRC32):
@@ -1941,7 +1938,7 @@
 	Hide web pages	웹 페이지 숨기기
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of NetGuard Download Manager.	Alt 키를 누른 채 링크를 클릭하면 NetGuard Download Manager 대신 브라우저가 다운로드합니다.
+	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Alt 키를 누른 채 링크를 클릭하면 Mister Download Manager 대신 브라우저가 다운로드합니다.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	홈 페이지
@@ -1977,7 +1974,7 @@
 	Hungary	헝가리
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}	저는 NetGuard Download Manager로 다운로드합니다. 빠르고 무료이며 이미 알고 있는 다운로드 관리자와 비슷합니다. {link}
+	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	저는 Mister Download Manager로 다운로드합니다. 빠르고 무료이며 이미 알고 있는 다운로드 관리자와 비슷합니다. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2104,7 +2101,7 @@
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
-	it is not an archive NetGuard extracts	MDM이 추출할 수 있는 압축 파일이 아닙니다.
+	it is not an archive MDM extracts	MDM이 추출할 수 있는 압축 파일이 아닙니다.
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
@@ -2125,7 +2122,7 @@
 #. text in the Batch download window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.	img001.jpg, img002.jpg 등 img100.jpg와 같은 순차적인 파일 이름 그룹을 NetGuard 다운로드 대기열에 추가할 수 있습니다. 파일 이름 패턴에 별표 와일드카드를 사용하세요.
+	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.	img001.jpg, img002.jpg 등 img100.jpg와 같은 순차적인 파일 이름 그룹을 MDM 다운로드 대기열에 추가할 수 있습니다. 파일 이름 패턴에 별표 와일드카드를 사용하세요.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2252,7 +2249,7 @@
 	Latvia	라트비아
 #. text in the Options window
 #, machine
-	Launch NetGuard Download Manager on startup	시작 시 NetGuard Download Manager 실행
+	Launch Mister Download Manager on startup	시작 시 Mister Download Manager 실행
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2264,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control NetGuard	로컬 네트워크의 휴대폰 및 컴퓨터가 MDM을 제어하도록 허용
+	Let phones and computers on the local network control MDM	로컬 네트워크의 휴대폰 및 컴퓨터가 MDM을 제어하도록 허용
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2482,32 +2479,32 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
 #, machine
-	NetGuard can't be reached on the network now: Options → Remote says why.	MDM에 네트워크에서 연결할 수 없습니다. 옵션 → 원격에서 이유를 확인하세요.
+	MDM can't be reached on the network now: Options → Remote says why.	MDM에 네트워크에서 연결할 수 없습니다. 옵션 → 원격에서 이유를 확인하세요.
 #. text in remote.rs
 #. remote control page (on a phone): the address typed isn't one MDM downloads (not http, https, ftp or magnet)
 #, machine
-	NetGuard cannot download this address.	MDM이 이 주소를 다운로드할 수 없습니다.
+	MDM cannot download this address.	MDM이 이 주소를 다운로드할 수 없습니다.
 #. text in remote.rs
 #. remote control page (on a phone): adding a download failed
 #, machine
-	NetGuard could not add it.	MDM이 추가할 수 없습니다.
+	MDM could not add it.	MDM이 추가할 수 없습니다.
 #. text in remote.rs
 #. remote control page (on a phone): an action failed
 #, machine
-	NetGuard could not do it.	MDM이 수행할 수 없습니다.
+	MDM could not do it.	MDM이 수행할 수 없습니다.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached while pairing
 #, machine
-	NetGuard does not answer. Check that it is running and on the same network.	MDM이 응답하지 않습니다. 실행 중이고 동일한 네트워크에 있는지 확인하세요.
+	MDM does not answer. Check that it is running and on the same network.	MDM이 응답하지 않습니다. 실행 중이고 동일한 네트워크에 있는지 확인하세요.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached now; the page keeps trying by itself
 #. the trailing ... means it is still going on: keep it
 #, machine
-	NetGuard does not answer. Trying again...	MDM이 응답하지 않습니다. 다시 시도 중...
+	MDM does not answer. Trying again...	MDM이 응답하지 않습니다. 다시 시도 중...
 #. text in remote.rs
 #. remote control page (on a phone): no pairing code is shown in MDM; "Pair a device" is MDM's button
 #, machine
-	NetGuard shows no code now. Click Pair a device there first.	MDM에 코드가 표시되지 않습니다. 먼저 '장치 페어링'을 클릭하세요.
+	MDM shows no code now. Click Pair a device there first.	MDM에 코드가 표시되지 않습니다. 먼저 '장치 페어링'을 클릭하세요.
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 #, machine
@@ -2539,54 +2536,54 @@
 	Missing	누락
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	NetGuard Download Manager	NetGuard Download Manager
+	Mister Download Manager	Mister Download Manager
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	NetGuard Download Manager can't open its window: this system lacks {libraries}.	NetGuard Download Manager에서 창을 열 수 없습니다. 이 시스템에 {libraries} 라이브러리가 없습니다.
+	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager에서 창을 열 수 없습니다. 이 시스템에 {libraries} 라이브러리가 없습니다.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	NetGuard Download Manager closed unexpectedly	NetGuard Download Manager이(가) 예기치 않게 종료되었습니다.
+	Mister Download Manager closed unexpectedly	Mister Download Manager이(가) 예기치 않게 종료되었습니다.
 #. window title in the Options window
 #, machine
-	NetGuard Download Manager Configuration	NetGuard Download Manager 구성
+	Mister Download Manager Configuration	Mister Download Manager 구성
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager crash report	NetGuard Download Manager 크래시 보고서
+	Mister Download Manager crash report	Mister Download Manager 크래시 보고서
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	NetGuard Download Manager hit an internal error	NetGuard Download Manager에 내부 오류가 발생했습니다.
+	Mister Download Manager hit an internal error	Mister Download Manager에 내부 오류가 발생했습니다.
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	NetGuard Download Manager is running the queue "{queue}"	NetGuard Download Manager에서 "{queue}" 큐를 실행 중입니다.
+	Mister Download Manager is running the queue "{queue}"	Mister Download Manager에서 "{queue}" 큐를 실행 중입니다.
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	NetGuard Download Manager stopped responding	NetGuard Download Manager이(가) 응답을 중지했습니다.
+	Mister Download Manager stopped responding	Mister Download Manager이(가) 응답을 중지했습니다.
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager stopped responding for a while	NetGuard Download Manager이(가) 잠시 응답을 중지했습니다.
+	Mister Download Manager stopped responding for a while	Mister Download Manager이(가) 잠시 응답을 중지했습니다.
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	NetGuard Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	NetGuard Download Manager는 모든 연결을 최종 파일(그 옆의 스파스 부분 파일)에 직접 기록하므로 임시 디렉터리 및 조립 단계가 필요하지 않습니다.
+	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager는 모든 연결을 최종 파일(그 옆의 스파스 부분 파일)에 직접 기록하므로 임시 디렉터리 및 조립 단계가 필요하지 않습니다.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager {version} is available (released {date}).	NetGuard Download Manager {version}을 사용할 수 있습니다({date}에 릴리스됨).
+	Mister Download Manager {version} is available (released {date}).	Mister Download Manager {version}을 사용할 수 있습니다({date}에 릴리스됨).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager's own copy, version {version}	NetGuard Download Manager 자체 복사본, 버전 {version}
+	Mister Download Manager's own copy, version {version}	Mister Download Manager 자체 복사본, 버전 {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	NetGuard Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	NetGuard Download Manager의 X11 창에는 {libraries} 라이브러리가 필요하지만 이 시스템에 없습니다. 대신 Wayland에서 열리므로 메뉴가 제목과 다른 위치에 열릴 수 있습니다.
+	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Mister Download Manager의 X11 창에는 {libraries} 라이브러리가 필요하지만 이 시스템에 없습니다. 대신 Wayland에서 열리므로 메뉴가 제목과 다른 위치에 열릴 수 있습니다.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -2793,7 +2790,7 @@
 #. text in extension.rs
 #. a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
 #, machine
-	No browser NetGuard can connect to was found	MDM이 연결할 수 있는 브라우저를 찾을 수 없습니다.
+	No browser MDM can connect to was found	MDM이 연결할 수 있는 브라우저를 찾을 수 없습니다.
 #. text in extension.rs
 #. a check of Test browser integration: no browser's extension has reached MDM
 #, machine
@@ -2863,7 +2860,7 @@
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	시스템 키링이 응답하지 않아 로그인 및 암호는 사용자만 읽을 수 있는 NetGuard 설정에 보관됩니다.
+	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	시스템 키링이 응답하지 않아 로그인 및 암호는 사용자만 읽을 수 있는 MDM 설정에 보관됩니다.
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -2994,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach NetGuard.	끔: 네트워크의 어떤 것도 MDM에 연결할 수 없습니다.
+	Off: nothing on the network can reach MDM.	끔: 네트워크의 어떤 것도 MDM에 연결할 수 없습니다.
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	클립보드에 복사된 링크 다운로드 제안
@@ -3070,7 +3067,7 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	페어링된 장치만 모든 것을 보거나 변경할 수 있습니다. 처음에는 휴대폰 브라우저가 NetGuard 자체 인증서에 대해 경고합니다. 지문은 위에 있는 것입니다.
+	Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.	페어링된 장치만 모든 것을 보거나 변경할 수 있습니다. 처음에는 휴대폰 브라우저가 MDM 자체 인증서에 대해 경고합니다. 지문은 위에 있는 것입니다.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than MDM lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
@@ -3092,10 +3089,10 @@
 	Open folder	폴더 열기
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with NetGuard Download Manager	NetGuard Download Manager에서 마그넷 링크 및 .torrent 파일 열기
+	Open magnet links and .torrent files with Mister Download Manager	Mister Download Manager에서 마그넷 링크 및 .torrent 파일 열기
 #. text in the tray icon's menu
 #, machine
-	Open NetGuard Download Manager	NetGuard Download Manager 열기
+	Open Mister Download Manager	Mister Download Manager 열기
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3166,7 +3163,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with NetGuard Download Manager	NetGuard Download Manager과(와) 페어링
+	Pair with Mister Download Manager	Mister Download Manager과(와) 페어링
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3481,7 +3478,7 @@
 #. text in crashui.rs
 #. crash report window button: start MDM again
 #, machine
-	Restart NetGuard	NetGuard 다시 시작
+	Restart MDM	MDM 다시 시작
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	기본 제공 범주 복원
@@ -3652,7 +3649,7 @@
 	Select or unselect the download with the dotted outline	점선 윤곽선이 있는 다운로드 선택 또는 선택 취소
 #. group box title in the Options window
 #, machine
-	Select sounds for NetGuard Download Manager events	NetGuard Download Manager 이벤트에 대한 소리 선택
+	Select sounds for Mister Download Manager events	Mister Download Manager 이벤트에 대한 소리 선택
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	상자에 있는 다운로드 선택
@@ -3868,7 +3865,7 @@
 	Sites Logins	사이트 로그인
 #. text in helpers.rs
 #, machine
-	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.	사이트는 최고의 품질을 별도의 비디오 및 오디오로 보내고, ffmpeg가 이를 결합합니다. 이 시스템에서 MDM은 사용자의 것을 사용합니다. 패키지 관리자로 ffmpeg를 설치하세요.
+	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.	사이트는 최고의 품질을 별도의 비디오 및 오디오로 보내고, ffmpeg가 이를 결합합니다. 이 시스템에서 MDM은 사용자의 것을 사용합니다. 패키지 관리자로 ffmpeg를 설치하세요.
 #. text in helpers.rs
 #, machine
 	Sites send their best quality as separate video and audio. ffmpeg puts them together into one file that plays anywhere.	사이트는 최고의 품질을 별도의 비디오 및 오디오로 보냅니다. ffmpeg는 이를 어디서든 재생할 수 있는 하나의 파일로 결합합니다.
@@ -3978,7 +3975,7 @@
 	Start download at	다운로드 시작 시각
 #. checkbox in the Scheduler window
 #, machine
-	Start download on NetGuard Download Manager startup	NetGuard Download Manager 시작 시 다운로드 시작
+	Start download on Mister Download Manager startup	Mister Download Manager 시작 시 다운로드 시작
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	"파일 정보 다운로드" 대화 상자를 표시하는 동안 즉시 다운로드 시작
@@ -4013,7 +4010,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	컴퓨터와 함께 시작하면 최소화된 상태로 시작됩니다. 여기에는 알림 영역에 아이콘이 표시되지 않습니다.
 #. text in the Options window
-#. tooltip of "Launch NetGuard Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	컴퓨터와 함께 시작하면 알림 영역에서 대기합니다.
 #. message or event log entry in the main window
@@ -4117,7 +4114,7 @@
 	Sunday	일요일
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Support the original project on GitHub Sponsors	Support the original project on GitHub Sponsors
+	Support MDM on GitHub Sponsors	GitHub Sponsors에서 MDM 지원
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -4234,7 +4231,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find NetGuard Download Manager	브라우저가 NetGuard Download Manager을(를) 찾을 수 있습니다.
+	The browsers can find Mister Download Manager	브라우저가 Mister Download Manager을(를) 찾을 수 있습니다.
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4258,7 +4255,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. NetGuard Download Manager has to be running (it can wait in the notification area).	컴퓨터는 시작 시간 1분 전에 절전 모드에서 해제되고 큐가 실행되는 동안 절전 모드가 해제된 상태로 유지됩니다. NetGuard Download Manager이(가) 실행 중이어야 합니다(알림 영역에서 대기할 수 있음).
+	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	컴퓨터는 시작 시간 1분 전에 절전 모드에서 해제되고 큐가 실행되는 동안 절전 모드가 해제된 상태로 유지됩니다. Mister Download Manager이(가) 실행 중이어야 합니다(알림 영역에서 대기할 수 있음).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4303,7 +4300,7 @@
 #. message or event log entry in the main window
 #. {error} = an error message (keep the braces as they are)
 #, machine
-	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	다운로드 목록을 저장할 수 없습니다. {error}. MDM이 실행되는 동안 변경 사항이 유지됩니다.
+	The download list could not be saved: {error}. Changes are kept while MDM runs.	다운로드 목록을 저장할 수 없습니다. {error}. MDM이 실행되는 동안 변경 사항이 유지됩니다.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.	이미 알고 있는 다운로드 관리자를 더 빠르게 재구축했습니다. GNU GPL 버전 3 이상에 따라 무료 오픈 소스입니다. 비디오는 yt-dlp로 찾고, 토렌트는 librqbit에서 실행됩니다.
@@ -4429,7 +4426,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?	선택한 다운로드가 완료되지 않았습니다. NetGuard Download Manager 다운로드 목록에서 삭제하시겠습니까?
+	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	선택한 다운로드가 완료되지 않았습니다. Mister Download Manager 다운로드 목록에서 삭제하시겠습니까?
 #. text in errors.rs
 #, machine
 	the server answered {status}	서버 응답: {status}
@@ -4466,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (MDM never unlocks it: that would ask for its password), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	시스템 키링이 잠겨 있고 MDM이 잠금을 해제하지 않으므로 로그인 및 암호는 사용자만 읽을 수 있는 NetGuard 설정에 보관됩니다.
+	The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.	시스템 키링이 잠겨 있고 MDM이 잠금을 해제하지 않으므로 로그인 및 암호는 사용자만 읽을 수 있는 MDM 설정에 보관됩니다.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4656,7 +4653,7 @@
 #. message or event log entry in the main window
 #. event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
 #, machine
-	Through {service}: the service downloads the torrent, then NetGuard its files	{service}를 통해: 서비스가 토렌트를 다운로드한 다음 MDM이 해당 파일을 다운로드했습니다.
+	Through {service}: the service downloads the torrent, then MDM its files	{service}를 통해: 서비스가 토렌트를 다운로드한 다음 MDM이 해당 파일을 다운로드했습니다.
 #. text in the Scheduler window
 #, machine
 	Thursday	목요일
@@ -4793,7 +4790,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "NetGuard Download Manager" and allow it on all websites.	“NetGuard Download Manager”을 켜고 모든 웹 사이트에서 허용합니다.
+	Turn on "Mister Download Manager" and allow it on all websites.	“Mister Download Manager”을 켜고 모든 웹 사이트에서 허용합니다.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -4849,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	{page}에 이 코드를 입력하고 MDM을 허용하세요. 기다리는 중입니다(코드는 {time}에 만료됩니다).
+	Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).	{page}에 이 코드를 입력하고 MDM을 허용하세요. 기다리는 중입니다(코드는 {time}에 만료됩니다).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4946,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy MDM downloads and checks itself
 #, machine
-	Use NetGuard's own copy	NetGuard 자체 복사본 사용
+	Use MDM's own copy	MDM 자체 복사본 사용
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5142,7 +5139,7 @@
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in MDM's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows 자격 증명 관리자가 응답하지 않아 로그인 및 암호는 사용자 Windows 계정용으로 암호화된 NetGuard 설정에 보관됩니다.
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.	Windows 자격 증명 관리자가 응답하지 않아 로그인 및 암호는 사용자 Windows 계정용으로 암호화된 MDM 설정에 보관됩니다.
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine
@@ -5174,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in NetGuard and try again.	잘못된 코드입니다. MDM에서 새 코드를 표시하고 다시 시도하세요.
+	Wrong code. Show a new code in MDM and try again.	잘못된 코드입니다. MDM에서 새 코드를 표시하고 다시 시도하세요.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5206,7 +5203,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of NetGuard Download Manager ({version}).	NetGuard Download Manager({version})의 최신 버전을 사용 중입니다.
+	You have the latest version of Mister Download Manager ({version}).	Mister Download Manager({version})의 최신 버전을 사용 중입니다.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -5232,7 +5229,7 @@
 #. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	사용자 프로그램({version})이 너무 오래되었습니다. MDM에는 {oldest} 이상이 필요합니다.
+	Your own program ({version}) is too old: MDM needs {oldest} or newer	사용자 프로그램({version})이 너무 오래되었습니다. MDM에는 {oldest} 이상이 필요합니다.
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -5327,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control NetGuard now.	{device}이(가) 페어링되었습니다. 이제 MDM을 제어할 수 있습니다.
+	{device} is paired. It can control MDM now.	{device}이(가) 페어링되었습니다. 이제 MDM을 제어할 수 있습니다.
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5407,7 +5404,7 @@
 #. in the "7-Zip needed" window: {name} is the archive's file name; 7-Zip is a program's name
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	{name} is a 7z or RAR archive. NetGuard extracts those with 7-Zip, which isn't installed.	{name}은 7z 또는 RAR 압축 파일입니다. MDM은 7-Zip으로 압축을 해제하지만, 7-Zip이 설치되어 있지 않습니다.
+	{name} is a 7z or RAR archive. MDM extracts those with 7-Zip, which isn't installed.	{name}은 7z 또는 RAR 압축 파일입니다. MDM은 7-Zip으로 압축을 해제하지만, 7-Zip이 설치되어 있지 않습니다.
 #. text in extracting archives (a download's log, the Archive password window)
 #. in Archive password: {name} is the archive's file name
 #. {name} = a file name (keep the braces as they are)
@@ -5422,7 +5419,7 @@
 #. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one MDM can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
 #, machine
-	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version}이(가) 너무 오래되었습니다. MDM에는 {oldest} 이상이 필요합니다.
+	{name} {version} is too old: MDM needs {oldest} or newer	{name} {version}이(가) 너무 오래되었습니다. MDM에는 {oldest} 이상이 필요합니다.
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
@@ -5447,7 +5444,7 @@
 #. text in errors.rs
 #. a debrid service's error: too many requests; MDM waits and retries
 #, machine
-	{service} asks to slow down; NetGuard will try again in a minute	{service}에서 요청을 너무 많이 받아 속도를 늦춰 달라고 요청했습니다. MDM이 1분 후에 다시 시도합니다.
+	{service} asks to slow down; MDM will try again in a minute	{service}에서 요청을 너무 많이 받아 속도를 늦춰 달라고 요청했습니다. MDM이 1분 후에 다시 시도합니다.
 #. text in errors.rs
 #. a debrid service's error: it wants the user to allow this computer (it sent an email)
 #, machine
@@ -5457,7 +5454,7 @@
 	{service} can't get this torrent: nobody shares it, or its link can't be read	{service}에서 이 토렌트를 가져올 수 없습니다. 공유하는 사람이 없거나 링크를 읽을 수 없습니다.
 #. text in errors.rs
 #, machine
-	{service} can't reach this file host right now; NetGuard will try again later	{service}에서 현재 이 파일 호스트에 연결할 수 없습니다. MDM이 나중에 다시 시도합니다.
+	{service} can't reach this file host right now; MDM will try again later	{service}에서 현재 이 파일 호스트에 연결할 수 없습니다. MDM이 나중에 다시 시도합니다.
 #. text in errors.rs
 #. a debrid service's error: it isn't answering
 #, machine
@@ -5492,7 +5489,7 @@
 	{service}: this needs a premium account	{service}: 프리미엄 계정이 필요합니다.
 #. text in errors.rs
 #, machine
-	{service}: too many downloads at once through your account; NetGuard will try again	{service}: 계정을 통해 동시에 너무 많은 다운로드가 진행 중입니다. MDM이 다시 시도합니다.
+	{service}: too many downloads at once through your account; MDM will try again	{service}: 계정을 통해 동시에 너무 많은 다운로드가 진행 중입니다. MDM이 다시 시도합니다.
 #. text in errors.rs
 #. a debrid service's error: the account's limit (traffic) for this host is used up
 #, machine
@@ -5593,15 +5590,15 @@ column	Time left	남은 시간
 #, machine
 column	Transfer rate	전송 속도
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
 #, machine
-extension	Another NetGuard Download Manager (a server)	다른 NetGuard Download Manager (서버)
+extension	Another Mister Download Manager (a server)	다른 Mister Download Manager (서버)
 #. text in the browser extension
 #. the name this browser gets in the other MDM's list of paired devices
 #, machine
 extension	Browser extension	브라우저 확장
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in NetGuard Download Manager
+#. menu command of the download button over a video: opens its settings in Mister Download Manager
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	단추 설정...
@@ -5610,34 +5607,34 @@ extension	Button settings...	단추 설정...
 #, machine
 extension	Can't tell which video this is: open its own page and try there	어떤 비디오인지 알 수 없습니다. 비디오 자체 페이지를 열어 다시 시도하세요
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
 #, machine
-extension	Connected to NetGuard Download Manager	NetGuard Download Manager에 연결됨
+extension	Connected to Mister Download Manager	Mister Download Manager에 연결됨
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to NetGuard Download Manager {version}	NetGuard Download Manager {version}에 연결됨
+extension	Connected to Mister Download Manager {version}	Mister Download Manager {version}에 연결됨
 #. text in the browser extension
 #. button beside a video, sound or stream in the toolbar button's popup: download it with the app; verb; short
 #, machine
 extension	Download	다운로드
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
 #, machine
-extension	Download all links with NetGuard Download Manager	NetGuard Download Manager으로 모든 링크 다운로드
+extension	Download all links with Mister Download Manager	Mister Download Manager으로 모든 링크 다운로드
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
 #, machine
-extension	Download selected links with NetGuard Download Manager	NetGuard Download Manager으로 선택한 링크 다운로드
+extension	Download selected links with Mister Download Manager	Mister Download Manager으로 선택한 링크 다운로드
 #. text in the browser extension
 #. the button over a video on a web page that downloads it; verb; short (it sits on the video)
 #, machine
 extension	Download video	비디오 다운로드
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
 #, machine
-extension	Download with NetGuard Download Manager	NetGuard Download Manager으로 다운로드
+extension	Download with Mister Download Manager	Mister Download Manager으로 다운로드
 #. text in the browser extension
 #. shown in the toolbar button's popup after the site was excluded
 #. {site} = a web site's name such as "example.com" (keep the braces as they are)
@@ -5656,9 +5653,9 @@ extension	Drag to move it along the video's edge	비디오 가장자리를 따�
 #, machine
 extension	Enter its https:// address.	https:// 주소를 입력하세요.
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name NetGuard Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
 #, machine
-extension	Hands downloads from the browser to NetGuard Download Manager.	브라우저에서 NetGuard Download Manager으로 다운로드를 전달합니다.
+extension	Hands downloads from the browser to Mister Download Manager.	브라우저에서 Mister Download Manager으로 다운로드를 전달합니다.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -5713,33 +5710,33 @@ extension	Live	라이브
 #, machine
 extension	Media on this page	이 페이지의 미디어
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name NetGuard Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager	NetGuard Download Manager
+extension	Mister Download Manager	Mister Download Manager
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name NetGuard Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager didn't start in time	NetGuard Download Manager이(가) 제시간에 시작되지 않았습니다.
+extension	Mister Download Manager didn't start in time	Mister Download Manager이(가) 제시간에 시작되지 않았습니다.
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name NetGuard Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager doesn't accept this copy of the extension	NetGuard Download Manager이(가) 이 확장 프로그램 복사본을 허용하지 않습니다.
+extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager이(가) 이 확장 프로그램 복사본을 허용하지 않습니다.
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed or didn't start	NetGuard Download Manager이(가) 설치되지 않았거나 시작되지 않았습니다.
+extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager이(가) 설치되지 않았거나 시작되지 않았습니다.
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name NetGuard Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed, or its browser integration isn't set up	NetGuard Download Manager이(가) 설치되지 않았거나 브라우저 통합이 설정되지 않았습니다.
+extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager이(가) 설치되지 않았거나 브라우저 통합이 설정되지 않았습니다.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	NetGuard Download Manager이 이 브라우저와 동일한 프록시를 통해 다운로드합니다. 브라우저에서 한 번 허용할지 묻습니다. 이 기능을 끄면 해당 권한이 취소됩니다.
+extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Mister Download Manager이 이 브라우저와 동일한 프록시를 통해 다운로드합니다. 브라우저에서 한 번 허용할지 묻습니다. 이 기능을 끄면 해당 권한이 취소됩니다.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	NetGuard Download Manager이(가) 이 브라우저와 동일한 프록시를 통해 다운로드합니다. 이 옵션이 꺼져 있으면 확장 프로그램이 브라우저의 프록시를 읽지 않습니다.
+extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager이(가) 이 브라우저와 동일한 프록시를 통해 다운로드합니다. 이 옵션이 꺼져 있으면 확장 프로그램이 브라우저의 프록시를 읽지 않습니다.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -5771,9 +5768,9 @@ extension	Open it	열기
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	해당 주소를 한 번 열고 인증서를 수락한 다음, 옵션, 원격, 장치 페어링(또는 misterdownloadmanager-cli pair)에서 코드를 입력하세요.
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name NetGuard Download Manager as it is
+#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
 #, machine
-extension	Open NetGuard Download Manager	NetGuard Download Manager 열기
+extension	Open Mister Download Manager	Mister Download Manager 열기
 #. text in the browser extension
 #. button in the toolbar button's popup: open the app's Options
 #. the trailing ... means it is still going on: keep it
@@ -5812,13 +5809,13 @@ extension	Send downloads through this browser's proxy or VPN extension	이 브�
 #, machine
 extension	Send downloads to	다운로드 보낼 위치
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
 #, machine
-extension	Sent to NetGuard Download Manager	NetGuard Download Manager으로 보냄
+extension	Sent to Mister Download Manager	Mister Download Manager으로 보냄
 #. text in the browser extension
 #. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (MDM is free; this is an optional donation)
 #, machine
-extension	Support the original project	Support the original project
+extension	Support MDM	MDM 지원
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine
@@ -5828,9 +5825,9 @@ extension	Take downloads from this browser	이 브라우저에서 다운로드 �
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome 웹 스토어 규칙에 따라 이 부가 기능 사본은 이 사이트의 비디오에서 작동하지 않습니다. 할 수 있는 방법은 도움말을 참조하세요.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name NetGuard Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
 #, machine
-extension	The connection to NetGuard Download Manager failed	NetGuard Download Manager에 대한 연결에 실패했습니다.
+extension	The connection to Mister Download Manager failed	Mister Download Manager에 대한 연결에 실패했습니다.
 #. text in the browser extension
 #. shown briefly on the download button over a video when the app's settings keep the button off on this web site
 #, machine
@@ -5848,7 +5845,7 @@ extension	The last download was left to the browser.	마지막 다운로드는 �
 #, machine
 extension	This browser isn't ticked in Options → General.	옵션 → 일반에서 이 브라우저가 선택되지 않았습니다.
 #. text in the browser extension
-#. choice under Send downloads to: the NetGuard Download Manager on this computer
+#. choice under Send downloads to: the Mister Download Manager on this computer
 #, machine
 extension	This computer	이 컴퓨터
 #. text in the browser extension
@@ -5860,9 +5857,9 @@ extension	This download's details were too large to hand over	이 다운로드�
 #, machine
 extension	This page's player streams its video in pieces, so there's no file to list. Point at the video and use its Download video button.	이 페이지의 플레이어는 비디오를 조각으로 스트리밍하므로 목록에 표시할 파일이 없습니다. 비디오를 가리킨 다음 '비디오 다운로드' 버튼을 사용하세요.
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name NetGuard Download Manager as it is
+#. status when the app is older than the extension; keep the name Mister Download Manager as it is
 #, machine
-extension	Update NetGuard Download Manager to use everything this extension offers	이 확장에서 제공하는 모든 기능을 사용하려면 NetGuard Download Manager을(를) 업데이트하세요.
+extension	Update Mister Download Manager to use everything this extension offers	이 확장에서 제공하는 모든 기능을 사용하려면 Mister Download Manager을(를) 업데이트하세요.
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -5978,7 +5975,7 @@ key	Up / Down	위쪽 / 아래쪽
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About NetGuard Download Manager	NetGuard Download Manager 정보(&A)
+menu	&About Mister Download Manager	Mister Download Manager 정보(&A)
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6133,7 +6130,7 @@ menu	Aero	Aero
 #. menu command in the main window
 #. View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
 #, machine
-menu	Applies the next time NetGuard starts	MDM을 다음에 시작할 때 적용됩니다.
+menu	Applies the next time MDM starts	MDM을 다음에 시작할 때 적용됩니다.
 #. menu command in the main window
 #. View → Theme: a style theme's name (Mac OS X's look), a name: keep "Aqua" as written
 #, machine
@@ -6338,12 +6335,9 @@ menu	Metal didn't start here: OpenGL draws	Metal이 여기서 시작되지 않�
 #, machine
 menu	Metro	메트로
 #. menu command in the main window
-#. View → Theme: NetGuard's own look, the default (dark navy and emerald green), a name: keep "NetGuard" as written
-menu	NetGuard	NetGuard
-#. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	NetGuard Download Manager &Home Page	NetGuard Download Manager &홈 페이지
+menu	Mister Download Manager &Home Page	Mister Download Manager &홈 페이지
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	이동/이름 바꾸기(Ctrl+M)
@@ -6456,7 +6450,7 @@ menu	Select &all	모두 선택(&A)
 menu	Show &drop target	끌어 놓기 대상 표시(&D)
 #. menu command in the main window
 #, machine
-menu	Show NetGuard Download Manager	NetGuard Download Manager 표시
+menu	Show Mister Download Manager	Mister Download Manager 표시
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6478,7 +6472,7 @@ menu	Stop Download	다운로드 중지
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Support the &original project	Support the &original project
+menu	Support &MDM	MDM &지원
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

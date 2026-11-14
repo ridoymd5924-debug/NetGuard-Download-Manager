@@ -1,4 +1,4 @@
-<!-- How Bosnian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Bosnian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Koristite bosanski standardni jezik i latinicu, uključujući slova č, ć, đ, š i ž. Pišite prirodno i jasno, bez doslovnog prevođenja engleskih konstrukcija. (Preuzimanje je završeno.; Odaberite mapu za preuzimanje.)
 - Korisniku se obraćajte formalno sa „vi“. U uputama koristite drugo lice množine; zamjenicu pišite malim slovom, osim na početku rečenice. (Odaberite mapu u koju želite sačuvati datoteke.; Možete promijeniti postavke.)
 - Komande oblikujte kao kratke naredbe u drugom licu množine. Ne koristite infinitiv kao oznaku radnje. (Pokrenite preuzimanje; Provjerite vezu)
@@ -7,7 +7,7 @@
 - Tekst uz potvrdni okvir napišite kao kratku opisnu tvrdnju ili imensku frazu, a ne kao naredbu. Tačka nije potrebna. (Pokretanje pri prijavi u Windows; Automatski provjeravaj ažuriranja)
 - Pitanja za potvrdu napišite kao potpuna, direktna pitanja i obratite se korisniku sa „vi“. Kad je moguće, dugmad označite konkretnom radnjom umjesto neodređenim odgovorom. (Želite li zaustaviti preuzimanje?; Zaustavite preuzimanje)
 - Oznake i naslove kolona držite kratkim i tele grafskim: koristite imenice ili ustaljene kratke izraze, bez članova i suvišnih prijedloga. Prijedlog zadržite kada je potreban za jasnoću. (Brzina; Veličina datoteke)
-- Naslove pišite rečeničnim stilom: veliko početno slovo ima samo prva riječ, osim vlastitih imena i akronima. (Postavke preuzimanja; NetGuard Download Manager)
+- Naslove pišite rečeničnim stilom: veliko početno slovo ima samo prva riječ, osim vlastitih imena i akronima. (Postavke preuzimanja; Mister Download Manager)
 - Nazive mjeseci i dana u sedmici pišite malim početnim slovom, osim ako su na početku rečenice. (Preuzimanje zakazano za ponedjeljak; ažurirano 12. maja)
 - Tekst napretka oblikujte kao kratku, prirodnu poruku. Za radnju koja traje koristite bezlični oblik sa „se“; tri tačke koristite samo ako poruka zaista označava nedovršen korak. (Provjerava se veza…; Preuzimanje je u toku)
 - Brojčane statusne poruke oblikujte tako da ne zavise od gramatičkog roda ili broja promjenjivog broja. Koristite imenicu koja označava broj stavki. ({n} preuzimanja u toku; {n} datoteka čeka u redu)

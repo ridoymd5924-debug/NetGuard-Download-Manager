@@ -8,15 +8,15 @@
 #   target/extension/mdm-firefox.xpi  - the firefox folder, zipped (Firefox needs it signed by AMO
 #                                       to install for good; about:debugging loads it unsigned)
 #   target/extension/mdm-chrome-store.zip - what is uploaded to the Chrome Web Store (see below)
-# Both manifests get the app's version (the product version, crates/ipc/src/lib.rs), so an extension and its app always match.
+# Both manifests get the app's version (Cargo.toml), so an extension and its app always match.
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $src = Join-Path $root "extension"
 # Joined part by part: .NET (the zips below) takes a backslash literally on Linux and macOS.
 $out = Join-Path (Join-Path $root "target") "extension"
-$cargo = Get-Content (Join-Path $root "crates/ipc/src/lib.rs") -Raw
-$version = [regex]::Match($cargo, '(?s)macro_rules!\s+product_version\s*\{\s*\(\)\s*=>\s*\{\s*"([^"]+)"').Groups[1].Value
-if (-not $version) { throw "no product version in crates/ipc/src/lib.rs" }
+$cargo = Get-Content (Join-Path $root "Cargo.toml") -Raw
+$version = [regex]::Match($cargo, '(?m)^version\s*=\s*"([^"]+)"').Groups[1].Value
+if (-not $version) { throw "no version in Cargo.toml" }
 # The stores take one to four dot-separated numbers only (no "-rc.1").
 if ($version -notmatch '^\d+(\.\d+){0,3}$') { throw "version ${version}: browsers take only numbers like 1.2.3" }
 foreach ($kind in "chromium", "firefox", "safari") {

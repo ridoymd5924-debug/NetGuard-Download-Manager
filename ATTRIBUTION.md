@@ -1,12 +1,3 @@
-# Origin, and third-party assets
-
-NetGuard Download Manager 2.2.1.9 is a modified version of **Mister Download Manager 0.5.2**
-(<https://github.com/anefzaoui/misterdownloadmanager>), Copyright (c) 2026 Ahmed Nefzaoui, a free
-program under the GNU General Public License, version 3 or later (`LICENSE`). Its code was not
-written by the people who modified it; their changes are listed in `MODIFICATIONS.md`. The
-original copyright and licence notices are kept as they were, and `NOTICE` says it once more.
-Everything below belongs to the original project's list of what it contains, and still applies.
-
 # Third-party assets
 
 | Asset | Author | Licence | Where |
@@ -23,16 +14,12 @@ Everything below belongs to the original project's list of what it contains, and
 | adwaita-icon-theme 51.0, 50 of its icons (the Adwaita theme's toolbar, categories, file types and title-bar buttons), unchanged; its one-colour icons are drawn in the theme's text colour when read | The GNOME Project, <https://gitlab.gnome.org/GNOME/adwaita-icon-theme> (commit 70ecd52) | LGPL-3.0 (of LGPL-3.0 or CC BY-SA 3.0 US) — `crates/app/assets/themes/adwaita/icons/LICENSE`, `COPYING` | `crates/app/assets/themes/adwaita/icons/` (its PDF, torrent-file and Hide to the notification area icons are MDM's own) |
 | breeze-icons 6.31, 51 of its icons (the Breeze theme's toolbar, categories, file types and title-bar buttons), unchanged; its one-colour icons are drawn in the theme's text colour when read | Uri Herrera and the KDE Visual Design Group, <https://invent.kde.org/frameworks/breeze-icons> (commit 60ca517) | LGPL-3.0-or-later — `crates/app/assets/themes/breeze/icons/LICENSE` | `crates/app/assets/themes/breeze/icons/` (its PDF and Hide to the notification area icons are MDM's own) |
 
-The NetGuard app icon and logo (`art/NetGuard Download Manager.png`, and every icon size, the
-extension's icons, `docs/images/logo.png` and `docs/images/social-preview.png`) were drawn in code
-by Torik for NetGuard Download Manager (a shield with a download arrow, in navy and emerald):
-`tools/icon/build_icon.py` draws them, with no third-party artwork or generated image in them.
-They replace the original project's app icon (`art/Mister Download Manager.png`, made for Mister
-Download Manager by its author, Ahmed Nefzaoui, with ChatGPT, OpenAI's image generation), which is
-no longer part of this program; it remains the original project's, under its GPL-3.0 release.
+The app icon (`art/NetGuard Download Manager.png`) was made for NetGuard Download Manager by its
+author, Ahmed Nefzaoui, with ChatGPT (OpenAI's image generation); every icon size is built from
+it by `tools/icon/build_icon.py`.
 
 The Luna, Aero and Aqua themes' icons (`crates/app/assets/themes/luna/icons/`, `aero/icons/`,
-`aqua/icons/`) were drawn for Mister Download Manager, as were the Metro, Adwaita and Breeze
+`aqua/icons/`) were drawn for NetGuard Download Manager, as were the Metro, Adwaita and Breeze
 icons named MDM's own above; each set's `SOURCES.txt` lists them.
 
 The README's block icons (`docs/images/icons/`: arrow, globe, gift, magnet) were made for it
@@ -57,7 +44,4 @@ System resources used at run time and **not** bundled: Windows fonts (Segoe UI, 
 Arial) and each system's own file-type icons (the Windows shell's, macOS Finder's, the Linux
 desktop's icon theme).
 
-The program (still called MDM inside: its source, binaries and settings keep that name) contains no
-artwork, text or code from Internet Download Manager (see the README). The original project's
-screenshots in `docs/images/` show its Classic look and its name; the pictures of other programs
-and films in them keep their licences, listed above.
+MDM contains no artwork, text or code from Internet Download Manager (see the README).

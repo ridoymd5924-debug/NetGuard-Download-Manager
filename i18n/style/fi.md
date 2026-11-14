@@ -1,4 +1,4 @@
-<!-- How Finnish writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Finnish writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Muotoile toimintokomennot ja painikkeet suoraan puhutteluna, yleensä verbin imperatiivin toisessa persoonassa. Käytä samaa muotoa myös toimintoa käynnistävissä valikkokohdissa. (Avaa; Tallenna)
 - Käytä valikkokohdissa toimintojen nimien sijasta imperatiivia; käytä nimitystä, kun kohta avaa näkymän tai asetussivun. (Tarkista päivitykset; Asetukset)
 - Muotoile valintaruudun teksti lyhyeksi, myönteiseksi nimifraasiksi, joka kertoo valittavan tilan. Älä käytä komentoa tai kielteistä kysymystä. (Käynnistä lataus automaattisesti; Näytä ilmoitukset)
@@ -17,7 +17,7 @@
 - Käytä kysymyksissä kysymysmerkkiä. Käytä kolmea pistettä tai typografista ellipsiä johdonmukaisesti vain keskeneräisen toiminnon tai jatkoa ilmaisevan tekstin yhteydessä. (Haluatko jatkaa?; Tarkistetaan…)
 - Älä lisää välilyöntiä välimerkin eteen. Käytä kaksoispisteen jälkeen yhtä välilyöntiä ja suomen käytännön mukaista välilyöntiä luvun ja prosenttimerkin välissä. (Virhe: yhteys katkesi; Ladattu 75 %)
 - Käytä lainauksissa suomen typografisia lainausmerkkejä. Säilytä käyttöliittymässä näytettävät tunnisteet täsmälleen, jos käyttäjän on löydettävä ne muualta. (Valitse ”Lataukset”-kansio.; Tiedoston nimi on ”paketti.zip”.)
-- Suosi vakiintunutta suomenkielistä termiä englanninkielisen lainasanan sijasta. Säilytä tuotenimet, tiedostopäätteet ja tekniset tunnisteet alkuperäisinä; taivuta vieraskielistä nimeä tarvittaessa yhdysmerkillä. (latausjono; NetGuard Download Managerissa)
+- Suosi vakiintunutta suomenkielistä termiä englanninkielisen lainasanan sijasta. Säilytä tuotenimet, tiedostopäätteet ja tekniset tunnisteet alkuperäisinä; taivuta vieraskielistä nimeä tarvittaessa yhdysmerkillä. (latausjono; Mister Download Managerissa)
 - Käytä yhdysmerkkiä selkeyttämään lyhenteen tai erisnimen ja suomenkielisen osan yhdistelmää. Muodosta tavalliset suomen yhdyssanat yhteen. (URL-osoite; latauksenhallinta)
 - Erota samankaltaiset toiminnot toisistaan: keskeytä tarkoittaa väliaikaista taukoa, pysäytä lopettamista ja jatka keskeytetyn toiminnon uudelleen käynnistämistä. (Keskeytä lataus; Pysäytä lataus)
 - Käytä lukuarvojen ja yksiköiden yhteydessä välilyöntiä. Älä muuta muuttujien, paikkamerkkien tai ohjelman edellyttämien merkkijonojen kirjoitusasua. (10 Mt; {n} %)

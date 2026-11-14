@@ -28,13 +28,10 @@ fn main() {
         res.set_icon("assets/icons/app/mdm.ico")
             .set("ProductName", "NetGuard Download Manager")
             .set("FileDescription", "NetGuard Download Manager")
-            .set("CompanyName", "Torik (based on work by Ahmed Nefzaoui)")
-            // The product version has four numbers (mdm_ipc::PRODUCT_VERSION); Cargo's has three.
-            .set("FileVersion", "2.2.1.9")
-            .set("ProductVersion", "2.2.1.9")
+            .set("CompanyName", "Ahmed Nefzaoui")
             .set(
                 "LegalCopyright",
-                "Copyright (C) 2026 Ahmed Nefzaoui. GPL-3.0-or-later. NetGuard modifications by Torik.",
+                "Copyright (C) 2026 Ahmed Nefzaoui. GPL-3.0-or-later.",
             );
         if let Err(e) = res.compile() {
             // A missing resource compiler must not break the build; the window still sets

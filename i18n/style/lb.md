@@ -1,4 +1,4 @@
-<!-- How Luxembourgish writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Luxembourgish writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the verb in the infinitive for commands, button labels and menu actions. Keep labels short and omit terminal punctuation. (Eroflueden; Späicheren)
 - Phrase check box labels as short actions or conditions, not as questions. Omit the full stop. (Beim Start automatesch eroflueden)
 - Address the user formally as „Dir“; capitalize the pronoun and related forms such as „Är“. Keep this register consistent. (Wielt Ären Download-Dossier aus.)

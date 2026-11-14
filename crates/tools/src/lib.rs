@@ -25,10 +25,9 @@ use sha2::{Digest, Sha256};
 
 /// yt-dlp's release signing key, from its repository (`public.key`).
 const YTDLP_KEY: &str = include_str!("../keys/yt-dlp.asc");
-/// The original project's (Mister Download Manager's) release signing key (Ed25519, fingerprint
+/// Mister Download Manager's release signing key (Ed25519, fingerprint
 /// 5826D399249DE856EA087D802E293C28E8A69D74): release.yml signs each release's SHA256SUMS.txt
 /// with it (the MDM_RELEASE_KEY secret), and MDM updates itself only from a list it signed.
-/// NetGuard's releases are not signed with it: replace the key to sign your own.
 const MDM_KEY: &str = include_str!("../keys/mdm-release.asc");
 /// Where releases come from.
 const RELEASES: &str = "https://api.github.com/repos/yt-dlp/yt-dlp/releases/latest";
@@ -95,8 +94,8 @@ pub fn signed_by_ytdlp(sums: &[u8], sig: &[u8]) -> bool {
     signed_by(YTDLP_KEY, sums, sig)
 }
 
-/// Whether `sums` (a release's SHA256SUMS.txt) carries a valid signature `sig` by the release key
-/// pinned in `keys/mdm-release.asc` (the original project's; see `MDM_KEY`).
+/// Whether `sums` (a release's SHA256SUMS.txt) carries a valid signature `sig` by Mister
+/// Download Manager's release key.
 pub fn signed_by_mdm(sums: &[u8], sig: &[u8]) -> bool {
     if signed_by(MDM_KEY, sums, sig) {
         return true;

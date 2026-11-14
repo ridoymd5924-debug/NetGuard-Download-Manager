@@ -1,4 +1,4 @@
-<!-- How Slovak writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Slovak writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - For commands, buttons, and menu actions, use the Slovak infinitive. Keep the action concise; do not switch to an imperative just because the control is a button. (Stiahnuť; Pozastaviť sťahovanie)
 - Phrase check box labels as short statements or infinitive phrases that clearly describe the enabled behavior. Make the checked and unchecked meaning unambiguous. (Spúšťať aplikáciu pri prihlasovaní; Po dokončení sťahovania vypnúť počítač)
 - Address the user formally with Vy and its grammatical forms. Prefer neutral instructions and infinitive action labels over conversational or overly deferential wording. (Zadajte adresu URL.; Vaše nastavenia sa uložili.)

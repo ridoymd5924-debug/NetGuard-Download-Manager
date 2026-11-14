@@ -1,4 +1,4 @@
-<!-- How Hungarian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Hungarian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use formal address. Prefer wording that does not address the user directly; where an instruction is needed, use the formal imperative. Avoid tegező forms and unnecessary Ön. (Adja meg a letöltési helyet.; Válassza ki a mappát.)
 - Phrase commands as clear actions, usually with a formal imperative. Keep button labels short; use an established concise action label where one exists. (Válassza a Mentés lehetőséget.; Mégse)
 - Use concise action names for menu commands, keeping the wording consistent with related buttons. (Letöltés szüneteltetése; Összes kijelölése)
@@ -13,5 +13,5 @@
 - Use sentence case for UI text: capitalize the first word and proper names, not every word in a title. Hungarian month and weekday names are lowercase. (Letöltési beállítások; március 15., hétfő)
 - Follow Hungarian punctuation conventions: no space before punctuation and one space after it. Use Hungarian quotation marks when quotation marks are needed. (Hiba történt: {error}; „Letöltés kész”)
 - Use Hungarian characters and accents correctly. Do not omit accents in capitals or UI labels. (Értesítési terület; Függőben)
-- Prefer established Hungarian terms to unnecessary loanwords. Keep product names and unavoidable technical names unchanged, and use a term consistently throughout the app. (hivatkozás, not link; NetGuard Download Manager)
+- Prefer established Hungarian terms to unnecessary loanwords. Keep product names and unavoidable technical names unchanged, and use a term consistently throughout the app. (hivatkozás, not link; Mister Download Manager)
 - Keep terminology and grammatical form consistent for the same action across buttons, menus, statuses, and logs. (Szüneteltetés → Letöltés szüneteltetése → A letöltés szünetel.)

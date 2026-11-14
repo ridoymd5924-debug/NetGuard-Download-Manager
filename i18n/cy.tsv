@@ -1,4 +1,4 @@
-# NetGuard Download Manager in Welsh (Cymraeg): tools/i18n/translate.py
+# Mister Download Manager in Welsh (Cymraeg): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	Cymraeg
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from NetGuard Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from NetGuard Download Manager list of downloads?	Ydych chi'n siŵr eich bod am ddileu {n} lawrlwythiad o restr lawrlwythiadau NetGuard Download Manager?|Ydych chi'n siŵr eich bod am ddileu {n} lawrlwythiad o restr lawrlwythiadau NetGuard Download Manager?|Ydych chi'n siŵr eich bod am ddileu'r {n} lawrlwythiad hyn o restr lawrlwythiadau NetGuard Download Manager?|Ydych chi'n siŵr eich bod am ddileu'r {n} lawrlwythiad hyn o restr lawrlwythiadau NetGuard Download Manager?|Ydych chi'n siŵr eich bod am ddileu'r {n} lawrlwythiad hyn o restr lawrlwythiadau NetGuard Download Manager?|Ydych chi'n siŵr eich bod am ddileu'r {n} lawrlwythiad hyn o restr lawrlwythiadau NetGuard Download Manager?
+@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Ydych chi'n siŵr eich bod am ddileu {n} lawrlwythiad o restr lawrlwythiadau Mister Download Manager?|Ydych chi'n siŵr eich bod am ddileu {n} lawrlwythiad o restr lawrlwythiadau Mister Download Manager?|Ydych chi'n siŵr eich bod am ddileu'r {n} lawrlwythiad hyn o restr lawrlwythiadau Mister Download Manager?|Ydych chi'n siŵr eich bod am ddileu'r {n} lawrlwythiad hyn o restr lawrlwythiadau Mister Download Manager?|Ydych chi'n siŵr eich bod am ddileu'r {n} lawrlwythiad hyn o restr lawrlwythiadau Mister Download Manager?|Ydych chi'n siŵr eich bod am ddileu'r {n} lawrlwythiad hyn o restr lawrlwythiadau Mister Download Manager?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Mae gwasanaeth dadfridio yn lawrlwytho dolen gwesteiwr ffeil gyda'ch cyfrif taledig eich hun ac yn rhoi dolen uniongyrchol i NetGuard. Defnyddiwch eich cyfrif eich hun yn unig: mae rhannu cyfrif neu ei ddolenni yn torri telerau'r gwasanaethau a gall arwain at ei atal. Mae lawrlwythiadau y mae'r porwr eisoes wedi'u cychwyn yn aros fel y maent.
+	A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Mae gwasanaeth dadfridio yn lawrlwytho dolen gwesteiwr ffeil gyda'ch cyfrif taledig eich hun ac yn rhoi dolen uniongyrchol i MDM. Defnyddiwch eich cyfrif eich hun yn unig: mae rhannu cyfrif neu ei ddolenni yn torri telerau'r gwasanaethau a gall arwain at ei atal. Mae lawrlwythiadau y mae'r porwr eisoes wedi'u cychwyn yn aros fel y maent.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -226,7 +226,7 @@
 	a volume of it is missing	mae un o'i gyfrolau ar goll
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About NetGuard Download Manager	Ynglŷn â NetGuard Download Manager
+	About Mister Download Manager	Ynglŷn â Mister Download Manager
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -280,7 +280,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add NetGuard Download Manager to your browser	Ychwanegu NetGuard Download Manager at eich porwr
+	Add Mister Download Manager to your browser	Ychwanegu Mister Download Manager at eich porwr
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -344,7 +344,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): a magnet link or .torrent file was added; MDM reads the torrent's files first
 #, machine
-	Added. NetGuard is reading the torrent: it joins the list in a moment.	Ychwanegwyd. Mae NetGuard yn darllen y cenllif: bydd yn ymuno â'r rhestr mewn eiliad.
+	Added. MDM is reading the torrent: it joins the list in a moment.	Ychwanegwyd. Mae MDM yn darllen y cenllif: bydd yn ymuno â'r rhestr mewn eiliad.
 #. text in the Batch download window; text in a dialog box; label in the Options window; text in a download's progress window
 #. noun: the web address (URL)
 #. column title: the web address (URL)
@@ -447,7 +447,7 @@
 	Always into a folder named after it	Bob amser i ffolder sydd wedi'i enwi ar ei ôl
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on NetGuard Download Manager startup	Bob amser yn troi Cyfyngwr Cyflymder ymlaen wrth gychwyn NetGuard Download Manager
+	Always turn on Speed Limiter on Mister Download Manager startup	Bob amser yn troi Cyfyngwr Cyflymder ymlaen wrth gychwyn Mister Download Manager
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -513,7 +513,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from NetGuard Download Manager list of downloads?	Ydych chi'n siŵr eich bod am ddileu "{name}" o restr lawrlwythiadau NetGuard Download Manager?
+	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	Ydych chi'n siŵr eich bod am ddileu "{name}" o restr lawrlwythiadau Mister Download Manager?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -603,9 +603,6 @@
 #. a country's name (where a download's server is)
 #, machine
 	Barbados	Barbados
-#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#, machine
-	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.
 #. window title in the Batch download window
 #, machine
 	Batch download	Lawrlwytho swp
@@ -655,7 +652,7 @@
 	Bosnia and Herzegovina	Bosnia a Herzegovina
 #. text in helpers.rs
 #, machine
-	Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	Mae'r ddau yn ffynhonnell agored. Mae NetGuard yn eu cael o'u datganiadau swyddogol gyda'i lawrlwythwr ei hun ac yn gwirio llofnod pob ffeil cyn ei redeg. Tua 100 MB, unwaith.
+	Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	Mae'r ddau yn ffynhonnell agored. Mae MDM yn eu cael o'u datganiadau swyddogol gyda'i lawrlwythwr ei hun ac yn gwirio llofnod pob ffeil cyn ei redeg. Tua 100 MB, unwaith.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -685,7 +682,7 @@
 	Browse...	Pori...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach NetGuard Download Manager yet.	Nid yw integreiddio porwr wedi'i sefydlu ar y cyfrifiadur hwn, felly ni all unrhyw borwr gyrraedd NetGuard Download Manager eto.
+	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	Nid yw integreiddio porwr wedi'i sefydlu ar y cyfrifiadur hwn, felly ni all unrhyw borwr gyrraedd Mister Download Manager eto.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	Integreiddio Porwr/System
@@ -819,14 +816,14 @@
 #. checkbox in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. check box in the update window: look for a new version every time MDM starts
 #, machine
-	Check for updates at every start	Gwirio am ddiweddariadau bob tro y bydd NetGuard Download Manager yn cychwyn
+	Check for updates at every start	Gwirio am ddiweddariadau bob tro y bydd Mister Download Manager yn cychwyn
 #. text in helpers.rs
 #, machine
 	Check your connection, then try again, or get them later from the video window.	Gwiriwch eich cysylltiad, yna ceisiwch eto, neu eu cael yn ddiweddarach o'r ffenestr fideo.
 #. text in the Options window
 #. tooltip of the close-setting: checked keeps MDM running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
 #, machine
-	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	Os caiff ei wirio, mae cau'r ffenestr yn cadw NetGuard i redeg: mae'n cuddio yn yr ardal hysbysu pan fydd ar gael, neu'n lleihau i'r bar tasgau fel arall, ac mae lawrlwythiadau'n parhau; os na chaiff ei wirio, mae cau'n rhoi'r gorau i NetGuard.
+	Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM	Os caiff ei wirio, mae cau'r ffenestr yn cadw MDM i redeg: mae'n cuddio yn yr ardal hysbysu pan fydd ar gael, neu'n lleihau i'r bar tasgau fel arall, ac mae lawrlwythiadau'n parhau; os na chaiff ei wirio, mae cau'n rhoi'r gorau i MDM.
 #. message or event log entry in the main window
 #. event log entry after Recheck: {have} and {total} are sizes ("1.2 GB of 4 GB there")
 #, machine
@@ -885,7 +882,7 @@
 	Choose a language	Dewis iaith
 #. text in langpick.rs
 #, machine
-	Choose the language NetGuard Download Manager shows its windows in:	Dewiswch yr iaith y mae NetGuard Download Manager yn dangos ei ffenestri ynddi:
+	Choose the language Mister Download Manager shows its windows in:	Dewiswch yr iaith y mae Mister Download Manager yn dangos ei ffenestri ynddi:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1041,13 +1038,13 @@
 	Customize "Download progress" dialog	Addasu blwch deialog "Cynnydd lawrlwytho"
 #. text in the Options window
 #, machine
-	Customize keys to prevent or force downloading with NetGuard	Addasu allweddi i atal neu orfodi lawrlwytho gyda NetGuard
+	Customize keys to prevent or force downloading with MDM	Addasu allweddi i atal neu orfodi lawrlwytho gyda MDM
 #. text in the Options window
 #, machine
-	Customize NetGuard Download panels in browsers	Addasu paneli Lawrlwytho NetGuard mewn porwyr
+	Customize MDM Download panels in browsers	Addasu paneli Lawrlwytho MDM mewn porwyr
 #. text in the Options window
 #, machine
-	Customize NetGuard menu items in context menu of browsers	Addasu eitemau dewislen NetGuard yn newislen cyd-destun porwyr
+	Customize MDM menu items in context menu of browsers	Addasu eitemau dewislen MDM yn newislen cyd-destun porwyr
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -1422,7 +1419,7 @@
 #. text in crashui.rs
 #. crash report window button: end the frozen MDM and start it again
 #, machine
-	End and restart NetGuard	Terfynu ac ailgychwyn NetGuard
+	End and restart MDM	Terfynu ac ailgychwyn MDM
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	Rhowch ddolen magnet neu dewiswch ffeil .torrent
@@ -1505,7 +1502,7 @@
 	Exit	Gadael
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit NetGuard Download Manager when done	Gadael NetGuard Download Manager pan fydd wedi gorffen
+	Exit Mister Download Manager when done	Gadael Mister Download Manager pan fydd wedi gorffen
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Swm gwirio disgwyliedig (MD5, SHA-1, SHA-256, SHA-512 neu CRC32):
@@ -1941,7 +1938,7 @@
 	Hide web pages	Cuddio tudalennau gwe
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of NetGuard Download Manager.	Daliwch Alt wrth glicio dolen i adael i'r porwr ei lawrlwytho yn lle NetGuard Download Manager.
+	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Daliwch Alt wrth glicio dolen i adael i'r porwr ei lawrlwytho yn lle Mister Download Manager.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	Hafan
@@ -1977,7 +1974,7 @@
 	Hungary	Hwngari
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}	Rwy'n lawrlwytho gyda NetGuard Download Manager: yn gyflym, yn rhad ac am ddim, ac mae'n edrych fel y rheolwr lawrlwytho rydych chi eisoes yn ei adnabod. {link}
+	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	Rwy'n lawrlwytho gyda Mister Download Manager: yn gyflym, yn rhad ac am ddim, ac mae'n edrych fel y rheolwr lawrlwytho rydych chi eisoes yn ei adnabod. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2104,7 +2101,7 @@
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
-	it is not an archive NetGuard extracts	nid yw'n archif y mae NetGuard yn ei echdynnu
+	it is not an archive MDM extracts	nid yw'n archif y mae MDM yn ei echdynnu
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
@@ -2125,7 +2122,7 @@
 #. text in the Batch download window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.	Mae'n bosibl ychwanegu grŵp o enwau ffeiliau dilyniannol fel img001.jpg, img002.jpg, ac ati,\nimg100.jpg i giw lawrlwytho NetGuard. Defnyddiwch y nod gwyllt seren ar gyfer y patrwm enw ffeil.
+	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.	Mae'n bosibl ychwanegu grŵp o enwau ffeiliau dilyniannol fel img001.jpg, img002.jpg, ac ati,\nimg100.jpg i giw lawrlwytho MDM. Defnyddiwch y nod gwyllt seren ar gyfer y patrwm enw ffeil.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2252,7 +2249,7 @@
 	Latvia	Latfia
 #. text in the Options window
 #, machine
-	Launch NetGuard Download Manager on startup	Lansio NetGuard Download Manager ar gychwyn
+	Launch Mister Download Manager on startup	Lansio Mister Download Manager ar gychwyn
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2264,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control NetGuard	Gadewch i ffonau a chyfrifiaduron ar y rhwydwaith lleol reoli NetGuard
+	Let phones and computers on the local network control MDM	Gadewch i ffonau a chyfrifiaduron ar y rhwydwaith lleol reoli MDM
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2482,32 +2479,32 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
 #, machine
-	NetGuard can't be reached on the network now: Options → Remote says why.	Ni ellir cyrraedd NetGuard ar y rhwydwaith nawr: mae Opsiynau → Anghysbell yn dweud pam.
+	MDM can't be reached on the network now: Options → Remote says why.	Ni ellir cyrraedd MDM ar y rhwydwaith nawr: mae Opsiynau → Anghysbell yn dweud pam.
 #. text in remote.rs
 #. remote control page (on a phone): the address typed isn't one MDM downloads (not http, https, ftp or magnet)
 #, machine
-	NetGuard cannot download this address.	Ni all NetGuard lawrlwytho'r cyfeiriad hwn.
+	MDM cannot download this address.	Ni all MDM lawrlwytho'r cyfeiriad hwn.
 #. text in remote.rs
 #. remote control page (on a phone): adding a download failed
 #, machine
-	NetGuard could not add it.	Ni allai NetGuard ei ychwanegu.
+	MDM could not add it.	Ni allai MDM ei ychwanegu.
 #. text in remote.rs
 #. remote control page (on a phone): an action failed
 #, machine
-	NetGuard could not do it.	Ni allai NetGuard ei wneud.
+	MDM could not do it.	Ni allai MDM ei wneud.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached while pairing
 #, machine
-	NetGuard does not answer. Check that it is running and on the same network.	Nid yw NetGuard yn ateb. Gwiriwch ei fod yn rhedeg ac ar yr un rhwydwaith.
+	MDM does not answer. Check that it is running and on the same network.	Nid yw MDM yn ateb. Gwiriwch ei fod yn rhedeg ac ar yr un rhwydwaith.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached now; the page keeps trying by itself
 #. the trailing ... means it is still going on: keep it
 #, machine
-	NetGuard does not answer. Trying again...	Nid yw NetGuard yn ateb. Yn ceisio eto...
+	MDM does not answer. Trying again...	Nid yw MDM yn ateb. Yn ceisio eto...
 #. text in remote.rs
 #. remote control page (on a phone): no pairing code is shown in MDM; "Pair a device" is MDM's button
 #, machine
-	NetGuard shows no code now. Click Pair a device there first.	Nid yw NetGuard yn dangos cod nawr. Cliciwch Pâr dyfais yno yn gyntaf.
+	MDM shows no code now. Click Pair a device there first.	Nid yw MDM yn dangos cod nawr. Cliciwch Pâr dyfais yno yn gyntaf.
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 #, machine
@@ -2539,54 +2536,54 @@
 	Missing	Ar goll
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	NetGuard Download Manager	NetGuard Download Manager
+	Mister Download Manager	Mister Download Manager
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	NetGuard Download Manager can't open its window: this system lacks {libraries}.	Ni all NetGuard Download Manager agor ei ffenestr: mae'r system hon yn brin o {libraries}.
+	Mister Download Manager can't open its window: this system lacks {libraries}.	Ni all Mister Download Manager agor ei ffenestr: mae'r system hon yn brin o {libraries}.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	NetGuard Download Manager closed unexpectedly	Fe wnaeth NetGuard Download Manager gau'n annisgwyl
+	Mister Download Manager closed unexpectedly	Fe wnaeth Mister Download Manager gau'n annisgwyl
 #. window title in the Options window
 #, machine
-	NetGuard Download Manager Configuration	Ffurfweddiad NetGuard Download Manager
+	Mister Download Manager Configuration	Ffurfweddiad Mister Download Manager
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager crash report	Adroddiad damwain NetGuard Download Manager
+	Mister Download Manager crash report	Adroddiad damwain Mister Download Manager
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	NetGuard Download Manager hit an internal error	Fe wnaeth NetGuard Download Manager daro gwall mewnol
+	Mister Download Manager hit an internal error	Fe wnaeth Mister Download Manager daro gwall mewnol
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	NetGuard Download Manager is running the queue "{queue}"	Mae NetGuard Download Manager yn rhedeg y ciw "{queue}"
+	Mister Download Manager is running the queue "{queue}"	Mae Mister Download Manager yn rhedeg y ciw "{queue}"
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	NetGuard Download Manager stopped responding	Fe wnaeth NetGuard Download Manager roi'r gorau i ymateb
+	Mister Download Manager stopped responding	Fe wnaeth Mister Download Manager roi'r gorau i ymateb
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager stopped responding for a while	Fe wnaeth NetGuard Download Manager roi'r gorau i ymateb am ychydig
+	Mister Download Manager stopped responding for a while	Fe wnaeth Mister Download Manager roi'r gorau i ymateb am ychydig
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	NetGuard Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mae NetGuard Download Manager yn ysgrifennu pob cysylltiad yn syth i'r ffeil\nderfynol (ffeil rhan denau wrth ei hymyl), felly nid oes angen cyfeiriadur\ndros dro na cham cydosod.
+	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mae Mister Download Manager yn ysgrifennu pob cysylltiad yn syth i'r ffeil\nderfynol (ffeil rhan denau wrth ei hymyl), felly nid oes angen cyfeiriadur\ndros dro na cham cydosod.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager {version} is available (released {date}).	Mae NetGuard Download Manager {version} ar gael (rhyddhawyd {date}).
+	Mister Download Manager {version} is available (released {date}).	Mae Mister Download Manager {version} ar gael (rhyddhawyd {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager's own copy, version {version}	Copi NetGuard Download Manager ei hun, fersiwn {version}
+	Mister Download Manager's own copy, version {version}	Copi Mister Download Manager ei hun, fersiwn {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	NetGuard Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Mae ffenestr X11 NetGuard Download Manager angen {libraries}, sydd ar goll o'r system hon: mae'n agor ar Wayland yn lle hynny, lle gall ei ddewislenni agor i ffwrdd o'u teitlau.
+	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Mae ffenestr X11 Mister Download Manager angen {libraries}, sydd ar goll o'r system hon: mae'n agor ar Wayland yn lle hynny, lle gall ei ddewislenni agor i ffwrdd o'u teitlau.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -2793,7 +2790,7 @@
 #. text in extension.rs
 #. a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
 #, machine
-	No browser NetGuard can connect to was found	Ni ddarganfuwyd unrhyw borwr y gall NetGuard gysylltu ag ef
+	No browser MDM can connect to was found	Ni ddarganfuwyd unrhyw borwr y gall MDM gysylltu ag ef
 #. text in extension.rs
 #. a check of Test browser integration: no browser's extension has reached MDM
 #, machine
@@ -2863,7 +2860,7 @@
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Ni ymatebodd unrhyw gylch allweddi system, felly cedwir mewngofnodion a chyfrineiriau yng ngosodiadau NetGuard, na all ond chi eu darllen.
+	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	Ni ymatebodd unrhyw gylch allweddi system, felly cedwir mewngofnodion a chyfrineiriau yng ngosodiadau MDM, na all ond chi eu darllen.
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -2994,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach NetGuard.	I ffwrdd: ni all unrhyw beth ar y rhwydwaith gyrraedd NetGuard.
+	Off: nothing on the network can reach MDM.	I ffwrdd: ni all unrhyw beth ar y rhwydwaith gyrraedd MDM.
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	Cynnig lawrlwytho dolenni a gopïwyd i'r clipfwrdd
@@ -3070,7 +3067,7 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Dim ond dyfeisiau pâr sy'n gweld neu'n newid unrhyw beth. Y tro cyntaf, mae porwr y ffôn yn rhybuddio am dystysgrif NetGuard ei hun: ei hôl bys yw'r un uchod.
+	Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.	Dim ond dyfeisiau pâr sy'n gweld neu'n newid unrhyw beth. Y tro cyntaf, mae porwr y ffôn yn rhybuddio am dystysgrif MDM ei hun: ei hôl bys yw'r un uchod.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than MDM lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
@@ -3092,10 +3089,10 @@
 	Open folder	Agor ffolder
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with NetGuard Download Manager	Agor dolenni magnet a ffeiliau .torrent gyda NetGuard Download Manager
+	Open magnet links and .torrent files with Mister Download Manager	Agor dolenni magnet a ffeiliau .torrent gyda Mister Download Manager
 #. text in the tray icon's menu
 #, machine
-	Open NetGuard Download Manager	Agor NetGuard Download Manager
+	Open Mister Download Manager	Agor Mister Download Manager
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3166,7 +3163,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with NetGuard Download Manager	Pârwch â NetGuard Download Manager
+	Pair with Mister Download Manager	Pârwch â Mister Download Manager
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3481,7 +3478,7 @@
 #. text in crashui.rs
 #. crash report window button: start MDM again
 #, machine
-	Restart NetGuard	Ailgychwyn NetGuard
+	Restart MDM	Ailgychwyn MDM
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	Adfer y categorïau adeiledig
@@ -3652,7 +3649,7 @@
 	Select or unselect the download with the dotted outline	Dewis neu ddad-ddewis y lawrlwythiad gyda'r amlinell doredig
 #. group box title in the Options window
 #, machine
-	Select sounds for NetGuard Download Manager events	Dewis synau ar gyfer digwyddiadau NetGuard Download Manager
+	Select sounds for Mister Download Manager events	Dewis synau ar gyfer digwyddiadau Mister Download Manager
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	Dewis y lawrlwythiadau yn y blwch
@@ -3868,7 +3865,7 @@
 	Sites Logins	Mewngofnodi Safleoedd
 #. text in helpers.rs
 #, machine
-	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.	Mae gwefannau'n anfon eu hansawdd gorau fel fideo a sain ar wahân, ac mae ffmpeg yn eu huno. Ar y system hon mae NetGuard yn defnyddio'ch un chi: gosodwch ffmpeg gyda'ch rheolwr pecynnau.
+	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.	Mae gwefannau'n anfon eu hansawdd gorau fel fideo a sain ar wahân, ac mae ffmpeg yn eu huno. Ar y system hon mae MDM yn defnyddio'ch un chi: gosodwch ffmpeg gyda'ch rheolwr pecynnau.
 #. text in helpers.rs
 #, machine
 	Sites send their best quality as separate video and audio. ffmpeg puts them together into one file that plays anywhere.	Mae gwefannau'n anfon eu hansawdd gorau fel fideo a sain ar wahân. Mae ffmpeg yn eu rhoi at ei gilydd yn un ffeil sy'n chwarae unrhyw le.
@@ -3978,7 +3975,7 @@
 	Start download at	Cychwyn lawrlwytho am
 #. checkbox in the Scheduler window
 #, machine
-	Start download on NetGuard Download Manager startup	Dechrau lawrlwytho wrth gychwyn NetGuard Download Manager
+	Start download on Mister Download Manager startup	Dechrau lawrlwytho wrth gychwyn Mister Download Manager
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	Dechrau lawrlwytho ar unwaith wrth ddangos y ddeialog "Gwybodaeth ffeil lawrlwytho"
@@ -4013,7 +4010,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	Wedi'i gychwyn gyda'r cyfrifiadur; mae'n cychwyn wedi'i leihau: nid oes ardal hysbysu yn dangos ei eicon yma
 #. text in the Options window
-#. tooltip of "Launch NetGuard Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	Wedi'i gychwyn gyda'r cyfrifiadur; mae'n aros yn yr ardal hysbysu
 #. message or event log entry in the main window
@@ -4117,7 +4114,7 @@
 	Sunday	Dydd Sul
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Support the original project on GitHub Sponsors	Support the original project on GitHub Sponsors
+	Support MDM on GitHub Sponsors	Cefnogi MDM ar Noddwyr GitHub
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -4234,7 +4231,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find NetGuard Download Manager	Gall y porwyr ddod o hyd i NetGuard Download Manager
+	The browsers can find Mister Download Manager	Gall y porwyr ddod o hyd i Mister Download Manager
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4258,7 +4255,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. NetGuard Download Manager has to be running (it can wait in the notification area).	Caiff y cyfrifiadur ei ddeffro funud cyn yr amser cychwyn a'i gadw'n effro tra bydd y ciw'n rhedeg. Rhaid i NetGuard Download Manager fod yn rhedeg (gall aros yn yr ardal hysbysu).
+	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	Caiff y cyfrifiadur ei ddeffro funud cyn yr amser cychwyn a'i gadw'n effro tra bydd y ciw'n rhedeg. Rhaid i Mister Download Manager fod yn rhedeg (gall aros yn yr ardal hysbysu).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4303,7 +4300,7 @@
 #. message or event log entry in the main window
 #. {error} = an error message (keep the braces as they are)
 #, machine
-	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	Ni ellid cadw'r rhestr lawrlwytho: {error}. Cedwir newidiadau tra bod NetGuard yn rhedeg.
+	The download list could not be saved: {error}. Changes are kept while MDM runs.	Ni ellid cadw'r rhestr lawrlwytho: {error}. Cedwir newidiadau tra bod MDM yn rhedeg.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.	Y rheolwr lawrlwytho rydych chi eisoes yn ei adnabod, wedi'i ailadeiladu i fod yn gyflymach. Am ddim a ffynhonnell agored o dan y GNU GPL, fersiwn 3 neu'n hwyrach. Mae fideos yn cael eu canfod gan yt-dlp; mae torrents yn rhedeg ar librqbit.
@@ -4429,7 +4426,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?	Nid yw'r lawrlwythiad a ddewiswyd wedi'i gwblhau. Ydych chi'n siŵr eich bod am ei ddileu\no restr lawrlwythiadau NetGuard Download Manager?
+	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	Nid yw'r lawrlwythiad a ddewiswyd wedi'i gwblhau. Ydych chi'n siŵr eich bod am ei ddileu\no restr lawrlwythiadau Mister Download Manager?
 #. text in errors.rs
 #, machine
 	the server answered {status}	atebodd y gweinydd {status}
@@ -4466,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (MDM never unlocks it: that would ask for its password), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Mae'r cylch allweddi system wedi'i gloi ac nid yw NetGuard yn ei ddatgloi, felly cedwir mewngofnodion a chyfrineiriau yn ngyfluniadau NetGuard, na all ond chi eu darllen.
+	The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.	Mae'r cylch allweddi system wedi'i gloi ac nid yw MDM yn ei ddatgloi, felly cedwir mewngofnodion a chyfrineiriau yn ngyfluniadau MDM, na all ond chi eu darllen.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4656,7 +4653,7 @@
 #. message or event log entry in the main window
 #. event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
 #, machine
-	Through {service}: the service downloads the torrent, then NetGuard its files	Drwy {service}: mae'r gwasanaeth yn lawrlwytho'r cenllif, yna mae NetGuard yn lawrlwytho ei ffeiliau
+	Through {service}: the service downloads the torrent, then MDM its files	Drwy {service}: mae'r gwasanaeth yn lawrlwytho'r cenllif, yna mae MDM yn lawrlwytho ei ffeiliau
 #. text in the Scheduler window
 #, machine
 	Thursday	Dydd Iau
@@ -4793,7 +4790,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "NetGuard Download Manager" and allow it on all websites.	Trowch “NetGuard Download Manager” ymlaen a'i ganiatáu ar bob gwefan.
+	Turn on "Mister Download Manager" and allow it on all websites.	Trowch “Mister Download Manager” ymlaen a'i ganiatáu ar bob gwefan.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -4849,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	Teipiwch y cod hwn yn {page} a chaniatáu NetGuard; yn aros amdanoch chi (mae'r cod yn dod i ben mewn {time}).
+	Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).	Teipiwch y cod hwn yn {page} a chaniatáu MDM; yn aros amdanoch chi (mae'r cod yn dod i ben mewn {time}).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4946,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy MDM downloads and checks itself
 #, machine
-	Use NetGuard's own copy	Defnyddio copi NetGuard ei hun
+	Use MDM's own copy	Defnyddio copi MDM ei hun
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5142,7 +5139,7 @@
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in MDM's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Ni ymatebodd Rheolwr Manylion Windows, felly cedwir mewngofnodion a chyfrineiriau yng ngosodiadau NetGuard, wedi'u hamgryptio ar gyfer eich cyfrif Windows.
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.	Ni ymatebodd Rheolwr Manylion Windows, felly cedwir mewngofnodion a chyfrineiriau yng ngosodiadau MDM, wedi'u hamgryptio ar gyfer eich cyfrif Windows.
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine
@@ -5174,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in NetGuard and try again.	Cod anghywir. Dangoswch god newydd yn NetGuard a cheisiwch eto.
+	Wrong code. Show a new code in MDM and try again.	Cod anghywir. Dangoswch god newydd yn MDM a cheisiwch eto.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5206,7 +5203,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of NetGuard Download Manager ({version}).	Mae gennych y fersiwn diweddaraf o NetGuard Download Manager ({version}).
+	You have the latest version of Mister Download Manager ({version}).	Mae gennych y fersiwn diweddaraf o Mister Download Manager ({version}).
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -5232,7 +5229,7 @@
 #. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	Mae eich rhaglen eich hun ({version}) yn rhy hen: mae angen {oldest} neu fwy newydd ar NetGuard
+	Your own program ({version}) is too old: MDM needs {oldest} or newer	Mae eich rhaglen eich hun ({version}) yn rhy hen: mae angen {oldest} neu fwy newydd ar MDM
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -5327,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control NetGuard now.	Mae {device} wedi'i baru. Gall reoli NetGuard nawr.
+	{device} is paired. It can control MDM now.	Mae {device} wedi'i baru. Gall reoli MDM nawr.
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5407,7 +5404,7 @@
 #. in the "7-Zip needed" window: {name} is the archive's file name; 7-Zip is a program's name
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	{name} is a 7z or RAR archive. NetGuard extracts those with 7-Zip, which isn't installed.	Mae {name} yn archif 7z neu RAR. Mae NetGuard yn echdynnu'r rhain gyda 7-Zip, nad yw wedi'i osod.
+	{name} is a 7z or RAR archive. MDM extracts those with 7-Zip, which isn't installed.	Mae {name} yn archif 7z neu RAR. Mae MDM yn echdynnu'r rhain gyda 7-Zip, nad yw wedi'i osod.
 #. text in extracting archives (a download's log, the Archive password window)
 #. in Archive password: {name} is the archive's file name
 #. {name} = a file name (keep the braces as they are)
@@ -5422,7 +5419,7 @@
 #. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one MDM can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
 #, machine
-	{name} {version} is too old: NetGuard needs {oldest} or newer	Mae {name} {version} yn rhy hen: mae angen {oldest} neu fwy newydd ar NetGuard
+	{name} {version} is too old: MDM needs {oldest} or newer	Mae {name} {version} yn rhy hen: mae angen {oldest} neu fwy newydd ar MDM
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
@@ -5447,7 +5444,7 @@
 #. text in errors.rs
 #. a debrid service's error: too many requests; MDM waits and retries
 #, machine
-	{service} asks to slow down; NetGuard will try again in a minute	Mae {service} yn gofyn am arafu; bydd NetGuard yn ceisio eto ymhen munud
+	{service} asks to slow down; MDM will try again in a minute	Mae {service} yn gofyn am arafu; bydd MDM yn ceisio eto ymhen munud
 #. text in errors.rs
 #. a debrid service's error: it wants the user to allow this computer (it sent an email)
 #, machine
@@ -5457,7 +5454,7 @@
 	{service} can't get this torrent: nobody shares it, or its link can't be read	Ni all {service} gael y cenllif hwn: nid oes neb yn ei rannu, neu ni ellir darllen ei ddolen
 #. text in errors.rs
 #, machine
-	{service} can't reach this file host right now; NetGuard will try again later	Ni all {service} gyrraedd y gwesteiwr ffeiliau hwn ar hyn o bryd; bydd NetGuard yn ceisio eto yn ddiweddarach
+	{service} can't reach this file host right now; MDM will try again later	Ni all {service} gyrraedd y gwesteiwr ffeiliau hwn ar hyn o bryd; bydd MDM yn ceisio eto yn ddiweddarach
 #. text in errors.rs
 #. a debrid service's error: it isn't answering
 #, machine
@@ -5492,7 +5489,7 @@
 	{service}: this needs a premium account	{service}: mae angen cyfrif premiwm ar hyn
 #. text in errors.rs
 #, machine
-	{service}: too many downloads at once through your account; NetGuard will try again	{service}: gormod o lawrlwythiadau ar unwaith trwy'ch cyfrif; bydd NetGuard yn ceisio eto
+	{service}: too many downloads at once through your account; MDM will try again	{service}: gormod o lawrlwythiadau ar unwaith trwy'ch cyfrif; bydd MDM yn ceisio eto
 #. text in errors.rs
 #. a debrid service's error: the account's limit (traffic) for this host is used up
 #, machine
@@ -5593,15 +5590,15 @@ column	Time left	Amser ar ôl
 #, machine
 column	Transfer rate	Cyfradd trosglwyddo
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
 #, machine
-extension	Another NetGuard Download Manager (a server)	NetGuard Download Manager arall (gweinydd)
+extension	Another Mister Download Manager (a server)	Mister Download Manager arall (gweinydd)
 #. text in the browser extension
 #. the name this browser gets in the other MDM's list of paired devices
 #, machine
 extension	Browser extension	Estyniad porwr
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in NetGuard Download Manager
+#. menu command of the download button over a video: opens its settings in Mister Download Manager
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	Gosodiadau botwm...
@@ -5610,34 +5607,34 @@ extension	Button settings...	Gosodiadau botwm...
 #, machine
 extension	Can't tell which video this is: open its own page and try there	Methu dweud pa fideo yw hwn: agorwch ei dudalen ei hun a rhowch gynnig arni yno
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
 #, machine
-extension	Connected to NetGuard Download Manager	Wedi cysylltu â NetGuard Download Manager
+extension	Connected to Mister Download Manager	Wedi cysylltu â Mister Download Manager
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to NetGuard Download Manager {version}	Wedi cysylltu â NetGuard Download Manager {version}
+extension	Connected to Mister Download Manager {version}	Wedi cysylltu â Mister Download Manager {version}
 #. text in the browser extension
 #. button beside a video, sound or stream in the toolbar button's popup: download it with the app; verb; short
 #, machine
 extension	Download	Lawrlwytho
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
 #, machine
-extension	Download all links with NetGuard Download Manager	Lawrlwytho pob dolen gyda NetGuard Download Manager
+extension	Download all links with Mister Download Manager	Lawrlwytho pob dolen gyda Mister Download Manager
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
 #, machine
-extension	Download selected links with NetGuard Download Manager	Lawrlwytho dolenni dethol gyda NetGuard Download Manager
+extension	Download selected links with Mister Download Manager	Lawrlwytho dolenni dethol gyda Mister Download Manager
 #. text in the browser extension
 #. the button over a video on a web page that downloads it; verb; short (it sits on the video)
 #, machine
 extension	Download video	Lawrlwytho fideo
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
 #, machine
-extension	Download with NetGuard Download Manager	Lawrlwytho gyda NetGuard Download Manager
+extension	Download with Mister Download Manager	Lawrlwytho gyda Mister Download Manager
 #. text in the browser extension
 #. shown in the toolbar button's popup after the site was excluded
 #. {site} = a web site's name such as "example.com" (keep the braces as they are)
@@ -5656,9 +5653,9 @@ extension	Drag to move it along the video's edge	Llusgwch i'w symud ar hyd ymyl 
 #, machine
 extension	Enter its https:// address.	Rhowch ei gyfeiriad https://.
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name NetGuard Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
 #, machine
-extension	Hands downloads from the browser to NetGuard Download Manager.	Yn trosglwyddo lawrlwythiadau o'r porwr i NetGuard Download Manager.
+extension	Hands downloads from the browser to Mister Download Manager.	Yn trosglwyddo lawrlwythiadau o'r porwr i Mister Download Manager.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -5713,33 +5710,33 @@ extension	Live	Byw
 #, machine
 extension	Media on this page	Cyfryngau ar y dudalen hon
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name NetGuard Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager	NetGuard Download Manager
+extension	Mister Download Manager	Mister Download Manager
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name NetGuard Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager didn't start in time	Ni ddechreuodd NetGuard Download Manager mewn pryd
+extension	Mister Download Manager didn't start in time	Ni ddechreuodd Mister Download Manager mewn pryd
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name NetGuard Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager doesn't accept this copy of the extension	Nid yw NetGuard Download Manager yn derbyn y copi hwn o'r estyniad
+extension	Mister Download Manager doesn't accept this copy of the extension	Nid yw Mister Download Manager yn derbyn y copi hwn o'r estyniad
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed or didn't start	Nid yw NetGuard Download Manager wedi'i osod neu ni ddechreuodd
+extension	Mister Download Manager isn't installed or didn't start	Nid yw Mister Download Manager wedi'i osod neu ni ddechreuodd
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name NetGuard Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed, or its browser integration isn't set up	Nid yw NetGuard Download Manager wedi'i osod, neu nid yw ei integreiddiad porwr wedi'i sefydlu
+extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Nid yw Mister Download Manager wedi'i osod, neu nid yw ei integreiddiad porwr wedi'i sefydlu
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Yna mae NetGuard Download Manager yn lawrlwytho drwy'r un ddirprwy â'r porwr hwn. Mae'r porwr yn gofyn unwaith i chi ganiatáu hynny; mae diffodd hwn yn tynnu hynny'n ôl.
+extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Yna mae Mister Download Manager yn lawrlwytho drwy'r un ddirprwy â'r porwr hwn. Mae'r porwr yn gofyn unwaith i chi ganiatáu hynny; mae diffodd hwn yn tynnu hynny'n ôl.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Yna mae NetGuard Download Manager yn lawrlwytho drwy'r un ddirprwy â'r porwr hwn. Tra bod hyn i ffwrdd, nid yw'r estyniad yn darllen dirprwy'r porwr.
+extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Yna mae Mister Download Manager yn lawrlwytho drwy'r un ddirprwy â'r porwr hwn. Tra bod hyn i ffwrdd, nid yw'r estyniad yn darllen dirprwy'r porwr.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -5771,9 +5768,9 @@ extension	Open it	Agorwch ef
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	Agorwch ei gyfeiriad unwaith a derbyniwch ei dystysgrif, yna rhowch god o'i Opsiynau, O bell, Paru dyfais (neu misterdownloadmanager-cli pair).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name NetGuard Download Manager as it is
+#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
 #, machine
-extension	Open NetGuard Download Manager	Agor NetGuard Download Manager
+extension	Open Mister Download Manager	Agor Mister Download Manager
 #. text in the browser extension
 #. button in the toolbar button's popup: open the app's Options
 #. the trailing ... means it is still going on: keep it
@@ -5812,13 +5809,13 @@ extension	Send downloads through this browser's proxy or VPN extension	Anfon law
 #, machine
 extension	Send downloads to	Anfon lawrlwythiadau i
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
 #, machine
-extension	Sent to NetGuard Download Manager	Anfonwyd at NetGuard Download Manager
+extension	Sent to Mister Download Manager	Anfonwyd at Mister Download Manager
 #. text in the browser extension
 #. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (MDM is free; this is an optional donation)
 #, machine
-extension	Support the original project	Support the original project
+extension	Support MDM	Cefnogi MDM
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine
@@ -5828,9 +5825,9 @@ extension	Take downloads from this browser	Cymerwch lawrlwythiadau o'r porwr hwn
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Mae rheolau Chrome Web Store yn cadw'r copi hwn o'r estyniad draw o fideos y wefan hon. Mae Cymorth yn dweud beth allwch chi ei wneud.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name NetGuard Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
 #, machine
-extension	The connection to NetGuard Download Manager failed	Methodd y cysylltiad â NetGuard Download Manager
+extension	The connection to Mister Download Manager failed	Methodd y cysylltiad â Mister Download Manager
 #. text in the browser extension
 #. shown briefly on the download button over a video when the app's settings keep the button off on this web site
 #, machine
@@ -5848,7 +5845,7 @@ extension	The last download was left to the browser.	Gadawyd y lawrlwythiad diwe
 #, machine
 extension	This browser isn't ticked in Options → General.	Nid yw'r porwr hwn wedi'i dicio yn Opsiynau → Cyffredinol.
 #. text in the browser extension
-#. choice under Send downloads to: the NetGuard Download Manager on this computer
+#. choice under Send downloads to: the Mister Download Manager on this computer
 #, machine
 extension	This computer	Y cyfrifiadur hwn
 #. text in the browser extension
@@ -5860,9 +5857,9 @@ extension	This download's details were too large to hand over	Roedd manylion y l
 #, machine
 extension	This page's player streams its video in pieces, so there's no file to list. Point at the video and use its Download video button.	Mae chwaraewr y dudalen hon yn ffrydio ei fideo mewn darnau, felly nid oes ffeil i'w rhestru. Pwyntiwch at y fideo a defnyddiwch ei fotwm Lawrlwytho fideo.
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name NetGuard Download Manager as it is
+#. status when the app is older than the extension; keep the name Mister Download Manager as it is
 #, machine
-extension	Update NetGuard Download Manager to use everything this extension offers	Diweddarwch NetGuard Download Manager i ddefnyddio popeth y mae'r estyniad hwn yn ei gynnig
+extension	Update Mister Download Manager to use everything this extension offers	Diweddarwch Mister Download Manager i ddefnyddio popeth y mae'r estyniad hwn yn ei gynnig
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -5978,7 +5975,7 @@ key	Up / Down	Up / Down
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About NetGuard Download Manager	&Ynghylch NetGuard Download Manager
+menu	&About Mister Download Manager	&Ynghylch Mister Download Manager
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6133,7 +6130,7 @@ menu	Aero	Aero
 #. menu command in the main window
 #. View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
 #, machine
-menu	Applies the next time NetGuard starts	Yn berthnasol y tro nesaf y bydd NetGuard yn cychwyn
+menu	Applies the next time MDM starts	Yn berthnasol y tro nesaf y bydd MDM yn cychwyn
 #. menu command in the main window
 #. View → Theme: a style theme's name (Mac OS X's look), a name: keep "Aqua" as written
 #, machine
@@ -6338,12 +6335,9 @@ menu	Metal didn't start here: OpenGL draws	Ni ddechreuodd Metal yma: mae OpenGL 
 #, machine
 menu	Metro	Metro
 #. menu command in the main window
-#. View → Theme: NetGuard's own look, the default (dark navy and emerald green), a name: keep "NetGuard" as written
-menu	NetGuard	NetGuard
-#. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	NetGuard Download Manager &Home Page	Tudalen &Hafan NetGuard Download Manager
+menu	Mister Download Manager &Home Page	Tudalen &Hafan Mister Download Manager
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	Symud/Ailenwi (Ctrl-M)
@@ -6456,7 +6450,7 @@ menu	Select &all	Dewis &pawb
 menu	Show &drop target	Dangos targed &gollwng
 #. menu command in the main window
 #, machine
-menu	Show NetGuard Download Manager	Dangos NetGuard Download Manager
+menu	Show Mister Download Manager	Dangos Mister Download Manager
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6478,7 +6472,7 @@ menu	Stop Download	Stopio Lawrlwytho
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Support the &original project	Support the &original project
+menu	Support &MDM	Cefnogi &MDM
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

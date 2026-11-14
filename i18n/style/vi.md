@@ -1,4 +1,4 @@
-<!-- How Vietnamese writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Vietnamese writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Dùng động từ ngắn ở dạng mệnh lệnh cho lệnh và nút; không thêm “Hãy” hoặc lời lịch sự nếu không cần thiết. (Tải xuống; Tạm dừng)
 - Mục menu thường dùng cùng dạng động từ với lệnh hoặc nút tương ứng; không đặt dấu chấm cuối. (Tệp > Thêm liên kết; Tải xuống > Dừng)
 - Nhãn hộp kiểm là cụm mô tả tùy chọn hoặc trạng thái, không phải câu mệnh lệnh. (Tự động bắt đầu tải xuống; Hiển thị thông báo khi hoàn tất)
@@ -16,4 +16,4 @@
 - Dùng dấu ngoặc kép tiếng Việt “…” khi cần trích dẫn tên hoặc nội dung; không chèn khoảng trắng bên trong dấu ngoặc. (Không tìm thấy “Tệp của tôi”.; Tìm kiếm “bản cập nhật”)
 - Giữ nguyên biến số, mã định dạng và ký hiệu kỹ thuật; chỉ đổi vị trí khi cần để câu tiếng Việt tự nhiên. (Đã tải xuống {n} tệp; Không thể mở {filename}: {error})
 - Ưu tiên từ tiếng Việt rõ nghĩa và thuật ngữ Windows nhất quán; chỉ giữ từ vay mượn hoặc chữ viết tắt đã quen dùng, chẳng hạn URL và Wi-Fi. (liên kết; tệp)
-- Không dịch tên sản phẩm, tên thương hiệu hoặc tên riêng; giữ nguyên cách viết chính thức. (NetGuard Download Manager; Microsoft Windows)
+- Không dịch tên sản phẩm, tên thương hiệu hoặc tên riêng; giữ nguyên cách viết chính thức. (Mister Download Manager; Microsoft Windows)

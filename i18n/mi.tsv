@@ -1,4 +1,4 @@
-# NetGuard Download Manager in Maori (Māori): tools/i18n/translate.py
+# Mister Download Manager in Maori (Māori): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	Māori
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from NetGuard Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from NetGuard Download Manager list of downloads?	Kei te hiahia muku koe i ēnei {n} tikiake mai i te rārangi tikiake a NetGuard Download Manager?
+@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Kei te hiahia muku koe i ēnei {n} tikiake mai i te rārangi tikiake a Mister Download Manager?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Ka tikiake tētahi ratonga debrid i te hononga a te kaihautū kōnae mā tō ake pūkete utu, ā, ka hoatu he hononga tōtika ki a NetGuard. Whakamahia tō ake pūkete anake: ko te tiri i tētahi pūkete, i ōna hononga rānei ka takahi i ngā tikanga o ngā ratonga, ā, ka taea te whakatarewa. Ko ngā tikiake kua tīmata kē i te pūtirotiro ka noho tonu.
+	A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Ka tikiake tētahi ratonga debrid i te hononga a te kaihautū kōnae mā tō ake pūkete utu, ā, ka hoatu he hononga tōtika ki a MDM. Whakamahia tō ake pūkete anake: ko te tiri i tētahi pūkete, i ōna hononga rānei ka takahi i ngā tikanga o ngā ratonga, ā, ka taea te whakatarewa. Ko ngā tikiake kua tīmata kē i te pūtirotiro ka noho tonu.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -226,7 +226,7 @@
 	a volume of it is missing	kei te ngaro tētahi rōrahi o taua mea
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About NetGuard Download Manager	Mō NetGuard Download Manager
+	About Mister Download Manager	Mō Mister Download Manager
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -280,7 +280,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add NetGuard Download Manager to your browser	Tāpiri NetGuard Download Manager ki tō pūtirotiro
+	Add Mister Download Manager to your browser	Tāpiri Mister Download Manager ki tō pūtirotiro
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -344,7 +344,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): a magnet link or .torrent file was added; MDM reads the torrent's files first
 #, machine
-	Added. NetGuard is reading the torrent: it joins the list in a moment.	Kua tāpirihia. Kei te pānui a NetGuard i te torrent: ka uru ki te rārangi ākuanei.
+	Added. MDM is reading the torrent: it joins the list in a moment.	Kua tāpirihia. Kei te pānui a MDM i te torrent: ka uru ki te rārangi ākuanei.
 #. text in the Batch download window; text in a dialog box; label in the Options window; text in a download's progress window
 #. noun: the web address (URL)
 #. column title: the web address (URL)
@@ -447,7 +447,7 @@
 	Always into a folder named after it	I ngā wā katoa ki tētahi kōpaki kua tapaina ki tōna ingoa
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on NetGuard Download Manager startup	Whakakā tonu i te Kaitāpae Tere i te tīmatanga o NetGuard Download Manager
+	Always turn on Speed Limiter on Mister Download Manager startup	Whakakā tonu i te Kaitāpae Tere i te tīmatanga o Mister Download Manager
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -513,7 +513,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from NetGuard Download Manager list of downloads?	E hiahia ana koe ki te muku i te "{name}" mai i te rārangi tikiake a NetGuard Download Manager?
+	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	E hiahia ana koe ki te muku i te "{name}" mai i te rārangi tikiake a Mister Download Manager?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -603,9 +603,6 @@
 #. a country's name (where a download's server is)
 #, machine
 	Barbados	Barbados
-#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#, machine
-	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.
 #. window title in the Batch download window
 #, machine
 	Batch download	Tikiake puranga
@@ -655,7 +652,7 @@
 	Bosnia and Herzegovina	Bosnia me Herzegovina
 #. text in helpers.rs
 #, machine
-	Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	E rua ngā mea e wātea ana. Ka tikiakehia e NetGuard mai i ō rātou tukunga mana mā tana ake kaiwhakatikiake, ā, ka tirohia te waitohu o ia kōnae i mua i te whakahaere. Tata ki te 100 MB, kotahi anake.
+	Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	E rua ngā mea e wātea ana. Ka tikiakehia e MDM mai i ō rātou tukunga mana mā tana ake kaiwhakatikiake, ā, ka tirohia te waitohu o ia kōnae i mua i te whakahaere. Tata ki te 100 MB, kotahi anake.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -685,7 +682,7 @@
 	Browse...	Tirotiro...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach NetGuard Download Manager yet.	Kāore anō kia whakatūria te whakauru pūtirotiro ki tēnei rorohiko, nō reira kāore anō he pūtirotiro e tae ki a NetGuard Download Manager.
+	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	Kāore anō kia whakatūria te whakauru pūtirotiro ki tēnei rorohiko, nō reira kāore anō he pūtirotiro e tae ki a Mister Download Manager.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	Whakauru Pūtirotiro/Pūnaha
@@ -826,7 +823,7 @@
 #. text in the Options window
 #. tooltip of the close-setting: checked keeps MDM running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
 #, machine
-	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	Mēnā kua tohua, ka noho tonu a NetGuard ki te rere ina katia te matapihi: ka huna ki te wāhi whakamōhiotanga mēnā e wātea ana, ka whakaiti rānei ki te paetaumahi, ā, ka haere tonu ngā tikiake; mēnā kāore i tohua, ka puta a NetGuard ina katia.
+	Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM	Mēnā kua tohua, ka noho tonu a MDM ki te rere ina katia te matapihi: ka huna ki te wāhi whakamōhiotanga mēnā e wātea ana, ka whakaiti rānei ki te paetaumahi, ā, ka haere tonu ngā tikiake; mēnā kāore i tohua, ka puta a MDM ina katia.
 #. message or event log entry in the main window
 #. event log entry after Recheck: {have} and {total} are sizes ("1.2 GB of 4 GB there")
 #, machine
@@ -885,7 +882,7 @@
 	Choose a language	Kōwhiria he reo
 #. text in langpick.rs
 #, machine
-	Choose the language NetGuard Download Manager shows its windows in:	Kōwhiria te reo e whakaatu ai a NetGuard Download Manager i ōna matapihi:
+	Choose the language Mister Download Manager shows its windows in:	Kōwhiria te reo e whakaatu ai a Mister Download Manager i ōna matapihi:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1041,13 +1038,13 @@
 	Customize "Download progress" dialog	Whakaritea te pouaka kōrero "Tikiake e haere ana"
 #. text in the Options window
 #, machine
-	Customize keys to prevent or force downloading with NetGuard	Whakaritea ngā kī hei ārai, hei akiaki rānei i te tikiake mā te NetGuard
+	Customize keys to prevent or force downloading with MDM	Whakaritea ngā kī hei ārai, hei akiaki rānei i te tikiake mā te MDM
 #. text in the Options window
 #, machine
-	Customize NetGuard Download panels in browsers	Whakaritea ngā paewhiri Tikiake NetGuard i ngā pūtirotiro
+	Customize MDM Download panels in browsers	Whakaritea ngā paewhiri Tikiake MDM i ngā pūtirotiro
 #. text in the Options window
 #, machine
-	Customize NetGuard menu items in context menu of browsers	Whakaritea ngā tūemi tahua NetGuard i te tahua horopaki o ngā pūtirotiro
+	Customize MDM menu items in context menu of browsers	Whakaritea ngā tūemi tahua MDM i te tahua horopaki o ngā pūtirotiro
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -1422,7 +1419,7 @@
 #. text in crashui.rs
 #. crash report window button: end the frozen MDM and start it again
 #, machine
-	End and restart NetGuard	Whakamutua ka tīmata anō i te NetGuard
+	End and restart MDM	Whakamutua ka tīmata anō i te MDM
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	Whakaurua he hononga autō, kōwhiria rānei he kōnae .torrent
@@ -1505,7 +1502,7 @@
 	Exit	Puta
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit NetGuard Download Manager when done	Katia a NetGuard Download Manager ina oti
+	Exit Mister Download Manager when done	Katia a Mister Download Manager ina oti
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Tatau-whakamana e tūmanakohia ana (MD5, SHA-1, SHA-256, SHA-512, CRC32 rānei):
@@ -1941,7 +1938,7 @@
 	Hide web pages	Huna i ngā whārangi tukutuku
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of NetGuard Download Manager.	Puritia te Alt i te wā e pāwhiri ana i tētahi hononga kia tikiakehia ai e te pūtirotiro, kaua e NetGuard Download Manager.
+	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Puritia te Alt i te wā e pāwhiri ana i tētahi hononga kia tikiakehia ai e te pūtirotiro, kaua e Mister Download Manager.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	Whārangi kāinga
@@ -1977,7 +1974,7 @@
 	Hungary	Hanekari
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}	Ka tikiake au ki a NetGuard Download Manager: tere, kore utu, ā, he rite tonu ki te kaiwhakahaere tikiake kua mōhio kē koe. {link}
+	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	Ka tikiake au ki a Mister Download Manager: tere, kore utu, ā, he rite tonu ki te kaiwhakahaere tikiake kua mōhio kē koe. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2104,7 +2101,7 @@
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
-	it is not an archive NetGuard extracts	ehara i te pūrangaranga ka tangohia e NetGuard
+	it is not an archive MDM extracts	ehara i te pūrangaranga ka tangohia e MDM
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
@@ -2125,7 +2122,7 @@
 #. text in the Batch download window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.	Ka taea te tāpiri i tētahi rōpū ingoa kōnae raupapa pēnei i te img001.jpg, img002.jpg, me ētahi atu,\nimg100.jpg ki te rārangi tikiake NetGuard. Whakamahia te tohu whetū hei tauira ingoa kōnae.
+	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.	Ka taea te tāpiri i tētahi rōpū ingoa kōnae raupapa pēnei i te img001.jpg, img002.jpg, me ētahi atu,\nimg100.jpg ki te rārangi tikiake MDM. Whakamahia te tohu whetū hei tauira ingoa kōnae.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2252,7 +2249,7 @@
 	Latvia	Latvia
 #. text in the Options window
 #, machine
-	Launch NetGuard Download Manager on startup	Whakarewa i a NetGuard Download Manager i te tīmatanga
+	Launch Mister Download Manager on startup	Whakarewa i a Mister Download Manager i te tīmatanga
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2264,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control NetGuard	Tukua ngā waea me ngā rorohiko i te whatunga ā-rohe ki te whakahaere i te NetGuard
+	Let phones and computers on the local network control MDM	Tukua ngā waea me ngā rorohiko i te whatunga ā-rohe ki te whakahaere i te MDM
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2482,32 +2479,32 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
 #, machine
-	NetGuard can't be reached on the network now: Options → Remote says why.	Kāore e taea te tae atu ki te NetGuard i te whatunga ināianei: E kī ana ngā Kōwhiringa → Mamao he aha.
+	MDM can't be reached on the network now: Options → Remote says why.	Kāore e taea te tae atu ki te MDM i te whatunga ināianei: E kī ana ngā Kōwhiringa → Mamao he aha.
 #. text in remote.rs
 #. remote control page (on a phone): the address typed isn't one MDM downloads (not http, https, ftp or magnet)
 #, machine
-	NetGuard cannot download this address.	Kāore e taea e NetGuard te tiki i tēnei wāhitau.
+	MDM cannot download this address.	Kāore e taea e MDM te tiki i tēnei wāhitau.
 #. text in remote.rs
 #. remote control page (on a phone): adding a download failed
 #, machine
-	NetGuard could not add it.	Kāore i taea e NetGuard te tāpiri.
+	MDM could not add it.	Kāore i taea e MDM te tāpiri.
 #. text in remote.rs
 #. remote control page (on a phone): an action failed
 #, machine
-	NetGuard could not do it.	Kāore i taea e NetGuard te mahi.
+	MDM could not do it.	Kāore i taea e MDM te mahi.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached while pairing
 #, machine
-	NetGuard does not answer. Check that it is running and on the same network.	Kāore a NetGuard e whakautu. Tirohia kei te rere, kei te whatunga kotahi hoki.
+	MDM does not answer. Check that it is running and on the same network.	Kāore a MDM e whakautu. Tirohia kei te rere, kei te whatunga kotahi hoki.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached now; the page keeps trying by itself
 #. the trailing ... means it is still going on: keep it
 #, machine
-	NetGuard does not answer. Trying again...	Kāore a NetGuard e whakautu. Kei te ngana anō...
+	MDM does not answer. Trying again...	Kāore a MDM e whakautu. Kei te ngana anō...
 #. text in remote.rs
 #. remote control page (on a phone): no pairing code is shown in MDM; "Pair a device" is MDM's button
 #, machine
-	NetGuard shows no code now. Click Pair a device there first.	Kāore a NetGuard e whakaatu waehere ināianei. Pāwhiritia te Takirua pūrere ki reira i te tuatahi.
+	MDM shows no code now. Click Pair a device there first.	Kāore a MDM e whakaatu waehere ināianei. Pāwhiritia te Takirua pūrere ki reira i te tuatahi.
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 #, machine
@@ -2539,54 +2536,54 @@
 	Missing	Ngaro
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	NetGuard Download Manager	NetGuard Download Manager
+	Mister Download Manager	Mister Download Manager
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	NetGuard Download Manager can't open its window: this system lacks {libraries}.	Kāore e taea e NetGuard Download Manager te whakatuwhera i tōna matapihi: kei te ngaro i tēnei pūnaha ngā {libraries}.
+	Mister Download Manager can't open its window: this system lacks {libraries}.	Kāore e taea e Mister Download Manager te whakatuwhera i tōna matapihi: kei te ngaro i tēnei pūnaha ngā {libraries}.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	NetGuard Download Manager closed unexpectedly	Kua kati ohorere a NetGuard Download Manager
+	Mister Download Manager closed unexpectedly	Kua kati ohorere a Mister Download Manager
 #. window title in the Options window
 #, machine
-	NetGuard Download Manager Configuration	Whirihoranga NetGuard Download Manager
+	Mister Download Manager Configuration	Whirihoranga Mister Download Manager
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager crash report	Pūrongo tukinga NetGuard Download Manager
+	Mister Download Manager crash report	Pūrongo tukinga Mister Download Manager
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	NetGuard Download Manager hit an internal error	Kua pāngia a NetGuard Download Manager e tētahi hapa ā-roto
+	Mister Download Manager hit an internal error	Kua pāngia a Mister Download Manager e tētahi hapa ā-roto
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	NetGuard Download Manager is running the queue "{queue}"	Kei te whakahaere a NetGuard Download Manager i te rārangi "{queue}"
+	Mister Download Manager is running the queue "{queue}"	Kei te whakahaere a Mister Download Manager i te rārangi "{queue}"
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	NetGuard Download Manager stopped responding	Kua kore a NetGuard Download Manager e whakautu
+	Mister Download Manager stopped responding	Kua kore a Mister Download Manager e whakautu
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager stopped responding for a while	Kua kore a NetGuard Download Manager e whakautu mō tētahi wā
+	Mister Download Manager stopped responding for a while	Kua kore a Mister Download Manager e whakautu mō tētahi wā
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	NetGuard Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Ka tuhia e NetGuard Download Manager ngā hononga katoa ki te kōnae whakamutunga\n(he kōnae wāhanga pūkohu kei tōna taha), nō reira kāore he whaiaronga rangitahi, he\ntakahanga whakahiato rānei e hiahiatia.
+	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Ka tuhia e Mister Download Manager ngā hononga katoa ki te kōnae whakamutunga\n(he kōnae wāhanga pūkohu kei tōna taha), nō reira kāore he whaiaronga rangitahi, he\ntakahanga whakahiato rānei e hiahiatia.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager {version} is available (released {date}).	Kei te wātea a NetGuard Download Manager {version} (i tukuna i te {date}).
+	Mister Download Manager {version} is available (released {date}).	Kei te wātea a Mister Download Manager {version} (i tukuna i te {date}).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager's own copy, version {version}	Tārua ake a NetGuard Download Manager, putanga {version}
+	Mister Download Manager's own copy, version {version}	Tārua ake a Mister Download Manager, putanga {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	NetGuard Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	E hiahia ana te matapihi X11 o NetGuard Download Manager ki ngā {libraries}, kei te ngaro i tēnei pūnaha: ka tuwhera ki Wayland kē, ka tuwhera pea ōna tahua ki tawhiti atu i ōna taitara.
+	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	E hiahia ana te matapihi X11 o Mister Download Manager ki ngā {libraries}, kei te ngaro i tēnei pūnaha: ka tuwhera ki Wayland kē, ka tuwhera pea ōna tahua ki tawhiti atu i ōna taitara.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -2793,7 +2790,7 @@
 #. text in extension.rs
 #. a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
 #, machine
-	No browser NetGuard can connect to was found	Kāore i kitea he pūtirotiro ka taea e NetGuard te hono atu
+	No browser MDM can connect to was found	Kāore i kitea he pūtirotiro ka taea e MDM te hono atu
 #. text in extension.rs
 #. a check of Test browser integration: no browser's extension has reached MDM
 #, machine
@@ -2863,7 +2860,7 @@
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Kāore i whakautu te pūmau matua pūnaha, nō reira ka puritia ngā takiuru me ngā kupuhipa ki ngā tautuhinga a NetGuard, māu anake e pānui.
+	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	Kāore i whakautu te pūmau matua pūnaha, nō reira ka puritia ngā takiuru me ngā kupuhipa ki ngā tautuhinga a MDM, māu anake e pānui.
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -2994,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach NetGuard.	Weto: kāore he mea i te whatunga e tae atu ki te NetGuard.
+	Off: nothing on the network can reach MDM.	Weto: kāore he mea i te whatunga e tae atu ki te MDM.
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	Pātai mēnā me tikiake ngā hononga i tāruatia ki te papatopenga
@@ -3070,7 +3067,7 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Ko ngā pūrere takirua anake ka kite, ka huri rānei i tētahi mea. I te wā tuatahi, ka whakatūpato te pūtirotiro o te waea mō te tiwhikete a NetGuard: ko tōna tapumati te mea kei runga ake.
+	Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.	Ko ngā pūrere takirua anake ka kite, ka huri rānei i tētahi mea. I te wā tuatahi, ka whakatūpato te pūtirotiro o te waea mō te tiwhikete a MDM: ko tōna tapumati te mea kei runga ake.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than MDM lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
@@ -3092,10 +3089,10 @@
 	Open folder	Whakatuwhera kōpaki
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with NetGuard Download Manager	Whakatuwheratia ngā hononga autō me ngā kōnae .torrent ki a NetGuard Download Manager
+	Open magnet links and .torrent files with Mister Download Manager	Whakatuwheratia ngā hononga autō me ngā kōnae .torrent ki a Mister Download Manager
 #. text in the tray icon's menu
 #, machine
-	Open NetGuard Download Manager	Whakatuwheratia a NetGuard Download Manager
+	Open Mister Download Manager	Whakatuwheratia a Mister Download Manager
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3166,7 +3163,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with NetGuard Download Manager	Whakahoahoa ki a NetGuard Download Manager
+	Pair with Mister Download Manager	Whakahoahoa ki a Mister Download Manager
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3481,7 +3478,7 @@
 #. text in crashui.rs
 #. crash report window button: start MDM again
 #, machine
-	Restart NetGuard	Tīmata anō i te NetGuard
+	Restart MDM	Tīmata anō i te MDM
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	Whakahokia ngā kāwai taunoa
@@ -3652,7 +3649,7 @@
 	Select or unselect the download with the dotted outline	Tīpako, wetetīpako rānei i te tikiake me te tāpare ira
 #. group box title in the Options window
 #, machine
-	Select sounds for NetGuard Download Manager events	Tīpako i ngā oro mō ngā kaupapa a NetGuard Download Manager
+	Select sounds for Mister Download Manager events	Tīpako i ngā oro mō ngā kaupapa a Mister Download Manager
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	Tīpako i ngā tikiake i roto i te pouaka
@@ -3868,7 +3865,7 @@
 	Sites Logins	Takiuru mō ngā pae
 #. text in helpers.rs
 #, machine
-	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.	Ka tukuna e ngā pae ō rātou kounga pai rawa atu hei ataata me te oro motuhake, ā, ka hono e ffmpeg. I tēnei pūnaha ka whakamahi a NetGuard i tōna ake: tāuta ffmpeg mā tō kaiwhakahaere pōkai.
+	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.	Ka tukuna e ngā pae ō rātou kounga pai rawa atu hei ataata me te oro motuhake, ā, ka hono e ffmpeg. I tēnei pūnaha ka whakamahi a MDM i tōna ake: tāuta ffmpeg mā tō kaiwhakahaere pōkai.
 #. text in helpers.rs
 #, machine
 	Sites send their best quality as separate video and audio. ffmpeg puts them together into one file that plays anywhere.	Ka tukuna e ngā pae ō rātou kounga pai rawa atu hei ataata me te oro motuhake. Ka whakakotahi a ffmpeg i aua mea ki tētahi kōnae kotahi ka taea te purei ki hea.
@@ -3978,7 +3975,7 @@
 	Start download at	Tīmata tikiake i te
 #. checkbox in the Scheduler window
 #, machine
-	Start download on NetGuard Download Manager startup	Tīmata tikiake i te tīmatanga o NetGuard Download Manager
+	Start download on Mister Download Manager startup	Tīmata tikiake i te tīmatanga o Mister Download Manager
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	Tīmata te tikiake tonu i te wā e whakaatu ana i te kōrero "Mōhiohio Kōnae Tikiake"
@@ -4013,7 +4010,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	I tīmata me te rorohiko, ka tīmata kia iti: kāore he wāhi whakamōhiotanga e whakaatu ana i tōna ata ki konei
 #. text in the Options window
-#. tooltip of "Launch NetGuard Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	I tīmata me te rorohiko, ka tatari ki te wāhi whakamōhiotanga
 #. message or event log entry in the main window
@@ -4117,7 +4114,7 @@
 	Sunday	Rātapu
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Support the original project on GitHub Sponsors	Support the original project on GitHub Sponsors
+	Support MDM on GitHub Sponsors	Tautoko i a MDM i ngā Kaitautoko GitHub
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -4234,7 +4231,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find NetGuard Download Manager	Ka kitea e ngā pūtirotiro a NetGuard Download Manager
+	The browsers can find Mister Download Manager	Ka kitea e ngā pūtirotiro a Mister Download Manager
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4258,7 +4255,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. NetGuard Download Manager has to be running (it can wait in the notification area).	Ka whakaohohia te rorohiko i te meneti i mua i te wā tīmatanga, ā, ka noho oho i te wā e rere ana te rārangi. Me rere a NetGuard Download Manager (ka taea te tatari i te wāhi whakamōhiotanga).
+	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	Ka whakaohohia te rorohiko i te meneti i mua i te wā tīmatanga, ā, ka noho oho i te wā e rere ana te rārangi. Me rere a Mister Download Manager (ka taea te tatari i te wāhi whakamōhiotanga).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4303,7 +4300,7 @@
 #. message or event log entry in the main window
 #. {error} = an error message (keep the braces as they are)
 #, machine
-	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	Kāore i taea te tiaki i te rārangi tikiake: {error}. Ka mau tonu ngā huringa i te wā e rere ana a NetGuard.
+	The download list could not be saved: {error}. Changes are kept while MDM runs.	Kāore i taea te tiaki i te rārangi tikiake: {error}. Ka mau tonu ngā huringa i te wā e rere ana a MDM.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.	Ko te kaiwhakahaere tikiake e mōhio ana koe, i hanga anō kia tere ake. He kore utu, he puna tuwhera i raro i te GNU GPL, putanga 3, muri iho rānei. Ka kitea ngā ataata e yt-dlp; ka rere ngā awa i runga i te librqbit.
@@ -4429,7 +4426,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?	Kāore i oti te tikiake i tohua. Kei te hiahia koe ki te muku\ni te rārangi tikiake a NetGuard Download Manager?
+	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	Kāore i oti te tikiake i tohua. Kei te hiahia koe ki te muku\ni te rārangi tikiake a Mister Download Manager?
 #. text in errors.rs
 #, machine
 	the server answered {status}	i whakautu te tūmau {status}
@@ -4466,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (MDM never unlocks it: that would ask for its password), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Kua raka te pūmau matua pūnaha, ā, kāore a NetGuard e iriraka, nō reira ka puritia ngā takiuru me ngā kupuhipa ki ngā tautuhinga a NetGuard, māu anake e pānui.
+	The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.	Kua raka te pūmau matua pūnaha, ā, kāore a MDM e iriraka, nō reira ka puritia ngā takiuru me ngā kupuhipa ki ngā tautuhinga a MDM, māu anake e pānui.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4656,7 +4653,7 @@
 #. message or event log entry in the main window
 #. event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
 #, machine
-	Through {service}: the service downloads the torrent, then NetGuard its files	Mā {service}: ka tikiake te ratonga i te awa, kātahi ka tikiake a NetGuard i ōna kōnae
+	Through {service}: the service downloads the torrent, then MDM its files	Mā {service}: ka tikiake te ratonga i te awa, kātahi ka tikiake a MDM i ōna kōnae
 #. text in the Scheduler window
 #, machine
 	Thursday	Rāpare
@@ -4793,7 +4790,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "NetGuard Download Manager" and allow it on all websites.	Whakakāhia te “NetGuard Download Manager” ka whakaaetia ki ngā paetukutuku katoa.
+	Turn on "Mister Download Manager" and allow it on all websites.	Whakakāhia te “Mister Download Manager” ka whakaaetia ki ngā paetukutuku katoa.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -4849,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	Patohia tēnei waehere ki {page} ka whakaae ki a NetGuard; e tatari ana māu (ka pau te waehere i roto i {time}).
+	Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).	Patohia tēnei waehere ki {page} ka whakaae ki a MDM; e tatari ana māu (ka pau te waehere i roto i {time}).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4946,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy MDM downloads and checks itself
 #, machine
-	Use NetGuard's own copy	Whakamahia te tārua ake a NetGuard
+	Use MDM's own copy	Whakamahia te tārua ake a MDM
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5142,7 +5139,7 @@
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in MDM's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Kāore i whakautu te Kaiwhakahaere Tiwhikete Windows, nō reira ka puritia ngā takiuru me ngā kupuhipa ki ngā tautuhinga a NetGuard, kua whakamuna mō tō pūkete Windows.
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.	Kāore i whakautu te Kaiwhakahaere Tiwhikete Windows, nō reira ka puritia ngā takiuru me ngā kupuhipa ki ngā tautuhinga a MDM, kua whakamuna mō tō pūkete Windows.
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine
@@ -5174,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in NetGuard and try again.	Waehere hē. Whakaatuhia he waehere hou ki NetGuard ka ngana anō.
+	Wrong code. Show a new code in MDM and try again.	Waehere hē. Whakaatuhia he waehere hou ki MDM ka ngana anō.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5206,7 +5203,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of NetGuard Download Manager ({version}).	Kei a koe te putanga hou o NetGuard Download Manager ({version}).
+	You have the latest version of Mister Download Manager ({version}).	Kei a koe te putanga hou o Mister Download Manager ({version}).
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -5232,7 +5229,7 @@
 #. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	He tawhito rawa tō hōtaka ake ({version}): Me {oldest}, he mea hōu ake rānei a NetGuard
+	Your own program ({version}) is too old: MDM needs {oldest} or newer	He tawhito rawa tō hōtaka ake ({version}): Me {oldest}, he mea hōu ake rānei a MDM
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -5327,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control NetGuard now.	Kua honoa a {device}. Ka taea e ia te whakahaere i a NetGuard ināianei.
+	{device} is paired. It can control MDM now.	Kua honoa a {device}. Ka taea e ia te whakahaere i a MDM ināianei.
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5407,7 +5404,7 @@
 #. in the "7-Zip needed" window: {name} is the archive's file name; 7-Zip is a program's name
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	{name} is a 7z or RAR archive. NetGuard extracts those with 7-Zip, which isn't installed.	He pūranga 7z, RAR rānei a {name}. Ka tangohia e NetGuard ēnei mā 7-Zip, kāore anō kia tāutaia.
+	{name} is a 7z or RAR archive. MDM extracts those with 7-Zip, which isn't installed.	He pūranga 7z, RAR rānei a {name}. Ka tangohia e MDM ēnei mā 7-Zip, kāore anō kia tāutaia.
 #. text in extracting archives (a download's log, the Archive password window)
 #. in Archive password: {name} is the archive's file name
 #. {name} = a file name (keep the braces as they are)
@@ -5422,7 +5419,7 @@
 #. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one MDM can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
 #, machine
-	{name} {version} is too old: NetGuard needs {oldest} or newer	He tawhito rawa a {name} {version}: Me {oldest}, he mea hōu ake rānei a NetGuard
+	{name} {version} is too old: MDM needs {oldest} or newer	He tawhito rawa a {name} {version}: Me {oldest}, he mea hōu ake rānei a MDM
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
@@ -5447,7 +5444,7 @@
 #. text in errors.rs
 #. a debrid service's error: too many requests; MDM waits and retries
 #, machine
-	{service} asks to slow down; NetGuard will try again in a minute	Ka tono a {service} kia pōturi; ka ngana anō a NetGuard i roto i te meneti
+	{service} asks to slow down; MDM will try again in a minute	Ka tono a {service} kia pōturi; ka ngana anō a MDM i roto i te meneti
 #. text in errors.rs
 #. a debrid service's error: it wants the user to allow this computer (it sent an email)
 #, machine
@@ -5457,7 +5454,7 @@
 	{service} can't get this torrent: nobody shares it, or its link can't be read	Kāore e taea e {service} te tiki i tēnei awa: kāore he tangata e tiri ana, kāore rānei e taea te pānui i tōna hononga
 #. text in errors.rs
 #, machine
-	{service} can't reach this file host right now; NetGuard will try again later	Kāore e taea e {service} te toro atu ki tēnei kaihautū kōnae i tēnei wā; ka ngana anō a NetGuard ā muri ake
+	{service} can't reach this file host right now; MDM will try again later	Kāore e taea e {service} te toro atu ki tēnei kaihautū kōnae i tēnei wā; ka ngana anō a MDM ā muri ake
 #. text in errors.rs
 #. a debrid service's error: it isn't answering
 #, machine
@@ -5492,7 +5489,7 @@
 	{service}: this needs a premium account	{service}: me whai pūkete moni tāpiri tēnei
 #. text in errors.rs
 #, machine
-	{service}: too many downloads at once through your account; NetGuard will try again	{service}: he nui rawa ngā tikiake i te wā kotahi mā tō pūkete; ka ngana anō a NetGuard
+	{service}: too many downloads at once through your account; MDM will try again	{service}: he nui rawa ngā tikiake i te wā kotahi mā tō pūkete; ka ngana anō a MDM
 #. text in errors.rs
 #. a debrid service's error: the account's limit (traffic) for this host is used up
 #, machine
@@ -5593,15 +5590,15 @@ column	Time left	Wā e toe ana
 #, machine
 column	Transfer rate	Reiti whakawhiti
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
 #, machine
-extension	Another NetGuard Download Manager (a server)	Tētahi atu NetGuard Download Manager (he tūmau)
+extension	Another Mister Download Manager (a server)	Tētahi atu Mister Download Manager (he tūmau)
 #. text in the browser extension
 #. the name this browser gets in the other MDM's list of paired devices
 #, machine
 extension	Browser extension	Toronga pūtirotiro
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in NetGuard Download Manager
+#. menu command of the download button over a video: opens its settings in Mister Download Manager
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	Tautuhinga pātene...
@@ -5610,34 +5607,34 @@ extension	Button settings...	Tautuhinga pātene...
 #, machine
 extension	Can't tell which video this is: open its own page and try there	Kāore e mōhiotia ko tēhea ataata tēnei: whakatuwheratia tōna ake whārangi, ka whakamātau i reira
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
 #, machine
-extension	Connected to NetGuard Download Manager	Kua hono ki a NetGuard Download Manager
+extension	Connected to Mister Download Manager	Kua hono ki a Mister Download Manager
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to NetGuard Download Manager {version}	Kua hono ki a NetGuard Download Manager {version}
+extension	Connected to Mister Download Manager {version}	Kua hono ki a Mister Download Manager {version}
 #. text in the browser extension
 #. button beside a video, sound or stream in the toolbar button's popup: download it with the app; verb; short
 #, machine
 extension	Download	Tikiake
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
 #, machine
-extension	Download all links with NetGuard Download Manager	Tikiake i ngā hononga katoa ki a NetGuard Download Manager
+extension	Download all links with Mister Download Manager	Tikiake i ngā hononga katoa ki a Mister Download Manager
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
 #, machine
-extension	Download selected links with NetGuard Download Manager	Tikiake i ngā hononga kua tohua ki a NetGuard Download Manager
+extension	Download selected links with Mister Download Manager	Tikiake i ngā hononga kua tohua ki a Mister Download Manager
 #. text in the browser extension
 #. the button over a video on a web page that downloads it; verb; short (it sits on the video)
 #, machine
 extension	Download video	Tikiake ataata
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
 #, machine
-extension	Download with NetGuard Download Manager	Tikiake mā te NetGuard Download Manager
+extension	Download with Mister Download Manager	Tikiake mā te Mister Download Manager
 #. text in the browser extension
 #. shown in the toolbar button's popup after the site was excluded
 #. {site} = a web site's name such as "example.com" (keep the braces as they are)
@@ -5656,9 +5653,9 @@ extension	Drag to move it along the video's edge	Tōia kia neke i te tapa o te a
 #, machine
 extension	Enter its https:// address.	Tāuruhia tōna wāhitau https://.
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name NetGuard Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
 #, machine
-extension	Hands downloads from the browser to NetGuard Download Manager.	Ka tukuna ngā tikiake mai i te pūtirotiro ki a NetGuard Download Manager.
+extension	Hands downloads from the browser to Mister Download Manager.	Ka tukuna ngā tikiake mai i te pūtirotiro ki a Mister Download Manager.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -5713,33 +5710,33 @@ extension	Live	Ora
 #, machine
 extension	Media on this page	Pāpāho i tēnei whārangi
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name NetGuard Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager	NetGuard Download Manager
+extension	Mister Download Manager	Mister Download Manager
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name NetGuard Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager didn't start in time	Kāore a NetGuard Download Manager i tīmata i te wā tika
+extension	Mister Download Manager didn't start in time	Kāore a Mister Download Manager i tīmata i te wā tika
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name NetGuard Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager doesn't accept this copy of the extension	Kāore a NetGuard Download Manager e whakaae ki tēnei tārua o te toronga
+extension	Mister Download Manager doesn't accept this copy of the extension	Kāore a Mister Download Manager e whakaae ki tēnei tārua o te toronga
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed or didn't start	Kāore a NetGuard Download Manager i whakaurua, kāore rānei i tīmata
+extension	Mister Download Manager isn't installed or didn't start	Kāore a Mister Download Manager i whakaurua, kāore rānei i tīmata
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name NetGuard Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed, or its browser integration isn't set up	Kāore a NetGuard Download Manager i whakaurua, kāore rānei i whakatūria tōna whakauru pūtirotiro
+extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Kāore a Mister Download Manager i whakaurua, kāore rānei i whakatūria tōna whakauru pūtirotiro
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Ka tikiake a NetGuard Download Manager mā te takawaenga anō e whakamahia ana e tēnei pūtirotiro. Ka pātai te pūtirotiro ki a koe kia kotahi anake te wā kia whakaae; mā te whakaweto i tēnei ka whakahoki anō i tērā.
+extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Ka tikiake a Mister Download Manager mā te takawaenga anō e whakamahia ana e tēnei pūtirotiro. Ka pātai te pūtirotiro ki a koe kia kotahi anake te wā kia whakaae; mā te whakaweto i tēnei ka whakahoki anō i tērā.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Ka tikiake a NetGuard Download Manager mā te takawaenga anō o tēnei pūtirotiro. I te wā e weto ana tēnei, kāore te toronga e pānui i te takawaenga o te pūtirotiro.
+extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Ka tikiake a Mister Download Manager mā te takawaenga anō o tēnei pūtirotiro. I te wā e weto ana tēnei, kāore te toronga e pānui i te takawaenga o te pūtirotiro.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -5771,9 +5768,9 @@ extension	Open it	Whakatuwheratia
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	Whakatuwheratia tōna wāhitau kotahi ka whakaae ki tōna tiwhikete, kātahi ka tāuru i tētahi waehere mai i ōna Kōwhiringa, Mamao, Tūhono pūrere (rānei misterdownloadmanager-cli pair).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name NetGuard Download Manager as it is
+#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
 #, machine
-extension	Open NetGuard Download Manager	Whakatuwhera NetGuard Download Manager
+extension	Open Mister Download Manager	Whakatuwhera Mister Download Manager
 #. text in the browser extension
 #. button in the toolbar button's popup: open the app's Options
 #. the trailing ... means it is still going on: keep it
@@ -5812,13 +5809,13 @@ extension	Send downloads through this browser's proxy or VPN extension	Tukuna ng
 #, machine
 extension	Send downloads to	Tukuna ngā tikiake ki
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
 #, machine
-extension	Sent to NetGuard Download Manager	Kua tukuna ki NetGuard Download Manager
+extension	Sent to Mister Download Manager	Kua tukuna ki Mister Download Manager
 #. text in the browser extension
 #. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (MDM is free; this is an optional donation)
 #, machine
-extension	Support the original project	Support the original project
+extension	Support MDM	Tautoko i a MDM
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine
@@ -5828,9 +5825,9 @@ extension	Take downloads from this browser	Tangohia ngā tikiake mai i tēnei p�
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Nā ngā ture a Chrome Web Store i kore ai e whai wāhi tēnei kape o te tāpiri ki ngā ataata o tēnei pae. Mā Āwhina e kī mai ngā mea ka taea e koe.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name NetGuard Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
 #, machine
-extension	The connection to NetGuard Download Manager failed	I rahua te hononga ki a NetGuard Download Manager
+extension	The connection to Mister Download Manager failed	I rahua te hononga ki a Mister Download Manager
 #. text in the browser extension
 #. shown briefly on the download button over a video when the app's settings keep the button off on this web site
 #, machine
@@ -5848,7 +5845,7 @@ extension	The last download was left to the browser.	I waiho te tikiake whakamut
 #, machine
 extension	This browser isn't ticked in Options → General.	Kāore tēnei pūtirotiro i tohua i roto i Ngā Kōwhiringa → Whānui.
 #. text in the browser extension
-#. choice under Send downloads to: the NetGuard Download Manager on this computer
+#. choice under Send downloads to: the Mister Download Manager on this computer
 #, machine
 extension	This computer	Tēnei rorohiko
 #. text in the browser extension
@@ -5860,9 +5857,9 @@ extension	This download's details were too large to hand over	He nui rawa ngā t
 #, machine
 extension	This page's player streams its video in pieces, so there's no file to list. Point at the video and use its Download video button.	Ka rere te ataata a tēnei kaitākaro mā ngā wāhanga, nō reira kāore he kōnae hei rārangi. Tohua te ataata, ka whakamahia tōna pātene Tikiake ataata.
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name NetGuard Download Manager as it is
+#. status when the app is older than the extension; keep the name Mister Download Manager as it is
 #, machine
-extension	Update NetGuard Download Manager to use everything this extension offers	Whakahōu i a NetGuard Download Manager kia whakamahi i ngā mea katoa e tukuna ana e tēnei toronga
+extension	Update Mister Download Manager to use everything this extension offers	Whakahōu i a Mister Download Manager kia whakamahi i ngā mea katoa e tukuna ana e tēnei toronga
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -5978,7 +5975,7 @@ key	Up / Down	Whakarunga / Whakararo
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About NetGuard Download Manager	&Mō NetGuard Download Manager
+menu	&About Mister Download Manager	&Mō Mister Download Manager
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6133,7 +6130,7 @@ menu	Aero	Aero
 #. menu command in the main window
 #. View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
 #, machine
-menu	Applies the next time NetGuard starts	Ka whai mana a te wā ka tīmata anō a NetGuard
+menu	Applies the next time MDM starts	Ka whai mana a te wā ka tīmata anō a MDM
 #. menu command in the main window
 #. View → Theme: a style theme's name (Mac OS X's look), a name: keep "Aqua" as written
 #, machine
@@ -6338,12 +6335,9 @@ menu	Metal didn't start here: OpenGL draws	Kāore a Metal i tīmata i konei: kei
 #, machine
 menu	Metro	Metro
 #. menu command in the main window
-#. View → Theme: NetGuard's own look, the default (dark navy and emerald green), a name: keep "NetGuard" as written
-menu	NetGuard	NetGuard
-#. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	NetGuard Download Manager &Home Page	NetGuard Download Manager &Whārangi Kāinga
+menu	Mister Download Manager &Home Page	Mister Download Manager &Whārangi Kāinga
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	Nuku/Whakaingoa Anō (Ctrl-M)
@@ -6456,7 +6450,7 @@ menu	Select &all	Tīpako &katoa
 menu	Show &drop target	Whakaatu &whāinga taka
 #. menu command in the main window
 #, machine
-menu	Show NetGuard Download Manager	Whakaatu NetGuard Download Manager
+menu	Show Mister Download Manager	Whakaatu Mister Download Manager
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6478,7 +6472,7 @@ menu	Stop Download	Kati te Tītaha
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Support the &original project	Support the &original project
+menu	Support &MDM	Tautoko &MDM
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

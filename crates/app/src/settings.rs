@@ -102,8 +102,8 @@ pub struct Settings {
     /// View → Always dark (#60): dark whatever the system says (a desktop that reports no
     /// preference, or a dark MDM on a light desktop).
     pub always_dark: bool,
-    /// The look (#45): a built-in theme's id ("netguard", the default; "classic" is the original
-    /// look) or a theme file's name in the data folder's `themes` folder (crate::themefile).
+    /// The look (#45): a built-in theme's id ("netguard", the default) or a theme file's name in
+    /// the data folder's `themes` folder (crate::themefile).
     pub theme: String,
     /// View → Draw with (#89): OpenGL or Direct3D (Windows only), used from the next start.
     /// None: MDM's default (`renderer::DEFAULT`), which may change.
@@ -365,8 +365,8 @@ impl Default for Settings {
             branches: [true, false, false, false],
             view: None,
             dark_mode_support: true,
-            always_dark: false,
-            theme: "netguard".into(),
+            always_dark: true,
+            theme: "netguard".into()
             renderer: None,
             interface_size: 100,
             limits_on: false,
@@ -506,13 +506,7 @@ impl Settings {
         for (a, d) in self.debrid_accounts.iter().zip(&mut disk.debrid_accounts) {
             d.secret = kept(
                 format!("debrid/{}", a.id),
-                &|| {
-                    format!(
-                        "NetGuard Download Manager: {} ({})",
-                        a.service.name(),
-                        a.user
-                    )
-                },
+                &|| format!("NetGuard Download Manager: {} ({})", a.service.name(), a.user),
                 &a.secret,
             );
         }

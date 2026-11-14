@@ -632,7 +632,7 @@ pub fn checks(settings: &crate::settings::Settings) -> Vec<Check> {
         Registration::NoBrowser => check(
             false,
             // i18n: a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
-            "No browser NetGuard can connect to was found",
+            "No browser MDM can connect to was found",
             Some("not-installed"),
         ),
         Registration::HelperMissing(path) => {

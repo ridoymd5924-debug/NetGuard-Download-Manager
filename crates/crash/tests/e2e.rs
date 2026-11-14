@@ -83,7 +83,7 @@ fn a_panic_reports_its_message_and_function() {
 #[test]
 fn a_native_crash_reports_where_it_crashed() {
     let r = report("crash");
-    assert!(r.contains("Description: NetGuard crashed"), "{r}");
+    assert!(r.contains("Description: MDM crashed"), "{r}");
     assert!(
         r.contains("Signature: crash in crashy::crashy_crashes_here"),
         "{r}"

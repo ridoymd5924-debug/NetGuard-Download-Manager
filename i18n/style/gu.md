@@ -1,4 +1,4 @@
-<!-- How Gujarati writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Gujarati writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Commands should use a clear, polite imperative. Keep button labels short; use the same verb form in menus when they perform the same action. (ડાઉનલોડ કરો; ફાઇલ ખોલો)
 - Phrase check box labels as concise statements or noun phrases, not commands. Use the same wording for the label and its associated setting. (ડાઉનલોડ પૂર્ણ થયા પછી કમ્પ્યુટર બંધ કરો)
 - Address the user directly as તમે. Use a courteous, neutral register; avoid informal તું and overly deferential language. (શું તમે આ ફાઇલ કાઢી નાખવા માંગો છો?)
@@ -7,7 +7,7 @@
 - Use a natural Gujarati construction for progress and status text. Avoid copying English participles literally; make the implied subject and verb agree. (તપાસ ચાલી રહી છે…; {n} ફાઇલો ડાઉનલોડ થઈ રહી છે)
 - Prefer a complete Gujarati sentence for errors rather than an English-style fragment. Keep placeholders intact and place them where Gujarati word order requires. ({error} ખોલી શકાયું નથી.)
 - Write event log entries as brief, factual statements, using the appropriate completed-action form. (ડાઉનલોડ પૂર્ણ થયું.)
-- Gujarati has no uppercase or lowercase. Use Gujarati script for ordinary text; preserve the official spelling and capitalization of product names and Latin-script identifiers. (NetGuard Download Manager; Windows 11)
+- Gujarati has no uppercase or lowercase. Use Gujarati script for ordinary text; preserve the official spelling and capitalization of product names and Latin-script identifiers. (Mister Download Manager; Windows 11)
 - Use Gujarati names for months and weekdays. Do not capitalize them; format dates consistently with the app’s date convention. (સોમવાર, ૫ જાન્યુઆરી)
 - Use Gujarati sentence structure, generally placing the verb at the end. Put descriptive words before the noun they describe. (ઝડપી ડાઉનલોડ શરૂ કરો)
 - Use Gujarati postpositions rather than copying English preposition order. Keep relationships clear and avoid unnecessary linking words. (ફોલ્ડરમાં સાચવો)

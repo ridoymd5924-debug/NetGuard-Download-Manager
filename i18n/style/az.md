@@ -1,4 +1,4 @@
-<!-- How Azerbaijani writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Azerbaijani writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Əmrlərdə, düymələrdə və menyu əməliyyatlarında qısa əmr formasından istifadə edin. Eyni əməliyyat üçün hər yerdə eyni ifadəni işlədin. (Yenidən yoxla; Faylı aç)
 - İstifadəçiyə müraciətdə nəzakətli «siz» formasını seçin; mümkün olduqda birbaşa müraciətdən qaçın. Düymələrdəki qısa əmr forması interfeys üslubudur, qeyri-rəsmi müraciət deyil. (Bu əməliyyatı davam etdirmək istəyirsiniz?; Parametrlər)
 - Təsdiq suallarını tam və aydın sual kimi yazın; istifadəçidən hansı əməliyyatı təsdiqlədiyini gizlətməyin. (Endirməni dayandırmaq istəyirsiniz?)
@@ -9,7 +9,7 @@
 - Hadisə jurnalında baş vermiş əməliyyatı keçmiş zamanda, neytral və qısa yazın. (Endirmə başladı.; Fayl endirildi.)
 - Fel formasını cümlənin həqiqi və ya nəzərdə tutulan mübtədasına uyğunlaşdırın. Mübtəda göstərilmirsə, məchul və ya şəxssiz quruluşdan istifadə edin. (Endirmə tamamlandı.; Yoxlanılır…)
 - Təbii Azərbaycan söz sırasına riayət edin: təyin olunan sözdən əvvəl təyin, xəbər isə adətən cümlənin sonunda gəlir. Yer tutucuları da cümlədə düzgün yerə qoyun. (Faylı endirmək mümkün olmadı.; Yeni versiya tapıldı.)
-- Başlıqlarda cümlə üslubunda böyük hərf işlədin; bütün sözləri böyük hərflə yazmayın. Xüsusi adlar istisnadır. (Endirmə parametrləri; NetGuard Download Manager)
+- Başlıqlarda cümlə üslubunda böyük hərf işlədin; bütün sözləri böyük hərflə yazmayın. Xüsusi adlar istisnadır. (Endirmə parametrləri; Mister Download Manager)
 - Ay və həftə günlərinin adlarını cümlə əvvəlində olmadıqda kiçik hərflə yazın. (12 mart; bazar ertəsi)
 - Durğu işarələrini Azərbaycan yazı qaydalarına uyğun işlədin: vergül, nöqtə, iki nöqtə və sual işarəsindən əvvəl boşluq qoymayın; onlardan sonra bir boşluq qoyun. (Xəta: fayl tapılmadı.; Davam etmək istəyirsiniz?)
 - Üç nöqtə əvəzinə vahid «…» işarəsindən istifadə edin və ondan əvvəl boşluq qoymayın. Əlavə seçim və ya məlumat tələb edən əmrlərdə çoxnöqtəni ardıcıl işlədin. (Bağlantı yoxlanılır…; Fayl seç…)

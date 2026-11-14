@@ -1,4 +1,4 @@
-<!-- How Nepali writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Nepali writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use polite, direct instructions. Address the user as तपाईं when needed; usually omit the pronoun and use the respectful imperative ending गर्नुहोस्. (डाउनलोड सुरु गर्न डाउनलोड गर्नुहोस्।; फाइल चयन गर्नुहोस्।)
 - Phrase action buttons as short, polite imperative verbs. Keep the action first and omit explanatory wording that is not needed to identify it. (पज गर्नुहोस्; फेरि प्रयास गर्नुहोस्)
 - Use imperative verbs for action menu items; use concise noun phrases for menus that open a view or category. (फाइल खोल्नुहोस्; डाउनलोड इतिहास)

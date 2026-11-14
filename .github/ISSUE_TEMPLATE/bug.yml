@@ -3,7 +3,7 @@
 # Installed with are text fields, not dropdowns: GitHub's page showed a dropdown's value from the
 # address for a moment, then put it back to none.
 name: Bug report
-description: Something in NetGuard Download Manager doesn't work as it should.
+description: Something in Mister Download Manager doesn't work as it should.
 labels: [bug]
 body:
   - type: markdown

@@ -1,4 +1,4 @@
-<!-- How Norwegian Nynorsk writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Norwegian Nynorsk writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the imperative for commands and action buttons. Menu items that perform an action use the same form; do not use infinitives as labels. (Opne; Lagre)
 - Phrase check boxes as concise statements describing what the setting does. Use sentence case and omit a final full stop. (Start nedlastingar automatisk)
 - Address the user as «du» and use a friendly, direct, neutral register. Avoid overly formal or ceremonious wording. (Du kan endre dette seinare.)

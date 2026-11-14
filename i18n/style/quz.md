@@ -1,4 +1,4 @@
-<!-- How Quechua writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Quechua writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Write commands and action buttons as direct, singular imperatives, usually ending in -y or -chiy. Omit the subject and any polite pronoun. (Uraykachiy; Sayachiy)
 - Phrase menu items as concise actions when they trigger an action; keep the same imperative form used on buttons. (Khiputa uraykachiy)
 - Make checkbox labels short and state-like or action-oriented. Do not add a full sentence unless the choice needs clarification. (Windowswan qallariy)

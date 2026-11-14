@@ -1,6 +1,6 @@
 [package]
 name = "mdm-torrent"
-description = "BitTorrent and magnet downloads for NetGuard Download Manager (librqbit, D-014)"
+description = "BitTorrent and magnet downloads for Mister Download Manager (librqbit, D-014)"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

@@ -1,4 +1,4 @@
-<!-- How Swedish writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Swedish writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the informal second person, du, when addressing the user. Avoid Ni and unnecessary pronouns; use a natural imperative for instructions. (Välj en mapp.; Du kan ändra inställningen senare.)
 - Phrase commands and action buttons as concise imperatives. Keep the same verb for the same action throughout the app. (Spara; Pausa)
 - Use established menu names for categories and imperative verbs for actions in menus. (Arkiv; Redigera)

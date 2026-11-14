@@ -501,7 +501,7 @@ impl OptionsDialog {
             } else if i == 6 && check.hovered() {
                 // i18n: tooltip of the close-setting: checked keeps MDM running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
                 check.on_hover_text(crate::i18n::t(
-                    "Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard",
+                    "Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM",
                 ));
             }
         }
@@ -589,7 +589,7 @@ impl OptionsDialog {
         let fit_right =
             |label: &str| winui::buttons_to_right(&p, 392.0, 0.0, &[(label, 73.0)], 160.0)[0];
         let keys_at = fit_right("Keys...");
-        let label = crate::i18n::t("Customize keys to prevent or force downloading with NetGuard");
+        let label = crate::i18n::t("Customize keys to prevent or force downloading with MDM");
         // Inside the browsers' group box: it starts no further out than the group's frame.
         let (rect, cut) = winui::text_right_within(
             &p,
@@ -613,7 +613,7 @@ impl OptionsDialog {
         {
             self.sub = Some(Sub::Keys(self.s.capture_opened));
         }
-        let label = crate::i18n::t("Customize NetGuard menu items in context menu of browsers");
+        let label = crate::i18n::t("Customize MDM menu items in context menu of browsers");
         let (rect, cut) = winui::text_right(&p, o.x + 313.0, o.y + 419.0, label, LIGHT_DISABLED());
         if cut {
             winui::full_on_hover(ui, rect, ("general-right", 419), label);
@@ -621,7 +621,7 @@ impl OptionsDialog {
         // i18n: verb: edit the item
         off(ui, r(o, 289.0, 406.0, 103.0, 21.0), "Edit...");
         // The download button over videos in the browsers (our own panel, Sub::Panels).
-        let label = crate::i18n::t("Customize NetGuard Download panels in browsers");
+        let label = crate::i18n::t("Customize MDM Download panels in browsers");
         let panels_at = fit_right("Edit...");
         let (rect, cut) = winui::text_right(
             &p,
@@ -1845,7 +1845,7 @@ impl OptionsDialog {
             o.y + 358.0,
             // i18n: Options → Accounts: what these accounts are, and the services' rule against sharing
             crate::i18n::t(
-                "A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.",
+                "A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.",
             ),
             LIGHT_TEXT(),
             o.x + 404.0,
@@ -2586,7 +2586,7 @@ impl OptionsDialog {
             o + vec2(21.0, 92.0),
             &mut self.s.remote_on,
             // i18n: Options → Remote check box (off by default)
-            "Let phones and computers on the local network control NetGuard",
+            "Let phones and computers on the local network control MDM",
             true,
         );
         let on = self.s.remote_on;
@@ -2661,7 +2661,7 @@ impl OptionsDialog {
             ),
             None | Some(Status::Off) => (
                 // i18n: Options → Remote → Status: the remote control is off
-                crate::i18n::t("Off: nothing on the network can reach NetGuard.").to_owned(),
+                crate::i18n::t("Off: nothing on the network can reach MDM.").to_owned(),
                 true,
             ),
             Some(Status::Listening(_)) => (
@@ -2824,7 +2824,7 @@ impl OptionsDialog {
             o.y + 438.0,
             // i18n: Options → Remote, at the bottom of the page
             crate::i18n::t(
-                "Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.",
+                "Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.",
             ),
             LIGHT_TEXT(),
             o.x + 406.0,
@@ -2872,7 +2872,7 @@ impl OptionsDialog {
                         o.y + 30.0,
                         // i18n: Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
                         crate::i18n::t(
-                            "NetGuard can't be reached on the network now: Options → Remote says why.",
+                            "MDM can't be reached on the network now: Options → Remote says why.",
                         ),
                         crate::theme::colors().error_strong,
                         o.x + 346.0,
@@ -2887,7 +2887,7 @@ impl OptionsDialog {
                 if let Some(name) = &paired {
                     let line = crate::i18n::fmt(
                         // i18n: Options → Remote → Pair a device: done; {device} = the name it was given
-                        crate::i18n::t("{device} is paired. It can control NetGuard now."),
+                        crate::i18n::t("{device} is paired. It can control MDM now."),
                         &[("device", &crate::i18n::isolate(name))],
                     );
                     winui::paragraph(
@@ -3773,7 +3773,7 @@ fn account_dialog(ui: &mut Ui, o: Pos2, e: &mut AccountEdit) -> Outcome<settings
             &crate::i18n::fmt(
                 // i18n: Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
                 crate::i18n::t(
-                    "Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).",
+                    "Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).",
                 ),
                 &[
                     ("page", &crate::i18n::ltr(page)),
@@ -4445,17 +4445,17 @@ fn kept_text(kept: crate::secrets::Kept) -> Option<&'static str> {
         ),
         // i18n: Options → Accounts (Linux): the system keyring is locked (MDM never unlocks it: that would ask for its password), so the sign-ins stay in MDM's settings folder, which only the user's account may read
         Kept::Locked => crate::i18n::mark(
-            "The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.",
+            "The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.",
         ),
         #[cfg(windows)]
         // i18n: Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in MDM's settings, encrypted so that only this Windows account can read them
         Kept::Missing => crate::i18n::mark(
-            "Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.",
+            "Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.",
         ),
         #[cfg(not(windows))]
         // i18n: Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
         Kept::Missing => crate::i18n::mark(
-            "No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.",
+            "No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.",
         ),
     })
 }

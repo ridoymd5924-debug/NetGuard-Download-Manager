@@ -187,7 +187,7 @@ fn writable(dir: &std::path::Path) -> std::io::Result<()> {
 /// there yet (`-v /srv/mdm-config:/config`) as root's, and MDM runs as another user.
 fn not_ours(e: &std::io::Error) -> &'static str {
     if e.kind() == std::io::ErrorKind::PermissionDenied {
-        "\nIt belongs to another user: make it before the first start, owned by the user NetGuard runs \
+        "\nIt belongs to another user: make it before the first start, owned by the user MDM runs \
          as (`mkdir`, then `chown` it or give Docker that user with `--user`)."
     } else {
         ""

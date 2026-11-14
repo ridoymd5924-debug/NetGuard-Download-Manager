@@ -197,7 +197,7 @@ function fakeApi({
       onClicked: event("menu"),
     },
     // The browser's language: German here.
-    i18n: { getMessage: (key) => ({ menu: "Mit NetGuard Download Manager herunterladen" })[key] ?? "" },
+    i18n: { getMessage: (key) => ({ menu: "Mit Mister Download Manager herunterladen" })[key] ?? "" },
   };
   if (safari) delete api.downloads;
   if (!firefox && !safari) api.declarativeNetRequest = { getSessionRules: async () => [], updateSessionRules: async (r) => calls.push(["dnr", r]) };
@@ -396,7 +396,7 @@ const ok = (what) => {
   ok("the app's file types decide, asked once");
 }
 
-// NetGuard Download Manager not installed (no host): everything stays with the browser, and the
+// Mister Download Manager not installed (no host): everything stays with the browser, and the
 // toolbar button says something is wrong.
 {
   const { api, calls, listeners, store } = fakeApi({ firefox: false, host: false });
@@ -552,7 +552,7 @@ const ok = (what) => {
   ok("opened types: the session rule follows the app's list");
 }
 
-// Right-click → Download with NetGuard Download Manager: handed over as an explicit request, so
+// Right-click → Download with Mister Download Manager: handed over as an explicit request, so
 // the host takes any link (an .html page here); a failure opens the help page's section.
 {
   const { api, calls, listeners } = fakeApi({ firefox: false });
@@ -1249,7 +1249,7 @@ const MPD = (protect) => `<?xml version="1.0"?>
   load(api, false);
   await listeners.installed({ reason: "update" });
   const item = calls.find((c) => c[0] === "menu-item")[1];
-  assert.equal(item.title, "Mit NetGuard Download Manager herunterladen");
+  assert.equal(item.title, "Mit Mister Download Manager herunterladen");
   const dir = new URL("../../extension/_locales/", import.meta.url);
   const english = JSON.parse(readFileSync(new URL("en/messages.json", dir), "utf8"));
   for (const locale of readdirSync(dir)) {

@@ -1,4 +1,4 @@
-<!-- How Chinese (Simplified) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Chinese (Simplified) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - 命令用简短的动宾结构，不加“请”或“您”；中文动词本身即可表达指令。 (添加下载; 选择保存位置)
 - 按钮文字描述点击后执行的操作，通常用动宾结构；避免句号。 (开始下载; 取消)
 - 菜单项使用简短的操作名称或名词短语；需要打开后续对话框时，可在末尾加省略号。 (文件 > 添加下载…; 视图 > 下载列表)

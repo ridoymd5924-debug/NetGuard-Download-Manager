@@ -10,8 +10,8 @@ import assert from "node:assert/strict";
 
 const root = new URL("../../", import.meta.url);
 const out = new URL("target/extension/", root);
-const product = readFileSync(new URL("crates/ipc/src/lib.rs", root), "utf8");
-const version = product.match(/macro_rules!\s+product_version\s*\{\s*\(\)\s*=>\s*\{\s*"([^"]+)"/)[1];
+const cargo = readFileSync(new URL("Cargo.toml", root), "utf8");
+const version = cargo.match(/^version\s*=\s*"([^"]+)"/m)[1];
 const ipc = readFileSync(new URL("crates/ipc/src/extension.rs", root), "utf8");
 const unpackedId = ipc.match(/UNPACKED_ID: &str = "([a-p]{32})"/)[1];
 const firefoxId = ipc.match(/FIREFOX_ID: &str = "([^"]+)"/)[1];

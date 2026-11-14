@@ -1,4 +1,4 @@
-<!-- How Scottish Gaelic writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Scottish Gaelic writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Cleachd an riochd àithneach airson gnìomhan a tha an neach-cleachdaidh a’ cur an gnìomh. Cùm na h-òrdughan goirid agus dìreach. (Fosgail am faidhle; Thoir air falbh)
 - Cleachd an aon riochd àithneach air putanan agus ann an clàran-bìdh nuair a nì an nì an aon rud. (Cuir stad air; Sguab às)
 - Sgrìobh bileagan nam bogsaichean-seic mar ghnìomhan no mar roghainnean soilleir; na cuir puing riutha. (Tòisich leis an Windows; Luchdaich a-nuas gu fèin-obrachail)

@@ -1,4 +1,4 @@
-<!-- How Marathi writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Marathi writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - आदेशांसाठी आदरार्थी, अनेकवचनी आज्ञार्थी रूप वापरा. (फाइल निवडा; दुवा कॉपी करा)
 - बटणावरील मजकूर कृती स्पष्ट करणारा आणि शक्यतो क्रियापदाने संपणारा ठेवा; शेवटी पूर्णविराम देऊ नका. (डाउनलोड सुरू करा; जतन करा)
 - मेनूतील कृतींसाठी संक्षिप्त आज्ञार्थी रूप वापरा; मेनूची उतरंड दर्शवण्यासाठी > वापरा. (फाइल > डाउनलोड जोडा)

@@ -72,10 +72,7 @@ mod winui;
 mod xdgicons;
 
 /// The main window's title (dialogs find their owner by it).
-pub const MAIN_TITLE: &str = concat!(
-    "NetGuard Download Manager ",
-    mdm_ipc::product_version!()
-);
+pub const MAIN_TITLE: &str = "NetGuard Download Manager";
 
 /// The app icon (art/, made with ChatGPT; sizes by tools/icon/build_icon.py), for windows that
 /// show one as IDM's do: the 256 px size, which the system scales down for the title bar, the

@@ -1,4 +1,4 @@
-# NetGuard Download Manager in Gujarati (ગુજરાતી): tools/i18n/translate.py
+# Mister Download Manager in Gujarati (ગુજરાતી): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	ગુજરાતી
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from NetGuard Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from NetGuard Download Manager list of downloads?	શું તમે NetGuard Download Managerની ડાઉનલોડ્સની સૂચિમાંથી {n} ડાઉનલોડ કાઢી નાખવા માંગો છો?|શું તમે NetGuard Download Managerની ડાઉનલોડ્સની સૂચિમાંથી આ {n} ડાઉનલોડ કાઢી નાખવા માંગો છો?
+@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	શું તમે Mister Download Managerની ડાઉનલોડ્સની સૂચિમાંથી {n} ડાઉનલોડ કાઢી નાખવા માંગો છો?|શું તમે Mister Download Managerની ડાઉનલોડ્સની સૂચિમાંથી આ {n} ડાઉનલોડ કાઢી નાખવા માંગો છો?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	ડીબ્રીડ સેવા તમારા પોતાના પેઇડ એકાઉન્ટ સાથે ફાઇલ હોસ્ટની લિંક ડાઉનલોડ કરે છે અને NetGuard ને સીધી લિંક આપે છે. ફક્ત તમારા પોતાના એકાઉન્ટનો ઉપયોગ કરો: એકાઉન્ટ અથવા તેની લિંક્સ શેર કરવાથી સેવાઓની શરતોનો ભંગ થાય છે અને તે સસ્પેન્ડ થઈ શકે છે. બ્રાઉઝરે પહેલેથી શરૂ કરેલા ડાઉનલોડ્સ જેમ છે તેમ જ રહેશે.
+	A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	ડીબ્રીડ સેવા તમારા પોતાના પેઇડ એકાઉન્ટ સાથે ફાઇલ હોસ્ટની લિંક ડાઉનલોડ કરે છે અને MDM ને સીધી લિંક આપે છે. ફક્ત તમારા પોતાના એકાઉન્ટનો ઉપયોગ કરો: એકાઉન્ટ અથવા તેની લિંક્સ શેર કરવાથી સેવાઓની શરતોનો ભંગ થાય છે અને તે સસ્પેન્ડ થઈ શકે છે. બ્રાઉઝરે પહેલેથી શરૂ કરેલા ડાઉનલોડ્સ જેમ છે તેમ જ રહેશે.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -226,7 +226,7 @@
 	a volume of it is missing	તેનો એક વોલ્યુમ ખૂટે છે
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About NetGuard Download Manager	NetGuard Download Manager વિશે
+	About Mister Download Manager	Mister Download Manager વિશે
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -280,7 +280,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add NetGuard Download Manager to your browser	તમારા બ્રાઉઝરમાં NetGuard Download Manager ઉમેરો
+	Add Mister Download Manager to your browser	તમારા બ્રાઉઝરમાં Mister Download Manager ઉમેરો
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -344,7 +344,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): a magnet link or .torrent file was added; MDM reads the torrent's files first
 #, machine
-	Added. NetGuard is reading the torrent: it joins the list in a moment.	ઉમેરાયું. NetGuard ટોરેન્ટ વાંચી રહ્યું છે: તે થોડીવારમાં સૂચિમાં જોડાશે.
+	Added. MDM is reading the torrent: it joins the list in a moment.	ઉમેરાયું. MDM ટોરેન્ટ વાંચી રહ્યું છે: તે થોડીવારમાં સૂચિમાં જોડાશે.
 #. text in the Batch download window; text in a dialog box; label in the Options window; text in a download's progress window
 #. noun: the web address (URL)
 #. column title: the web address (URL)
@@ -447,7 +447,7 @@
 	Always into a folder named after it	હંમેશા તેના નામ પરથી ફોલ્ડરમાં
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on NetGuard Download Manager startup	NetGuard Download Manager શરૂ થાય ત્યારે હંમેશા સ્પીડ લિમિટર ચાલુ કરો
+	Always turn on Speed Limiter on Mister Download Manager startup	Mister Download Manager શરૂ થાય ત્યારે હંમેશા સ્પીડ લિમિટર ચાલુ કરો
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -513,7 +513,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from NetGuard Download Manager list of downloads?	શું તમે NetGuard Download Manager ની ડાઉનલોડ્સની સૂચિમાંથી "{name}" કાઢી નાખવા માંગો છો?
+	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	શું તમે Mister Download Manager ની ડાઉનલોડ્સની સૂચિમાંથી "{name}" કાઢી નાખવા માંગો છો?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -603,9 +603,6 @@
 #. a country's name (where a download's server is)
 #, machine
 	Barbados	બાર્બાડોસ
-#. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#, machine
-	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.	Based on Mister Download Manager 0.5.2 by Ahmed Nefzaoui, licensed GPL-3.0.
 #. window title in the Batch download window
 #, machine
 	Batch download	બૅચ ડાઉનલોડ
@@ -655,7 +652,7 @@
 	Bosnia and Herzegovina	બોસ્નિયા અને હર્ઝેગોવિના
 #. text in helpers.rs
 #, machine
-	Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	બંને ઓપન સોર્સ છે. NetGuard તેમને તેના પોતાના ડાઉનલોડર સાથે તેમની સત્તાવાર રિલીઝમાંથી મેળવે છે અને ચલાવતા પહેલા દરેક ફાઇલની સહી તપાસે છે. લગભગ 100 MB, એકવાર.
+	Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	બંને ઓપન સોર્સ છે. MDM તેમને તેના પોતાના ડાઉનલોડર સાથે તેમની સત્તાવાર રિલીઝમાંથી મેળવે છે અને ચલાવતા પહેલા દરેક ફાઇલની સહી તપાસે છે. લગભગ 100 MB, એકવાર.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -685,7 +682,7 @@
 	Browse...	બ્રાઉઝ કરો...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach NetGuard Download Manager yet.	આ કમ્પ્યુટર પર બ્રાઉઝર ઇન્ટિગ્રેશન સેટ કરેલ નથી, તેથી કોઈ બ્રાઉઝર હજી સુધી NetGuard Download Manager સુધી પહોંચી શકતું નથી.
+	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	આ કમ્પ્યુટર પર બ્રાઉઝર ઇન્ટિગ્રેશન સેટ કરેલ નથી, તેથી કોઈ બ્રાઉઝર હજી સુધી Mister Download Manager સુધી પહોંચી શકતું નથી.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	બ્રાઉઝર/સિસ્ટમ એકીકરણ
@@ -826,7 +823,7 @@
 #. text in the Options window
 #. tooltip of the close-setting: checked keeps MDM running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
 #, machine
-	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	ચેક કરેલું હોય ત્યારે વિન્ડો બંધ કરવાથી NetGuard ચાલુ રહે છે: નોટિફિકેશન એરિયા ઉપલબ્ધ હોય ત્યારે ત્યાં છુપાઈ જાય છે, અન્યથા ટાસ્કબારમાં મિનિમાઇઝ થાય છે, અને ડાઉનલોડ ચાલુ રહે છે; ચેક કરેલું ન હોય ત્યારે વિન્ડો બંધ કરવાથી NetGuard બંધ થાય છે.
+	Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM	ચેક કરેલું હોય ત્યારે વિન્ડો બંધ કરવાથી MDM ચાલુ રહે છે: નોટિફિકેશન એરિયા ઉપલબ્ધ હોય ત્યારે ત્યાં છુપાઈ જાય છે, અન્યથા ટાસ્કબારમાં મિનિમાઇઝ થાય છે, અને ડાઉનલોડ ચાલુ રહે છે; ચેક કરેલું ન હોય ત્યારે વિન્ડો બંધ કરવાથી MDM બંધ થાય છે.
 #. message or event log entry in the main window
 #. event log entry after Recheck: {have} and {total} are sizes ("1.2 GB of 4 GB there")
 #, machine
@@ -885,7 +882,7 @@
 	Choose a language	ભાષા પસંદ કરો
 #. text in langpick.rs
 #, machine
-	Choose the language NetGuard Download Manager shows its windows in:	NetGuard Download Manager તેની વિન્ડોઝમાં જે ભાષા બતાવે છે તે પસંદ કરો:
+	Choose the language Mister Download Manager shows its windows in:	Mister Download Manager તેની વિન્ડોઝમાં જે ભાષા બતાવે છે તે પસંદ કરો:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -1041,13 +1038,13 @@
 	Customize "Download progress" dialog	"ડાઉનલોડ પ્રગતિ" ડાયલોગ કસ્ટમાઇઝ કરો
 #. text in the Options window
 #, machine
-	Customize keys to prevent or force downloading with NetGuard	NetGuard સાથે ડાઉનલોડ અટકાવવા અથવા ચાલુ કરવા માટેની કી કસ્ટમાઇઝ કરો
+	Customize keys to prevent or force downloading with MDM	MDM સાથે ડાઉનલોડ અટકાવવા અથવા ચાલુ કરવા માટેની કી કસ્ટમાઇઝ કરો
 #. text in the Options window
 #, machine
-	Customize NetGuard Download panels in browsers	બ્રાઉઝર્સમાં NetGuard ડાઉનલોડ પેનલ્સ કસ્ટમાઇઝ કરો
+	Customize MDM Download panels in browsers	બ્રાઉઝર્સમાં MDM ડાઉનલોડ પેનલ્સ કસ્ટમાઇઝ કરો
 #. text in the Options window
 #, machine
-	Customize NetGuard menu items in context menu of browsers	બ્રાઉઝર્સના સંદર્ભ મેનૂમાં NetGuard મેનૂ આઇટમ્સ કસ્ટમાઇઝ કરો
+	Customize MDM menu items in context menu of browsers	બ્રાઉઝર્સના સંદર્ભ મેનૂમાં MDM મેનૂ આઇટમ્સ કસ્ટમાઇઝ કરો
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -1422,7 +1419,7 @@
 #. text in crashui.rs
 #. crash report window button: end the frozen MDM and start it again
 #, machine
-	End and restart NetGuard	NetGuard સમાપ્ત કરો અને ફરીથી શરૂ કરો
+	End and restart MDM	MDM સમાપ્ત કરો અને ફરીથી શરૂ કરો
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	મેગ્નેટ લિંક દાખલ કરો અથવા .torrent ફાઇલ પસંદ કરો
@@ -1505,7 +1502,7 @@
 	Exit	બહાર નીકળો
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit NetGuard Download Manager when done	પૂર્ણ થયા પછી NetGuard Download Manager માંથી બહાર નીકળો
+	Exit Mister Download Manager when done	પૂર્ણ થયા પછી Mister Download Manager માંથી બહાર નીકળો
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	અપેક્ષિત ચેકસમ (MD5, SHA-1, SHA-256, SHA-512 અથવા CRC32):
@@ -1941,7 +1938,7 @@
 	Hide web pages	વેબ પૃષ્ઠો છુપાવો
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of NetGuard Download Manager.	NetGuard Download Manager ને બદલે બ્રાઉઝરને ડાઉનલોડ કરવા દેવા માટે લિંક પર ક્લિક કરતી વખતે Alt દબાવી રાખો.
+	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Mister Download Manager ને બદલે બ્રાઉઝરને ડાઉનલોડ કરવા દેવા માટે લિંક પર ક્લિક કરતી વખતે Alt દબાવી રાખો.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	હોમ પેજ
@@ -1977,7 +1974,7 @@
 	Hungary	હંગેરી
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}	હું NetGuard Download Managerથી ડાઉનલોડ કરું છું: ઝડપી, મફત અને તમે પહેલેથી જાણો છો તે ડાઉનલોડ મેનેજર જેવું. {link}
+	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	હું Mister Download Managerથી ડાઉનલોડ કરું છું: ઝડપી, મફત અને તમે પહેલેથી જાણો છો તે ડાઉનલોડ મેનેજર જેવું. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2104,7 +2101,7 @@
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
-	it is not an archive NetGuard extracts	તે NetGuard એક્સટ્રેક્ટ કરતું આર્કાઇવ નથી
+	it is not an archive MDM extracts	તે MDM એક્સટ્રેક્ટ કરતું આર્કાઇવ નથી
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
@@ -2125,7 +2122,7 @@
 #. text in the Batch download window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.	img001.jpg, img002.jpg, વગેરે, img100.jpg જેવા ક્રમિક ફાઇલ નામોના જૂથને NetGuard ડાઉનલોડ કતારમાં ઉમેરી શકાય છે.\nફાઇલ નામની પેટર્ન માટે એસ્ટરિસ્ક વાઇલ્ડકાર્ડનો ઉપયોગ કરો.
+	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.	img001.jpg, img002.jpg, વગેરે, img100.jpg જેવા ક્રમિક ફાઇલ નામોના જૂથને MDM ડાઉનલોડ કતારમાં ઉમેરી શકાય છે.\nફાઇલ નામની પેટર્ન માટે એસ્ટરિસ્ક વાઇલ્ડકાર્ડનો ઉપયોગ કરો.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2252,7 +2249,7 @@
 	Latvia	લાતવિયા
 #. text in the Options window
 #, machine
-	Launch NetGuard Download Manager on startup	શરૂઆતમાં NetGuard Download Manager લોંચ કરો
+	Launch Mister Download Manager on startup	શરૂઆતમાં Mister Download Manager લોંચ કરો
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2264,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control NetGuard	સ્થાનિક નેટવર્ક પરના ફોન અને કમ્પ્યુટર્સને NetGuard ને નિયંત્રિત કરવા દો
+	Let phones and computers on the local network control MDM	સ્થાનિક નેટવર્ક પરના ફોન અને કમ્પ્યુટર્સને MDM ને નિયંત્રિત કરવા દો
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2482,32 +2479,32 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
 #, machine
-	NetGuard can't be reached on the network now: Options → Remote says why.	NetGuard નેટવર્ક પર હવે પહોંચી શકાતું નથી: વિકલ્પો → રીમોટ શા માટે તે કહે છે.
+	MDM can't be reached on the network now: Options → Remote says why.	MDM નેટવર્ક પર હવે પહોંચી શકાતું નથી: વિકલ્પો → રીમોટ શા માટે તે કહે છે.
 #. text in remote.rs
 #. remote control page (on a phone): the address typed isn't one MDM downloads (not http, https, ftp or magnet)
 #, machine
-	NetGuard cannot download this address.	NetGuard આ સરનામું ડાઉનલોડ કરી શકતું નથી.
+	MDM cannot download this address.	MDM આ સરનામું ડાઉનલોડ કરી શકતું નથી.
 #. text in remote.rs
 #. remote control page (on a phone): adding a download failed
 #, machine
-	NetGuard could not add it.	NetGuard તેને ઉમેરી શક્યું નથી.
+	MDM could not add it.	MDM તેને ઉમેરી શક્યું નથી.
 #. text in remote.rs
 #. remote control page (on a phone): an action failed
 #, machine
-	NetGuard could not do it.	NetGuard તે કરી શક્યું નથી.
+	MDM could not do it.	MDM તે કરી શક્યું નથી.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached while pairing
 #, machine
-	NetGuard does not answer. Check that it is running and on the same network.	NetGuard જવાબ આપતું નથી. તપાસો કે તે ચાલી રહ્યું છે અને તે જ નેટવર્ક પર છે.
+	MDM does not answer. Check that it is running and on the same network.	MDM જવાબ આપતું નથી. તપાસો કે તે ચાલી રહ્યું છે અને તે જ નેટવર્ક પર છે.
 #. text in remote.rs
 #. remote control page (on a phone): MDM can't be reached now; the page keeps trying by itself
 #. the trailing ... means it is still going on: keep it
 #, machine
-	NetGuard does not answer. Trying again...	NetGuard જવાબ આપતું નથી. ફરી પ્રયાસ કરી રહ્યું છે...
+	MDM does not answer. Trying again...	MDM જવાબ આપતું નથી. ફરી પ્રયાસ કરી રહ્યું છે...
 #. text in remote.rs
 #. remote control page (on a phone): no pairing code is shown in MDM; "Pair a device" is MDM's button
 #, machine
-	NetGuard shows no code now. Click Pair a device there first.	NetGuard હવે કોઈ કોડ બતાવતું નથી. પહેલા ત્યાં ઉપકરણ જોડો પર ક્લિક કરો.
+	MDM shows no code now. Click Pair a device there first.	MDM હવે કોઈ કોડ બતાવતું નથી. પહેલા ત્યાં ઉપકરણ જોડો પર ક્લિક કરો.
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 #, machine
@@ -2539,54 +2536,54 @@
 	Missing	ગુમ થયેલ
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	NetGuard Download Manager	NetGuard Download Manager
+	Mister Download Manager	Mister Download Manager
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	NetGuard Download Manager can't open its window: this system lacks {libraries}.	NetGuard Download Manager તેની વિન્ડો ખોલી શકતું નથી: આ સિસ્ટમમાં {libraries} નો અભાવ છે.
+	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager તેની વિન્ડો ખોલી શકતું નથી: આ સિસ્ટમમાં {libraries} નો અભાવ છે.
 #. text in crashui.rs
 #. crash report window heading: MDM crashed and is gone
 #, machine
-	NetGuard Download Manager closed unexpectedly	NetGuard Download Manager અનપેક્ષિત રીતે બંધ થયું
+	Mister Download Manager closed unexpectedly	Mister Download Manager અનપેક્ષિત રીતે બંધ થયું
 #. window title in the Options window
 #, machine
-	NetGuard Download Manager Configuration	NetGuard Download Manager ગોઠવણી
+	Mister Download Manager Configuration	Mister Download Manager ગોઠવણી
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager crash report	NetGuard Download Manager ક્રેશ રિપોર્ટ
+	Mister Download Manager crash report	Mister Download Manager ક્રેશ રિપોર્ટ
 #. text in crashui.rs
 #. crash report window heading: an internal error, MDM still running
 #, machine
-	NetGuard Download Manager hit an internal error	NetGuard Download Manager માં આંતરિક ભૂલ આવી
+	Mister Download Manager hit an internal error	Mister Download Manager માં આંતરિક ભૂલ આવી
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	NetGuard Download Manager is running the queue "{queue}"	NetGuard Download Manager “{queue}” કતાર ચલાવી રહ્યું છે
+	Mister Download Manager is running the queue "{queue}"	Mister Download Manager “{queue}” કતાર ચલાવી રહ્યું છે
 #. text in crashui.rs
 #. crash report window heading: MDM's window doesn't answer (frozen)
 #, machine
-	NetGuard Download Manager stopped responding	NetGuard Download Manager પ્રતિસાદ આપવાનું બંધ કરી દીધું
+	Mister Download Manager stopped responding	Mister Download Manager પ્રતિસાદ આપવાનું બંધ કરી દીધું
 #. text in crashui.rs
 #, machine
-	NetGuard Download Manager stopped responding for a while	NetGuard Download Manager થોડા સમય માટે પ્રતિસાદ આપવાનું બંધ કરી દીધું
+	Mister Download Manager stopped responding for a while	Mister Download Manager થોડા સમય માટે પ્રતિસાદ આપવાનું બંધ કરી દીધું
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	NetGuard Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	NetGuard Download Manager દરેક કનેક્શન સીધા અંતિમ ફાઇલમાં લખે છે\n(તેની બાજુમાં એક સ્પાર્સ પાર્ટ ફાઇલ), તેથી કોઈ અસ્થાયી ડિરેક્ટરી અને કોઈ\nએસેમ્બલિંગ સ્ટેપની જરૂર નથી.
+	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager દરેક કનેક્શન સીધા અંતિમ ફાઇલમાં લખે છે\n(તેની બાજુમાં એક સ્પાર્સ પાર્ટ ફાઇલ), તેથી કોઈ અસ્થાયી ડિરેક્ટરી અને કોઈ\nએસેમ્બલિંગ સ્ટેપની જરૂર નથી.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager {version} is available (released {date}).	NetGuard Download Manager {version} ઉપલબ્ધ છે ({date} ના રોજ રિલીઝ થયું).
+	Mister Download Manager {version} is available (released {date}).	Mister Download Manager {version} ઉપલબ્ધ છે ({date} ના રોજ રિલીઝ થયું).
 #. text in helpers.rs
 #. Video helpers: {version} = the version of MDM's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	NetGuard Download Manager's own copy, version {version}	NetGuard Download Managerની પોતાની કૉપિ, વર્ઝન {version}
+	Mister Download Manager's own copy, version {version}	Mister Download Managerની પોતાની કૉપિ, વર્ઝન {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	NetGuard Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	NetGuard Download Manager ની X11 વિન્ડોને {libraries} ની જરૂર છે, જે આ સિસ્ટમમાં નથી: તે Wayland પર ખુલે છે, જ્યાં તેના મેનુ તેમના શીર્ષકોથી દૂર ખુલી શકે છે.
+	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Mister Download Manager ની X11 વિન્ડોને {libraries} ની જરૂર છે, જે આ સિસ્ટમમાં નથી: તે Wayland પર ખુલે છે, જ્યાં તેના મેનુ તેમના શીર્ષકોથી દૂર ખુલી શકે છે.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -2793,7 +2790,7 @@
 #. text in extension.rs
 #. a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
 #, machine
-	No browser NetGuard can connect to was found	NetGuard કનેક્ટ કરી શકે તેવું કોઈ બ્રાઉઝર મળ્યું નથી
+	No browser MDM can connect to was found	MDM કનેક્ટ કરી શકે તેવું કોઈ બ્રાઉઝર મળ્યું નથી
 #. text in extension.rs
 #. a check of Test browser integration: no browser's extension has reached MDM
 #, machine
@@ -2863,7 +2860,7 @@
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	કોઈ સિસ્ટમ કીરીંગે જવાબ આપ્યો નથી, તેથી સાઇન-ઇન અને પાસવર્ડ MDMની સેટિંગ્સમાં રાખવામાં આવે છે, જે ફક્ત તમે જ વાંચી શકો છો.
+	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	કોઈ સિસ્ટમ કીરીંગે જવાબ આપ્યો નથી, તેથી સાઇન-ઇન અને પાસવર્ડ MDMની સેટિંગ્સમાં રાખવામાં આવે છે, જે ફક્ત તમે જ વાંચી શકો છો.
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -2994,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach NetGuard.	બંધ: નેટવર્ક પર કંઈપણ NetGuard સુધી પહોંચી શકતું નથી.
+	Off: nothing on the network can reach MDM.	બંધ: નેટવર્ક પર કંઈપણ MDM સુધી પહોંચી શકતું નથી.
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	ક્લિપબોર્ડ પર કૉપિ કરેલી લિંક્સ ડાઉનલોડ કરવાની ઑફર કરો
@@ -3070,7 +3067,7 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	ફક્ત જોડેલા ઉપકરણો જ કંઈપણ જોઈ અથવા બદલી શકે છે. પ્રથમ વખત, ફોનનું બ્રાઉઝર NetGuard ના પોતાના પ્રમાણપત્ર વિશે ચેતવણી આપે છે: તેની ફિંગરપ્રિન્ટ ઉપરની છે.
+	Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.	ફક્ત જોડેલા ઉપકરણો જ કંઈપણ જોઈ અથવા બદલી શકે છે. પ્રથમ વખત, ફોનનું બ્રાઉઝર MDM ના પોતાના પ્રમાણપત્ર વિશે ચેતવણી આપે છે: તેની ફિંગરપ્રિન્ટ ઉપરની છે.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than MDM lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
@@ -3092,10 +3089,10 @@
 	Open folder	ફોલ્ડર ખોલો
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with NetGuard Download Manager	મેગ્નેટ લિંક્સ અને .torrent ફાઇલો NetGuard Download Manager વડે ખોલો
+	Open magnet links and .torrent files with Mister Download Manager	મેગ્નેટ લિંક્સ અને .torrent ફાઇલો Mister Download Manager વડે ખોલો
 #. text in the tray icon's menu
 #, machine
-	Open NetGuard Download Manager	NetGuard Download Manager ખોલો
+	Open Mister Download Manager	Mister Download Manager ખોલો
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3166,7 +3163,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with NetGuard Download Manager	NetGuard Download Manager સાથે જોડો
+	Pair with Mister Download Manager	Mister Download Manager સાથે જોડો
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3481,7 +3478,7 @@
 #. text in crashui.rs
 #. crash report window button: start MDM again
 #, machine
-	Restart NetGuard	NetGuard ફરીથી શરૂ કરો
+	Restart MDM	MDM ફરીથી શરૂ કરો
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	બિલ્ટ-ઇન કેટેગરીઝ પુનઃસ્થાપિત કરો
@@ -3652,7 +3649,7 @@
 	Select or unselect the download with the dotted outline	ટપકાવાળી રૂપરેખા સાથેના ડાઉનલોડને પસંદ કરો અથવા પસંદગી રદ કરો
 #. group box title in the Options window
 #, machine
-	Select sounds for NetGuard Download Manager events	NetGuard Download Manager ઇવેન્ટ્સ માટે અવાજો પસંદ કરો
+	Select sounds for Mister Download Manager events	Mister Download Manager ઇવેન્ટ્સ માટે અવાજો પસંદ કરો
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	બોક્સમાંના ડાઉનલોડ્સ પસંદ કરો
@@ -3868,7 +3865,7 @@
 	Sites Logins	સાઇટ્સ લોગિન
 #. text in helpers.rs
 #, machine
-	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.	સાઇટ્સ તેમની શ્રેષ્ઠ ગુણવત્તાને અલગ વીડિયો અને ઑડિયો તરીકે મોકલે છે, અને ffmpeg તેમને જોડે છે. આ સિસ્ટમ પર NetGuard તમારું વાપરે છે: તમારા પેકેજ મેનેજર સાથે ffmpeg ઇન્સ્ટોલ કરો.
+	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.	સાઇટ્સ તેમની શ્રેષ્ઠ ગુણવત્તાને અલગ વીડિયો અને ઑડિયો તરીકે મોકલે છે, અને ffmpeg તેમને જોડે છે. આ સિસ્ટમ પર MDM તમારું વાપરે છે: તમારા પેકેજ મેનેજર સાથે ffmpeg ઇન્સ્ટોલ કરો.
 #. text in helpers.rs
 #, machine
 	Sites send their best quality as separate video and audio. ffmpeg puts them together into one file that plays anywhere.	સાઇટ્સ તેમની શ્રેષ્ઠ ગુણવત્તાને અલગ વીડિયો અને ઑડિયો તરીકે મોકલે છે. ffmpeg તેમને એક ફાઇલમાં એકસાથે મૂકે છે જે ગમે ત્યાં ચાલે છે.
@@ -3978,7 +3975,7 @@
 	Start download at	આના પર ડાઉનલોડ શરૂ કરો
 #. checkbox in the Scheduler window
 #, machine
-	Start download on NetGuard Download Manager startup	NetGuard Download Manager શરૂ થવા પર ડાઉનલોડ શરૂ કરો
+	Start download on Mister Download Manager startup	Mister Download Manager શરૂ થવા પર ડાઉનલોડ શરૂ કરો
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	"ડાઉનલોડ ફાઇલ માહિતી" ડાયલોગ પ્રદર્શિત કરતી વખતે તરત જ ડાઉનલોડ કરવાનું શરૂ કરો
@@ -4013,7 +4010,7 @@
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	કમ્પ્યુટર સાથે શરૂ થયું, તે નાનું કરીને શરૂ થાય છે: અહીં કોઈ સૂચના ક્ષેત્ર તેનું આયકન બતાવતું નથી
 #. text in the Options window
-#. tooltip of "Launch NetGuard Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	કમ્પ્યુટર સાથે શરૂ થયું, તે સૂચના ક્ષેત્રમાં રાહ જુએ છે
 #. message or event log entry in the main window
@@ -4117,7 +4114,7 @@
 	Sunday	રવિવાર
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Support the original project on GitHub Sponsors	Support the original project on GitHub Sponsors
+	Support MDM on GitHub Sponsors	GitHub Sponsors પર MDM ને સપોર્ટ કરો
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -4234,7 +4231,7 @@
 #. text in extension.rs
 #. a check of Test browser integration: the browsers find MDM's helper program
 #, machine
-	The browsers can find NetGuard Download Manager	બ્રાઉઝર NetGuard Download Manager શોધી શકે છે
+	The browsers can find Mister Download Manager	બ્રાઉઝર Mister Download Manager શોધી શકે છે
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4258,7 +4255,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. NetGuard Download Manager has to be running (it can wait in the notification area).	કમ્પ્યુટર શરૂઆતના સમયની એક મિનિટ પહેલાં જાગે છે અને કતાર ચાલે ત્યાં સુધી જાગતું રહે છે. NetGuard Download Manager ચાલતું હોવું જરૂરી છે (તે નોટિફિકેશન એરિયામાં રાહ જોઈ શકે છે).
+	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	કમ્પ્યુટર શરૂઆતના સમયની એક મિનિટ પહેલાં જાગે છે અને કતાર ચાલે ત્યાં સુધી જાગતું રહે છે. Mister Download Manager ચાલતું હોવું જરૂરી છે (તે નોટિફિકેશન એરિયામાં રાહ જોઈ શકે છે).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4303,7 +4300,7 @@
 #. message or event log entry in the main window
 #. {error} = an error message (keep the braces as they are)
 #, machine
-	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	ડાઉનલોડ સૂચિ સાચવી શકાઈ નથી: {error}. NetGuard ચાલતું હોય ત્યારે ફેરફારો રાખવામાં આવે છે.
+	The download list could not be saved: {error}. Changes are kept while MDM runs.	ડાઉનલોડ સૂચિ સાચવી શકાઈ નથી: {error}. MDM ચાલતું હોય ત્યારે ફેરફારો રાખવામાં આવે છે.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.	તમે પહેલાથી જ જાણો છો તે ડાઉનલોડ મેનેજર, ઝડપી બનવા માટે ફરીથી બનાવવામાં આવ્યું છે. GNU GPL, સંસ્કરણ 3 અથવા પછીના હેઠળ મફત અને ઓપન સોર્સ. વિડિઓઝ yt-dlp દ્વારા મળે છે; ટૉરેન્ટ્સ librqbit પર ચાલે છે.
@@ -4429,7 +4426,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?	પસંદ કરેલ ડાઉનલોડ પૂર્ણ નથી. શું તમે તેને\nNetGuard Download Managerની ડાઉનલોડ સૂચિમાંથી કાઢી નાખવા માંગો છો?
+	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	પસંદ કરેલ ડાઉનલોડ પૂર્ણ નથી. શું તમે તેને\nMister Download Managerની ડાઉનલોડ સૂચિમાંથી કાઢી નાખવા માંગો છો?
 #. text in errors.rs
 #, machine
 	the server answered {status}	સર્વરે {status}નો જવાબ આપ્યો
@@ -4466,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (MDM never unlocks it: that would ask for its password), so the sign-ins stay in MDM's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	સિસ્ટમ કીરીંગ લૉક છે અને NetGuard તેને અનલૉક કરતું નથી, તેથી સાઇન-ઇન અને પાસવર્ડ MDMની સેટિંગ્સમાં રાખવામાં આવે છે, જે ફક્ત તમે જ વાંચી શકો છો.
+	The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.	સિસ્ટમ કીરીંગ લૉક છે અને MDM તેને અનલૉક કરતું નથી, તેથી સાઇન-ઇન અને પાસવર્ડ MDMની સેટિંગ્સમાં રાખવામાં આવે છે, જે ફક્ત તમે જ વાંચી શકો છો.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4656,7 +4653,7 @@
 #. message or event log entry in the main window
 #. event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
 #, machine
-	Through {service}: the service downloads the torrent, then NetGuard its files	{service} દ્વારા: સેવા ટોરેન્ટ ડાઉનલોડ કરે છે, પછી NetGuard તેની ફાઇલો ડાઉનલોડ કરે છે
+	Through {service}: the service downloads the torrent, then MDM its files	{service} દ્વારા: સેવા ટોરેન્ટ ડાઉનલોડ કરે છે, પછી MDM તેની ફાઇલો ડાઉનલોડ કરે છે
 #. text in the Scheduler window
 #, machine
 	Thursday	ગુરુવાર
@@ -4793,7 +4790,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "NetGuard Download Manager" and allow it on all websites.	“NetGuard Download Manager” ચાલુ કરો અને તેને બધી વેબસાઇટ પર મંજૂરી આપો.
+	Turn on "Mister Download Manager" and allow it on all websites.	“Mister Download Manager” ચાલુ કરો અને તેને બધી વેબસાઇટ પર મંજૂરી આપો.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -4849,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	{page} પર આ કોડ ટાઇપ કરો અને NetGuard ને મંજૂરી આપો; તમારી રાહ જોઈ રહ્યું છે (કોડ {time} માં સમાપ્ત થાય છે).
+	Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).	{page} પર આ કોડ ટાઇપ કરો અને MDM ને મંજૂરી આપો; તમારી રાહ જોઈ રહ્યું છે (કોડ {time} માં સમાપ્ત થાય છે).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4946,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy MDM downloads and checks itself
 #, machine
-	Use NetGuard's own copy	MDMની પોતાની કૉપિનો ઉપયોગ કરો
+	Use MDM's own copy	MDMની પોતાની કૉપિનો ઉપયોગ કરો
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5142,7 +5139,7 @@
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in MDM's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows ક્રેડેન્શિયલ મેનેજરે જવાબ આપ્યો નથી, તેથી સાઇન-ઇન અને પાસવર્ડ MDMની સેટિંગ્સમાં રાખવામાં આવે છે, જે તમારા Windows એકાઉન્ટ માટે એન્ક્રિપ્ટેડ છે.
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.	Windows ક્રેડેન્શિયલ મેનેજરે જવાબ આપ્યો નથી, તેથી સાઇન-ઇન અને પાસવર્ડ MDMની સેટિંગ્સમાં રાખવામાં આવે છે, જે તમારા Windows એકાઉન્ટ માટે એન્ક્રિપ્ટેડ છે.
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine
@@ -5174,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in NetGuard and try again.	ખોટો કોડ. NetGuard માં નવો કોડ બતાવો અને ફરી પ્રયાસ કરો.
+	Wrong code. Show a new code in MDM and try again.	ખોટો કોડ. MDM માં નવો કોડ બતાવો અને ફરી પ્રયાસ કરો.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5206,7 +5203,7 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of NetGuard Download Manager ({version}).	તમારી પાસે NetGuard Download Managerનું નવીનતમ સંસ્કરણ ({version}) છે.
+	You have the latest version of Mister Download Manager ({version}).	તમારી પાસે Mister Download Managerનું નવીનતમ સંસ્કરણ ({version}) છે.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
 #. {version} = a version number (keep the braces as they are)
@@ -5232,7 +5229,7 @@
 #. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	તમારો પોતાનો પ્રોગ્રામ ({version}) ખૂબ જૂનો છે: NetGuard ને {oldest} અથવા તેનાથી નવો પ્રોગ્રામ જોઈએ છે
+	Your own program ({version}) is too old: MDM needs {oldest} or newer	તમારો પોતાનો પ્રોગ્રામ ({version}) ખૂબ જૂનો છે: MDM ને {oldest} અથવા તેનાથી નવો પ્રોગ્રામ જોઈએ છે
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -5327,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control NetGuard now.	{device} જોડાયેલ છે. તે હવે NetGuard ને નિયંત્રિત કરી શકે છે.
+	{device} is paired. It can control MDM now.	{device} જોડાયેલ છે. તે હવે MDM ને નિયંત્રિત કરી શકે છે.
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5407,7 +5404,7 @@
 #. in the "7-Zip needed" window: {name} is the archive's file name; 7-Zip is a program's name
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	{name} is a 7z or RAR archive. NetGuard extracts those with 7-Zip, which isn't installed.	{name} 7z અથવા RAR આર્કાઇવ છે. NetGuard તેને 7-Zip વડે એક્સટ્રેક્ટ કરે છે, પરંતુ 7-Zip ઇન્સ્ટોલ કરેલું નથી.
+	{name} is a 7z or RAR archive. MDM extracts those with 7-Zip, which isn't installed.	{name} 7z અથવા RAR આર્કાઇવ છે. MDM તેને 7-Zip વડે એક્સટ્રેક્ટ કરે છે, પરંતુ 7-Zip ઇન્સ્ટોલ કરેલું નથી.
 #. text in extracting archives (a download's log, the Archive password window)
 #. in Archive password: {name} is the archive's file name
 #. {name} = a file name (keep the braces as they are)
@@ -5422,7 +5419,7 @@
 #. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one MDM can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
 #, machine
-	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version} ખૂબ જૂનો છે: NetGuard ને {oldest} અથવા તેનાથી નવો પ્રોગ્રામ જોઈએ છે
+	{name} {version} is too old: MDM needs {oldest} or newer	{name} {version} ખૂબ જૂનો છે: MDM ને {oldest} અથવા તેનાથી નવો પ્રોગ્રામ જોઈએ છે
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
@@ -5447,7 +5444,7 @@
 #. text in errors.rs
 #. a debrid service's error: too many requests; MDM waits and retries
 #, machine
-	{service} asks to slow down; NetGuard will try again in a minute	{service} ધીમું કરવા કહે છે; NetGuard એક મિનિટમાં ફરી પ્રયાસ કરશે
+	{service} asks to slow down; MDM will try again in a minute	{service} ધીમું કરવા કહે છે; MDM એક મિનિટમાં ફરી પ્રયાસ કરશે
 #. text in errors.rs
 #. a debrid service's error: it wants the user to allow this computer (it sent an email)
 #, machine
@@ -5457,7 +5454,7 @@
 	{service} can't get this torrent: nobody shares it, or its link can't be read	{service} આ ટૉરેન્ટ મેળવી શકતું નથી: કોઈ તેને શેર કરતું નથી અથવા તેની લિંક વાંચી શકાતી નથી
 #. text in errors.rs
 #, machine
-	{service} can't reach this file host right now; NetGuard will try again later	{service} અત્યારે આ ફાઇલ હોસ્ટ સુધી પહોંચી શકતું નથી; NetGuard પછીથી ફરી પ્રયાસ કરશે
+	{service} can't reach this file host right now; MDM will try again later	{service} અત્યારે આ ફાઇલ હોસ્ટ સુધી પહોંચી શકતું નથી; MDM પછીથી ફરી પ્રયાસ કરશે
 #. text in errors.rs
 #. a debrid service's error: it isn't answering
 #, machine
@@ -5492,7 +5489,7 @@
 	{service}: this needs a premium account	{service}: આને પ્રીમિયમ એકાઉન્ટની જરૂર છે
 #. text in errors.rs
 #, machine
-	{service}: too many downloads at once through your account; NetGuard will try again	{service}: તમારા એકાઉન્ટ દ્વારા એકસાથે ઘણા બધા ડાઉનલોડ થઈ રહ્યા છે; NetGuard ફરી પ્રયાસ કરશે
+	{service}: too many downloads at once through your account; MDM will try again	{service}: તમારા એકાઉન્ટ દ્વારા એકસાથે ઘણા બધા ડાઉનલોડ થઈ રહ્યા છે; MDM ફરી પ્રયાસ કરશે
 #. text in errors.rs
 #. a debrid service's error: the account's limit (traffic) for this host is used up
 #, machine
@@ -5593,15 +5590,15 @@ column	Time left	બાકીનો સમય
 #, machine
 column	Transfer rate	ટ્રાન્સફર રેટ
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
 #, machine
-extension	Another NetGuard Download Manager (a server)	બીજું NetGuard Download Manager (એક સર્વર)
+extension	Another Mister Download Manager (a server)	બીજું Mister Download Manager (એક સર્વર)
 #. text in the browser extension
 #. the name this browser gets in the other MDM's list of paired devices
 #, machine
 extension	Browser extension	બ્રાઉઝર એક્સ્ટેંશન
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in NetGuard Download Manager
+#. menu command of the download button over a video: opens its settings in Mister Download Manager
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	બટન સેટિંગ્સ...
@@ -5610,34 +5607,34 @@ extension	Button settings...	બટન સેટિંગ્સ...
 #, machine
 extension	Can't tell which video this is: open its own page and try there	આ કયો વીડિયો છે તે જાણી શકાતું નથી: તેનું પોતાનું પેજ ખોલીને ત્યાં પ્રયાસ કરો
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
 #, machine
-extension	Connected to NetGuard Download Manager	NetGuard Download Manager સાથે કનેક્ટેડ
+extension	Connected to Mister Download Manager	Mister Download Manager સાથે કનેક્ટેડ
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name NetGuard Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to NetGuard Download Manager {version}	NetGuard Download Manager {version} સાથે કનેક્ટેડ
+extension	Connected to Mister Download Manager {version}	Mister Download Manager {version} સાથે કનેક્ટેડ
 #. text in the browser extension
 #. button beside a video, sound or stream in the toolbar button's popup: download it with the app; verb; short
 #, machine
 extension	Download	ડાઉનલોડ કરો
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
 #, machine
-extension	Download all links with NetGuard Download Manager	NetGuard Download Manager સાથે બધી લિંક્સ ડાઉનલોડ કરો
+extension	Download all links with Mister Download Manager	Mister Download Manager સાથે બધી લિંક્સ ડાઉનલોડ કરો
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
 #, machine
-extension	Download selected links with NetGuard Download Manager	NetGuard Download Manager સાથે પસંદ કરેલી લિંક્સ ડાઉનલોડ કરો
+extension	Download selected links with Mister Download Manager	Mister Download Manager સાથે પસંદ કરેલી લિંક્સ ડાઉનલોડ કરો
 #. text in the browser extension
 #. the button over a video on a web page that downloads it; verb; short (it sits on the video)
 #, machine
 extension	Download video	વીડિયો ડાઉનલોડ કરો
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name NetGuard Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
 #, machine
-extension	Download with NetGuard Download Manager	NetGuard Download Manager વડે ડાઉનલોડ કરો
+extension	Download with Mister Download Manager	Mister Download Manager વડે ડાઉનલોડ કરો
 #. text in the browser extension
 #. shown in the toolbar button's popup after the site was excluded
 #. {site} = a web site's name such as "example.com" (keep the braces as they are)
@@ -5656,9 +5653,9 @@ extension	Drag to move it along the video's edge	વીડિયોની કિ
 #, machine
 extension	Enter its https:// address.	તેનું https:// સરનામું દાખલ કરો.
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name NetGuard Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
 #, machine
-extension	Hands downloads from the browser to NetGuard Download Manager.	બ્રાઉઝર પરથી NetGuard Download Manager પર ડાઉનલોડ્સ આપે છે.
+extension	Hands downloads from the browser to Mister Download Manager.	બ્રાઉઝર પરથી Mister Download Manager પર ડાઉનલોડ્સ આપે છે.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -5713,33 +5710,33 @@ extension	Live	લાઇવ
 #, machine
 extension	Media on this page	આ પૃષ્ઠ પર મીડિયા
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name NetGuard Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager	NetGuard Download Manager
+extension	Mister Download Manager	Mister Download Manager
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name NetGuard Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager didn't start in time	NetGuard Download Manager સમયસર શરૂ થયું નથી
+extension	Mister Download Manager didn't start in time	Mister Download Manager સમયસર શરૂ થયું નથી
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name NetGuard Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager doesn't accept this copy of the extension	NetGuard Download Manager એક્સટેન્શનની આ કૉપિ સ્વીકારતું નથી
+extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager એક્સટેન્શનની આ કૉપિ સ્વીકારતું નથી
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed or didn't start	NetGuard Download Manager ઇન્સ્ટોલ કરેલ નથી અથવા શરૂ થયું નથી
+extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager ઇન્સ્ટોલ કરેલ નથી અથવા શરૂ થયું નથી
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name NetGuard Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager isn't installed, or its browser integration isn't set up	NetGuard Download Manager ઇન્સ્ટોલ કરેલ નથી, અથવા તેનું બ્રાઉઝર ઇન્ટિગ્રેશન સેટ અપ કરેલું નથી
+extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager ઇન્સ્ટોલ કરેલ નથી, અથવા તેનું બ્રાઉઝર ઇન્ટિગ્રેશન સેટ અપ કરેલું નથી
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	NetGuard Download Manager પછી આ બ્રાઉઝર જેવા જ પ્રોક્સી દ્વારા ડાઉનલોડ કરે છે. બ્રાઉઝર તમને એક વાર તેને મંજૂરી આપવા માટે પૂછે છે; આ બંધ કરવાથી તે મંજૂરી પાછી ખેંચાઈ જાય છે.
+extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Mister Download Manager પછી આ બ્રાઉઝર જેવા જ પ્રોક્સી દ્વારા ડાઉનલોડ કરે છે. બ્રાઉઝર તમને એક વાર તેને મંજૂરી આપવા માટે પૂછે છે; આ બંધ કરવાથી તે મંજૂરી પાછી ખેંચાઈ જાય છે.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name NetGuard Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
 #, machine
-extension	NetGuard Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	NetGuard Download Manager પછી આ બ્રાઉઝર જેવા જ પ્રોક્સી દ્વારા ડાઉનલોડ કરે છે. જ્યારે આ બંધ હોય, ત્યારે એક્સ્ટેંશન બ્રાઉઝરના પ્રોક્સીને વાંચતું નથી.
+extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager પછી આ બ્રાઉઝર જેવા જ પ્રોક્સી દ્વારા ડાઉનલોડ કરે છે. જ્યારે આ બંધ હોય, ત્યારે એક્સ્ટેંશન બ્રાઉઝરના પ્રોક્સીને વાંચતું નથી.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -5771,9 +5768,9 @@ extension	Open it	તે ખોલો
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	તેનું સરનામું એકવાર ખોલો અને તેનું પ્રમાણપત્ર સ્વીકારો, પછી તેના Options, Remote, Pair a device (અથવા misterdownloadmanager-cli pair) માંથી કોડ દાખલ કરો.
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name NetGuard Download Manager as it is
+#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
 #, machine
-extension	Open NetGuard Download Manager	NetGuard Download Manager ખોલો
+extension	Open Mister Download Manager	Mister Download Manager ખોલો
 #. text in the browser extension
 #. button in the toolbar button's popup: open the app's Options
 #. the trailing ... means it is still going on: keep it
@@ -5812,13 +5809,13 @@ extension	Send downloads through this browser's proxy or VPN extension	આ બ�
 #, machine
 extension	Send downloads to	ડાઉનલોડ્સ અહીં મોકલો
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name NetGuard Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
 #, machine
-extension	Sent to NetGuard Download Manager	NetGuard Download Manager પર મોકલવામાં આવ્યું
+extension	Sent to Mister Download Manager	Mister Download Manager પર મોકલવામાં આવ્યું
 #. text in the browser extension
 #. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (MDM is free; this is an optional donation)
 #, machine
-extension	Support the original project	Support the original project
+extension	Support MDM	MDM ને સપોર્ટ કરો
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine
@@ -5828,9 +5825,9 @@ extension	Take downloads from this browser	આ બ્રાઉઝરમાંથ
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome Web Store ના નિયમો એડ-ઓનની આ નકલને આ સાઇટના વીડિયોથી દૂર રાખે છે. તમે શું કરી શકો તે «મદદ»માં જણાવેલું છે.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name NetGuard Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
 #, machine
-extension	The connection to NetGuard Download Manager failed	NetGuard Download Manager સાથેનું કનેક્શન નિષ્ફળ થયું
+extension	The connection to Mister Download Manager failed	Mister Download Manager સાથેનું કનેક્શન નિષ્ફળ થયું
 #. text in the browser extension
 #. shown briefly on the download button over a video when the app's settings keep the button off on this web site
 #, machine
@@ -5848,7 +5845,7 @@ extension	The last download was left to the browser.	છેલ્લું ડ�
 #, machine
 extension	This browser isn't ticked in Options → General.	આ બ્રાઉઝર વિકલ્પો → સામાન્યમાં ટિક કરેલું નથી.
 #. text in the browser extension
-#. choice under Send downloads to: the NetGuard Download Manager on this computer
+#. choice under Send downloads to: the Mister Download Manager on this computer
 #, machine
 extension	This computer	આ કમ્પ્યુટર
 #. text in the browser extension
@@ -5860,9 +5857,9 @@ extension	This download's details were too large to hand over	આ ડાઉન�
 #, machine
 extension	This page's player streams its video in pieces, so there's no file to list. Point at the video and use its Download video button.	આ પેજનું પ્લેયર વીડિયોને ટુકડાઓમાં સ્ટ્રીમ કરે છે, તેથી યાદીમાં બતાવવા કોઈ ફાઇલ નથી. વીડિયો પર પોઇન્ટર લઈ જઈ તેનું «વીડિયો ડાઉનલોડ કરો» બટન વાપરો.
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name NetGuard Download Manager as it is
+#. status when the app is older than the extension; keep the name Mister Download Manager as it is
 #, machine
-extension	Update NetGuard Download Manager to use everything this extension offers	આ એક્સ્ટેંશન જે કંઈ આપે છે તેનો ઉપયોગ કરવા માટે NetGuard Download Manager અપડેટ કરો
+extension	Update Mister Download Manager to use everything this extension offers	આ એક્સ્ટેંશન જે કંઈ આપે છે તેનો ઉપયોગ કરવા માટે Mister Download Manager અપડેટ કરો
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -5978,7 +5975,7 @@ key	Up / Down	ઉપર / નીચે
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About NetGuard Download Manager	NetGuard Download Manager વિશે(&A)
+menu	&About Mister Download Manager	Mister Download Manager વિશે(&A)
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6133,7 +6130,7 @@ menu	Aero	Aero
 #. menu command in the main window
 #. View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
 #, machine
-menu	Applies the next time NetGuard starts	આગલી વખતે NetGuard શરૂ થાય ત્યારે લાગુ પડે છે
+menu	Applies the next time MDM starts	આગલી વખતે MDM શરૂ થાય ત્યારે લાગુ પડે છે
 #. menu command in the main window
 #. View → Theme: a style theme's name (Mac OS X's look), a name: keep "Aqua" as written
 #, machine
@@ -6338,12 +6335,9 @@ menu	Metal didn't start here: OpenGL draws	Metal અહીં શરૂ થય�
 #, machine
 menu	Metro	મેટ્રો
 #. menu command in the main window
-#. View → Theme: NetGuard's own look, the default (dark navy and emerald green), a name: keep "NetGuard" as written
-menu	NetGuard	NetGuard
-#. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	NetGuard Download Manager &Home Page	NetGuard Download Manager હોમ &પેજ
+menu	Mister Download Manager &Home Page	Mister Download Manager હોમ &પેજ
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	ખસેડો/નામ બદલો (Ctrl-M)
@@ -6456,7 +6450,7 @@ menu	Select &all	બધા &પસંદ કરો
 menu	Show &drop target	ડ્રોપ ટાર્ગેટ બતાવો(&d)
 #. menu command in the main window
 #, machine
-menu	Show NetGuard Download Manager	NetGuard Download Manager બતાવો
+menu	Show Mister Download Manager	Mister Download Manager બતાવો
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6478,7 +6472,7 @@ menu	Stop Download	ડાઉનલોડ રોકો
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Support the &original project	Support the &original project
+menu	Support &MDM	MDM ને સપોર્ટ કરો(&M)
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

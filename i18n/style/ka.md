@@ -1,4 +1,4 @@
-<!-- How Georgian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Georgian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the action noun (verbal noun) for buttons and menu commands; keep the wording short and consistent. (შენახვა; ჩამოტვირთვის შეჩერება)
 - Use a polite plural imperative for instructions that address the user directly. Avoid direct address when the action noun works. (აირჩიეთ საქაღალდე; შეიყვანეთ მისამართი)
 - Use affirmative, concise noun phrases for check box labels. Phrase the label as the setting that will be enabled. (ჩამოტვირთვის დასრულებისას შეტყობინება; Windows-ის გაშვებისას პროგრამის დაწყება)

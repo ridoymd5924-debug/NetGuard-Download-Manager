@@ -1,4 +1,4 @@
-<!-- How Czech writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Czech writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Příkazy na tlačítkách formulujte infinitivem. Zachovejte běžné systémové popisky, například OK a Zrušit. (Otevřít; Pozastavit)
 - Položky nabídek pište jako stručný příkaz v infinitivu; nepřidávejte tečku. (Přidat stahování; Otevřít složku)
 - Popisky zaškrtávacích polí formulujte jako stručný název nebo infinitivní vazbu popisující nastavení. (Spouštět při spuštění systému; Automaticky kontrolovat aktualizace)

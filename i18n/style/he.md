@@ -1,4 +1,4 @@
-<!-- How Hebrew writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Hebrew writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Commands, buttons, and action menu items use a concise masculine singular imperative. Use the same verb for the same action throughout the app. (Download — הורד; Pause — השהה)
 - Checkbox labels describe a setting or outcome; do not phrase them as commands. Use a short noun phrase. (Start downloads automatically — הפעלה אוטומטית של הורדות; Show notifications — הצגת הודעות)
 - Address the user directly only when needed. Hebrew has no formal second-person distinction; use masculine singular imperative as the conventional UI form, or an infinitive/noun phrase to avoid addressing the user. (Enter a URL — הזן כתובת URL; To continue — להמשך)

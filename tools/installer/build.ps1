@@ -15,10 +15,9 @@ $root = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $dist = Join-Path $root "target\dist"
 $bin = Join-Path $root "target\release"
 
-# The product version (four numbers: Cargo only takes three, so Cargo.toml's differs).
-$cargo = Get-Content (Join-Path $root "crates/ipc/src/lib.rs") -Raw
-$version = [regex]::Match($cargo, '(?s)macro_rules!\s+product_version\s*\{\s*\(\)\s*=>\s*\{\s*"([^"]+)"').Groups[1].Value
-if (-not $version) { throw "no product version in crates/ipc/src/lib.rs" }
+$cargo = Get-Content (Join-Path $root "Cargo.toml") -Raw
+$version = [regex]::Match($cargo, '(?m)^version\s*=\s*"([^"]+)"').Groups[1].Value
+if (-not $version) { throw "no version in Cargo.toml" }
 
 if (-not $NoBuild) {
   # The build machine's paths out of the programs (#25): panic locations and debug info say
@@ -64,12 +63,10 @@ function New-Zip([string]$name, [bool]$portable) {
   Copy-Item (Join-Path $root "target\extension\mdm-firefox.xpi") (Join-Path $stage "extension")
   Copy-Item (Join-Path $root "LICENSE") (Join-Path $stage "LICENSE.txt")
   Copy-Item (Join-Path $root "ATTRIBUTION.md") (Join-Path $stage "ATTRIBUTION.txt")
-  Copy-Item (Join-Path $root "NOTICE") (Join-Path $stage "NOTICE.txt")
-  Copy-Item (Join-Path $root "MODIFICATIONS.md") (Join-Path $stage "MODIFICATIONS.txt")
   if ($portable) {
     New-Item -ItemType Directory -Force (Join-Path $stage "data") | Out-Null
     Set-Content -Encoding utf8 (Join-Path $stage "data\README.txt") @"
-This folder makes NetGuard Download Manager portable: the download list and settings are kept
+This folder makes Mister Download Manager portable: the download list and settings are kept
 here instead of in your profile, and nothing is written to the registry. Delete the folder to
 use the profile instead. Browser integration needs the installer.
 "@

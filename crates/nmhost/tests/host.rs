@@ -1,5 +1,5 @@
 //! The native host as the browser runs it: the real program, its standard streams framed as
-//! native messages, its own data folder (MDM_DATA_DIR) with a fake NetGuard Download Manager
+//! native messages, its own data folder (MDM_DATA_DIR) with a fake Mister Download Manager
 //! listening where `ipc.json` says, answering as the test wants.
 
 use std::io::{BufRead, BufReader, Read, Write};
@@ -137,7 +137,7 @@ fn rules_hand_off_and_the_status_per_browser() {
     assert_eq!(rules["ok"], true);
     assert_eq!(rules["types"], "ZIP PDF");
     assert_eq!(rules["minKb"], 50);
-    assert_eq!(rules["version"], mdm_ipc::PRODUCT_VERSION);
+    assert_eq!(rules["version"], env!("CARGO_PKG_VERSION"));
     assert_eq!(replies[1]["ok"], true, "{:?}", replies[1]);
     let sent = app.recv_timeout(Duration::from_secs(5)).unwrap();
     assert_eq!(sent["token"], "t0k3n");

@@ -33,10 +33,6 @@ concurrency:
 
 jobs:
   build:
-    # The site in website/ is the upstream project's (Mister Download Manager's): it is built
-    # only where the repository's variable NETGUARD_PUBLISH_SITE is "true", once there is a
-    # NetGuard site to put there.
-    if: ${{ vars.NETGUARD_PUBLISH_SITE == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -55,7 +51,6 @@ jobs:
 
   deploy:
     needs: build
-    if: ${{ vars.NETGUARD_PUBLISH_SITE == 'true' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages

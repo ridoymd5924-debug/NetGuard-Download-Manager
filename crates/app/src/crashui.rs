@@ -360,9 +360,7 @@ impl ReportWindow {
             // i18n: crash report window heading: MDM's window doesn't answer (frozen)
             Kind::Freeze => crate::i18n::t("NetGuard Download Manager stopped responding"),
             // i18n: crash report window heading: an internal error, MDM still running
-            Kind::Panic if alive => {
-                crate::i18n::t("NetGuard Download Manager hit an internal error")
-            }
+            Kind::Panic if alive => crate::i18n::t("NetGuard Download Manager hit an internal error"),
             // i18n: crash report window heading: MDM crashed and is gone
             _ => crate::i18n::t("NetGuard Download Manager closed unexpectedly"),
         }
@@ -534,10 +532,10 @@ impl ReportWindow {
         let frozen = self.job.kind == Kind::Freeze && alive && !self.recovered;
         let restart_label = if frozen {
             // i18n: crash report window button: end the frozen MDM and start it again
-            "End and restart NetGuard"
+            "End and restart MDM"
         } else {
             // i18n: crash report window button: start MDM again
-            "Restart NetGuard"
+            "Restart MDM"
         };
         let [send_at, copy_at, folder_at, restart_at, close_at] = winui::button_row(
             &p,

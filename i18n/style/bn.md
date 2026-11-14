@@ -1,4 +1,4 @@
-<!-- How Bangla writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Bangla writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Commands, action buttons, and menu items use concise, polite imperatives. Use established short labels such as “ঠিক আছে” or “বাতিল” where appropriate. (কমান্ড: ডাউনলোড শুরু করুন; বোতাম: বিরতি দিন)
 - Checkbox text describes the option or action it controls; keep it brief and make the checked state clear. (ডাউনলোড সম্পূর্ণ হলে শব্দ চালান; উইন্ডোজ চালু হলে শুরু করুন)
 - Address the user formally with “আপনি” when needed. Usually omit the pronoun in commands; use polite verb forms such as “করুন” and “দিন”. Never use “তুমি”. (ডাউনলোডটি শুরু করুন; আপনি ফাইলটি কোথায় সংরক্ষণ করতে চান?)
@@ -8,7 +8,7 @@
 - Use concise progressive phrasing for ongoing work and preserve placeholders exactly. Use an ellipsis only when the operation is still in progress. (যাচাই করা হচ্ছে…; {n}টি ফাইল ডাউনলোড হচ্ছে)
 - Keep error text direct and factual. When the source is a fragment, do not add a subject that the surrounding UI may already provide. (খোলা যায়নি: {error}; সংযোগ করা যায়নি)
 - Write event log entries as neutral statements, usually naming the event and using a natural completed-action form. Do not address the user. (ডাউনলোড শুরু হয়েছে; ফাইলটি সংরক্ষণ করা হয়েছে)
-- Bangla script has no upper- or lowercase. Do not imitate English title case; retain the official capitalization of Latin-script product names and acronyms. (ডাউনলোড সেটিংস; NetGuard Download Manager)
+- Bangla script has no upper- or lowercase. Do not imitate English title case; retain the official capitalization of Latin-script product names and acronyms. (ডাউনলোড সেটিংস; Mister Download Manager)
 - Write month and weekday names in Bangla script without capitalization or unnecessary abbreviations. (জানুয়ারি; সোমবার)
 - Use Bangla punctuation consistently: use “।” to end a full statement, “?” for a question, and an ellipsis (…) only for an ongoing or deliberately unfinished message. Do not add sentence punctuation to short labels. (ডাউনলোড সম্পূর্ণ হয়েছে।; ডাউনলোড বাতিল করবেন?)
 - Do not put a space before punctuation; use one space after it when another phrase follows. Use curly double quotation marks for quoted UI text. (ত্রুটি: ফাইলটি খোলা যায়নি।; “ডাউনলোড” নির্বাচন করুন।)

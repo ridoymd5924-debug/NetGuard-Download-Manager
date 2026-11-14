@@ -1,4 +1,4 @@
-<!-- How Greek writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Greek writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use concise action nouns for standalone commands and button labels, as in Windows UI; use the polite plural imperative when instructing the user in text. (Κουμπί: «Έναρξη λήψης»; Οδηγία: «Επιλέξτε έναν φάκελο.»)
 - Phrase menu items as concise action nouns or established command names; do not add a full stop. («Αρχείο» > «Προσθήκη συνδέσμου»)
 - Write check box labels as short noun phrases or clear, concise statements. Do not end them with a full stop. (☐ Αυτόματη εκκίνηση λήψεων)

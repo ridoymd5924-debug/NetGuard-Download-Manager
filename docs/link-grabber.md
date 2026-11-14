@@ -2,13 +2,13 @@
 
 [← Back to docs index](README.md)
 
-**Link grabber** gathers many links at once, sorts them into packages, and lets you tick the ones to download. NetGuard can then extract the archives it downloaded (zip, 7z, rar and more), by itself or when you ask.
+**Link grabber** gathers many links at once, sorts them into packages, and lets you tick the ones to download. MDM can then extract the archives it downloaded (zip, 7z, rar and more), by itself or when you ask.
 
 ![Link grabber](images/grabber.webp)
 
 ## Where links come from
 
-- **The browser.** Right-click a page for **Download all links with NetGuard Download Manager**, or select part of it for **Download selected links with NetGuard Download Manager**. The page's referrer and cookies go with each link.
+- **The browser.** Right-click a page for **Download all links with Mister Download Manager**, or select part of it for **Download selected links with Mister Download Manager**. The page's referrer and cookies go with each link.
 - **Tasks → Import → From text file** and **From IDM export file**. An `.ef2` file brings each download's referrer and cookies.
 - Several links, or a `.txt` or `.ef2` list, dropped on the download list.
 - **Pasting.** Choose **Tasks → Link grabber...** and press **Ctrl+V**: every web address in the copied text is added.
@@ -25,7 +25,7 @@ Each package is a row you can open and close (click its arrow, double-click it, 
 
 ## Looking links up
 
-As links arrive, NetGuard asks each server about its file, as IDM's **Download all links** does. A few links are checked at a time, and only a few from any one site. Each link then shows its real name and size, and a status:
+As links arrive, MDM asks each server about its file, as IDM's **Download all links** does. A few links are checked at a time, and only a few from any one site. Each link then shows its real name and size, and a status:
 
 - **Online**: the server has the file.
 - **Offline (404)**: it doesn't. The link is unticked.
@@ -54,9 +54,9 @@ The box under the list edits the package you selected:
 
 ## Extracting archives
 
-NetGuard itself extracts zip archives (AES-encrypted and Deflate64 ones too), tar, tar.gz and tar.xz archives, and single `.gz` and `.xz` files.
+MDM itself extracts zip archives (AES-encrypted and Deflate64 ones too), tar, tar.gz and tar.xz archives, and single `.gz` and `.xz` files.
 
-**7z and RAR archives need 7-Zip**, a free program ([7-zip.org](https://www.7-zip.org/)). NetGuard runs it when it is installed, for split and encrypted archives too. RAR's own extraction code can't be part of a free program like NetGuard, and 7-Zip extracts 7z best.
+**7z and RAR archives need 7-Zip**, a free program ([7-zip.org](https://www.7-zip.org/)). MDM runs it when it is installed, for split and encrypted archives too. RAR's own extraction code can't be part of a free program like MDM, and 7-Zip extracts 7z best.
 
 **Options → Archives** says whether 7-Zip was found. Without it, a 7z or RAR archive isn't extracted, and the **7-Zip needed** window says so, with a **Get 7-Zip** button.
 
@@ -73,7 +73,7 @@ A split archive is extracted once, when its last volume is downloaded. The files
 
 Extracted files are marked as coming from the internet, as the archive is, so Windows still warns before running a program from it.
 
-NetGuard extracts safely. A name that would lead outside the folder is left out, and so is a link to somewhere else on the disk. An archive that would write far more than its size, or more than the disk has room for, stops before it fills it. When something goes wrong, nothing but the archive is left behind.
+MDM extracts safely. A name that would lead outside the folder is left out, and so is a link to somewhere else on the disk. An archive that would write far more than its size, or more than the disk has room for, stops before it fills it. When something goes wrong, nothing but the archive is left behind.
 
 The download's log (hover over it in the list) says what happened: **Extracted 12 files to …**, or why not, for example **Couldn't extract movie.7z.001: volume 3 of it is missing**. An encrypted archive without its password opens the **Archive password** window. Type the password and click **Extract**, or **Cancel** to leave the archive as it is.
 

@@ -1,4 +1,4 @@
-<!-- How Macedonian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Macedonian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Обраќајте му се на корисникот учтиво, во второ лице множина. Обично изоставете ја заменката „Вие“; кога е потребна, напишете ја со голема почетна буква. (Изберете папка.; Внесете ја адресата.)
 - Командите формулирајте ги како јасни глаголски наредби во второ лице множина. (Преземете ја датотеката.; Изберете „Пауза“.)
 - На копчињата користете кратка наредба или кратка именска ознака. Не додавајте точка. (Зачувајте; Откажете)

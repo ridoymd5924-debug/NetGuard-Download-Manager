@@ -1,4 +1,4 @@
-<!-- How Malayalam writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Malayalam writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - For commands, use a clear verb phrase ending in -ക്കുക; buttons use the same action form, shortened where the meaning stays clear. (ഫയൽ ഡൗൺലോഡ് ചെയ്യുക; സംരക്ഷിക്കുക)
 - Phrase menu items as actions or concise noun phrases, consistently with the item’s function. (ഫയൽ തുറക്കുക; ക്രമീകരണങ്ങൾ)
 - Write check box labels as short noun phrases, not instructions or questions. (ഡൗൺലോഡ് പൂർത്തിയായ ശേഷം അടയ്ക്കുക; അപ്‌ഡേറ്റുകൾ സ്വയം പരിശോധിക്കുക)

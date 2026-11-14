@@ -1,4 +1,4 @@
-<!-- How Belarusian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Belarusian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Перадавайце каманды і пункты меню інфінітывам. На кнопках выкарыстоўвайце тую самую форму, калі кнопка запускае дзеянне. (Спампаваць файл; Адкрыць папку)
 - Пункты меню, якія адкрываюць раздзел або спіс, называйце назоўнікам; не дадавайце кропку. (Налады; Гісторыя спамповак)
 - Для сцяжкоў выкарыстоўвайце кароткую фразу, звычайна інфінітыў з удакладненнем. Не стаўце кропку. (Запускаць разам з Windows; Правяраць абнаўленні аўтаматычна)

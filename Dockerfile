@@ -1,4 +1,4 @@
-# NetGuard Download Manager on a server, without a window (#157): docs/server.md.
+# Mister Download Manager on a server, without a window (#157): docs/server.md.
 #
 #   docker build -t misterdownloadmanager .
 #   docker run -d --name mdm -p 8463:8463 -v mdm-config:/config -v /srv/downloads:/downloads \

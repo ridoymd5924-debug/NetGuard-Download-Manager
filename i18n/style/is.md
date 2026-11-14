@@ -1,4 +1,4 @@
-<!-- How Icelandic writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Icelandic writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the bare infinitive for commands and action buttons; keep menu commands in the same form. Avoid adding a subject or an exclamation mark. (Sækja; Opna)
 - Phrase check boxes as short statements describing the setting. Do not add a full stop. (Sækja sjálfkrafa; Sýna lokið niðurhal)
 - Address the user as þú when needed. Keep the tone clear and neutral, and omit the pronoun when the sentence reads naturally without it. (Þú getur breytt möppunni í Stillingum.; Veldu möppu.)

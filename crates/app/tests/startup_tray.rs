@@ -16,10 +16,7 @@ use std::time::{Duration, Instant};
 
 const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
 /// The main window's title (main.rs MAIN_TITLE).
-const MAIN: &str = concat!(
-    "NetGuard Download Manager ",
-    mdm_ipc::product_version!()
-);
+const MAIN: &str = concat!("Mister Download Manager ", env!("CARGO_PKG_VERSION"));
 
 /// The app's log so far (every file of `logs/`).
 fn log(data: &Path) -> String {
@@ -100,7 +97,7 @@ impl Startup {
             std::fs::write(
                 auto.join("misterdownloadmanager.desktop"),
                 format!(
-                    "[Desktop Entry]\nType=Application\nName=NetGuard Download Manager\n\
+                    "[Desktop Entry]\nType=Application\nName=Mister Download Manager\n\
                      Exec=\"{APP}\"\nIcon=misterdownloadmanager\nTerminal=false\n\
                      X-GNOME-Autostart-enabled=true\n"
                 ),

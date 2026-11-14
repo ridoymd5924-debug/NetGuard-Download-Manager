@@ -1554,7 +1554,7 @@ async fn run_fresh(
                     opts.user_agent = opts.agent_fallback.take().unwrap_or_default();
                     asked_as_mdm = true;
                     shared.event(
-                            "The server refused the browser's User-Agent; asking as NetGuard Download Manager",
+                            "The server refused the browser's User-Agent; asking as Mister Download Manager",
                         );
                     let client1 = client(&opts, &target, &as_get, &seen)?;
                     let first = first_get(&client1, &target, &asked, &opts, shared, cancel).await;

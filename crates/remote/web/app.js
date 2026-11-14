@@ -1,4 +1,4 @@
-// NetGuard Download Manager's remote control page (#141). Served by MDM itself; no other site is
+// Mister Download Manager's remote control page (#141). Served by MDM itself; no other site is
 // reached. Every text shown goes through T() (the app's translations, /api/texts): the English
 // texts here are the catalog's keys (crates/app/src/remote.rs lists them for the catalog).
 'use strict';

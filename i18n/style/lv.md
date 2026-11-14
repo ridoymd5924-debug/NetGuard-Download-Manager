@@ -1,4 +1,4 @@
-<!-- How Latvian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Latvian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the infinitive for commands on buttons and in menus. Keep button text short and action-focused. (Lejupielādēt; Apturēt)
 - Phrase check box labels as concise affirmative options, not as questions or commands. Put the option itself in the label. (Sākt lejupielādi automātiski)
 - Avoid addressing the user directly when the sentence works without it. When direct address is needed, use polite second-person plural forms; write jūs and its forms in lowercase. (Vai vēlaties dzēst šo failu?)
@@ -14,5 +14,5 @@
 - When a subject is implied, make the verb or participle agree with the understood subject. Prefer wording that makes the subject clear when agreement could be ambiguous. (Lejupielāde apturēta.; Fails lejupielādēts.)
 - Use natural Latvian word order and inflection. Do not reproduce English noun stacks; express relationships with Latvian cases or a prepositional phrase. (Lejupielādes ātruma ierobežojums; Fails no servera)
 - Prefer established Latvian terms to English loanwords. Use a loanword only when it is established or needed for a technical term, and inflect it according to Latvian grammar. (saite; serveris)
-- Keep product names, file names, URLs, and placeholders unchanged unless the product’s approved terminology specifies otherwise. (NetGuard Download Manager; {fileName})
+- Keep product names, file names, URLs, and placeholders unchanged unless the product’s approved terminology specifies otherwise. (Mister Download Manager; {fileName})
 - Use Latvian date and time conventions. In a full date, use the genitive form of the month after the day; retain the period after an ordinal day number. (2025. gada 14. maijā; 14. maijs)

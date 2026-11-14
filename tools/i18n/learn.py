@@ -23,7 +23,7 @@ import translate as tr  # noqa: E402
 MODEL = "anthropic/claude-opus-5.5"
 
 PROMPT = """You are a senior software localizer for {english} ({native}). A native speaker reviewed
-machine translations of a Windows download manager's interface (NetGuard Download Manager). You get
+machine translations of a Windows download manager's interface (Mister Download Manager). You get
 the rows they corrected: the English, the translator's note when there is one, the machine's
 text and the reviewer's text. Find what their corrections have in common, so the next machine
 translations get it right the first time.
@@ -174,7 +174,7 @@ def write(code, lang, out, commits):
                                              if r.get("examples") else "")
                  for r in out.get("style", []) if r.get("rule")]
         spath.write_text(
-            f"<!-- How {lang['english']} writes NetGuard Download Manager: sent with every translation"
+            f"<!-- How {lang['english']} writes Mister Download Manager: sent with every translation"
             " request in this language (lingo.style). Learned from reviews in "
             f"{', '.join(commits)}; a person checks every rule. -->\n" + "\n".join(rules) + "\n",
             encoding="utf-8", newline="")

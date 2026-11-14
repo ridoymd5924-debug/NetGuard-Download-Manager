@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Builds the macOS release into target/dist/ (experimental: built by CI, not yet tested by us):
-#   MisterDownloadManager-<version>-macos-arm64-experimental.dmg   Apple Silicon
-#   MisterDownloadManager-<version>-macos-x86_64-experimental.dmg  Intel
+#   NetGuardDownloadManager-<version>-macos-arm64-experimental.dmg   Apple Silicon
+#   NetGuardDownloadManager-<version>-macos-x86_64-experimental.dmg  Intel
 # One app per processor, each half the size of a universal one (#25), ad-hoc signed: without an
 # Apple Developer ID, macOS asks before the first start (right-click the app -> Open).
 # The app carries the Safari extension (tools/safari). Safari loads an ad-hoc signed one only with
@@ -14,8 +14,8 @@
 set -euo pipefail
 root="$(cd "$(dirname "$0")/../.." && pwd)"
 dist="$root/target/dist"
-version="$(grep -A3 'macro_rules! product_version' "$root/crates/ipc/src/lib.rs" | grep -o '"[^"]*"' | head -1 | tr -d '"')"
-[ -n "$version" ] || { echo "no product version in crates/ipc/src/lib.rs" >&2; exit 1; }
+version="$(sed -n 's/^version *= *"\([^"]*\)".*/\1/p' "$root/Cargo.toml" | head -1)"
+[ -n "$version" ] || { echo "no version in Cargo.toml" >&2; exit 1; }
 programs=(misterdownloadmanager misterdownloadmanager-nmhost misterdownloadmanager-cli misterdownloadmanager-mcp)
 # Rust's target and the processor's name in the release files (as macOS calls it), with ':'.
 targets=(aarch64-apple-darwin:arm64 x86_64-apple-darwin:x86_64)
@@ -54,7 +54,7 @@ dmgs=()
 for pair in "${targets[@]}"; do
   t="${pair%%:*}"
   arch="${pair##*:}"
-  name="MisterDownloadManager-$version-macos-$arch-experimental"
+  name="NetGuardDownloadManager-$version-macos-$arch-experimental"
   app="$stage/$arch/dmg/NetGuard Download Manager.app"
   mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"
 
@@ -73,7 +73,7 @@ for pair in "${targets[@]}"; do
     strip -S -x "$app/Contents/MacOS/$p"
   done
   cp -r "$root/target/extension/chromium" "$app/Contents/Resources/extension-chromium"
-  cp "$root/target/extension/mdm-firefox.xpi" "$root/LICENSE" "$root/ATTRIBUTION.md" "$root/NOTICE" "$root/MODIFICATIONS.md" "$app/Contents/Resources/"
+  cp "$root/target/extension/mdm-firefox.xpi" "$root/LICENSE" "$root/ATTRIBUTION.md" "$app/Contents/Resources/"
   cp "$stage/AppIcon.icns" "$app/Contents/Resources/AppIcon.icns"
 
   cat > "$app/Contents/Info.plist" <<EOF

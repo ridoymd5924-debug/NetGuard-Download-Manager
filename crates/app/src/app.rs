@@ -3734,7 +3734,7 @@ impl App {
             item.note(crate::i18n::fmt(
                 // i18n: event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
                 crate::i18n::t(
-                    "Through {service}: the service downloads the torrent, then NetGuard its files",
+                    "Through {service}: the service downloads the torrent, then MDM its files",
                 ),
                 &[("service", service.name())],
             ));
@@ -5557,7 +5557,7 @@ impl App {
                             crate::i18n::mark("NetGuard Download Manager"),
                             crate::i18n::fmt(
                                 crate::i18n::t(
-                                    "The download list could not be saved: {error}. Changes are kept while NetGuard runs.",
+                                    "The download list could not be saved: {error}. Changes are kept while MDM runs.",
                                 ),
                                 &[("error", &e)],
                             ),
@@ -5781,7 +5781,7 @@ impl App {
                 I("&About NetGuard Download Manager", Cmd::About, true, false),
                 I("Tell a &friend", Cmd::TellFriend, true, false),
                 // MDM's, not IDM's: the creator's GitHub Sponsors page, asked for only.
-                I("Support the &original project", Cmd::Support, true, false),
+                I("Support &MDM", Cmd::Support, true, false),
             ],
         };
         // View → Theme (MDM's, #45), after Always dark; then Draw with (#89, #206), where wgpu is
@@ -5806,9 +5806,7 @@ impl App {
         let mut items = Vec::new();
         let mut files = false;
         let on = |id: &str| chosen == id;
-        // i18n: View → Theme: NetGuard's own look, the default (dark navy and emerald green), a name: keep "NetGuard" as written
-        items.push(Radio("NetGuard", Cmd::Theme("netguard"), true, on("netguard")));
-        // i18n: View → Theme: the original look (IDM's layout, Windows 11's controls)
+        // i18n: View → Theme: MDM's own look, the default (IDM's layout, Windows 11's controls)
         items.push(Radio("Classic", Cmd::Theme("classic"), true, on("classic")));
         // i18n: View → Theme: the system's own colours (its accent colour, its high contrast)
         items.push(Radio("Native", Cmd::Theme("native"), true, on("native")));
@@ -5938,7 +5936,7 @@ impl App {
                     }
                 }
                 // i18n: View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
-                None => off("Applies the next time NetGuard starts"),
+                None => off("Applies the next time MDM starts"),
             };
             items.push(last);
         }
@@ -6935,12 +6933,7 @@ impl App {
                 Popup::Node(node) => (self.node_entries(node), None),
                 Popup::DropTarget => (
                     vec![
-                        MenuEntry::Item(
-                            "Show NetGuard Download Manager",
-                            Cmd::ShowMain,
-                            true,
-                            false,
-                        ),
+                        MenuEntry::Item("Show NetGuard Download Manager", Cmd::ShowMain, true, false),
                         MenuEntry::Item("&Add new download", Cmd::AddUrl, true, false),
                         MenuEntry::Sep,
                         MenuEntry::Item("Hide drop target", Cmd::ToggleDropTarget, true, false),

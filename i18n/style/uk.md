@@ -1,4 +1,4 @@
-<!-- How Ukrainian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Ukrainian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the Ukrainian infinitive for buttons and menu commands. Use short noun phrases or statements for check boxes; do not phrase them as commands. (Зберегти; Файл > Відкрити)
 - Address the user directly and politely as «ви», lowercase. Prefer clear, concise instructions over impersonal or overly formal wording. (Виберіть папку для завантажень.; Введіть адресу посилання.)
 - Keep confirmation questions brief and explicit. Name the action or item; avoid wordy constructions such as «Чи бажаєте ви…». (Видалити це завантаження?; Зупинити всі завантаження?)

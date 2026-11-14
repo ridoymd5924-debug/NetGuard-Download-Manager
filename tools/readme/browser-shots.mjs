@@ -2,7 +2,7 @@
 // tabs and address bar): the Blender Foundation's Big Buck Bunny (CC BY 3.0, ATTRIBUTION.md) on
 // YouTube, and the same film as a plain video file. Nothing shows on the screen: the window
 // opens far off the screens without taking the focus (and keeps painting there), Windows draws
-// it into the picture (PrintWindow), and a separate NetGuard Download Manager runs off the screen
+// it into the picture (PrintWindow), and a separate Mister Download Manager runs off the screen
 // for the button to ask (MDM_DATA_DIR, MDM_OFFSCREEN). Windows only.
 //
 //   cargo build --release -p mdm-app -p mdm-nmhost; tools\extension\pack.ps1
@@ -91,10 +91,10 @@ async function main() {
     killTree(app);
   };
   try {
-    await until("NetGuard Download Manager", 20000, () => fs.existsSync(path.join(data, "ipc.json")));
+    await until("Mister Download Manager", 20000, () => fs.existsSync(path.join(data, "ipc.json")));
     const key = "HKCU\\Software\\Google\\Chrome\\NativeMessagingHosts\\com.misterdownloadmanager.host";
     if (spawnSync("reg", ["query", key], { stdio: "ignore" }).status === 0) {
-      throw new Error("NetGuard Download Manager's host is already registered (an installed copy): not touching it");
+      throw new Error("Mister Download Manager's host is already registered (an installed copy): not touching it");
     }
     spawnSync(nmhost, ["--register"]);
     browser = spawn(

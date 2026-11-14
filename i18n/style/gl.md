@@ -1,4 +1,4 @@
-<!-- How Galician writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Galician writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Usa o infinitivo para comandos, botóns e elementos de menú. Reserva o imperativo para instrucións dirixidas á persoa usuaria. (Descargar; Pausar)
 - Diríxete á persoa usuaria de ti, cun ton claro e cordial. Omite o pronome cando se entenda. (Selecciona unha carpeta.; Podes cambiar esta opción.)
 - Formula as confirmacións preguntando pola acción concreta; evita fórmulas vagas ou solemnes. (Queres deter a descarga?; Queres eliminar este ficheiro?)
