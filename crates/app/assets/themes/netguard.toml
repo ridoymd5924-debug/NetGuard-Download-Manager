@@ -1,0 +1,78 @@
+# NetGuard: NetGuard Download Manager's own look, a premium dark navy with emerald-green
+# accents, and its default theme. One of the built-in themes, and an example of a theme file:
+# the layout, the controls and the icons are the classic ones; only the colours change.
+#
+# The seeds give the main colours and every other colour is derived from them, so text stays
+# readable (WCAG AA) on whatever it sits on; the roles under [light] and [dark] set by hand
+# the few that must be exactly the brand's: secondary text, borders, the accent's hover.
+# The theme is dark in both modes (the system's light or dark setting doesn't change it).
+#
+#   background  #0B1220   secondary background  #111C2E   surface  #17243A
+#   accent      #10B981   accent hover           #059669
+#   text        #F8FAFC   secondary text         #94A3B8   borders  #26354B
+
+name = "NetGuard"
+
+[seeds.light]
+background = "#0B1220"
+surface = "#17243A"
+header = "#111C2E"
+text = "#F8FAFC"
+accent = "#10B981"
+selection = "#12513F"
+error = "#F87171"
+warning = "#FBBF24"
+success = "#34D399"
+
+[seeds.dark]
+background = "#0B1220"
+surface = "#17243A"
+header = "#111C2E"
+text = "#F8FAFC"
+accent = "#10B981"
+selection = "#12513F"
+error = "#F87171"
+warning = "#FBBF24"
+success = "#34D399"
+
+[light]
+"text.muted" = "#94A3B8"
+"button.accent.hot" = "#059669"
+"button.accent.pressed" = "#047857"
+menubar = "#111C2E"
+menu = "#111C2E"
+tree = "#111C2E"
+"field.border" = "#26354B"
+"button.border" = "#26354B"
+"button.bottom" = "#26354B"
+"list.frame" = "#26354B"
+"menu.border" = "#26354B"
+"header.line" = "#26354B"
+"table.line" = "#26354B"
+"group.line" = "#26354B"
+"tree.frame" = "#26354B"
+"menubar.line" = "#26354B"
+"toolbar.line" = "#26354B"
+"egui.widget.border" = "#26354B"
+"egui.window.border" = "#26354B"
+
+[dark]
+"text.muted" = "#94A3B8"
+"button.accent.hot" = "#059669"
+"button.accent.pressed" = "#047857"
+menubar = "#111C2E"
+menu = "#111C2E"
+tree = "#111C2E"
+"field.border" = "#26354B"
+"button.border" = "#26354B"
+"button.bottom" = "#26354B"
+"list.frame" = "#26354B"
+"menu.border" = "#26354B"
+"header.line" = "#26354B"
+"table.line" = "#26354B"
+"group.line" = "#26354B"
+"tree.frame" = "#26354B"
+"menubar.line" = "#26354B"
+"toolbar.line" = "#26354B"
+"egui.widget.border" = "#26354B"
+"egui.window.border" = "#26354B"

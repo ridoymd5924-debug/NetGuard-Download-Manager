@@ -1,0 +1,34 @@
+NetGuard Download Manager 2.2.1.9
+Made by Torik
+
+NetGuard Download Manager is a modified version of Mister Download Manager 0.5.2
+(https://github.com/anefzaoui/misterdownloadmanager).
+
+Original work:
+  Copyright (c) 2026 Ahmed Nefzaoui
+  Mister Download Manager, released under the GNU General Public License,
+  version 3 or (at your option) any later version.
+
+Modifications:
+  Copyright (c) 2026 Torik
+  The product name, logo and icons, the navy-and-emerald colour theme, the product version
+  (2.2.1.9) and the matching documentation, installer and release-workflow text. Listed in full
+  in MODIFICATIONS.md.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the
+GNU General Public License as published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version. It is distributed in the hope that it will be
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License (the file LICENSE, kept
+exactly as the original project's) for more details.
+
+This is not the original author's release, and he has not endorsed it. The name "Mister Download
+Manager" and the original author's copyright belong to him; they are used here only to say where
+this program comes from.
+
+Third-party software and artwork keep their own licences and notices: see ATTRIBUTION.md, and
+the LICENSE files inside crates/app/assets/ and crates/geo/data/. The libraries the program is
+built from are listed, with their licences, in Cargo.lock and README.md.
+
+The complete corresponding source code of each NetGuard release is the repository it was built
+from, at the release's tag.
