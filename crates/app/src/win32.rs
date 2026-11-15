@@ -94,7 +94,7 @@ fn own_window(title: &str, known: Option<HWND>) -> Option<HWND> {
 
 /// The address a connection to `dst` would leave from (PAC's `myIpAddress`), asked of the
 /// routing table (GetBestRoute2). No socket is opened: a UDP socket, the usual way to ask, is a
-/// listening socket to Windows' firewall, which would ask the user about MDM. Installed as the
+/// listening socket to Windows' firewall, which would ask the user about NetGuard. Installed as the
 /// engine's lookup at start (`mdm_engine::net::set_source_lookup`); unix.rs has none (the
 /// engine's UDP way raises no prompt there).
 pub fn source_address(dst: std::net::IpAddr) -> Option<std::net::IpAddr> {
@@ -1612,7 +1612,7 @@ unsafe extern "system" fn main_minimize_proc(
 }
 
 /// Keep the main window's minimize command in step with "Minimize to the notification area"
-/// (`enabled`: the option is on and a tray shows MDM's icon). Call every frame (cheap once the
+/// (`enabled`: the option is on and a tray shows NetGuard's icon). Call every frame (cheap once the
 /// window is found). True once after the command came: hide the window now.
 pub fn main_minimize_to_tray(ctx: &egui::Context, enabled: bool) -> bool {
     MAIN_MINIMIZE.with(|m| {
@@ -1901,8 +1901,8 @@ pub fn popup_window(title: &str, kind: Popup) -> bool {
     // SAFETY: our own window, on its thread; the subclass proc lives as long as the program;
     // the DWM attributes are read from locals during the calls.
     unsafe {
-        // Done once (comctl32 5.8, which MDM links, has no GetWindowSubclass to ask by).
-        let done: Vec<u16> = "MDM.popup\0".encode_utf16().collect();
+        // Done once (comctl32 5.8, which NetGuard links, has no GetWindowSubclass to ask by).
+        let done: Vec<u16> = "NetGuard.popup\0".encode_utf16().collect();
         if !GetPropW(hwnd, done.as_ptr()).is_null() {
             return false;
         }
@@ -2554,10 +2554,10 @@ pub fn play_sound(file: &str) {
 }
 
 /// Options → General → "Launch … on startup": our entry under HKCU\…\Run (set or removed).
-/// Make MDM (on) or stop it being (off) what Windows opens magnet links and .torrent files
+/// Make NetGuard (on) or stop it being (off) what Windows opens magnet links and .torrent files
 /// with, for the current user (HKCU\Software\Classes; no admin). Off removes only what points
 /// at us. Windows keeps a choice the user made in "Open with" above this (it can't be set by
-/// programs), so another app chosen there stays in charge until the user picks MDM.
+/// programs), so another app chosen there stays in charge until the user picks NetGuard.
 pub fn set_torrent_handlers(on: bool) {
     use windows_sys::Win32::System::Registry::{
         HKEY_CURRENT_USER, REG_SZ, RRF_RT_REG_SZ, RegDeleteKeyValueW, RegDeleteTreeW, RegGetValueW,
@@ -2649,7 +2649,7 @@ pub fn set_torrent_handlers(on: bool) {
     }
 }
 
-/// The Run key's value MDM keeps its startup entry in (Options → "Launch on startup", the
+/// The Run key's value NetGuard keeps its startup entry in (Options → "Launch on startup", the
 /// installer's "Start when Windows starts"). An off-screen test copy never touches the user's:
 /// it uses `MDM_TEST_RUN_VALUE`'s name when given one, else none at all (#226's checks).
 fn run_value() -> Option<String> {
@@ -2663,14 +2663,14 @@ fn run_value() -> Option<String> {
 
 const RUN_KEY: &str = r"Software\Microsoft\Windows\CurrentVersion\Run";
 
-/// The startup entry's command for the program `exe`: started with the session, MDM waits in
+/// The startup entry's command for the program `exe`: started with the session, NetGuard waits in
 /// the notification area (`/startup`, #226).
 fn startup_command(exe: &std::path::Path) -> String {
     format!("\"{}\" {}", exe.display(), mdm_ipc::STARTUP)
 }
 
 /// A startup entry `value` (a command line) written before #226 for the program `exe`: the same
-/// program, without the argument. Another program's entry (a copy of MDM elsewhere) is not this
+/// program, without the argument. Another program's entry (a copy of NetGuard elsewhere) is not this
 /// one's to rewrite.
 fn startup_outdated(value: &str, exe: &std::path::Path) -> bool {
     // The program compared as Windows compares paths: in any case, either slash.
@@ -2785,7 +2785,7 @@ mod startup_tests {
     }
 
     /// An entry of a version before 0.5.0, or of its installer, is written again; one for another
-    /// copy of MDM, or one already up to date, is left alone.
+    /// copy of NetGuard, or one already up to date, is left alone.
     #[test]
     fn old_startup_entries_are_rewritten() {
         let exe = Path::new(EXE);
@@ -3797,7 +3797,7 @@ pub fn gl_driver(gl: &eframe::glow::Context) -> String {
     format!("{renderer} ({version})")
 }
 
-/// End process `pid` (a frozen MDM the user chose to close from the crash report).
+/// End process `pid` (a frozen NetGuard the user chose to close from the crash report).
 pub fn end_process(pid: u32) -> bool {
     use windows_sys::Win32::Foundation::CloseHandle;
     use windows_sys::Win32::System::Threading::{OpenProcess, PROCESS_TERMINATE, TerminateProcess};
@@ -4035,7 +4035,7 @@ fn blob_bytes(
 }
 
 // Sign-in secrets in Windows Credential Manager (#44, secrets.rs): generic credentials named
-// `<service>/<account>`, for this Windows user, roaming with the profile as MDM's data folder
+// `<service>/<account>`, for this Windows user, roaming with the profile as NetGuard's data folder
 // (%APPDATA%) does. Credential Manager (Control Panel → Credential Manager → Windows
 // Credentials) shows them, the label as their user name, and can remove them.
 
@@ -4067,7 +4067,7 @@ fn cred_not_found() -> bool {
     unsafe { GetLastError() == ERROR_NOT_FOUND }
 }
 
-/// Whether Credential Manager answers (listing MDM's own entries).
+/// Whether Credential Manager answers (listing NetGuard's own entries).
 pub fn keychain_probe(service: &str) -> Result<(), crate::secrets::Fault> {
     keychain_list(service).map(|_| ())
 }
@@ -4158,7 +4158,7 @@ pub fn keychain_delete(service: &str, account: &str) -> Result<(), crate::secret
     Ok(())
 }
 
-/// The accounts of `service`'s generic credentials (the filter `<service>/*`: only MDM's; the
+/// The accounts of `service`'s generic credentials (the filter `<service>/*`: only NetGuard's; the
 /// others' blobs are never read).
 #[allow(unsafe_code)]
 pub fn keychain_list(service: &str) -> Result<Vec<String>, crate::secrets::Fault> {
@@ -4281,9 +4281,9 @@ struct WakeCmd {
 
 /// Wake the computer at `at` (seconds since 1970, UTC; for the queue named), or cancel the wake
 /// (None). A waitable timer set to resume the computer (SetWaitableTimer, fResume): it lives in
-/// MDM's process (Windows cancels it if the thread that set it ends, so one thread of its own
-/// keeps it), lists in `powercfg /waketimers`, and goes with MDM: nothing is left behind when
-/// MDM quits or is uninstalled.
+/// NetGuard's process (Windows cancels it if the thread that set it ends, so one thread of its own
+/// keeps it), lists in `powercfg /waketimers`, and goes with NetGuard: nothing is left behind when
+/// NetGuard quits or is uninstalled.
 pub fn wake_at(at: Option<(i64, &str)>) -> Result<(), String> {
     use std::sync::{Mutex, OnceLock, mpsc};
     static THREAD: OnceLock<Mutex<mpsc::Sender<WakeCmd>>> = OnceLock::new();

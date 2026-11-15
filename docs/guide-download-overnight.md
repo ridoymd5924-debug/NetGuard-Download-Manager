@@ -44,7 +44,7 @@ The **Q** column now shows a queue icon for each of them.
 Back on the **Schedule** tab:
 
 - Tick **Turn off computer when done** and choose **Shut down**, **Sleep** or **Hibernate**. MDM shows a 30-second countdown first, so you can still cancel if you're at the computer.
-- Or tick **Exit Mister Download Manager when done**.
+- Or tick **Exit NetGuard Download Manager when done**.
 
 ![The Scheduler's choices for when the queue is done, Turn off computer when done among them](images/help/overnight-done.webp)
 *When the queue is done: open a file, quit MDM, or turn the computer off.*

@@ -109,7 +109,7 @@ opened() {
   for _ in $(seq 40); do
     new=$(comm -13 <(echo "$before") <(mine | sort) | tail -1)
     # Not the main window under a new id (its title: the program's name and version).
-    [ -n "$new" ] && ! wmctrl -l | grep -i "^$new " | grep -q "Mister Download Manager [0-9]" && { echo "$new"; return 0; }
+    [ -n "$new" ] && ! wmctrl -l | grep -i "^$new " | grep -q "NetGuard Download Manager [0-9]" && { echo "$new"; return 0; }
     sleep 0.5
   done
   return 1

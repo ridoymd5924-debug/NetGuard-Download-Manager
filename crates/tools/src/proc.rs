@@ -232,7 +232,7 @@ pub fn cookie_trouble(line: &str) -> bool {
 }
 
 /// Options -> Proxy / Socks for the helpers (#363): yt-dlp and gallery-dl go through the same proxy
-/// as MDM's downloads. The app shares it as it changes ([`set_proxy`]).
+/// as NetGuard's downloads. The app shares it as it changes ([`set_proxy`]).
 static PROXY: std::sync::RwLock<mdm_engine::Proxy> =
     std::sync::RwLock::new(mdm_engine::Proxy::None);
 
@@ -423,7 +423,7 @@ const FFMPEG_PROTOCOLS: &str = "file,crypto,data,http,https,tls,tcp,httpproxy";
 /// ones (no configuration file of the person's, never a question on the console), then `--` and
 /// the address. Its output is read as UTF-8, as yt-dlp's is (#79). With an adapter chosen it goes
 /// through the relay (#35, [`through_adapter`]). Only options `tool`'s version accepts
-/// (`gallery::Accepts`, #236: a distribution's may be older than MDM's own copy).
+/// (`gallery::Accepts`, #236: a distribution's may be older than NetGuard's own copy).
 pub fn gallery_dl(
     tool: &crate::Installed,
     ours: &[String],
@@ -759,7 +759,7 @@ pub fn ytdlp_info(
 
 /// A job of its own for one helper and every process it starts (#61): on Windows `yt-dlp.exe`
 /// is a launcher whose child does the work, and ffmpeg runs under that child. Closing the job
-/// (`Spawned::kill`, or MDM ending in any way) ends them all; ending the launcher alone left the
+/// (`Spawned::kill`, or NetGuard ending in any way) ends them all; ending the launcher alone left the
 /// download running, holding its file and the bandwidth.
 #[cfg(windows)]
 fn new_job() -> Option<win32job::Job> {

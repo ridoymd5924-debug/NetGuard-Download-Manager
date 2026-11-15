@@ -14,7 +14,7 @@ pub enum Refusal {
     /// Google Drive's own error page (most often: too many downloads of this file lately),
     /// with Google's words, in the language Google chose.
     Drive { message: String },
-    /// The file isn't shared with everyone: sign in to Google (in the browser MDM takes the
+    /// The file isn't shared with everyone: sign in to Google (in the browser NetGuard takes the
     /// cookies from).
     SignIn,
     /// Signed in, but this account has no access (or the owner turned downloading off).
@@ -92,7 +92,7 @@ pub(crate) fn same_party(a: &Url, b: &Url) -> bool {
     gdrive::same_party(a, b)
 }
 
-/// The User-Agent a site's hosts want instead of MDM's default (Drive: a browser's, see
+/// The User-Agent a site's hosts want instead of NetGuard's default (Drive: a browser's, see
 /// `gdrive::USER_AGENT`). None: the download's own.
 pub(crate) fn user_agent(url: &Url) -> Option<&'static str> {
     gdrive::user_agent(url)

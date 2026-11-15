@@ -1,7 +1,7 @@
-//! The log MDM keeps in release builds too: `<data>/logs/mdm.log`, rolled over at a size into
+//! The log NetGuard keeps in release builds too: `<data>/logs/mdm.log`, rolled over at a size into
 //! `mdm.1.log` … `mdm.3.log` (the crash monitor keeps `monitor.log` the same way). Each line is
 //! written through at once (a crash loses nothing that was logged), and a report takes the last
-//! lines of MDM's.
+//! lines of NetGuard's.
 
 use std::fs::{self, File, OpenOptions};
 use std::io::{self, Write};
@@ -107,9 +107,9 @@ impl<'a> tracing_subscriber::fmt::MakeWriter<'a> for Rolling {
     }
 }
 
-/// Start logging into `<data>/logs`: MDM's own crates at `info`, everything else (egui, winit,
+/// Start logging into `<data>/logs`: NetGuard's own crates at `info`, everything else (egui, winit,
 /// the network stack) at `warn`; `MDM_LOG` overrides it with an `EnvFilter` (e.g.
-/// `MDM_LOG=debug`). Returns false when the folder can't be written (MDM runs on without a log).
+/// `MDM_LOG=debug`). Returns false when the folder can't be written (NetGuard runs on without a log).
 pub fn init(data: &Path, name: &'static str) -> bool {
     use tracing_subscriber::EnvFilter;
     let Ok(writer) = Rolling::new(dir(data), name) else {

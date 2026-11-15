@@ -156,7 +156,7 @@ id = "browser-offer"
 page = "browser-integration.md"
 under = "Set it up"
 take = "extension"
-alt = "Add Mister Download Manager to your browser: each browser found, with a button to its store page"
+alt = "Add NetGuard Download Manager to your browser: each browser found, with a button to its store page"
 caption = "MDM's own window opens each browser's store page for you."
 
 [[shot]]
@@ -392,7 +392,7 @@ id = "about-updates"
 page = "troubleshooting.md"
 under = "Updates"
 take = "about"
-alt = "About Mister Download Manager: its version, licence and links"
+alt = "About NetGuard Download Manager: its version, licence and links"
 caption = "Help → About: the version you have."
 
 # ---- Options -------------------------------------------------------------------------------------

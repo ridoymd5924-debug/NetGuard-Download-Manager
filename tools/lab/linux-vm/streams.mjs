@@ -207,7 +207,7 @@ try {
       return chrome(`(async () => {
         const menu = document.getElementById("contentAreaContextMenu");
         const shown = () => [...menu.querySelectorAll("menuitem")].filter((m) => !m.hidden);
-        const L = "Download with Mister Download Manager";
+        const L = "Download with NetGuard Download Manager";
         for (let i = 0; i < 50 && !shown().some((m) => m.label === L); i++) await new Promise((r) => setTimeout(r, 100));
         const item = shown().find((m) => m.label === L);
         if (!item) { const all = shown().map((m) => m.label).join(" | "); menu.hidePopup(); return "not there: " + all; }

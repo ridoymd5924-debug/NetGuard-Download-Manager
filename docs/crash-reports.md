@@ -2,14 +2,14 @@
 
 [← Back to docs index](README.md)
 
-If Mister Download Manager closes unexpectedly or stops responding, a **crash report** window opens. It shows what happened, lets you read the whole report, and can send it to the developers on GitHub. Each report helps fix the problem for everyone.
+If NetGuard Download Manager closes unexpectedly or stops responding, a **crash report** window opens. It shows what happened, lets you read the whole report, and can send it to the developers on GitHub. Each report helps fix the problem for everyone.
 
 ![The crash report window after MDM stopped responding](images/crash-report.webp)
 
 ## What you see
 
-- **Mister Download Manager closed unexpectedly**: MDM crashed, or hit an internal error and closed.
-- **Mister Download Manager stopped responding**: its window didn't answer for 8 seconds. MDM is still running, frozen. **End and restart MDM** closes the frozen copy and starts a new one. If MDM answers again by itself, the window says so.
+- **NetGuard Download Manager closed unexpectedly**: MDM crashed, or hit an internal error and closed.
+- **NetGuard Download Manager stopped responding**: its window didn't answer for 8 seconds. MDM is still running, frozen. **End and restart MDM** closes the frozen copy and starts a new one. If MDM answers again by itself, the window says so.
 
 In the window:
 

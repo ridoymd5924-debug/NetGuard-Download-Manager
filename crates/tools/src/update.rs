@@ -1,6 +1,6 @@
-//! Mister Download Manager updating itself: how this copy was installed, the release file that
+//! NetGuard Download Manager updating itself: how this copy was installed, the release file that
 //! replaces it, and that file fetched and checked against the release's SHA256SUMS.txt, whose
-//! signature by MDM's release key ([`crate::signed_by_mdm`]) is checked first. Putting the file
+//! signature by NetGuard's release key ([`crate::signed_by_mdm`]) is checked first. Putting the file
 //! in place is the app's (`crates/app/src/update.rs`): it has to close itself to do it.
 
 use std::path::{Path, PathBuf};
@@ -8,7 +8,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 use crate::{Error, signed_by_mdm, sum_for};
 
-/// How this copy of MDM was installed: what an update replaces, and how.
+/// How this copy of NetGuard was installed: what an update replaces, and how.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Install {
     /// Windows, the setup program.
@@ -25,7 +25,7 @@ pub enum Install {
     /// Linux, the plain programs.
     TarGz,
     /// Linux, a package of another package manager (pacman, …): that package manager updates
-    /// it, never MDM.
+    /// it, never NetGuard.
     System,
     /// Built here: never updated from a release.
     Source,
@@ -138,8 +138,8 @@ impl Install {
 
 /// Linux: which package manager's package `exe` is, asking each whether it owns the file
 /// (`owns(program, arguments)`: it ran and said yes). The .deb's (dpkg), the .rpm's (rpm), or
-/// another's (pacman; a program in /usr/bin none of them owns): those MDM leaves to the system's
-/// updates. Else the plain programs (.tar.gz), which MDM replaces itself. A path that isn't
+/// another's (pacman; a program in /usr/bin none of them owns): those NetGuard leaves to the system's
+/// updates. Else the plain programs (.tar.gz), which NetGuard replaces itself. A path that isn't
 /// UTF-8 is never one of the packages'.
 fn linux_package(exe: &Path, owns: &dyn Fn(&str, &[&str]) -> bool) -> Install {
     let Some(path) = exe.to_str() else {
@@ -180,8 +180,8 @@ impl Progress {
     }
 }
 
-/// Fetch release file `name` from `assets` (name, download address) into `dir` with MDM's own
-/// engine (`net`), after checking the release's SHA256SUMS.txt is signed by MDM's key, and check
+/// Fetch release file `name` from `assets` (name, download address) into `dir` with NetGuard's own
+/// engine (`net`), after checking the release's SHA256SUMS.txt is signed by NetGuard's key, and check
 /// the file against it. Returns the file.
 pub async fn fetch(
     assets: &[(String, String)],
@@ -367,7 +367,7 @@ Connection: close
             (setup, "mdm-SHA256SUMS.txt"),
         ]);
         let dir = tempfile::tempdir().unwrap();
-        // Through MDM's own engine, as the app fetches it.
+        // Through NetGuard's own engine, as the app fetches it.
         let net = crate::net(mdm_engine::Proxy::None);
         let progress = Progress::default();
         let file = fetch(&assets(&base), zip, dir.path(), &net, &progress)
@@ -496,14 +496,14 @@ Connection: close
         let exe = Path::new("/usr/bin/misterdownloadmanager");
         assert_eq!(linux_package(exe, &owner("dpkg-query")), Install::Deb);
         assert_eq!(linux_package(exe, &owner("rpm")), Install::Rpm);
-        // An Arch package (pacman), or in /usr/bin with no package manager MDM knows: the
+        // An Arch package (pacman), or in /usr/bin with no package manager NetGuard knows: the
         // system's.
         assert_eq!(linux_package(exe, &owner("pacman")), Install::System);
         assert_eq!(linux_package(exe, &owner("none")), Install::System);
         // On Debian with rpm's tools installed too: still the .deb's.
         let both = |tool: &str, _: &[&str]| tool == "dpkg-query" || tool == "rpm";
         assert_eq!(linux_package(exe, &both), Install::Deb);
-        // The .tar.gz unpacked in the home folder, /opt or /usr/local: MDM's own to replace.
+        // The .tar.gz unpacked in the home folder, /opt or /usr/local: NetGuard's own to replace.
         let nobody = |_: &str, _: &[&str]| false;
         let home = Path::new("/home/me/MisterDownloadManager/misterdownloadmanager");
         assert_eq!(linux_package(home, &nobody), Install::TarGz);
@@ -515,18 +515,18 @@ Connection: close
             linux_package(Path::new("/usr/local/bin/misterdownloadmanager"), &nobody),
             Install::TarGz
         );
-        // MDM updates neither another package manager's copy nor a build of its own.
+        // NetGuard updates neither another package manager's copy nor a build of its own.
         assert!(Install::System.assets("1.0.0").is_empty());
     }
 
     #[test]
     fn bundles_on_a_mac() {
         let exe = Path::new(
-            "/Applications/Mister Download Manager.app/Contents/MacOS/misterdownloadmanager",
+            "/Applications/NetGuard Download Manager.app/Contents/MacOS/misterdownloadmanager",
         );
         assert_eq!(
             app_bundle(exe).as_deref(),
-            Some(Path::new("/Applications/Mister Download Manager.app"))
+            Some(Path::new("/Applications/NetGuard Download Manager.app"))
         );
         assert_eq!(
             app_bundle(Path::new("/usr/bin/misterdownloadmanager")),

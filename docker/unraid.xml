@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- Mister Download Manager for Unraid (#157): docs/server.md. Copy to
+<!-- NetGuard Download Manager for Unraid (#157): docs/server.md. Copy to
      /boot/config/plugins/dockerMan/templates-user/my-misterdownloadmanager.xml, then Docker →
      Add Container → misterdownloadmanager. The image is built from MDM's source first. -->
 <Container version="2">
@@ -10,7 +10,7 @@
   <Privileged>false</Privileged>
   <Support>https://github.com/anefzaoui/misterdownloadmanager/issues</Support>
   <Project>https://github.com/anefzaoui/misterdownloadmanager</Project>
-  <Overview>Mister Download Manager without a window: add links, magnets and torrents from your phone or browser, and the server downloads them into a share. Pair a phone with the code in the container's log.</Overview>
+  <Overview>NetGuard Download Manager without a window: add links, magnets and torrents from your phone or browser, and the server downloads them into a share. Pair a phone with the code in the container's log.</Overview>
   <Category>Downloaders:</Category>
   <WebUI>https://[IP]:[PORT:8463]/</WebUI>
   <ExtraParams>--user 99:100</ExtraParams>

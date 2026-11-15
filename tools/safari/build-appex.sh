@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds the Safari extension (an app extension, "appex") into a Mister Download Manager.app:
+# Builds the Safari extension (an app extension, "appex") into a NetGuard Download Manager.app:
 #   tools/safari/build-appex.sh <app> <swift target> <extension folder> <helper> <version> [identity]
 #     <app>               the .app to put it in (Contents/PlugIns/)
 #     <swift target>      arm64-apple-macos14.0 or x86_64-apple-macos14.0
@@ -17,7 +17,7 @@ here="$(cd "$(dirname "$0")" && pwd)"
 app="$1" target="$2" ext="$3" helper="$4" version="$5" identity="${6:--}"
 min_macos="${target##*macos}"
 bundle_id="io.github.anefzaoui.misterdownloadmanager.safari"
-appex="$app/Contents/PlugIns/Mister Download Manager.appex"
+appex="$app/Contents/PlugIns/NetGuard Download Manager.appex"
 
 # A real identity: the hardened runtime and Apple's timestamp, which notarization asks for.
 opts=()

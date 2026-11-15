@@ -1,6 +1,6 @@
 The Aqua theme's icon set (#45).
 
-MDM's own: pictures drawn for Mister Download Manager in the manner of Mac OS X's desktop icons (Leopard, 2007): gloss, pale blue translucent folders,
+MDM's own: pictures drawn for NetGuard Download Manager in the manner of Mac OS X's desktop icons (Leopard, 2007): gloss, pale blue translucent folders,
 brushed metal. Not one of
 Apple's icons, or any other project's, is used or copied. GPL-3.0-or-later, as MDM (its
 LICENSE, at the top of the repository).

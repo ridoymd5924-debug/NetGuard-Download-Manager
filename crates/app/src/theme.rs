@@ -663,10 +663,10 @@ fn fc_match(pattern: &str) -> Option<std::path::PathBuf> {
 
 /// Every font file the windows may need, as fontconfig picks it: the interface font
 /// (`sans-serif`) and each script's (`:lang=…`). Each answer is an `fc-match` program; asked one
-/// after the other on the window's thread, the thirty of them held up MDM's first frame for 2 s
+/// after the other on the window's thread, the thirty of them held up NetGuard's first frame for 2 s
 /// on an idle computer and past the freeze report's 8 s on a busy one (#164). So they are asked
 /// once, all together (a third of the time), and [`prepare_fonts`] starts that while the window
-/// opens; the fonts only wait for what is still running. A font installed while MDM runs is
+/// opens; the fonts only wait for what is still running. A font installed while NetGuard runs is
 /// used from its next start.
 #[cfg(not(any(windows, target_os = "macos")))]
 fn fc_files() -> &'static std::collections::HashMap<String, std::path::PathBuf> {

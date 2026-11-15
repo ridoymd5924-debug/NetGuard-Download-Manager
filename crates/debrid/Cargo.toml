@@ -1,6 +1,6 @@
 [package]
 name = "mdm-debrid"
-description = "Debrid service accounts for Mister Download Manager (#44): file-host links unlocked through the user's own account"
+description = "Debrid service accounts for NetGuard Download Manager (#44): file-host links unlocked through the user's own account"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

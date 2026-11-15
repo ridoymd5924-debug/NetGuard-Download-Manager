@@ -86,11 +86,11 @@ impl RuntimeProvider for Through {
     ) -> Pin<Box<dyn Send + Future<Output = Result<Self::Udp, io::Error>>>> {
         // Never asked for: every server is configured for TCP, TLS or HTTPS. Refused all the same:
         // a UDP socket would be a listening socket to Windows' firewall.
-        Box::pin(async { Err(io::Error::other("MDM asks DNS over TCP only")) })
+        Box::pin(async { Err(io::Error::other("NetGuard asks DNS over TCP only")) })
     }
 }
 
-/// Which DNS answers MDM's own lookups (Options → Connection → DNS).
+/// Which DNS answers NetGuard's own lookups (Options → Connection → DNS).
 #[derive(Clone, Debug, Default, PartialEq, Eq, Hash)]
 pub enum Dns {
     /// The system's resolver (getaddrinfo: its cache, the hosts file, Windows' own encrypted DNS
@@ -334,7 +334,7 @@ async fn build(
     let servers: Vec<NameServerConfig> = match &choice.dns {
         Dns::System => return Err(setup("the system's DNS isn't asked through hickory".into())),
         // Over TCP only: a UDP socket waiting for answers counts as listening to Windows'
-        // firewall, which would ask the user to allow MDM. An outgoing TCP connection never
+        // firewall, which would ask the user to allow NetGuard. An outgoing TCP connection never
         // does, and every public resolver answers on TCP port 53 (RFC 7766).
         Dns::Plain(servers) => keep(servers)
             .iter()

@@ -105,7 +105,7 @@ so you'd be among the first. Please
 
 | File | What it is |
 |---|---|
-| `...-macos-arm64-experimental.dmg` | For a Mac with Apple Silicon (M1 or later: **Apple menu → About This Mac** shows a *Chip*). Open it and drag Mister Download Manager to Applications. macOS asks before its first start, because the app isn't notarized by Apple: right-click it and choose **Open** (on macOS 15 and later: **System Settings → Privacy & Security → Open Anyway**). |
+| `...-macos-arm64-experimental.dmg` | For a Mac with Apple Silicon (M1 or later: **Apple menu → About This Mac** shows a *Chip*). Open it and drag NetGuard Download Manager to Applications. macOS asks before its first start, because the app isn't notarized by Apple: right-click it and choose **Open** (on macOS 15 and later: **System Settings → Privacy & Security → Open Anyway**). |
 | `...-macos-x86_64-experimental.dmg` | The same, for a Mac with an Intel processor (About This Mac shows a *Processor*). |
 
 Browser integration is set up by MDM itself at each start (the browsers installed then are found); add the extension as in [Browser integration](browser-integration.md).
@@ -114,11 +114,11 @@ Browser integration is set up by MDM itself at each start (the browsers installe
 
 1. Run `MisterDownloadManager-<version>-setup.exe`.
 2. Choose the language. Windows' display language is already selected. The setup offers every language MDM has, and MDM starts in the one you pick.
-3. Choose whether to install for you only or for everyone on the computer. For you only needs no administrator rights and goes to `%LOCALAPPDATA%\Programs\Mister Download Manager`. For everyone goes to `Program Files`.
+3. Choose whether to install for you only or for everyone on the computer. For you only needs no administrator rights and goes to `%LOCALAPPDATA%\Programs\NetGuard Download Manager`. For everyone goes to `Program Files`.
 4. Pick what the setup should do:
    - **Set up browser integration (Chrome, Edge, Brave, Firefox)**
-   - **Open .torrent files and magnet links with Mister Download Manager**
-   - **Start Mister Download Manager when Windows starts**
+   - **Open .torrent files and magnet links with NetGuard Download Manager**
+   - **Start NetGuard Download Manager when Windows starts**
    - **Create a desktop shortcut** (off unless you tick it)
 5. Click **Install**, then **Finish** to start MDM.
 
@@ -238,7 +238,7 @@ Closing the main window doesn't quit MDM. It hides in the notification area, and
 
 On Linux this needs a tray, which most desktops have (KDE Plasma, Xfce, Cinnamon, Ubuntu's GNOME or GNOME with the AppIndicator extension, waybar's tray). On a desktop without one (some tiling window managers), closing the window quits MDM, since there would be nowhere to bring it back from.
 
-![MDM's icon in the top bar of Ubuntu's GNOME, its menu open: Open Mister Download Manager, Add new download, Add batch download, Downloads in progress, Speed Limiter, Scheduler, the main queue, Options and Exit](images/tray-linux.webp)
+![MDM's icon in the top bar of Ubuntu's GNOME, its menu open: Open NetGuard Download Manager, Add new download, Add batch download, Downloads in progress, Speed Limiter, Scheduler, the main queue, Options and Exit](images/tray-linux.webp)
 *The tray icon's menu on Ubuntu's GNOME.*
 
 - Click the tray icon to bring the window back.

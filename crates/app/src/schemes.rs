@@ -4,7 +4,7 @@
 //! `colors.json` (`special` and `color0`…`color15`; wallust's pywal-shaped file too).
 //!
 //! A scheme becomes the same value tree a theme file is read into: the classic look
-//! `inherits`ed, a few `[seeds]` MDM spreads over every control (`crate::derive`), and the
+//! `inherits`ed, a few `[seeds]` NetGuard spreads over every control (`crate::derive`), and the
 //! secondary text's colour. Only colours change, never the layout. The text is checked against
 //! every background it sits on (WCAG 2.1 AA, 4.5:1) and moved in lightness when a scheme falls
 //! short, the accent the same at 3:1; each change is a warning, written to the log.
@@ -39,7 +39,7 @@ pub fn hex(s: &str) -> Option<Color32> {
     }
 }
 
-/// The colours a scheme gives MDM, before its contrast is checked.
+/// The colours a scheme gives NetGuard, before its contrast is checked.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Mapped {
     /// Windows, dialogs and the toolbar's band.
@@ -135,7 +135,7 @@ pub struct Base16 {
     pub base: [Option<Color32>; 16],
 }
 
-/// The colours MDM reads; a scheme without one of them isn't read.
+/// The colours NetGuard reads; a scheme without one of them isn't read.
 const BASE16_USED: [usize; 8] = [0x0, 0x1, 0x4, 0x5, 0x8, 0xA, 0xB, 0xD];
 
 /// A Base16 (or Base24) scheme file. Its YAML is flat `key: "value"` lines, `palette:`'s
@@ -153,7 +153,7 @@ pub fn base16(text: &str) -> Result<Base16, String> {
         }
         let indented = body.len() != line.len();
         if indented && !in_palette {
-            // Something else's nested lines (a newer field MDM doesn't use, a folded text).
+            // Something else's nested lines (a newer field NetGuard doesn't use, a folded text).
             continue;
         }
         let Some((key, value)) = body.split_once(':') else {
@@ -223,7 +223,7 @@ fn unquote(s: &str) -> &str {
     s.trim_matches(|c| c == '"' || c == '\'')
 }
 
-/// Base16's colours in MDM (Stylix's guide to them: base00 the default background, base01 the
+/// Base16's colours in NetGuard (Stylix's guide to them: base00 the default background, base01 the
 /// lighter one, base04 and base05 the foregrounds, base0D the focus colour). The list and boxes
 /// take base00, as an editor's text does, and the window around them base01, as in the classic
 /// look (white boxes on grey, darker ones on dark grey).
@@ -250,7 +250,7 @@ pub fn is_pywal(v: &Value) -> bool {
         || v.get("colors").and_then(|c| c.get("color0")).is_some()
 }
 
-/// The colours MDM reads from pywal's file, read; a file without one of them isn't read.
+/// The colours NetGuard reads from pywal's file, read; a file without one of them isn't read.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Pywal {
     pub background: Color32,
@@ -298,7 +298,7 @@ pub fn pywal(v: &Value) -> Result<Pywal, String> {
     })
 }
 
-/// pywal's colours in MDM: its background for the list and boxes, a step toward its foreground
+/// pywal's colours in NetGuard: its background for the list and boxes, a step toward its foreground
 /// for the window (pywal has no second background), color4 (blue) for the accent, color1, 3
 /// and 2 for errors, warnings and success, color8 (bright black) for secondary text.
 pub fn map_pywal(p: &Pywal) -> Mapped {
@@ -361,7 +361,7 @@ mod tests {
     /// A dark scheme in the classic layout (Gruvbox-like, colours of our own picking).
     const DARK_CLASSIC: &str = r##"
 scheme: "Test Dark Classic"
-author: "MDM's tests"
+author: "NetGuard's tests"
 base00: "282828" # ----
 base01: "3c3836" # ---
 base02: "504945"
@@ -385,10 +385,10 @@ base0F: "d65d0e"
 name: "Test Light"
 slug: "test-light"
 scheme: "Old name"
-author: "MDM's tests (https://example.org/tests)"
+author: "NetGuard's tests (https://example.org/tests)"
 description: >
   A folded text over two lines,
-  which MDM passes over.
+  which NetGuard passes over.
 variant: "light"
 palette:
   base00: "#fdf6e3"
@@ -485,7 +485,7 @@ palette:
         // A colour that isn't one.
         let e = base16(&DARK_CLASSIC.replace("\"83a598\"", "\"83a5\"")).unwrap_err();
         assert!(e.contains("base0d"), "{e}");
-        // Colours MDM needs, missing: named.
+        // Colours NetGuard needs, missing: named.
         let lacking: String = DARK_CLASSIC
             .lines()
             .filter(|l| !l.starts_with("base0D") && !l.starts_with("base05"))
@@ -493,7 +493,7 @@ palette:
             .join("\n");
         let e = base16(&lacking).unwrap_err();
         assert!(e.contains("base05") && e.contains("base0D"), "{e}");
-        // One MDM doesn't use, missing: still read.
+        // One NetGuard doesn't use, missing: still read.
         let no_0e: String = DARK_CLASSIC
             .lines()
             .filter(|l| !l.starts_with("base0E"))
@@ -551,9 +551,9 @@ palette:
 
     #[test]
     fn pywal_malformed_and_missing() {
-        let v: Value = serde_json::from_str(r#"{ "name": "An MDM theme" }"#).unwrap();
+        let v: Value = serde_json::from_str(r#"{ "name": "An NetGuard theme" }"#).unwrap();
         assert!(!is_pywal(&v));
-        // MDM's own JSON theme files use `colors` too, for roles: not pywal's.
+        // NetGuard's own JSON theme files use `colors` too, for roles: not pywal's.
         let v: Value = serde_json::from_str(r##"{ "colors": { "accent": "#ff0000" } }"##).unwrap();
         assert!(!is_pywal(&v));
         let v: Value = serde_json::from_str(r##"{ "special": {}, "colors": {} }"##).unwrap();

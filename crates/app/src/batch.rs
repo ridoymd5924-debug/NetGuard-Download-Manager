@@ -181,7 +181,7 @@ impl Batch {
             o.x + 11.0,
             o.y + 17.0,
             crate::i18n::t(
-                "It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.",
+                "It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.",
             ),
             LIGHT_TEXT(),
             o.x + 470.0,

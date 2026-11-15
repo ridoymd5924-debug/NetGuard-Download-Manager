@@ -256,7 +256,7 @@ impl PlaylistView {
             let n = self.entries.len();
             self.capped |= p.capped;
             // More to list: a channel's page that came full (or broke off), a list short of the
-            // size the site says (yt-dlp failed part-way). Never past MDM's most.
+            // size the site says (yt-dlp failed part-way). Never past NetGuard's most.
             let page_full = self.taken as u64 >= PAGE && self.total.is_none_or(|t| (n as u64) < t);
             self.more = n < mdm_tools::playlist::MAX_ENTRIES
                 && if self.paged {
@@ -378,14 +378,14 @@ impl PlaylistView {
         winui::readable(ui, rc, "playlist-status", &status);
     }
 
-    /// Why nothing is listed, or that the list was cut at the most MDM lists.
+    /// Why nothing is listed, or that the list was cut at the most NetGuard lists.
     fn notes(&self, ui: &mut Ui, o: Pos2) {
         let p = ui.painter().clone();
         let (text, color) = if let Some(e) = &self.error {
             (e.clone(), winui::ERROR())
         } else if self.capped {
             let text = crate::i18n::fmt(
-                // i18n: in Download video, a list longer than MDM lists: only its first {n} videos are shown
+                // i18n: in Download video, a list longer than NetGuard lists: only its first {n} videos are shown
                 crate::i18n::t("Only the first {n} videos are listed."),
                 &[(
                     "n",

@@ -25,9 +25,9 @@ On the first start MDM asks for the language; see [Languages](languages.md).
 ## What is different
 
 - **Downloads still go to the computer's Downloads folder** unless you change it. To keep them with MDM, set each category's folder in **Options → Save to**. [Carry MDM on a USB stick](guide-usb-stick.md) shows how.
-- **Launch Mister Download Manager on startup** in **Options → General** is greyed: starting with Windows needs the registry.
+- **Launch NetGuard Download Manager on startup** in **Options → General** is greyed: starting with Windows needs the registry.
 - **Browser integration needs the installer.** The browser finds MDM's helper through the registry, so a portable copy can't take downloads from the browser. Use **Add URL**, the clipboard or the drop target instead (see [Adding downloads](adding-downloads.md)).
-- **Tasks → Torrent settings → Open magnet links and .torrent files with Mister Download Manager** does write to the registry, for your Windows account only. Leave it off to keep the portable copy registry-free.
+- **Tasks → Torrent settings → Open magnet links and .torrent files with NetGuard Download Manager** does write to the registry, for your Windows account only. Leave it off to keep the portable copy registry-free.
 
 ## Moving between computers
 

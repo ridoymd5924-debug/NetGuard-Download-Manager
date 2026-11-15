@@ -1,6 +1,6 @@
 # Run MDM on a server
 
-Run Mister Download Manager on a home server or a NAS (Docker, Unraid, any Linux machine) without
+Run NetGuard Download Manager on a home server or a NAS (Docker, Unraid, any Linux machine) without
 a window, and send it downloads from your phone or your browser: the server downloads them into
 its own folders, such as a network share.
 
@@ -108,9 +108,9 @@ an address: `misterdownloadmanager /d https://example.com/file.zip`.
 
 ## Send downloads from your browser
 
-In the browser extension's menu, **Send downloads to → Another Mister Download Manager (a server)**: type the server's address,
+In the browser extension's menu, **Send downloads to → Another NetGuard Download Manager (a server)**: type the server's address,
 open it once in that browser to accept its certificate, then enter a pairing code (`pair`
-above). Downloads the extension catches, and **Download with Mister Download Manager** on a link,
+above). Downloads the extension catches, and **Download with NetGuard Download Manager** on a link,
 then go to the server instead of this computer. The browser's cookies are not sent to the server:
 a download that needs you to be signed in to a site stays with this computer.
 

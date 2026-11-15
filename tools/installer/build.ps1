@@ -66,7 +66,7 @@ function New-Zip([string]$name, [bool]$portable) {
   if ($portable) {
     New-Item -ItemType Directory -Force (Join-Path $stage "data") | Out-Null
     Set-Content -Encoding utf8 (Join-Path $stage "data\README.txt") @"
-This folder makes Mister Download Manager portable: the download list and settings are kept
+This folder makes NetGuard Download Manager portable: the download list and settings are kept
 here instead of in your profile, and nothing is written to the registry. Delete the folder to
 use the profile instead. Browser integration needs the installer.
 "@

@@ -301,7 +301,7 @@ fn write(p: &Path, json: &[u8]) -> std::io::Result<()> {
 }
 
 /// Saves the list on a thread of its own. The write ends with a flush to the disk, which waited
-/// for every byte a big download had written meanwhile: on the window's thread it froze MDM for
+/// for every byte a big download had written meanwhile: on the window's thread it froze NetGuard for
 /// seconds (a crash report caught it: "freeze in store::save"). The newest list waiting replaces
 /// an older one not yet written.
 pub struct Saver {
@@ -377,7 +377,7 @@ impl Saver {
             .take()
     }
 
-    /// Wait until nothing is waiting or being written (MDM closing).
+    /// Wait until nothing is waiting or being written (NetGuard closing).
     pub fn flush(&self) {
         let (lock, cv) = &*self.shared;
         let mut s = lock.lock().unwrap_or_else(|e| e.into_inner());
@@ -540,7 +540,7 @@ mod tests {
         let s = load_from(&p, empty()).settings;
         assert_eq!(s.auto_types, mdm_ipc::capture::DEFAULT_AUTO_TYPES);
         assert!(
-            mdm_ipc::capture::type_listed(&s.auto_types, "MDM-0.3.0.dmg")
+            mdm_ipc::capture::type_listed(&s.auto_types, "NetGuard-0.3.0.dmg")
                 && mdm_ipc::capture::type_listed(&s.auto_types, "mdm_0.3.0_amd64.deb")
         );
         let edited = format!("{old} NZB");

@@ -1,5 +1,5 @@
-//! MDM's crash and freeze reports, built the way Firefox, Chrome (Crashpad) and Sentry build
-//! theirs: the app never writes its own dump. A second MDM process, the monitor, waits beside it;
+//! NetGuard's crash and freeze reports, built the way Firefox, Chrome (Crashpad) and Sentry build
+//! theirs: the app never writes its own dump. A second NetGuard process, the monitor, waits beside it;
 //! when the app crashes (a native exception or signal), panics, or its window stops answering, it
 //! asks, and the monitor writes a minidump of every thread from outside. The monitor then reads
 //! the dump with the release's symbols into a report (`report.rs`) and offers to send it on
@@ -11,7 +11,7 @@
 //! - `report`: the report's text and the problem's signature.
 //! - `github`: the issue form and the search for one already filed.
 //! - `symbols`: the release's symbols, fetched on demand.
-//! - `logs`: the log MDM keeps in release builds too, and its last lines.
+//! - `logs`: the log NetGuard keeps in release builds too, and its last lines.
 
 pub mod analyze;
 pub mod client;
@@ -24,7 +24,7 @@ pub mod symbols;
 
 pub use crash_handler;
 
-/// The argument that starts MDM as the monitor: `--crash-monitor <socket> --data <dir> --parent
+/// The argument that starts NetGuard as the monitor: `--crash-monitor <socket> --data <dir> --parent
 /// <pid>`.
 pub const MONITOR_ARG: &str = "--crash-monitor";
 

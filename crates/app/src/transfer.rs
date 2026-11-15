@@ -2,7 +2,7 @@
 //! (`.ef2`), and downloads from either. IDM's import finds every web address in a file and shows
 //! them to check before they are added; so does ours (in Link grabber, grabber.rs). An `.ef2` file holds one block per
 //! download — `<`, the address, `referer: …` / `cookie: …` / `User-Agent: …` lines, `>` — so a
-//! list moves between IDM and MDM with its request context.
+//! list moves between IDM and NetGuard with its request context.
 
 use crate::model::Item;
 

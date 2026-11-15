@@ -1,4 +1,4 @@
-# Mister Download Manager in Bosnian (Bosanski): tools/i18n/translate.py
+# NetGuard Download Manager in Bosnian (Bosanski): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	Bosanski
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	Jeste li sigurni da želite izbrisati {n} preuzimanje s popisa preuzimanja programa Mister Download Manager?|Jeste li sigurni da želite izbrisati ova {n} preuzimanja s popisa preuzimanja programa Mister Download Manager?|Jeste li sigurni da želite izbrisati ovih {n} preuzimanja s popisa preuzimanja programa Mister Download Manager?
+@plural	Are you sure you want to delete {n} download from NetGuard Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from NetGuard Download Manager list of downloads?	Jeste li sigurni da želite izbrisati {n} preuzimanje s popisa preuzimanja programa NetGuard Download Manager?|Jeste li sigurni da želite izbrisati ova {n} preuzimanja s popisa preuzimanja programa NetGuard Download Manager?|Jeste li sigurni da želite izbrisati ovih {n} preuzimanja s popisa preuzimanja programa NetGuard Download Manager?
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Usluga debridinga preuzima vezu hosta datoteke s vašim plaćenim računom i daje MDM-u direktnu vezu. Koristite samo svoj račun: dijeljenje računa ili njegovih veza krši uvjete usluge i može dovesti do suspenzije. Preuzimanja koja je preglednik već započeo ostaju takva kakva jesu.
+	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Usluga debridinga preuzima vezu hosta datoteke s vašim plaćenim računom i daje NetGuard-u direktnu vezu. Koristite samo svoj račun: dijeljenje računa ili njegovih veza krši uvjete usluge i može dovesti do suspenzije. Preuzimanja koja je preglednik već započeo ostaju takva kakva jesu.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -217,7 +217,7 @@
 #, machine
 	a server on this computer sent the download elsewhere, which would not go through {adapter}	server na ovom računaru je preusmjerio preuzimanje drugdje, što ne bi prošlo kroz {adapter}
 #. text in the Add torrent window
-#. Add trackers: MDM never contacts a tracker on this computer or the local network
+#. Add trackers: NetGuard never contacts a tracker on this computer or the local network
 #, machine
 	A tracker on this computer or the local network is never contacted: {line}	Tracker na ovom računaru ili lokalnoj mreži se nikada ne kontaktira: {line}
 #. text in extracting archives (a download's log, the Archive password window)
@@ -226,7 +226,7 @@
 	a volume of it is missing	nedostaje jedan volumen
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About Mister Download Manager	O programu Mister Download Manager
+	About NetGuard Download Manager	O programu NetGuard Download Manager
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -280,7 +280,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add Mister Download Manager to your browser	Dodajte Mister Download Manager u svoj preglednik
+	Add NetGuard Download Manager to your browser	Dodajte NetGuard Download Manager u svoj preglednik
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -342,9 +342,9 @@
 #, machine
 	Added.	Dodano.
 #. text in remote.rs
-#. remote control page (on a phone): a magnet link or .torrent file was added; MDM reads the torrent's files first
+#. remote control page (on a phone): a magnet link or .torrent file was added; NetGuard reads the torrent's files first
 #, machine
-	Added. MDM is reading the torrent: it joins the list in a moment.	Dodano. MDM čita torrent: pridružit će se listi za trenutak.
+	Added. NetGuard is reading the torrent: it joins the list in a moment.	Dodano. NetGuard čita torrent: pridružit će se listi za trenutak.
 #. text in the Batch download window; text in a dialog box; label in the Options window; text in a download's progress window
 #. noun: the web address (URL)
 #. column title: the web address (URL)
@@ -428,7 +428,7 @@
 #, machine
 	Already reported as issue #{number}: {title}	Već prijavljeno kao problem #{number}: {title}
 #. checkbox in crashui.rs
-#. crash report window: checkbox; the .dmp file holds what MDM had in memory
+#. crash report window: checkbox; the .dmp file holds what NetGuard had in memory
 #, machine
 	Also attach the crash data (.dmp): it may hold addresses, cookies and passwords	Priložite i podatke o padu (.dmp): mogu sadržavati adrese, kolačiće i lozinke
 #. text in a dialog box
@@ -447,7 +447,7 @@
 	Always into a folder named after it	Uvijek u mapu nazvanu po njoj
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on Mister Download Manager startup	Uvijek uključiti ograničivač brzine pri pokretanju programa Mister Download Manager
+	Always turn on Speed Limiter on NetGuard Download Manager startup	Uvijek uključiti ograničivač brzine pri pokretanju programa NetGuard Download Manager
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -513,7 +513,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	Jeste li sigurni da želite izbrisati „{name}” s popisa preuzimanja programa Mister Download Manager?
+	Are you sure you want to delete "{name}" from NetGuard Download Manager list of downloads?	Jeste li sigurni da želite izbrisati „{name}” s popisa preuzimanja programa NetGuard Download Manager?
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -652,7 +652,7 @@
 	Bosnia and Herzegovina	Bosna i Hercegovina
 #. text in helpers.rs
 #, machine
-	Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	Oba su otvorenog koda. MDM ih preuzima iz njihovih zvaničnih izdanja sa sopstvenim programom za preuzimanje i provjerava potpis svake datoteke prije pokretanja. Oko 100 MB, jednokratno.
+	Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	Oba su otvorenog koda. NetGuard ih preuzima iz njihovih zvaničnih izdanja sa sopstvenim programom za preuzimanje i provjerava potpis svake datoteke prije pokretanja. Oko 100 MB, jednokratno.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -682,7 +682,7 @@
 	Browse...	Pretraži...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	Integracija preglednika nije postavljena na ovom računaru, tako da nijedan preglednik još ne može doći do Mister Download Manager.
+	Browser integration isn't set up on this computer, so no browser can reach NetGuard Download Manager yet.	Integracija preglednika nije postavljena na ovom računaru, tako da nijedan preglednik još ne može doći do NetGuard Download Manager.
 #. page title in the Options window
 #, machine
 	Browser/System Integration	Integracija preglednika/sistema
@@ -814,16 +814,16 @@
 #, machine
 	Check for updates	Provjeri ažuriranja
 #. checkbox in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#. check box in the update window: look for a new version every time MDM starts
+#. check box in the update window: look for a new version every time NetGuard starts
 #, machine
 	Check for updates at every start	Provjeri ažuriranja pri svakom pokretanju
 #. text in helpers.rs
 #, machine
 	Check your connection, then try again, or get them later from the video window.	Provjerite vezu, a zatim pokušajte ponovo ili ih preuzmite kasnije iz prozora videozapisa.
 #. text in the Options window
-#. tooltip of the close-setting: checked keeps MDM running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
+#. tooltip of the close-setting: checked keeps NetGuard running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
 #, machine
-	Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM	Ako je označeno, zatvaranjem prozora MDM nastavlja raditi: skriva se u području obavijesti kada je dostupno ili se minimizira na programsku traku; preuzimanja se nastavljaju. Ako nije označeno, zatvaranjem prozora MDM se zatvara.
+	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	Ako je označeno, zatvaranjem prozora NetGuard nastavlja raditi: skriva se u području obavijesti kada je dostupno ili se minimizira na programsku traku; preuzimanja se nastavljaju. Ako nije označeno, zatvaranjem prozora NetGuard se zatvara.
 #. message or event log entry in the main window
 #. event log entry after Recheck: {have} and {total} are sizes ("1.2 GB of 4 GB there")
 #, machine
@@ -882,7 +882,7 @@
 	Choose a language	Odaberite jezik
 #. text in langpick.rs
 #, machine
-	Choose the language Mister Download Manager shows its windows in:	Odaberite jezik na kojem će Mister Download Manager prikazivati svoje prozore:
+	Choose the language NetGuard Download Manager shows its windows in:	Odaberite jezik na kojem će NetGuard Download Manager prikazivati svoje prozore:
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -962,7 +962,7 @@
 #, machine
 	Congo	Kongo
 #. text in extension.rs
-#. in the browser extension's window, beside a browser whose extension reached MDM
+#. in the browser extension's window, beside a browser whose extension reached NetGuard
 #, machine
 	Connected	Povezano
 #. text in extension.rs
@@ -1038,13 +1038,13 @@
 	Customize "Download progress" dialog	Prilagodi dijalog „Napredak preuzimanja”
 #. text in the Options window
 #, machine
-	Customize keys to prevent or force downloading with MDM	Prilagodite tipke za sprječavanje ili prisilno preuzimanje pomoću MDM-a
+	Customize keys to prevent or force downloading with NetGuard	Prilagodite tipke za sprječavanje ili prisilno preuzimanje pomoću NetGuard-a
 #. text in the Options window
 #, machine
-	Customize MDM Download panels in browsers	Prilagodite MDM panele za preuzimanje u preglednicima
+	Customize NetGuard Download panels in browsers	Prilagodite NetGuard panele za preuzimanje u preglednicima
 #. text in the Options window
 #, machine
-	Customize MDM menu items in context menu of browsers	Prilagodite MDM stavke menija u kontekstnom meniju preglednika
+	Customize NetGuard menu items in context menu of browsers	Prilagodite NetGuard stavke menija u kontekstnom meniju preglednika
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -1417,9 +1417,9 @@
 #, machine
 	Empty: all of them. On most sites the newest come first.	Prazno: sve. Na većini stranica najnovije dolaze prve.
 #. text in crashui.rs
-#. crash report window button: end the frozen MDM and start it again
+#. crash report window button: end the frozen NetGuard and start it again
 #, machine
-	End and restart MDM	Završi i ponovo pokreni MDM
+	End and restart NetGuard	Završi i ponovo pokreni NetGuard
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	Unesite magnetnu vezu ili odaberite .torrent datoteku
@@ -1502,7 +1502,7 @@
 	Exit	Izlaz
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit Mister Download Manager when done	Izađi iz Mister Download Managera kada završi
+	Exit NetGuard Download Manager when done	Izađi iz NetGuard Download Managera kada završi
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	Očekivani kontrolni zbir (MD5, SHA-1, SHA-256, SHA-512 ili CRC32):
@@ -1688,7 +1688,7 @@
 #, machine
 	For example:  {address}	Na primjer: {address}
 #. text in the Add torrent window
-#. Torrent settings, under the switch that makes MDM open magnet links and .torrent files (macOS, Linux)
+#. Torrent settings, under the switch that makes NetGuard open magnet links and .torrent files (macOS, Linux)
 #, machine
 	For your account only. Another app set as the default stays first.	Samo za vaš račun. Druga aplikacija postavljena kao zadana ostaje prva.
 #. text in the Add torrent window
@@ -1698,7 +1698,7 @@
 #, machine
 	Force processes to terminate	Prisilno prekini procese
 #. text in remote.rs
-#. remote control page (on a phone): menu command: unpair this phone or computer from MDM
+#. remote control page (on a phone): menu command: unpair this phone or computer from NetGuard
 #, machine
 	Forget this device	Zaboravi ovaj uređaj
 #. text in remote.rs
@@ -1909,11 +1909,11 @@
 #, machine
 	Help	Pomoć
 #. window title in helpers.rs
-#. window title: where MDM takes its helper programs (yt-dlp, ffmpeg, gallery-dl) from
+#. window title: where NetGuard takes its helper programs (yt-dlp, ffmpeg, gallery-dl) from
 #, machine
 	Helpers	Pomoćni programi
 #. button in gallerydlg.rs; button in the Download video window
-#. button in Download video: where MDM takes yt-dlp and ffmpeg from
+#. button in Download video: where NetGuard takes yt-dlp and ffmpeg from
 #. the trailing ... means it opens a window: keep it
 #, machine
 	Helpers...	Pomoćni programi...
@@ -1938,7 +1938,7 @@
 	Hide web pages	Sakrij web stranice
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	Držite Alt dok kliknete vezu da bi je preglednik preuzeo umjesto Mister Download Manager.
+	Hold Alt while clicking a link to let the browser download it instead of NetGuard Download Manager.	Držite Alt dok kliknete vezu da bi je preglednik preuzeo umjesto NetGuard Download Manager.
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	Početna stranica
@@ -1974,7 +1974,7 @@
 	Hungary	Mađarska
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	Preuzimam s Mister Download Managerom: brzo, besplatno i izgleda kao upravitelj preuzimanja koji već poznajete. {link}
+	I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}	Preuzimam s NetGuard Download Managerom: brzo, besplatno i izgleda kao upravitelj preuzimanja koji već poznajete. {link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2002,7 +2002,7 @@
 #, machine
 	In the categories: the selected category's menu	U kategorijama: meni odabrane kategorije
 #. text in the Options window
-#. Options → Accounts: the account's sign-in is in the system's keyring (Linux), which is locked now; MDM never unlocks it
+#. Options → Accounts: the account's sign-in is in the system's keyring (Linux), which is locked now; NetGuard never unlocks it
 #, machine
 	in the locked keyring	u zaključanom privjesku za ključeve
 #. text in standard windows
@@ -2042,7 +2042,7 @@
 #, machine
 	Install it by hand	Kako ga ručno instalirati
 #. text in unix.rs
-#. Linux, after a missing library's name, on a distribution MDM doesn't know
+#. Linux, after a missing library's name, on a distribution NetGuard doesn't know
 #, machine
 	Install what's missing from your distribution's packages.	Instalirajte ono što nedostaje iz paketa vaše distribucije.
 #. text in the Download video window
@@ -2101,7 +2101,7 @@
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
-	it is not an archive MDM extracts	nije arhiva koju MDM izdvaja
+	it is not an archive NetGuard extracts	nije arhiva koju NetGuard izdvaja
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
@@ -2122,7 +2122,7 @@
 #. text in the Batch download window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.	Možete dodati grupu uzastopnih naziva datoteka, kao što su img001.jpg, img002.jpg itd.,\nimg100.jpg, u red za preuzimanje u MDM-u. Koristite zvjezdicu kao zamjenski znak u obrascu naziva datoteke.
+	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.	Možete dodati grupu uzastopnih naziva datoteka, kao što su img001.jpg, img002.jpg itd.,\nimg100.jpg, u red za preuzimanje u NetGuard-u. Koristite zvjezdicu kao zamjenski znak u obrascu naziva datoteke.
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2170,7 +2170,7 @@
 #, machine
 	KBytes/sec	KBajta/sek
 #. text in the Options window
-#. checkbox: closing keeps MDM running, in the notification area when available or else the taskbar, instead of quitting
+#. checkbox: closing keeps NetGuard running, in the notification area when available or else the taskbar, instead of quitting
 #, machine
 	Keep running when closing the window	Neka radi nakon zatvaranja prozora
 #. checkbox in the Add torrent window
@@ -2188,7 +2188,7 @@
 #, machine
 	Keyboard shortcuts	Prečice na tastaturi
 #. window title in the Options window
-#. window title: the keys that force or prevent downloading with MDM
+#. window title: the keys that force or prevent downloading with NetGuard
 #, machine
 	Keys	Tipke
 #. button in the Options window
@@ -2224,14 +2224,14 @@
 #, machine
 	Laos	Laos
 #. message or event log entry in the main window
-#. RSS: a feed bigger than MDM reads (5 MB)
+#. RSS: a feed bigger than NetGuard reads (5 MB)
 #, machine
 	larger than a feed can be	veće od dozvoljene veličine feeda
 #. text in the Batch download window
 #, machine
 	Last file:	Posljednja datoteka:
 #. text in the Options window
-#. column title: when the device last reached MDM
+#. column title: when the device last reached NetGuard
 #, machine
 	Last seen	Zadnji put viđen
 #. text in a download's Properties window
@@ -2249,7 +2249,7 @@
 	Latvia	Latvija
 #. text in the Options window
 #, machine
-	Launch Mister Download Manager on startup	Pokreni Mister Download Manager pri pokretanju
+	Launch NetGuard Download Manager on startup	Pokreni NetGuard Download Manager pri pokretanju
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2261,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control MDM	Dozvoli telefonima i računarima na lokalnoj mreži da kontrolišu MDM
+	Let phones and computers on the local network control NetGuard	Dozvoli telefonima i računarima na lokalnoj mreži da kontrolišu NetGuard
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2310,7 +2310,7 @@
 #, machine
 	List the rest	Navedi ostalo
 #. text in the Options window
-#. Options → Remote: label before the choice of the address MDM listens on
+#. Options → Remote: label before the choice of the address NetGuard listens on
 #, machine
 	Listen on:	Slušaj na:
 #. text in playlistdlg.rs
@@ -2479,32 +2479,32 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
 #, machine
-	MDM can't be reached on the network now: Options → Remote says why.	MDM trenutno nije dostupan na mreži: Opcije → Daljinski upravljač objašnjava zašto.
+	NetGuard can't be reached on the network now: Options → Remote says why.	NetGuard trenutno nije dostupan na mreži: Opcije → Daljinski upravljač objašnjava zašto.
 #. text in remote.rs
-#. remote control page (on a phone): the address typed isn't one MDM downloads (not http, https, ftp or magnet)
+#. remote control page (on a phone): the address typed isn't one NetGuard downloads (not http, https, ftp or magnet)
 #, machine
-	MDM cannot download this address.	MDM ne može preuzeti ovu adresu.
+	NetGuard cannot download this address.	NetGuard ne može preuzeti ovu adresu.
 #. text in remote.rs
 #. remote control page (on a phone): adding a download failed
 #, machine
-	MDM could not add it.	MDM ga nije mogao dodati.
+	NetGuard could not add it.	NetGuard ga nije mogao dodati.
 #. text in remote.rs
 #. remote control page (on a phone): an action failed
 #, machine
-	MDM could not do it.	MDM to nije mogao učiniti.
+	NetGuard could not do it.	NetGuard to nije mogao učiniti.
 #. text in remote.rs
-#. remote control page (on a phone): MDM can't be reached while pairing
+#. remote control page (on a phone): NetGuard can't be reached while pairing
 #, machine
-	MDM does not answer. Check that it is running and on the same network.	MDM ne odgovara. Provjerite da li je pokrenut i na istoj mreži.
+	NetGuard does not answer. Check that it is running and on the same network.	NetGuard ne odgovara. Provjerite da li je pokrenut i na istoj mreži.
 #. text in remote.rs
-#. remote control page (on a phone): MDM can't be reached now; the page keeps trying by itself
+#. remote control page (on a phone): NetGuard can't be reached now; the page keeps trying by itself
 #. the trailing ... means it is still going on: keep it
 #, machine
-	MDM does not answer. Trying again...	MDM ne odgovara. Pokušavam ponovo...
+	NetGuard does not answer. Trying again...	NetGuard ne odgovara. Pokušavam ponovo...
 #. text in remote.rs
-#. remote control page (on a phone): no pairing code is shown in MDM; "Pair a device" is MDM's button
+#. remote control page (on a phone): no pairing code is shown in NetGuard; "Pair a device" is NetGuard's button
 #, machine
-	MDM shows no code now. Click Pair a device there first.	MDM sada ne prikazuje kod. Prvo kliknite Uparite uređaj tamo.
+	NetGuard shows no code now. Click Pair a device there first.	NetGuard sada ne prikazuje kod. Prvo kliknite Uparite uređaj tamo.
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 #, machine
@@ -2522,7 +2522,7 @@
 #, machine
 	Minimize	Minimiziraj
 #. text in the Options window
-#. checkbox: the Minimize button hides MDM's windows to the notification area (system tray) instead of the taskbar
+#. checkbox: the Minimize button hides NetGuard's windows to the notification area (system tray) instead of the taskbar
 #, machine
 	Minimize to the notification area	Minimiziraj u područje obavijesti
 #. text in rssdlg.rs; text in the Add torrent window
@@ -2536,54 +2536,54 @@
 	Missing	Nedostaje
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Mister Download Manager	Mister Download Manager
+	NetGuard Download Manager	NetGuard Download Manager
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager ne može otvoriti svoj prozor: ovom sistemu nedostaju {libraries}.
+	NetGuard Download Manager can't open its window: this system lacks {libraries}.	NetGuard Download Manager ne može otvoriti svoj prozor: ovom sistemu nedostaju {libraries}.
 #. text in crashui.rs
-#. crash report window heading: MDM crashed and is gone
+#. crash report window heading: NetGuard crashed and is gone
 #, machine
-	Mister Download Manager closed unexpectedly	Mister Download Manager se neočekivano zatvorio
+	NetGuard Download Manager closed unexpectedly	NetGuard Download Manager se neočekivano zatvorio
 #. window title in the Options window
 #, machine
-	Mister Download Manager Configuration	Konfiguracija Mister Download Managera
+	NetGuard Download Manager Configuration	Konfiguracija NetGuard Download Managera
 #. text in crashui.rs
 #, machine
-	Mister Download Manager crash report	Izvještaj o padu Mister Download Manager
+	NetGuard Download Manager crash report	Izvještaj o padu NetGuard Download Manager
 #. text in crashui.rs
-#. crash report window heading: an internal error, MDM still running
+#. crash report window heading: an internal error, NetGuard still running
 #, machine
-	Mister Download Manager hit an internal error	Mister Download Manager je naišao na internu grešku
+	NetGuard Download Manager hit an internal error	NetGuard Download Manager je naišao na internu grešku
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	Mister Download Manager is running the queue "{queue}"	Mister Download Manager pokreće red „{queue}“
+	NetGuard Download Manager is running the queue "{queue}"	NetGuard Download Manager pokreće red „{queue}“
 #. text in crashui.rs
-#. crash report window heading: MDM's window doesn't answer (frozen)
+#. crash report window heading: NetGuard's window doesn't answer (frozen)
 #, machine
-	Mister Download Manager stopped responding	Mister Download Manager je prestao reagovati
+	NetGuard Download Manager stopped responding	NetGuard Download Manager je prestao reagovati
 #. text in crashui.rs
 #, machine
-	Mister Download Manager stopped responding for a while	Mister Download Manager je prestao reagovati na neko vrijeme
+	NetGuard Download Manager stopped responding for a while	NetGuard Download Manager je prestao reagovati na neko vrijeme
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager piše svaku vezu direktno u konačnu\ndatoteku (rijetka datoteka dijela pored nje), tako da nije potreban privremeni direktorij i korak sastavljanja.
+	NetGuard Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	NetGuard Download Manager piše svaku vezu direktno u konačnu\ndatoteku (rijetka datoteka dijela pored nje), tako da nije potreban privremeni direktorij i korak sastavljanja.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager {version} is available (released {date}).	Dostupan je Mister Download Manager {version} (objavljen {date}).
+	NetGuard Download Manager {version} is available (released {date}).	Dostupan je NetGuard Download Manager {version} (objavljen {date}).
 #. text in helpers.rs
-#. Video helpers: {version} = the version of MDM's own copy
+#. Video helpers: {version} = the version of NetGuard's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager's own copy, version {version}	Vlastita kopija programa Mister Download Manager, verzija {version}
+	NetGuard Download Manager's own copy, version {version}	Vlastita kopija programa NetGuard Download Manager, verzija {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	X11 prozoru aplikacije Mister Download Manager potrebne su biblioteke {libraries}, koje ovom sistemu nedostaju: umjesto toga otvara se na Waylandu, gdje se njegovi meniji mogu otvoriti dalje od svojih naslova.
+	NetGuard Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	X11 prozoru aplikacije NetGuard Download Manager potrebne su biblioteke {libraries}, koje ovom sistemu nedostaju: umjesto toga otvara se na Waylandu, gdje se njegovi meniji mogu otvoriti dalje od svojih naslova.
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -2788,11 +2788,11 @@
 #, machine
 	No addresses yet	Još nema adresa
 #. text in extension.rs
-#. a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
+#. a check of Test browser integration (Linux, macOS): NetGuard found no browser it can connect to (one installed as a Flatpak isn't found)
 #, machine
-	No browser MDM can connect to was found	Nije pronađen preglednik s kojim se MDM može povezati
+	No browser NetGuard can connect to was found	Nije pronađen preglednik s kojim se NetGuard može povezati
 #. text in extension.rs
-#. a check of Test browser integration: no browser's extension has reached MDM
+#. a check of Test browser integration: no browser's extension has reached NetGuard
 #, machine
 	No browser's extension has connected yet	Još se nije povezalo nijedno proširenje preglednika
 #. text in torrent downloads
@@ -2858,9 +2858,9 @@
 #, machine
 	No proxy/socks	Bez proxyja/socksa
 #. text in the Options window
-#. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
+#. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	Nijedan sistemski privjesak za ključeve nije odgovorio, tako da se prijave i lozinke čuvaju u MDM postavkama, koje samo vi možete čitati.
+	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Nijedan sistemski privjesak za ključeve nije odgovorio, tako da se prijave i lozinke čuvaju u NetGuard postavkama, koje samo vi možete čitati.
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -2991,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach MDM.	Isključeno: ništa na mreži ne može doći do MDM-a.
+	Off: nothing on the network can reach NetGuard.	Isključeno: ništa na mreži ne može doći do NetGuard-a.
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	Ponudi preuzimanje veza kopiranih u međuspremnik
@@ -3018,7 +3018,7 @@
 #, machine
 	On macOS, only an administrator can schedule a wake	Na macOS-u, samo administrator može zakazati buđenje
 #. text in remote.rs
-#. remote control page (on a phone): how to pair; "Options", "Remote" and "Pair a device" are MDM's dialog, tab and button
+#. remote control page (on a phone): how to pair; "Options", "Remote" and "Pair a device" are NetGuard's dialog, tab and button
 #, machine
 	On the computer, open Options, then Remote, and click Pair a device. Enter the code it shows.	Na računaru otvorite Opcije, zatim Daljinski upravljač i kliknite Uparite uređaj. Unesite kod koji se prikazuje.
 #. text in the Options window
@@ -3067,9 +3067,9 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.	Samo upareni uređaji vide ili mijenjaju bilo šta. Prvi put, preglednik telefona upozorava na MDM-ov vlastiti certifikat: njegov otisak prsta je onaj iznad.
+	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Samo upareni uređaji vide ili mijenjaju bilo šta. Prvi put, preglednik telefona upozorava na NetGuard-ov vlastiti certifikat: njegov otisak prsta je onaj iznad.
 #. text in playlistdlg.rs
-#. in Download video, a list longer than MDM lists: only its first {n} videos are shown
+#. in Download video, a list longer than NetGuard lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
 #, machine
 	Only the first {n} videos are listed.	Navedeno je samo prvih {n} videozapisa.
@@ -3089,10 +3089,10 @@
 	Open folder	Otvori mapu
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with Mister Download Manager	Otvorite magnet veze i .torrent datoteke pomoću Mister Download Managera
+	Open magnet links and .torrent files with NetGuard Download Manager	Otvorite magnet veze i .torrent datoteke pomoću NetGuard Download Managera
 #. text in the tray icon's menu
 #, machine
-	Open Mister Download Manager	Otvorite Mister Download Manager
+	Open NetGuard Download Manager	Otvorite NetGuard Download Manager
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3148,7 +3148,7 @@
 #, machine
 	Page address	Adresa stranice
 #. text in remote.rs
-#. remote control page (on a phone): button: pair this phone with MDM
+#. remote control page (on a phone): button: pair this phone with NetGuard
 #, machine
 	Pair	Upari
 #. window title in the Options window
@@ -3163,7 +3163,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with Mister Download Manager	Uparite sa Mister Download Manager
+	Pair with NetGuard Download Manager	Uparite sa NetGuard Download Manager
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3446,11 +3446,11 @@
 #, machine
 	Remember this path for "{category}" category	Zapamti ovu putanju za kategoriju „{category}”
 #. text in the Options window
-#. tab title: control MDM from a phone or another computer on the local network
+#. tab title: control NetGuard from a phone or another computer on the local network
 #, machine
 	Remote	Daljinski
 #. text in the Options window
-#. Options page title: control MDM from a phone or another computer on the local network
+#. Options page title: control NetGuard from a phone or another computer on the local network
 #, machine
 	Remote control	Daljinsko upravljanje
 #. button in the Options window; text in remote.rs; button in rssdlg.rs
@@ -3476,9 +3476,9 @@
 #, machine
 	Replace asterisk to	Zamijenite zvjezdicu sa
 #. text in crashui.rs
-#. crash report window button: start MDM again
+#. crash report window button: start NetGuard again
 #, machine
-	Restart MDM	Ponovo pokrenite MDM
+	Restart NetGuard	Ponovo pokrenite NetGuard
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	Vratite ugrađene kategorije
@@ -3649,7 +3649,7 @@
 	Select or unselect the download with the dotted outline	Odaberi ili poništi odabir preuzimanja sa isprekidanom konturom
 #. group box title in the Options window
 #, machine
-	Select sounds for Mister Download Manager events	Odaberi zvukove za događaje Mister Download Managera
+	Select sounds for NetGuard Download Manager events	Odaberi zvukove za događaje NetGuard Download Managera
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	Odaberi preuzimanja u okviru
@@ -3672,7 +3672,7 @@
 #, machine
 	Send this to a friend:	Pošalji ovo prijatelju:
 #. text in the Options window
-#. Options → Accounts: checkbox: magnet links and .torrent files go to the first account's service, which downloads them; MDM then downloads the files from it (no connections to peers)
+#. Options → Accounts: checkbox: magnet links and .torrent files go to the first account's service, which downloads them; NetGuard then downloads the files from it (no connections to peers)
 #, machine
 	Send torrents and magnet links to the first account instead of to peers	Pošalji torrente i magnet linkove na prvi račun umjesto na peerove
 #. text in countries.rs
@@ -3717,8 +3717,8 @@
 #, machine
 	Set file creation date as provided by the server	Postavi datum kreiranja datoteke kako je dostavio server
 #. button in extension.rs; button in the Options window
-#. button in the browser extension's window: register MDM's helper with the browsers
-#. button in Test browser integration: register MDM's helper with the browsers
+#. button in the browser extension's window: register NetGuard's helper with the browsers
+#. button in Test browser integration: register NetGuard's helper with the browsers
 #, machine
 	Set it up	Postavi
 #. message or event log entry in the main window
@@ -3865,7 +3865,7 @@
 	Sites Logins	Prijave na stranicama
 #. text in helpers.rs
 #, machine
-	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.	Stranice šalju svoj najbolji kvalitet kao zaseban video i audio, a ffmpeg ih spaja. Na ovom sistemu MDM koristi vaš: instalirajte ffmpeg sa svojim upraviteljem paketa.
+	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.	Stranice šalju svoj najbolji kvalitet kao zaseban video i audio, a ffmpeg ih spaja. Na ovom sistemu NetGuard koristi vaš: instalirajte ffmpeg sa svojim upraviteljem paketa.
 #. text in helpers.rs
 #, machine
 	Sites send their best quality as separate video and audio. ffmpeg puts them together into one file that plays anywhere.	Stranice šalju svoj najbolji kvalitet kao zaseban video i audio. ffmpeg ih spaja u jednu datoteku koja se može reproducirati bilo gdje.
@@ -3975,7 +3975,7 @@
 	Start download at	Pokreni preuzimanje u
 #. checkbox in the Scheduler window
 #, machine
-	Start download on Mister Download Manager startup	Pokreni preuzimanje pri pokretanju Mister Download Managera
+	Start download on NetGuard Download Manager startup	Pokreni preuzimanje pri pokretanju NetGuard Download Managera
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	Pokreni preuzimanje odmah dok prikazuje dijalog „Informacije o datoteci za preuzimanje”
@@ -4006,11 +4006,11 @@
 #, machine
 	Started with gallery-dl {version}	Pokrenuto sa gallery-dl {version}
 #. text in the Options window
-#. the same tooltip where no notification area (system tray) shows MDM's icon (some Linux desktops): its window starts minimized instead
+#. the same tooltip where no notification area (system tray) shows NetGuard's icon (some Linux desktops): its window starts minimized instead
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	Pokrenut s računarom, pokreće se minimiziran: ovdje se ne prikazuje ikona u području obavijesti
 #. text in the Options window
-#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch NetGuard Download Manager on startup": started with the computer, NetGuard's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	Pokrenut s računarom, čeka u području obavijesti
 #. message or event log entry in the main window
@@ -4114,7 +4114,7 @@
 	Sunday	Nedjelja
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Support MDM on GitHub Sponsors	Podržite MDM na GitHub Sponsors
+	Support NetGuard on GitHub Sponsors	Podržite NetGuard na GitHub Sponsors
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -4225,13 +4225,13 @@
 #, machine
 	The best qualities, MP3, Opus and FLAC need ffmpeg: install it with your system's package manager (or Homebrew).	Za najbolje kvalitete, MP3, Opus i FLAC potreban je ffmpeg: instalirajte ga pomoću upravitelja paketa vašeg sistema (ili Homebrew).
 #. text in the settings
-#. an error: the browser's VPN or proxy extension logs in to its proxy itself, and MDM can't; Options → Proxy / Socks → Network adapter is where an adapter can be chosen
+#. an error: the browser's VPN or proxy extension logs in to its proxy itself, and NetGuard can't; Options → Proxy / Socks → Network adapter is where an adapter can be chosen
 #, machine
 	the browser's proxy (a VPN or proxy extension) asks for a login only that extension has: use the VPN's own app, or choose its network adapter in Options → Proxy / Socks	Ekstenzija za proxy preglednika (VPN ili proxy ekstenzija) traži prijavu kojoj može pristupiti samo ta ekstenzija: koristite vlastitu VPN aplikaciju ili odaberite njen mrežni adapter u Postavke → Proxy / Socks
 #. text in extension.rs
-#. a check of Test browser integration: the browsers find MDM's helper program
+#. a check of Test browser integration: the browsers find NetGuard's helper program
 #, machine
-	The browsers can find Mister Download Manager	Preglednici mogu pronaći Mister Download Manager
+	The browsers can find NetGuard Download Manager	Preglednici mogu pronaći NetGuard Download Manager
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4255,7 +4255,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	Računar se budi minutu prije vremena početka i ostaje budan dok red radi. Mister Download Manager mora biti pokrenut (može ostati u području obavijesti).
+	The computer is woken a minute before the start time and kept awake while the queue runs. NetGuard Download Manager has to be running (it can wait in the notification area).	Računar se budi minutu prije vremena početka i ostaje budan dok red radi. NetGuard Download Manager mora biti pokrenut (može ostati u području obavijesti).
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4300,7 +4300,7 @@
 #. message or event log entry in the main window
 #. {error} = an error message (keep the braces as they are)
 #, machine
-	The download list could not be saved: {error}. Changes are kept while MDM runs.	Lista preuzimanja nije se mogla sačuvati: {error}. Promjene se zadržavaju dok MDM radi.
+	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	Lista preuzimanja nije se mogla sačuvati: {error}. Promjene se zadržavaju dok NetGuard radi.
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.	Menadžer preuzimanja kojeg već poznajete, ponovo izgrađen da bude brži. Besplatan i otvorenog koda pod GNU GPL, verzija 3 ili novija. Videozapise pronalazi yt-dlp; torrenti rade na librqbitu.
@@ -4426,7 +4426,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	Odabrano preuzimanje nije dovršeno. Jeste li sigurni da ga želite izbrisati\niz liste preuzimanja aplikacije Mister Download Manager?
+	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?	Odabrano preuzimanje nije dovršeno. Jeste li sigurni da ga želite izbrisati\niz liste preuzimanja aplikacije NetGuard Download Manager?
 #. text in errors.rs
 #, machine
 	the server answered {status}	server je odgovorio {status}
@@ -4461,9 +4461,9 @@
 #, machine
 	The symbols couldn't be fetched: some lines of the report show addresses instead of names (the developers can still read them).	Simboli se nisu mogli preuzeti: neke linije izvještaja prikazuju adrese umjesto imena (programeri ih i dalje mogu pročitati).
 #. text in the Options window
-#. Options → Accounts (Linux): the system keyring is locked (MDM never unlocks it: that would ask for its password), so the sign-ins stay in MDM's settings folder, which only the user's account may read
+#. Options → Accounts (Linux): the system keyring is locked (NetGuard never unlocks it: that would ask for its password), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.	Sistemski privjesak za ključeve je zaključan i MDM ga ne otključava, pa se podaci za prijavu i lozinke čuvaju u postavkama MDM-a, koje samo vi možete čitati.
+	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Sistemski privjesak za ključeve je zaključan i NetGuard ga ne otključava, pa se podaci za prijavu i lozinke čuvaju u postavkama NetGuard-a, koje samo vi možete čitati.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4495,7 +4495,7 @@
 #, machine
 	The web page from which this file was obtained:	Web stranica s koje je ova datoteka preuzeta:
 #. message or event log entry in the main window
-#. the kind of file View → Theme → Add a theme file lists: MDM's themes (TOML, JSON), Base16 schemes (YAML) and pywal's colors.json
+#. the kind of file View → Theme → Add a theme file lists: NetGuard's themes (TOML, JSON), Base16 schemes (YAML) and pywal's colors.json
 #, machine
 	Themes and colour schemes	Teme i šeme boja
 #. text in the Options window
@@ -4554,7 +4554,7 @@
 #, machine
 	This date has passed: the queue will not start	Ovaj datum je prošao: red čekanja se neće pokrenuti
 #. text in remote.rs
-#. remote control page (on a phone): label of the box naming this phone (shown in MDM's list of paired devices)
+#. remote control page (on a phone): label of the box naming this phone (shown in NetGuard's list of paired devices)
 #, machine
 	This device's name	Naziv ovog uređaja
 #. message or event log entry in the main window
@@ -4653,7 +4653,7 @@
 #. message or event log entry in the main window
 #. event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
 #, machine
-	Through {service}: the service downloads the torrent, then MDM its files	Preko {service}: usluga preuzima torrent, a zatim MDM preuzima njegove datoteke
+	Through {service}: the service downloads the torrent, then NetGuard its files	Preko {service}: usluga preuzima torrent, a zatim NetGuard preuzima njegove datoteke
 #. text in the Scheduler window
 #, machine
 	Thursday	Četvrtak
@@ -4790,7 +4790,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "Mister Download Manager" and allow it on all websites.	Uključite „Mister Download Manager“ i dozvolite ga na svim web-stranicama.
+	Turn on "NetGuard Download Manager" and allow it on all websites.	Uključite „NetGuard Download Manager“ i dozvolite ga na svim web-stranicama.
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -4846,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).	Upišite ovaj kod na {page} i dozvolite MDM; čekam vas (kod ističe za {time}).
+	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	Upišite ovaj kod na {page} i dozvolite NetGuard; čekam vas (kod ističe za {time}).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4941,9 +4941,9 @@
 #, machine
 	Use FTP in PASV mode	Koristi FTP u PASV načinu
 #. button in helpers.rs
-#. Video helpers: button: go back to the copy MDM downloads and checks itself
+#. Video helpers: button: go back to the copy NetGuard downloads and checks itself
 #, machine
-	Use MDM's own copy	Koristite MDM-ovu kopiju
+	Use NetGuard's own copy	Koristite NetGuard-ovu kopiju
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5137,9 +5137,9 @@
 #, machine
 	Windows allows wake timers only while plugged in	Windows dozvoljava tajmere buđenja samo dok je priključen
 #. text in the Options window
-#. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in MDM's settings, encrypted so that only this Windows account can read them
+#. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in NetGuard's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.	Windows Credential Manager nije odgovorio, tako da se prijave i lozinke čuvaju u MDM postavkama, šifrirane za vaš Windows račun.
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows Credential Manager nije odgovorio, tako da se prijave i lozinke čuvaju u NetGuard postavkama, šifrirane za vaš Windows račun.
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine
@@ -5171,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in MDM and try again.	Pogrešan kod. Prikažite novi kod u MDM-u i pokušajte ponovo.
+	Wrong code. Show a new code in NetGuard and try again.	Pogrešan kod. Prikažite novi kod u NetGuard-u i pokušajte ponovo.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5203,9 +5203,9 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of Mister Download Manager ({version}).	Imate najnoviju verziju programa Mister Download Manager ({version}).
+	You have the latest version of NetGuard Download Manager ({version}).	Imate najnoviju verziju programa NetGuard Download Manager ({version}).
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
+#. Check for updates, under the new version's line, when NetGuard was installed by the Linux system's package manager (pacman, ...), which NetGuard can't update itself
 #. {version} = a version number (keep the braces as they are)
 #, machine
 	You have version {version}, from your system's package manager: update it there.	Imate verziju {version}, od upravitelja paketa vašeg sistema: ažurirajte je tamo.
@@ -5226,10 +5226,10 @@
 #, machine
 	your Google account has no access to this file, or its owner turned off downloading	vaš Google račun nema pristup ovoj datoteci ili je njen vlasnik isključio preuzimanje
 #. text in helpers.rs
-#. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
+#. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest NetGuard can use
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Your own program ({version}) is too old: MDM needs {oldest} or newer	Vaš program ({version}) je previše star: MDM treba {oldest} ili noviji
+	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	Vaš program ({version}) je previše star: NetGuard treba {oldest} ili noviji
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -5324,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control MDM now.	{device} je uparen. Sada može kontrolisati MDM.
+	{device} is paired. It can control NetGuard now.	{device} je uparen. Sada može kontrolisati NetGuard.
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5404,7 +5404,7 @@
 #. in the "7-Zip needed" window: {name} is the archive's file name; 7-Zip is a program's name
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	{name} is a 7z or RAR archive. MDM extracts those with 7-Zip, which isn't installed.	{name} je 7z ili RAR arhiva. MDM ih raspakuje pomoću programa 7-Zip, koji nije instaliran.
+	{name} is a 7z or RAR archive. NetGuard extracts those with 7-Zip, which isn't installed.	{name} je 7z ili RAR arhiva. NetGuard ih raspakuje pomoću programa 7-Zip, koji nije instaliran.
 #. text in extracting archives (a download's log, the Archive password window)
 #. in Archive password: {name} is the archive's file name
 #. {name} = a file name (keep the braces as they are)
@@ -5416,10 +5416,10 @@
 #, machine
 	{name} isn't offered as {how}.	{name} nije dostupan kao {how}.
 #. text in errors.rs
-#. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one MDM can use
+#. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one NetGuard can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
 #, machine
-	{name} {version} is too old: MDM needs {oldest} or newer	{name} {version} je previše star: MDM treba {oldest} ili noviji
+	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version} je previše star: NetGuard treba {oldest} ili noviji
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
@@ -5435,16 +5435,16 @@
 #, machine
 	{n} of {total} selected	{n} od {total} odabrano
 #. text in the download list (sizes, speeds, status)
-#. a torrent's status while the user's debrid service downloads it, before MDM gets its files; {service} the service ("Real-Debrid"), {percent} how far it is ("45%")
+#. a torrent's status while the user's debrid service downloads it, before NetGuard gets its files; {service} the service ("Real-Debrid"), {percent} how far it is ("45%")
 #, machine
 	{percent} at {service}	{percent} na servisu {service}
 #. text in errors.rs
 #, machine
 	{problem} ({cause})	{problem} ({cause})
 #. text in errors.rs
-#. a debrid service's error: too many requests; MDM waits and retries
+#. a debrid service's error: too many requests; NetGuard waits and retries
 #, machine
-	{service} asks to slow down; MDM will try again in a minute	{service} traži da usporite; MDM će pokušati ponovo za minutu
+	{service} asks to slow down; NetGuard will try again in a minute	{service} traži da usporite; NetGuard će pokušati ponovo za minutu
 #. text in errors.rs
 #. a debrid service's error: it wants the user to allow this computer (it sent an email)
 #, machine
@@ -5454,7 +5454,7 @@
 	{service} can't get this torrent: nobody shares it, or its link can't be read	{service} ne može preuzeti ovaj torrent: niko ga ne dijeli ili nije moguće pročitati njegovu vezu
 #. text in errors.rs
 #, machine
-	{service} can't reach this file host right now; MDM will try again later	{service} trenutno ne može pristupiti ovom hostingu datoteka; MDM će pokušati ponovo kasnije
+	{service} can't reach this file host right now; NetGuard will try again later	{service} trenutno ne može pristupiti ovom hostingu datoteka; NetGuard će pokušati ponovo kasnije
 #. text in errors.rs
 #. a debrid service's error: it isn't answering
 #, machine
@@ -5489,7 +5489,7 @@
 	{service}: this needs a premium account	{service}: ovo zahtijeva premium račun
 #. text in errors.rs
 #, machine
-	{service}: too many downloads at once through your account; MDM will try again	{service}: previše preuzimanja odjednom putem vašeg računa; MDM će pokušati ponovo
+	{service}: too many downloads at once through your account; NetGuard will try again	{service}: previše preuzimanja odjednom putem vašeg računa; NetGuard će pokušati ponovo
 #. text in errors.rs
 #. a debrid service's error: the account's limit (traffic) for this host is used up
 #, machine
@@ -5524,7 +5524,7 @@
 #, machine
 	{title}: already in the list	{title}: već na listi
 #. message or event log entry in the main window
-#. RSS feeds window, under the rules: not added, because files of its names are already in the folder (MDM never writes into them unasked)
+#. RSS feeds window, under the rules: not added, because files of its names are already in the folder (NetGuard never writes into them unasked)
 #, machine
 	{title}: not added: files of its names are already in {folder}	{title}: nije dodano: datoteke s njegovim imenima već su u {folder}
 #. message or event log entry in the main window
@@ -5590,15 +5590,15 @@ column	Time left	Preostalo vrijeme
 #, machine
 column	Transfer rate	Brzina prijenosa
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
+#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Another Mister Download Manager (a server)	Drugi Mister Download Manager (server)
+extension	Another NetGuard Download Manager (a server)	Drugi NetGuard Download Manager (server)
 #. text in the browser extension
-#. the name this browser gets in the other MDM's list of paired devices
+#. the name this browser gets in the other NetGuard's list of paired devices
 #, machine
 extension	Browser extension	Proširenje preglednika
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in Mister Download Manager
+#. menu command of the download button over a video: opens its settings in NetGuard Download Manager
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	Postavke dugmeta...
@@ -5607,41 +5607,41 @@ extension	Button settings...	Postavke dugmeta...
 #, machine
 extension	Can't tell which video this is: open its own page and try there	Nije moguće utvrditi o kojem je videu riječ: otvorite njegovu stranicu i pokušajte ondje
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Connected to Mister Download Manager	Povezano sa Mister Download Manager
+extension	Connected to NetGuard Download Manager	Povezano sa NetGuard Download Manager
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name NetGuard Download Manager as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to Mister Download Manager {version}	Povezano sa Mister Download Manager {version}
+extension	Connected to NetGuard Download Manager {version}	Povezano sa NetGuard Download Manager {version}
 #. text in the browser extension
 #. button beside a video, sound or stream in the toolbar button's popup: download it with the app; verb; short
 #, machine
 extension	Download	Preuzmi
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Download all links with Mister Download Manager	Preuzmi sve veze sa Mister Download Manager
+extension	Download all links with NetGuard Download Manager	Preuzmi sve veze sa NetGuard Download Manager
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Download selected links with Mister Download Manager	Preuzmi odabrane veze sa Mister Download Manager
+extension	Download selected links with NetGuard Download Manager	Preuzmi odabrane veze sa NetGuard Download Manager
 #. text in the browser extension
 #. the button over a video on a web page that downloads it; verb; short (it sits on the video)
 #, machine
 extension	Download video	Preuzmi videozapis
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Download with Mister Download Manager	Preuzmi pomoću Mister Download Manager
+extension	Download with NetGuard Download Manager	Preuzmi pomoću NetGuard Download Manager
 #. text in the browser extension
 #. shown in the toolbar button's popup after the site was excluded
 #. {site} = a web site's name such as "example.com" (keep the braces as they are)
 #, machine
 extension	Downloads from {site} stay with the browser	Preuzimanja sa {site} ostaju u pregledniku
 #. text in the browser extension
-#. the toolbar button's status while downloads go to another MDM
+#. the toolbar button's status while downloads go to another NetGuard
 #, machine
 extension	Downloads go to {address}	Preuzimanja idu na {address}
 #. text in the browser extension
@@ -5653,9 +5653,9 @@ extension	Drag to move it along the video's edge	Povucite da biste ga pomjerili 
 #, machine
 extension	Enter its https:// address.	Unesite njegovu https:// adresu.
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Hands downloads from the browser to Mister Download Manager.	Preuzimanja iz preglednika prosljeđuje u Mister Download Manager.
+extension	Hands downloads from the browser to NetGuard Download Manager.	Preuzimanja iz preglednika prosljeđuje u NetGuard Download Manager.
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -5677,7 +5677,7 @@ extension	How to fix it	Kako to popraviti
 #, machine
 extension	It didn't work. Try again.	Nije uspjelo. Pokušajte ponovo.
 #. text in the browser extension
-#. pairing failed: the other MDM shows no pairing code; Pair a device is its button
+#. pairing failed: the other NetGuard shows no pairing code; Pair a device is its button
 #, machine
 extension	It shows no code now: click Pair a device there first.	Trenutno ne prikazuje kôd: prvo kliknite Uparite uređaj tamo.
 #. text in the browser extension
@@ -5710,33 +5710,33 @@ extension	Live	Uživo
 #, machine
 extension	Media on this page	Mediji na ovoj stranici
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager	Mister Download Manager
+extension	NetGuard Download Manager	NetGuard Download Manager
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager didn't start in time	Mister Download Manager nije pokrenut na vrijeme
+extension	NetGuard Download Manager didn't start in time	NetGuard Download Manager nije pokrenut na vrijeme
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager ne prihvata ovu kopiju proširenja
+extension	NetGuard Download Manager doesn't accept this copy of the extension	NetGuard Download Manager ne prihvata ovu kopiju proširenja
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager nije instaliran ili nije pokrenut
+extension	NetGuard Download Manager isn't installed or didn't start	NetGuard Download Manager nije instaliran ili nije pokrenut
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager nije instaliran, ili njegova integracija preglednika nije postavljena
+extension	NetGuard Download Manager isn't installed, or its browser integration isn't set up	NetGuard Download Manager nije instaliran, ili njegova integracija preglednika nije postavljena
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Mister Download Manager zatim preuzima putem istog proxyja kao i ovaj preglednik. Preglednik će vas jednom pitati za dozvolu; isključivanjem ove opcije opozivate je.
+extension	NetGuard Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	NetGuard Download Manager zatim preuzima putem istog proxyja kao i ovaj preglednik. Preglednik će vas jednom pitati za dozvolu; isključivanjem ove opcije opozivate je.
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager zatim preuzima putem istog proxyja kao i ovaj preglednik. Dok je ova opcija isključena, ekstenzija ne čita postavke proxyja preglednika.
+extension	NetGuard Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	NetGuard Download Manager zatim preuzima putem istog proxyja kao i ovaj preglednik. Dok je ova opcija isključena, ekstenzija ne čita postavke proxyja preglednika.
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -5756,11 +5756,11 @@ extension	Never take downloads from {site}	Nikad ne preuzimaj preuzimanja sa {si
 #, machine
 extension	No video or sound found on this page yet. Play it, then open this again.	Na ovoj stranici još nema videozapisa ni zvuka. Pokrenite reprodukciju, a zatim ponovo otvorite ovo.
 #. text in the browser extension
-#. pairing failed: the other MDM didn't answer
+#. pairing failed: the other NetGuard didn't answer
 #, machine
 extension	Not reached. Open its address once in this browser and accept its certificate, then try again.	Nije dostignuto. Otvorite njegovu adresu jednom u ovom pregledniku i prihvatite njegov certifikat, zatim pokušajte ponovo.
 #. text in the browser extension
-#. button: open the other MDM's address in a tab (to accept its certificate once)
+#. button: open the other NetGuard's address in a tab (to accept its certificate once)
 #, machine
 extension	Open it	Otvori ga
 #. text in the browser extension
@@ -5768,20 +5768,20 @@ extension	Open it	Otvori ga
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	Otvorite njegovu adresu jednom i prihvatite njegov certifikat, zatim unesite kôd iz njegovih Opcija, Daljinski, Uparite uređaj (ili misterdownloadmanager-cli pair).
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
+#. button in the toolbar button's popup; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Open Mister Download Manager	Otvorite Mister Download Manager
+extension	Open NetGuard Download Manager	Otvorite NetGuard Download Manager
 #. text in the browser extension
 #. button in the toolbar button's popup: open the app's Options
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Options...	Opcije...
 #. text in the browser extension
-#. button: pair this browser with the other MDM using the code
+#. button: pair this browser with the other NetGuard using the code
 #, machine
 extension	Pair	Uparivanje
 #. text in the browser extension
-#. placeholder of the box for the 8-digit code the other MDM shows
+#. placeholder of the box for the 8-digit code the other NetGuard shows
 #, machine
 extension	Pairing code	Kôd za uparivanje
 #. text in the browser extension
@@ -5809,13 +5809,13 @@ extension	Send downloads through this browser's proxy or VPN extension	Šaljite 
 #, machine
 extension	Send downloads to	Pošalji preuzimanja na
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Sent to Mister Download Manager	Poslano u Mister Download Manager
+extension	Sent to NetGuard Download Manager	Poslano u NetGuard Download Manager
 #. text in the browser extension
-#. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (MDM is free; this is an optional donation)
+#. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (NetGuard is free; this is an optional donation)
 #, machine
-extension	Support MDM	Podržite MDM
+extension	Support NetGuard	Podržite NetGuard
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine
@@ -5825,9 +5825,9 @@ extension	Take downloads from this browser	Preuzimanje iz ovog preglednika
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Pravila Chrome Web Storea onemogućavaju ovu kopiju dodatka na videima ovog sajta. Pomoć kaže šta možete uraditi.
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name NetGuard Download Manager as it is
 #, machine
-extension	The connection to Mister Download Manager failed	Veza s aplikacijom Mister Download Manager nije uspjela
+extension	The connection to NetGuard Download Manager failed	Veza s aplikacijom NetGuard Download Manager nije uspjela
 #. text in the browser extension
 #. shown briefly on the download button over a video when the app's settings keep the button off on this web site
 #, machine
@@ -5845,7 +5845,7 @@ extension	The last download was left to the browser.	Posljednje preuzimanje je o
 #, machine
 extension	This browser isn't ticked in Options → General.	Ovaj preglednik nije označen u Opcijama → Općenito.
 #. text in the browser extension
-#. choice under Send downloads to: the Mister Download Manager on this computer
+#. choice under Send downloads to: the NetGuard Download Manager on this computer
 #, machine
 extension	This computer	Ovaj računar
 #. text in the browser extension
@@ -5857,9 +5857,9 @@ extension	This download's details were too large to hand over	Podaci ovog preuzi
 #, machine
 extension	This page's player streams its video in pieces, so there's no file to list. Point at the video and use its Download video button.	Player ove stranice prenosi video u dijelovima, pa nema datoteke koju bi bilo moguće navesti. Pokažite na video i koristite njegovo dugme Download video.
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name Mister Download Manager as it is
+#. status when the app is older than the extension; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Update Mister Download Manager to use everything this extension offers	Ažurirajte Mister Download Manager da biste koristili sve što ova ekstenzija nudi
+extension	Update NetGuard Download Manager to use everything this extension offers	Ažurirajte NetGuard Download Manager da biste koristili sve što ova ekstenzija nudi
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -5975,7 +5975,7 @@ key	Up / Down	Gore / Dolje
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About Mister Download Manager	O &Mister Download Manageru
+menu	&About NetGuard Download Manager	O &NetGuard Download Manageru
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6011,7 +6011,7 @@ menu	&Exit	&Izlaz
 #, machine
 menu	&Import	&Uvezi
 #. menu command in the main window
-#. View menu: submenu choosing how large MDM draws its windows and text (100 % to 200 %), as a browser's zoom
+#. View menu: submenu choosing how large NetGuard draws its windows and text (100 % to 200 %), as a browser's zoom
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
 menu	&Interface size	&Veličina interfejsa
@@ -6128,9 +6128,9 @@ menu	Adwaita	Adwaita
 #, machine
 menu	Aero	Aero
 #. menu command in the main window
-#. View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
+#. View → Draw with: a greyed note under the choices; the choice takes effect when NetGuard is started again
 #, machine
-menu	Applies the next time MDM starts	Primjenjuje se sljedeći put kada se MDM pokrene
+menu	Applies the next time NetGuard starts	Primjenjuje se sljedeći put kada se NetGuard pokrene
 #. menu command in the main window
 #. View → Theme: a style theme's name (Mac OS X's look), a name: keep "Aqua" as written
 #, machine
@@ -6205,7 +6205,7 @@ menu	C&ustomize URL List...	P&rilagodite listu URL-ova...
 #, machine
 menu	Check for &updates...	Provjerite &ažuriranja...
 #. menu command in the main window
-#. View → Theme: MDM's own look, the default (IDM's layout, Windows 11's controls)
+#. View → Theme: NetGuard's own look, the default (IDM's layout, Windows 11's controls)
 #, machine
 menu	Classic	Klasično
 #. menu command in the main window
@@ -6251,7 +6251,7 @@ menu	Download &video from a page...	Preuzmite &video sa stranice...
 #, machine
 menu	Download in order	Preuzmi redom
 #. menu command in the main window
-#. View menu: submenu choosing what draws MDM's windows: OpenGL, or Direct3D, Vulkan or Metal (graphics systems)
+#. View menu: submenu choosing what draws NetGuard's windows: OpenGL, or Direct3D, Vulkan or Metal (graphics systems)
 #, machine
 menu	Draw with	Crtanje pomoću
 #. menu command in the main window
@@ -6307,15 +6307,15 @@ menu	Hide drop target	Sakrij cilj ispuštanja
 #, machine
 menu	High contrast	Visoki kontrast
 #. menu command in the main window
-#. View → Draw with: a greyed note under "… didn't start here"; why: another error, written in MDM's log
+#. View → Draw with: a greyed note under "… didn't start here"; why: another error, written in NetGuard's log
 #, machine
 menu	It couldn't start: the log says why	Nije se pokrenuo: zapisnik navodi razlog
 #. menu command in the main window
-#. View → Draw with: a greyed note under "… didn't start here"; why: the window stayed empty, so MDM started again with OpenGL
+#. View → Draw with: a greyed note under "… didn't start here"; why: the window stayed empty, so NetGuard started again with OpenGL
 #, machine
 menu	Its first frame didn't show within 10 seconds	Prvi kadar se nije prikazao u roku od 10 sekundi
 #. menu command in the main window
-#. View → Draw with: a greyed note under "… didn't start here"; why: MDM crashed or was closed while starting with it
+#. View → Draw with: a greyed note under "… didn't start here"; why: NetGuard crashed or was closed while starting with it
 #, machine
 menu	Its last start ended before its first frame	Njegovo posljednje pokretanje je završilo prije prvog kadra
 #. menu command in the main window
@@ -6337,7 +6337,7 @@ menu	Metro	Metro
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Mister Download Manager &Home Page	Mister Download Manager &početna stranica
+menu	NetGuard Download Manager &Home Page	NetGuard Download Manager &početna stranica
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	Premjesti/Preimenuj (Ctrl-M)
@@ -6450,7 +6450,7 @@ menu	Select &all	Označi &sve
 menu	Show &drop target	Prikaži &cilj ispuštanja
 #. menu command in the main window
 #, machine
-menu	Show Mister Download Manager	Prikaži Mister Download Manager
+menu	Show NetGuard Download Manager	Prikaži NetGuard Download Manager
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6472,7 +6472,7 @@ menu	Stop Download	Zaustavi preuzimanje
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Support &MDM	Podržite &MDM
+menu	Support &NetGuard	Podržite &NetGuard
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6482,7 +6482,7 @@ menu	Tell a &friend	Reci &prijatelju
 #, machine
 menu	The graphics card was lost twice in 10 minutes	Grafička kartica je izgubljena dva puta u 10 minuta
 #. menu command in the main window
-#. View menu: submenu choosing MDM's look (colours, sizes, icons): Classic, Native…
+#. View menu: submenu choosing NetGuard's look (colours, sizes, icons): Classic, Native…
 #, machine
 menu	Theme	Tema
 #. menu command in the main window

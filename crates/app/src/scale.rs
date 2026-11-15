@@ -1,4 +1,4 @@
-//! View → Interface size (#262): every window of MDM drawn larger, 100 % to 200 %, as a browser
+//! View → Interface size (#262): every window of NetGuard drawn larger, 100 % to 200 %, as a browser
 //! zooms a page (Ctrl + / Ctrl − / Ctrl 0 too). It is egui's zoom factor, which multiplies the
 //! display's own scale: the windows are laid out in points, so a dialog, a menu or the drop
 //! target opens that much larger, and an open one is made larger with it.
@@ -242,7 +242,7 @@ pub fn fit_window(ctx: &egui::Context, min: Vec2, layout: Option<Vec2>) {
 
 /// A layout of `content` points drawn in the space `ui` has, scrolled when that is smaller (a
 /// fixed-size window larger than the screen, at a large interface size): scroll bars at the
-/// trailing and bottom edges (MDM's own, `scrollbar::bar`), the wheel where nothing inside takes
+/// trailing and bottom edges (NetGuard's own, `scrollbar::bar`), the wheel where nothing inside takes
 /// it, and the control the keyboard focuses brought into view. `body` gets the layout's origin
 /// (moved by the scrolling), as a window's client origin. Fits: `body` as is, nothing added.
 pub fn pane<R>(

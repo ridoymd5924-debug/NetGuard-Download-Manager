@@ -1,12 +1,12 @@
-//! yt-dlp on macOS (#330, #339): its folder build, unpacked once by MDM.
+//! yt-dlp on macOS (#330, #339): its folder build, unpacked once by NetGuard.
 //!
 //! yt-dlp publishes two macOS programs. The one-file `yt-dlp_macos` unpacks its Python into a new
 //! temporary folder at every start. An app still marked as downloaded by the browser passes that
 //! mark to what it and its children create, so the Python just unpacked carries it, and macOS
 //! refuses to load the library ("Python.framework is damaged", PYI-…): every
-//! look-up failed. MDM has no hand in that temporary folder.
+//! look-up failed. NetGuard has no hand in that temporary folder.
 //!
-//! The folder build (`yt-dlp_macos.zip`) unpacks nothing when it runs: MDM unpacks it once, after
+//! The folder build (`yt-dlp_macos.zip`) unpacks nothing when it runs: NetGuard unpacks it once, after
 //! checking the archive against yt-dlp's signed checksum list, into its own tools folder. The
 //! mark is taken off those files and no others: never the app, never a download (they are marked
 //! on purpose: `mark_downloaded`), never a program the person chose. Linux and Windows use the
@@ -26,8 +26,8 @@ fn bad(e: impl std::fmt::Display) -> Error {
     Error::BadRelease(e.to_string())
 }
 
-/// Whether `exe` is the one-file build, which earlier versions of MDM installed: nothing beside
-/// it. It is treated as not installed, so MDM gets the folder build in its place.
+/// Whether `exe` is the one-file build, which earlier versions of NetGuard installed: nothing beside
+/// it. It is treated as not installed, so NetGuard gets the folder build in its place.
 pub(crate) fn one_file_build(exe: &Path) -> bool {
     !exe.with_file_name(INTERNAL).is_dir()
 }
@@ -219,7 +219,7 @@ mod tests {
     #[test]
     fn the_same_version_replaces_the_one_file_build() {
         let dir = tempfile::tempdir().unwrap();
-        // Earlier versions of MDM: a single program, nothing beside it.
+        // Earlier versions of NetGuard: a single program, nothing beside it.
         let old = crate::put(
             dir.path(),
             "yt-dlp",

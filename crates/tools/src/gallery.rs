@@ -3,7 +3,7 @@
 //! (Codeberg), its `SHA256SUMS` checked against its author's OpenPGP key (pinned in
 //! `keys/gallery-dl.asc`), the program against that list, kept in `tools/gallery-dl/<version>/`
 //! with the previous version, never older; or the person's own copy (`chosen`). It runs in the
-//! same job as yt-dlp does (`proc::spawn`), so Stop and MDM's end take it and all it started.
+//! same job as yt-dlp does (`proc::spawn`), so Stop and NetGuard's end take it and all it started.
 //!
 //! A download is a folder: gallery-dl prints each file it saves (one path a line, `# path` for
 //! one already there), and skips what is already there when started again, so a gallery started
@@ -27,7 +27,7 @@ use crate::{Error, Installed, chosen};
 const KEY: &str = include_str!("../keys/gallery-dl.asc");
 /// Where releases come from (Gitea's API, as GitHub's: `tag_name`, `assets`).
 const RELEASES: &str = "https://codeberg.org/api/v1/repos/mikf/gallery-dl/releases/latest";
-/// MDM as sites see it: gallery-dl's own name is refused by some (Wikimedia's servers answer
+/// NetGuard as sites see it: gallery-dl's own name is refused by some (Wikimedia's servers answer
 /// 429 to unnamed tools); this one says who asks and where to read about it.
 pub const USER_AGENT: &str = concat!(
     "MisterDownloadManager/",
@@ -53,12 +53,12 @@ pub fn signed_by_gallery_dl(sums: &[u8], sig: &[u8]) -> bool {
     crate::signed_by(KEY, sums, sig)
 }
 
-/// The oldest gallery-dl MDM can drive: `--directory` (the files right in the gallery's own
+/// The oldest gallery-dl NetGuard can drive: `--directory` (the files right in the gallery's own
 /// folder) came in 1.20.0. Debian 11's 1.17 lacks it; Ubuntu 22.04's 1.20.5 and every later
 /// distribution's has it (#236).
 pub const OLDEST: &str = "1.20.0";
 
-/// What a gallery-dl release accepts of the options MDM passes, past those every release from
+/// What a gallery-dl release accepts of the options NetGuard passes, past those every release from
 /// [`OLDEST`] has (`--extractor-info`, `--sleep`, `--range`, `--limit-rate`, `--cookies`,
 /// `--proxy`, `--ignore-config`). Each release from 1.17 to 1.30 was asked in mdm-lab (#236):
 /// argparse refuses an option it doesn't know, so one too many fails the whole download, as
@@ -66,7 +66,7 @@ pub const OLDEST: &str = "1.20.0";
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Accepts {
     /// `--no-input` (1.27.1): never a question on the console. Without it the same holds, as
-    /// MDM gives it no input to read (`proc::spawn`): a question ends it instead of waiting.
+    /// NetGuard gives it no input to read (`proc::spawn`): a question ends it instead of waiting.
     pub no_input: bool,
     /// `--user-agent` (1.24.0); before it, the same setting as `-o user-agent=…`.
     pub user_agent: bool,
@@ -100,8 +100,8 @@ pub fn too_old(version: &str) -> bool {
     release(version).is_some_and(|have| Some(have) < release(OLDEST))
 }
 
-/// The gallery-dl to use: the person's own (`chosen`), else MDM's install in `dir`. A chosen
-/// one too old for MDM ([`too_old`], chosen before #236 checked) is passed over for MDM's own
+/// The gallery-dl to use: the person's own (`chosen`), else NetGuard's install in `dir`. A chosen
+/// one too old for NetGuard ([`too_old`], chosen before #236 checked) is passed over for NetGuard's own
 /// copy; [`chosen_too_old`] names it, for the Helpers window to say so.
 pub fn installed(dir: &Path) -> Option<Installed> {
     chosen::chosen(dir, chosen::Helper::GalleryDl)
@@ -109,7 +109,7 @@ pub fn installed(dir: &Path) -> Option<Installed> {
         .or_else(|| own(dir))
 }
 
-/// The person's own gallery-dl when it is too old for MDM, so passed over.
+/// The person's own gallery-dl when it is too old for NetGuard, so passed over.
 pub fn chosen_too_old(dir: &Path) -> Option<Installed> {
     chosen::chosen(dir, chosen::Helper::GalleryDl).filter(|mine| too_old(&mine.version))
 }
@@ -133,7 +133,7 @@ struct Asset {
 }
 
 /// Install the latest gallery-dl into `dir` unless the installed one is as new, downloaded with
-/// MDM's engine (`net`), counted into `progress`. The person's own copy is theirs to update.
+/// NetGuard's engine (`net`), counted into `progress`. The person's own copy is theirs to update.
 pub async fn install_latest(
     dir: &Path,
     net: &mdm_engine::Options,
@@ -346,7 +346,7 @@ impl Drop for GalleryJob {
 }
 
 /// The browser's context (`FromBrowser::args`, made for yt-dlp) as gallery-dl takes it: its
-/// cookies, and its User-Agent or MDM's (`--user-agent`, or `-o user-agent=…` before 1.24); no
+/// cookies, and its User-Agent or NetGuard's (`--user-agent`, or `-o user-agent=…` before 1.24); no
 /// Referer, which gallery-dl has no option for.
 fn browser_args(theirs: Vec<String>, accepts: Accepts) -> Vec<String> {
     let mut out = Vec::new();
@@ -503,7 +503,7 @@ mod tests {
         assert_eq!(accepts("1.32.19"), (true, true));
         assert_eq!(accepts("1.31.0-dev"), (true, true));
         assert_eq!(accepts("2.0"), (true, true));
-        // One that can't be read: as recent as MDM's own.
+        // One that can't be read: as recent as NetGuard's own.
         assert_eq!(accepts("unknown"), (true, true));
         assert!(too_old("1.17.0") && too_old("1.19.3") && too_old("0.9"));
         assert!(!too_old("1.20.0") && !too_old("1.26.9") && !too_old("unknown"));
@@ -536,7 +536,7 @@ mod tests {
         );
     }
 
-    /// The browser's User-Agent (else MDM's) and cookies, as each release takes them.
+    /// The browser's User-Agent (else NetGuard's) and cookies, as each release takes them.
     #[test]
     fn the_browsers_context_as_each_release_takes_it() {
         let theirs = || -> Vec<String> {
@@ -568,7 +568,7 @@ mod tests {
         );
     }
 
-    /// A gallery-dl chosen before #236 checked, too old for MDM: MDM's own copy instead.
+    /// A gallery-dl chosen before #236 checked, too old for NetGuard: NetGuard's own copy instead.
     #[test]
     fn a_chosen_release_too_old_gives_way_to_mdms_own() {
         let dir = tempfile::tempdir().unwrap();

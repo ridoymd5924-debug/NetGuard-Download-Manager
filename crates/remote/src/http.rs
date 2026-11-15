@@ -176,7 +176,7 @@ fn same_origin(headers: &HeaderMap, host: &str) -> bool {
         .and_then(|v| v.to_str().ok())
         .is_some_and(|v| v.eq_ignore_ascii_case("cross-site"));
     let origin = headers.get(header::ORIGIN).and_then(|o| o.to_str().ok());
-    // MDM's browser extension (#157): its requests carry its own origin, which no web page can
+    // NetGuard's browser extension (#157): its requests carry its own origin, which no web page can
     // send, and a token like any other.
     if origin.is_some_and(|o| {
         [

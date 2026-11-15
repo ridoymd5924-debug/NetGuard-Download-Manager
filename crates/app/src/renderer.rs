@@ -8,10 +8,10 @@
 //! The windows always open: when the chosen way can't start (no driver for it, a virtual
 //! machine, Remote Desktop), the other is tried, and the reason is logged. A start with the
 //! system's API that ends before its first frame (a crash or a kill inside the driver) is
-//! remembered, and so is one whose first frame doesn't come within [`FIRST_FRAME_WITHIN`] (MDM
+//! remembered, and so is one whose first frame doesn't come within [`FIRST_FRAME_WITHIN`] (NetGuard
 //! starts again, with OpenGL): the next starts draw with OpenGL until that API is chosen again,
-//! and View → Draw with says why. A graphics card lost while MDM runs (a driver update or reset)
-//! starts MDM again; a second loss soon after counts as the API failing. The same code does all
+//! and View → Draw with says why. A graphics card lost while NetGuard runs (a driver update or reset)
+//! starts NetGuard again; a second loss soon after counts as the API failing. The same code does all
 //! of this on every system: only [`GPU`] and the backend in `gpu::options` differ.
 //!
 //! Testing overrides, in this order: `/renderer <name>` on the command line, then
@@ -91,7 +91,7 @@ pub fn chosen(setting: Option<Api>) -> Api {
         .unwrap_or(DEFAULT)
 }
 
-/// How long a watched start with the system's API may take to its first frame before MDM starts
+/// How long a watched start with the system's API may take to its first frame before NetGuard starts
 /// again with OpenGL (a driver stuck in its first present, a window that never shows). Generous:
 /// a slow computer just after it starts (#57) can take seconds.
 #[cfg(gpu)]
@@ -209,7 +209,7 @@ impl Because {
 /// What to try: the override if any, else the setting (or [`DEFAULT`]) unless the system's API
 /// failed here before; then the other way. A graphics card's API falls back to OpenGL, then to
 /// the API on a software renderer (Remote Desktop, a virtual machine: no card's driver, and
-/// Windows' own OpenGL 1.1 can't draw MDM). Only OpenGL where wgpu isn't built.
+/// Windows' own OpenGL 1.1 can't draw NetGuard). Only OpenGL where wgpu isn't built.
 pub fn plan(setting: Option<Api>, overridden: Option<&str>, failed_before: bool) -> Plan {
     let forced = overridden.and_then(|o| {
         let a = parse(o);
@@ -418,7 +418,7 @@ pub fn test_slow_start() {
 }
 
 /// The start of every main-window pass: the system's API's device checked (see `gpu::poll`).
-/// The pass itself is MDM's own work, not the API's (see [`FirstFrameClock`]).
+/// The pass itself is NetGuard's own work, not the API's (see [`FirstFrameClock`]).
 pub fn frame_begin() {
     own_work_begin();
     #[cfg(gpu)]
@@ -454,16 +454,16 @@ pub fn frame_done(ctx: &egui::Context) {
 // ---- The first frame's clock ----------------------------------------------------------------
 
 /// How long a watched start has been the graphics API's to bring its first frame: the time from
-/// the start of [`run`] to the first frame, less MDM's own work meanwhile (making the app:
+/// the start of [`run`] to the first frame, less NetGuard's own work meanwhile (making the app:
 /// loading the list, the fonts, the icons; and its passes' logic and layout), which isn't the
 /// API's. A slow computer just after it starts can spend more than [`FIRST_FRAME_WITHIN`] there
-/// alone, and that was counted as Direct3D drawing no first frame: MDM started again with OpenGL
+/// alone, and that was counted as Direct3D drawing no first frame: NetGuard started again with OpenGL
 /// and kept it (#280).
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 struct FirstFrameClock {
     /// Counted before the stretch now running.
     counted: std::time::Duration,
-    /// Since when it runs; None while MDM's own work pauses it.
+    /// Since when it runs; None while NetGuard's own work pauses it.
     since: Option<std::time::Instant>,
 }
 
@@ -475,14 +475,14 @@ impl FirstFrameClock {
         }
     }
 
-    /// MDM's own work begins: not counted.
+    /// NetGuard's own work begins: not counted.
     fn pause(&mut self, now: std::time::Instant) {
         if let Some(since) = self.since.take() {
             self.counted += now.saturating_duration_since(since);
         }
     }
 
-    /// MDM's own work is done: the API's turn again.
+    /// NetGuard's own work is done: the API's turn again.
     fn resume(&mut self, now: std::time::Instant) {
         self.since.get_or_insert(now);
     }
@@ -504,7 +504,7 @@ fn with_clock<R>(f: impl FnOnce(&mut FirstFrameClock, std::time::Instant) -> R) 
     c.as_mut().map(|c| f(c, now))
 }
 
-/// MDM's own work begins (the app being made, a pass's logic and layout): the first-frame clock
+/// NetGuard's own work begins (the app being made, a pass's logic and layout): the first-frame clock
 /// stops until [`own_work_end`].
 pub fn own_work_begin() {
     if !DRAWN.load(Ordering::Relaxed) {
@@ -512,7 +512,7 @@ pub fn own_work_begin() {
     }
 }
 
-/// MDM's own work is done: the first-frame clock runs again.
+/// NetGuard's own work is done: the first-frame clock runs again.
 pub fn own_work_end() {
     if !DRAWN.load(Ordering::Relaxed) {
         with_clock(|c, now| c.resume(now));
@@ -584,7 +584,7 @@ pub fn run<A: eframe::App + 'static>(
         {
             let _ = std::fs::write(f, "");
         }
-        // A watched start must show its first frame in time, or MDM starts again.
+        // A watched start must show its first frame in time, or NetGuard starts again.
         #[cfg(gpu)]
         if n == 0 && plan.watched {
             if let Ok(mut c) = CLOCK.lock() {
@@ -609,7 +609,7 @@ pub fn run<A: eframe::App + 'static>(
             Box::new(move |cc| {
                 let make = make.borrow_mut().take().ok_or("the app was already made")?;
                 started(cc, attempt, why_not);
-                // Making the app is MDM's own work, not the API's: off the first frame's clock.
+                // Making the app is NetGuard's own work, not the API's: off the first frame's clock.
                 own_work_begin();
                 let app = make(cc);
                 own_work_end();
@@ -692,7 +692,7 @@ fn started(cc: &eframe::CreationContext<'_>, attempt: Attempt, why: String) {
     // The crash reports say it, and why ("OpenGL on Intel(R) UHD Graphics 620 (4.6.0 - Build …)
     // — Direct3D 12 failed here before: …").
     crate::crash::renderer(&format!("{detail} — {why}"));
-    // Errors are logged, not panics, and a lost graphics card starts MDM again.
+    // Errors are logged, not panics, and a lost graphics card starts NetGuard again.
     #[cfg(gpu)]
     if let Some(rs) = &cc.wgpu_render_state {
         gpu::watch_device(&rs.device);
@@ -701,7 +701,7 @@ fn started(cc: &eframe::CreationContext<'_>, attempt: Attempt, why: String) {
 }
 
 /// `/show renderer-lost` (off-screen test copies): the system's API's device lost on purpose
-/// (MDM starts again).
+/// (NetGuard starts again).
 #[cfg(gpu)]
 pub fn test_device_lost() {
     gpu::lose_device();
@@ -731,12 +731,12 @@ mod gpu {
 
     /// The first frame of this start must come within [`FIRST_FRAME_WITHIN`]; if it doesn't (a
     /// driver stuck in its first present, a window left black), the API is remembered as failed
-    /// and MDM starts again, drawing with OpenGL.
+    /// and NetGuard starts again, drawing with OpenGL.
     pub fn watch_first_frame() {
         let _ = std::thread::Builder::new()
             .name("first frame watch".into())
             .spawn(|| {
-                // The API's time only: MDM's own work meanwhile isn't counted (#280).
+                // The API's time only: NetGuard's own work meanwhile isn't counted (#280).
                 let over = || clock_counted().is_some_and(|d| d >= FIRST_FRAME_WITHIN);
                 while !over() {
                     if DRAWN.load(Ordering::Relaxed) || !TRYING.load(Ordering::Relaxed) {
@@ -767,9 +767,9 @@ mod gpu {
     /// When the card was last lost (its time inside).
     const LOST: &str = "lost";
 
-    /// wgpu's errors go to the log instead of ending MDM (its default handler panics), and a
-    /// device lost while MDM runs (a driver update or reset: none of the three APIs recovers
-    /// by itself) starts MDM again, with the same API, or with OpenGL after a second loss
+    /// wgpu's errors go to the log instead of ending NetGuard (its default handler panics), and a
+    /// device lost while NetGuard runs (a driver update or reset: none of the three APIs recovers
+    /// by itself) starts NetGuard again, with the same API, or with OpenGL after a second loss
     /// within 10 minutes.
     pub fn watch_device(device: &wgpu::Device) {
         device.on_uncaptured_error(Arc::new(|e| {
@@ -817,10 +817,10 @@ mod gpu {
         }
     }
 
-    /// End this copy and start MDM again: the new one waits for this one to be gone (as after
+    /// End this copy and start NetGuard again: the new one waits for this one to be gone (as after
     /// an update), and draws as the failure markers now say.
     fn start_again(why: &str) {
-        tracing::warn!("{why}: starting MDM again");
+        tracing::warn!("{why}: starting NetGuard again");
         // The AppImage file itself on Linux (this program sits in its temporary mount).
         #[cfg(windows)]
         let program = std::env::current_exe().ok();
@@ -835,7 +835,7 @@ mod gpu {
                 .ok()
         });
         if started.is_none() {
-            tracing::error!("MDM couldn't start again");
+            tracing::error!("NetGuard couldn't start again");
         }
         crate::crash::clean_exit();
         // The window thread may be stuck in the driver: end at once, without unwinding.
@@ -849,7 +849,7 @@ mod gpu {
     pub fn options(adapters: Adapters) -> WgpuConfiguration {
         let mut setup = WgpuSetupCreateNew::without_display_handle();
         let desc = &mut setup.instance_descriptor;
-        // The system's API only, and nothing from WGPU_* variables: what draws is MDM's choice.
+        // The system's API only, and nothing from WGPU_* variables: what draws is NetGuard's choice.
         desc.flags = wgpu::InstanceFlags::from_build_config();
         #[cfg(windows)]
         {
@@ -902,12 +902,12 @@ mod gpu {
             }
         }));
         setup.device_descriptor = Arc::new(|_adapter| wgpu::DeviceDescriptor {
-            label: Some("MDM"),
+            label: Some("NetGuard"),
             required_limits: wgpu::Limits {
                 // As eframe asks: windows as large as 4K and more.
                 max_texture_dimension_2d: 8192,
                 // Direct3D 12 keeps one descriptor heap this large, in the graphics card's memory
-                // and a copy in MDM's: wgpu's default (a million, 32 MB each) is for games. egui
+                // and a copy in NetGuard's: wgpu's default (a million, 32 MB each) is for games. egui
                 // uses one per texture (icons, fonts, file icons): a few hundred. (Vulkan and
                 // Metal size their pools by use; the cap costs them nothing.)
                 max_non_sampler_bindings: 65_536,
@@ -1154,8 +1154,8 @@ mod tests {
         assert_eq!(choose(&[(VirtualGpu, true)], Adapters::Any, true), Some(0));
     }
 
-    /// The first frame's clock counts the API's time only: MDM's own work (making the app, its
-    /// passes) is left out, so a slow start of MDM's isn't taken for Direct3D failing (#280: 10.7
+    /// The first frame's clock counts the API's time only: NetGuard's own work (making the app, its
+    /// passes) is left out, so a slow start of NetGuard's isn't taken for Direct3D failing (#280: 10.7
     /// s from OpenGL's context to the first frame on the reporter's computer, at the 10 s limit).
     #[test]
     fn the_first_frame_clock_leaves_out_mdms_own_work() {
@@ -1169,7 +1169,7 @@ mod tests {
         c.pause(t0 + s(2));
         assert_eq!(c.counted(t0 + s(14)), s(2));
         c.resume(t0 + s(14));
-        // Its first pass, 3 s of MDM's, then 1 s of painting and presenting.
+        // Its first pass, 3 s of NetGuard's, then 1 s of painting and presenting.
         c.pause(t0 + s(14));
         c.resume(t0 + s(17));
         assert_eq!(c.counted(t0 + s(18)), s(3));

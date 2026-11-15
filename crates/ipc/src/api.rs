@@ -164,7 +164,7 @@ pub fn schema() -> serde_json::Value {
     serde_json::json!({
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "$id": "https://misterdownloadmanager.com/automation-api.schema.json",
-        "title": "Mister Download Manager automation API",
+        "title": "NetGuard Download Manager automation API",
         "description": "One JSON line to the port in ipc.json (on 127.0.0.1), one line back. \
             A request is `Request`. A command (an address to add, start_queue) is answered \
             `ok`; a question is answered with the JSON object for it (`ListAnswer`, \

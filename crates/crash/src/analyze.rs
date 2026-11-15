@@ -181,7 +181,7 @@ fn from_state(state: &minidump_processor::ProcessState) -> Analysis {
 }
 
 /// The reason of a dump asked for: crash-handler's simulated exception (Windows' user code
-/// 0x0cca11ed, macOS' simulated exception) or the signal MDM simulates on Linux (SIGUSR2).
+/// 0x0cca11ed, macOS' simulated exception) or the signal NetGuard simulates on Linux (SIGUSR2).
 fn is_requested(reason: &str) -> bool {
     let r = reason.to_ascii_lowercase();
     r.contains("0x0cca11ed")
@@ -199,7 +199,7 @@ fn file_name(p: &str) -> String {
 mod tests {
     #[test]
     fn file_names_from_either_kind_of_path() {
-        assert_eq!(super::file_name(r"C:\Program Files\MDM\mdm.exe"), "mdm.exe");
+        assert_eq!(super::file_name(r"C:\Program Files\NetGuard\mdm.exe"), "mdm.exe");
         assert_eq!(super::file_name("/usr/lib/libc.so.6"), "libc.so.6");
         assert_eq!(super::file_name("plain"), "plain");
     }

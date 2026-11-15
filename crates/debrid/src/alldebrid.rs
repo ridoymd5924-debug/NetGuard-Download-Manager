@@ -1,5 +1,5 @@
 //! AllDebrid's API v4 / v4.1, as documented at <https://docs.alldebrid.com/> (read 2026-11-05).
-//! Only what MDM uses: the account, the supported domains, unlocking a link (and its delayed
+//! Only what NetGuard uses: the account, the supported domains, unlocking a link (and its delayed
 //! flow), and sign-in by PIN.
 //!
 //! - Every call carries `Authorization: Bearer <apikey>`; no `agent` parameter (the changelog of
@@ -32,7 +32,7 @@ struct ErrorBody {
     message: String,
 }
 
-/// What an error code means for MDM (the documentation's list of codes).
+/// What an error code means for NetGuard (the documentation's list of codes).
 pub(crate) fn fault_of(code: &str, message: &str) -> Fault {
     use mdm_engine::ServiceFault as F;
     Fault::Service(match code {
@@ -76,7 +76,7 @@ fn read<T: serde::de::DeserializeOwned>(
         return Err(Fault::Service(if status >= 500 {
             F::ServiceDown
         } else {
-            F::Other("an answer MDM can't read".into())
+            F::Other("an answer NetGuard can't read".into())
         }));
     };
     match (e.status.as_str(), e.data, e.error) {

@@ -111,7 +111,7 @@ pub fn files_from_bytes(torrent: &[u8]) -> Result<Vec<FileEntry>, TorrentError> 
 /// Before librqbit restores its saved torrents (`session.json` and a `<hash>.torrent` for each,
 /// in `dir`), take out the ones the name check refuses, and those saved without their .torrent
 /// (whose names it can't check): the app adds those again itself, through `add` and its own
-/// copy. The rest keep only the trackers MDM may contact (`trackers`, `proxied`), in the list and
+/// copy. The rest keep only the trackers NetGuard may contact (`trackers`, `proxied`), in the list and
 /// in their .torrent. Rewritten through a temporary file; a list that can't be read is left to
 /// librqbit.
 fn prepare_saved(dir: &Path, proxied: bool) {
@@ -339,7 +339,7 @@ pub struct Config {
     /// LSD, UDP trackers, UPnP and incoming connections around it, so with a proxy those are off
     /// and UDP trackers dropped (`trackers`).
     pub proxy: Option<String>,
-    /// A blocklist MDM converted (`blocklist::convert`, P2P lines): peers in it are refused.
+    /// A blocklist NetGuard converted (`blocklist::convert`, P2P lines): peers in it are refused.
     pub blocklist: Option<PathBuf>,
     /// Tests: no trackers, local peers only, everything on loopback; no DHT unless
     /// `dht_bootstrap` names its nodes.
@@ -408,7 +408,7 @@ pub struct Lookup {
 /// What a lookup has got so far (`Lookup::status`).
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub struct LookupStatus {
-    /// The trackers asked (those MDM may contact, `trackers`).
+    /// The trackers asked (those NetGuard may contact, `trackers`).
     pub trackers: usize,
     /// Whether the DHT is asked (Torrent settings, no proxy).
     pub dht: bool,
@@ -572,7 +572,7 @@ impl Torrents {
                 env!("CARGO_PKG_VERSION_MAJOR"),
                 env!("CARGO_PKG_VERSION_MINOR")
             )),
-            // Its HTTP clients (trackers, UPnP) with MDM's TLS setup: on a system without CA
+            // Its HTTP clients (trackers, UPnP) with NetGuard's TLS setup: on a system without CA
             // certificates librqbit's own can't be built and the session wouldn't start; with
             // it, plain HTTP trackers work and HTTPS ones fail saying why (mdm_engine::tls).
             configure_http_client: Some(Arc::new(mdm_engine::tls::configure)),
@@ -605,7 +605,7 @@ impl Torrents {
         lookup: Option<&Lookup>,
     ) -> Result<Meta, TorrentError> {
         let add = match src {
-            // Only the trackers MDM may contact (#40, `trackers`).
+            // Only the trackers NetGuard may contact (#40, `trackers`).
             Source::Magnet(m) => {
                 let m = trackers::filter_magnet(m, self.proxied);
                 if let Some(l) = lookup {
@@ -1158,7 +1158,7 @@ mod tests {
             Some(bound),
             "it listens on its address only"
         );
-        // Loopback trackers straight to the session: MDM's own `add` drops them (#40).
+        // Loopback trackers straight to the session: NetGuard's own `add` drops them (#40).
         let out = tmp.path().join("got");
         let added = leecher
             .session
@@ -1442,7 +1442,7 @@ mod tests {
         t.stop().await;
     }
 
-    /// #40: a kept torrent keeps only the trackers MDM may contact, in session.json and in its
+    /// #40: a kept torrent keeps only the trackers NetGuard may contact, in session.json and in its
     /// .torrent (whose info, so its hash, stays the same); with a proxy, UDP ones go too.
     /// #40: a fixed port is the one listened on; with a proxy nothing listens (incoming
     /// connections would go around it). Nothing else of the network is on (no DHT, UPnP, LSD).
@@ -2140,7 +2140,7 @@ mod tests {
 
     /// #92: a magnet's file list comes through the DHT after nodes that are gone answered with
     /// an ICMP "port unreachable". On Windows that error makes the DHT socket's next receive
-    /// fail, and librqbit's DHT (9.0.1, in MDM 0.2.4) stopped for the rest of the session on it:
+    /// fail, and librqbit's DHT (9.0.1, in NetGuard 0.2.4) stopped for the rest of the session on it:
     /// a magnet the trackers didn't serve then never resolved. The lookup counts what it got.
     #[tokio::test(flavor = "multi_thread", worker_threads = 4)]
     async fn a_magnet_resolves_through_the_dht_after_unreachable_nodes() {

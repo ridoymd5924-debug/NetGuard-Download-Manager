@@ -1,7 +1,7 @@
 //! Debrid services (#44): the user's own account at a service such as Real-Debrid turns a file
-//! host's link into a direct link, which MDM's engine then downloads as any file (every
+//! host's link into a direct link, which NetGuard's engine then downloads as any file (every
 //! connection, resume). Only the services' official, documented APIs, with the user's own
-//! account; MDM ships no host lists or link sources, and never shows or copies the direct links
+//! account; NetGuard ships no host lists or link sources, and never shows or copies the direct links
 //! (the services forbid sharing them).
 //!
 //! The engine knows nothing of accounts: the app asks [`Debrid::unlocker_for`] for each download
@@ -26,7 +26,7 @@ use serde::{Deserialize, Serialize};
 use tokio_util::sync::CancellationToken;
 use url::Url;
 
-/// The services MDM knows.
+/// The services NetGuard knows.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq, Hash, Serialize, Deserialize)]
 pub enum ServiceKind {
     #[default]
@@ -62,12 +62,12 @@ impl ServiceKind {
     }
 
     /// Whether it signs in by code in the browser (Real-Debrid's device flow, AllDebrid's PIN).
-    /// Premiumize's needs a client registered by MDM's maintainer: its API key is pasted.
+    /// Premiumize's needs a client registered by NetGuard's maintainer: its API key is pasted.
     pub fn signs_in_by_code(self) -> bool {
         !matches!(self, ServiceKind::Premiumize)
     }
 
-    /// The requests a minute MDM allows itself (each service's published limit, halved or more:
+    /// The requests a minute NetGuard allows itself (each service's published limit, halved or more:
     /// Real-Debrid 250 a minute, AllDebrid 600; Premiumize publishes none).
     fn per_minute(self) -> usize {
         match self {
@@ -321,7 +321,7 @@ impl Http {
         let (status, body, retry_after) = self.send(ServiceKind::RealDebrid, req).await?;
         if (200..300).contains(&status) {
             return serde_json::from_slice(&body).map_err(|_| {
-                Fault::Service(ServiceFault::Other("an answer MDM can't read".into()))
+                Fault::Service(ServiceFault::Other("an answer NetGuard can't read".into()))
             });
         }
         let f = fault(status, &body, retry_after);
@@ -501,7 +501,7 @@ pub(crate) fn plain_id(id: &str) -> Result<&str, Fault> {
         Ok(id)
     } else {
         Err(Fault::Service(ServiceFault::Other(
-            "the service gave an id MDM can't use".into(),
+            "the service gave an id NetGuard can't use".into(),
         )))
     }
 }
@@ -749,7 +749,7 @@ impl mdm_engine::Unlocker for AccountUnlocker {
 }
 
 /// Sign-in by code: Real-Debrid's device flow, AllDebrid's PIN. The code to show and the page to
-/// type it at, then a poll until the user allowed MDM there.
+/// type it at, then a poll until the user allowed NetGuard there.
 pub mod signin {
     use super::*;
 

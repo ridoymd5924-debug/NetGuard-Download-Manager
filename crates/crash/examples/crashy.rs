@@ -1,9 +1,9 @@
 //! The end-to-end test's program (tests/e2e.rs): `crashy <freeze|panic|crash> <data dir>` starts
-//! its monitor (itself with `--crash-monitor`), attaches the crash handler as MDM does, and then
+//! its monitor (itself with `--crash-monitor`), attaches the crash handler as NetGuard does, and then
 //! freezes its main thread, panics, or crashes. The monitor writes the dump and the report
 //! (`<data>/crashes/*.txt`) and exits when this process is gone.
 //!
-//! Test code: it may use `unsafe` (the crash handler, a null write, the thread id), MDM's own code
+//! Test code: it may use `unsafe` (the crash handler, a null write, the thread id), NetGuard's own code
 //! keeps that in win32.rs / unix.rs.
 #![allow(unsafe_code)]
 

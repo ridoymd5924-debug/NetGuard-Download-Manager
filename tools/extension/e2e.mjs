@@ -602,7 +602,7 @@ async function firefox(bin, profile, dl, page, ready) {
   }
 }
 
-// ---- the test instance of Mister Download Manager ----------------------------------------------
+// ---- the test instance of NetGuard Download Manager ----------------------------------------------
 
 let data = "";
 let downloads = "";
@@ -698,7 +698,7 @@ async function arrived(file, size, sub = "Compressed", ms = 45000) {
   const want = path.join(downloads, sub, file);
   let last = null;
   try {
-    return await until(`${file} in Mister Download Manager`, ms, async () => {
+    return await until(`${file} in NetGuard Download Manager`, ms, async () => {
       const item = (await mdmList().catch(() => [])).find((d) => d.file === file);
       last = item || last;
       if (item && item.status === "Error") throw new Error(`${file}: MDM's download failed: ${item.error}`);
@@ -724,7 +724,7 @@ async function requests(p) {
 const clearLog = () => fetch(`${LAB}/_log`, { method: "DELETE" });
 const brief = (e) => `${e.method} ${e.status} ${e.outcome} ${e.range || "-"}`;
 
-// ---- another Mister Download Manager (the remote case, #157) -------------------------------------
+// ---- another NetGuard Download Manager (the remote case, #157) -------------------------------------
 
 // The server the remote case sends downloads to: E2E_REMOTE_URL names one already running (the
 // Docker image: E2E_REMOTE_PAIR is a command printing a pairing code, `docker exec mdm
@@ -1649,7 +1649,7 @@ const CASES = {
       // The right-click menu on the player (Firefox: its menu can be driven headless).
       if (t.session.menu) {
         done.push(await named(`${kind} menu`, () => streamLookedUp(async () => {
-          const r = await t.session.menu((v.l + v.r) / 2, (v.t + v.b) / 2, "Download with Mister Download Manager");
+          const r = await t.session.menu((v.l + v.r) / 2, (v.t + v.b) / 2, "Download with NetGuard Download Manager");
           if (!String(r).startsWith("chosen")) throw new Error(`the right-click menu: ${r}`);
           if (process.env.E2E_DEBUG) console.error("menu:", r);
         }, manifest, page, cookie)));
@@ -1782,7 +1782,7 @@ const CASES = {
       if (theirs.length) throw new Error(`refused: ${theirs.map(brief).join("; ")}`);
       if (!mdm.length) throw new Error("no request for the file");
       const said = await until("the popup's word", 5000, () => popup.evaluate(`document.getElementById("media-said").textContent`));
-      if (!/Sent to Mister Download Manager/.test(said)) throw new Error(`the popup said "${said}"`);
+      if (!/Sent to NetGuard Download Manager/.test(said)) throw new Error(`the popup said "${said}"`);
       // Each stream: the Download video window, for its manifest.
       const pid = appPid();
       const opened = [];
@@ -1840,7 +1840,7 @@ const CASES = {
     return `started by the host (pid ${pids[0]})${WIN ? ", off the screens" : ""}, stopped`;
   },
 
-  // #157: Send downloads to → Another Mister Download Manager. The popup pairs with a server (its
+  // #157: Send downloads to → Another NetGuard Download Manager. The popup pairs with a server (its
   // address and a code); a link clicked then downloads there, into the server's folders, the
   // browser's cookies not sent: neither the browser nor this computer's MDM keeps it. The popup
   // goes back to This computer at the end.
@@ -2028,7 +2028,7 @@ function testHost(name, browsers, nmhost) {
   const write = (kind, more) => {
     const file = path.join(work, "host", `${name}.${kind}.json`);
     fs.mkdirSync(path.dirname(file), { recursive: true });
-    fs.writeFileSync(file, JSON.stringify({ name, description: "Mister Download Manager (test)", path: nmhost, type: "stdio", ...more }, null, 2));
+    fs.writeFileSync(file, JSON.stringify({ name, description: "NetGuard Download Manager (test)", path: nmhost, type: "stdio", ...more }, null, 2));
     manifests[kind] = file;
   };
   if (kinds.has("chromium")) {
@@ -2148,13 +2148,13 @@ async function run() {
   let testLeft = [];
   try {
     await until("the lab server", 10000, () => fetch(`${LAB}/`).then((r) => r.ok, () => false));
-    // An installed Mister Download Manager's registration is never replaced or removed.
+    // An installed NetGuard Download Manager's registration is never replaced or removed.
     // Linux and macOS: its manifests (files) are put back byte for byte at the end, so a lab
     // machine's (E2E_REPLACE_HOST=1) may be replaced while the run lasts.
     const key = "HKCU\\Software\\Google\\Chrome\\NativeMessagingHosts\\com.misterdownloadmanager.host";
     const installed = WIN ? spawnSync("reg", ["query", key], { stdio: "ignore" }).status === 0 : regSnapshot().some((m) => m.bytes) && process.env.E2E_REPLACE_HOST !== "1";
     if (installed) {
-      throw new Error("Mister Download Manager's host is already registered (an installed copy): not touching it");
+      throw new Error("NetGuard Download Manager's host is already registered (an installed copy): not touching it");
     }
     regBefore = regSnapshot(path.join(work, "registry", "before"));
     if (process.env.E2E_HOST_NAME) {

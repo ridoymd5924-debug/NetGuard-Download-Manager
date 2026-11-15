@@ -1,4 +1,4 @@
-/* Mister Download Manager's remote control page: Windows 11's controls, one blue. */
+/* NetGuard Download Manager's remote control page: Windows 11's controls, one blue. */
 :root {
   --bg: #f3f3f3;
   --card: #ffffff;
@@ -7,8 +7,8 @@
   --line: #e0e0e0;
   --field: #ffffff;
   --field-line: #8a8a8a;
-  --accent: #0078d4;
-  --accent-hover: #106ebe;
+  --accent: #059669;
+  --accent-hover: #047857;
   --on-accent: #ffffff;
   --track: #e6e6e6;
   --good: #0f7b0f;
@@ -19,20 +19,20 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #202020;
-    --card: #2b2b2b;
-    --text: #f0f0f0;
-    --muted: #b4b4b4;
-    --line: #3d3d3d;
-    --field: #1f1f1f;
-    --field-line: #9a9a9a;
-    --accent: #4cc2ff;
-    --accent-hover: #6fceff;
-    --on-accent: #000000;
-    --track: #3d3d3d;
+    --bg: #0B1220;
+    --card: #17243A;
+    --text: #F8FAFC;
+    --muted: #94A3B8;
+    --line: #26354B;
+    --field: #111C2E;
+    --field-line: #94A3B8;
+    --accent: #10B981;
+    --accent-hover: #059669;
+    --on-accent: #0B1220;
+    --track: #26354B;
     --good: #6ccb5f;
     --bad: #ff99a4;
-    --chip: #333333;
+    --chip: #26354B;
     --shadow: none;
     color-scheme: dark;
   }

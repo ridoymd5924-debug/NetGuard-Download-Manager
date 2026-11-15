@@ -1,4 +1,4 @@
-//! `misterdownloadmanager --headless` (#157): MDM on a server (a NAS, Docker, Unraid), without a
+//! `misterdownloadmanager --headless` (#157): NetGuard on a server (a NAS, Docker, Unraid), without a
 //! window. The same app runs (its list, queues, Scheduler, limits, torrents, the automation API
 //! and the remote control), driven by a loop instead of the window's frames; downloads come from
 //! the remote control's page, the browser extension pointed at it, or the command line.
@@ -174,7 +174,7 @@ pub fn main(args: Vec<String>) -> ExitCode {
     ExitCode::SUCCESS
 }
 
-/// The folder, made if it isn't there, and a file written in it: a folder MDM can't write fails
+/// The folder, made if it isn't there, and a file written in it: a folder NetGuard can't write fails
 /// at start, not at each download.
 fn writable(dir: &std::path::Path) -> std::io::Result<()> {
     std::fs::create_dir_all(dir)?;
@@ -184,10 +184,10 @@ fn writable(dir: &std::path::Path) -> std::io::Result<()> {
 }
 
 /// What to do when a folder belongs to another user: Docker makes a folder it mounts that isn't
-/// there yet (`-v /srv/mdm-config:/config`) as root's, and MDM runs as another user.
+/// there yet (`-v /srv/mdm-config:/config`) as root's, and NetGuard runs as another user.
 fn not_ours(e: &std::io::Error) -> &'static str {
     if e.kind() == std::io::ErrorKind::PermissionDenied {
-        "\nIt belongs to another user: make it before the first start, owned by the user MDM runs \
+        "\nIt belongs to another user: make it before the first start, owned by the user NetGuard runs \
          as (`mkdir`, then `chown` it or give Docker that user with `--user`)."
     } else {
         ""

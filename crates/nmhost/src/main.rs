@@ -1,7 +1,7 @@
-//! Mister Download Manager's browser native messaging host (Chrome, Edge, Brave, Firefox).
+//! NetGuard Download Manager's browser native messaging host (Chrome, Edge, Brave, Firefox).
 //!
 //! - Started by the browser: reads native messages (u32 LE length + JSON) from stdin, hands each
-//!   download to the running Mister Download Manager over mdm-ipc (starting Mister Download Manager if needed), answers
+//!   download to the running NetGuard Download Manager over mdm-ipc (starting NetGuard Download Manager if needed), answers
 //!   `{"ok": …}`. A download Options says to leave to the browser (file type, excluded site or
 //!   address, browser, integration off: `mdm_ipc::capture`) is answered `{"ok": false}` without
 //!   starting anything, and the extension lets the browser have it. `{"rules": true}` asks for
@@ -93,7 +93,7 @@ struct Message {
     proxy: Option<String>,
     proxy_pac: Option<String>,
     proxy_login: bool,
-    /// The user asked for this download (right-click → Download with Mister Download Manager):
+    /// The user asked for this download (right-click → Download with NetGuard Download Manager):
     /// Options' automatic-capture rules don't apply, as IDM's "Download with IDM" takes any link.
     explicit: bool,
     /// May the download button show over videos on page `url`?
@@ -116,10 +116,10 @@ struct Message {
     links: Vec<String>,
     /// The toolbar button: leave this site (a host name) to the browser.
     exclude_site: Option<String>,
-    /// The toolbar button: bring Mister Download Manager's window up.
+    /// The toolbar button: bring NetGuard Download Manager's window up.
     open: bool,
     /// The extension left a download to the browser by Options' rules (it has them from
-    /// `rules`) without asking about it: for MDM's log. Under its own key, with no `url`: an
+    /// `rules`) without asking about it: for NetGuard's log. Under its own key, with no `url`: an
     /// older host takes it for an address it can't download, and hands nothing over.
     declined: Option<Notice>,
 }
@@ -144,7 +144,7 @@ struct Reply {
     /// (docs/browser-help.md): `not-running`, `too-large`, `refused`, `options`.
     #[serde(skip_serializing_if = "Option::is_none")]
     why: Option<&'static str>,
-    /// Mister Download Manager's version (this host comes with it).
+    /// NetGuard Download Manager's version (this host comes with it).
     #[serde(skip_serializing_if = "Option::is_none")]
     version: Option<&'static str>,
     /// For `rules`: Options → File types.
@@ -286,7 +286,7 @@ fn answer(m: Message, rules: &mdm_ipc::capture::CaptureRules) -> Reply {
             .cloned()
             .collect();
         if links.is_empty() {
-            return Reply::failed("refused", "no link MDM downloads");
+            return Reply::failed("refused", "no link NetGuard downloads");
         }
         Some(mdm_ipc::Command {
             links,
@@ -370,11 +370,11 @@ fn log_left(browser: &str, site: &str, name: &str, reason: impl AsRef<str>, priv
     log_line(&left_line(browser, site, name, reason.as_ref(), private));
 }
 
-/// A line in MDM's log (`<data>/logs/mdm.log`, crates/crash/src/logs.rs), dated as the app's
+/// A line in NetGuard's log (`<data>/logs/mdm.log`, crates/crash/src/logs.rs), dated as the app's
 /// own lines: the host runs apart from the app, which may not be running at all. Appended
 /// whole, so it never splits a line the app writes at the same time.
 fn log_line(message: &str) {
-    // Unit tests run without a data folder of their own: never into the real MDM's log
+    // Unit tests run without a data folder of their own: never into the real NetGuard's log
     // (tests/host.rs runs the program with its own and reads what it wrote).
     if cfg!(test) {
         return;
@@ -566,7 +566,7 @@ enum Undelivered {
     Refused(String),
 }
 
-/// How long a Mister Download Manager just started gets to open its channel (a first start, a
+/// How long a NetGuard Download Manager just started gets to open its channel (a first start, a
 /// slow disk or an antivirus scan can take a while); the browser's download waits meanwhile.
 const START_WAIT: Duration = Duration::from_secs(20);
 
@@ -582,7 +582,7 @@ fn bundle_of(exe: &std::path::Path) -> Option<PathBuf> {
         .map(PathBuf::from)
 }
 
-/// Hand `cmd` to Mister Download Manager, starting it only if none is running.
+/// Hand `cmd` to NetGuard Download Manager, starting it only if none is running.
 fn deliver(cmd: &mdm_ipc::Command) -> Result<(), Undelivered> {
     // Whatever it asks may open a window: the app may bring it to the front (Windows only: Linux
     // and macOS have no foreground lock for a host to lift).
@@ -643,7 +643,7 @@ fn deliver(cmd: &mdm_ipc::Command) -> Result<(), Undelivered> {
         }
     }
     Err(Undelivered::NotRunning(
-        "Mister Download Manager did not start".into(),
+        "NetGuard Download Manager did not start".into(),
     ))
 }
 
@@ -731,7 +731,7 @@ fn this_program() -> Result<PathBuf, String> {
 fn chromium_manifest(program: &std::path::Path) -> serde_json::Value {
     serde_json::json!({
         "name": HOST_NAME,
-        "description": "Mister Download Manager",
+        "description": "NetGuard Download Manager",
         "path": program,
         "type": "stdio",
         "allowed_origins": chromium_ids().into_iter().map(origin).collect::<Vec<_>>(),
@@ -742,7 +742,7 @@ fn chromium_manifest(program: &std::path::Path) -> serde_json::Value {
 fn firefox_manifest(program: &std::path::Path) -> serde_json::Value {
     serde_json::json!({
         "name": HOST_NAME,
-        "description": "Mister Download Manager",
+        "description": "NetGuard Download Manager",
         "path": program,
         "type": "stdio",
         "allowed_extensions": [FIREFOX_ID],
@@ -761,7 +761,7 @@ fn portable_refused() -> Result<(), String> {
     if mdm_ipc::portable_dir().is_some() {
         return Err(
             "portable mode: browser integration is not registered (nothing is written outside \
-             its folder); install Mister Download Manager to use it"
+             its folder); install NetGuard Download Manager to use it"
                 .into(),
         );
     }
@@ -939,7 +939,7 @@ fn register(all_users: bool) -> Result<(), String> {
     // A browser that reads the package's manifest for everyone, naming this program, needs none
     // in the home folder: one written there before is taken away, so uninstalling the package
     // leaves nothing behind (#266). The browser reads a user's manifest first, so one naming
-    // another program (an earlier MDM, an AppImage's copy) would win over the package's: the MDM
+    // another program (an earlier NetGuard, an AppImage's copy) would win over the package's: the NetGuard
     // registered last is the one the browsers start, as when each wrote its own.
     let mut covered = 0;
     if !all_users {
@@ -1054,7 +1054,7 @@ fn main() {
         // manifests' allowed_origins / allowed_extensions say the same; this is a second check).
         _ if our_caller(&args) => serve().map_err(|e| e.to_string()),
         _ => Err(format!(
-            "refusing caller {args:?}: not the Mister Download Manager extension"
+            "refusing caller {args:?}: not the NetGuard Download Manager extension"
         )),
     };
     if let Err(e) = result {
@@ -1063,7 +1063,7 @@ fn main() {
     }
 }
 
-/// The addresses MDM downloads (mdm_engine::supported): http(s), and ftp links sent from a page
+/// The addresses NetGuard downloads (mdm_engine::supported): http(s), and ftp links sent from a page
 /// (browsers no longer download ftp themselves).
 fn downloadable(url: &str) -> bool {
     let scheme = url.split_once("://").map_or("", |(s, _)| s);
@@ -1080,11 +1080,11 @@ mod tests {
     #[test]
     fn safari_helper_finds_its_app() {
         let exe = std::path::Path::new(
-            "/Applications/Mister Download Manager.app/Contents/PlugIns/Mister Download Manager.appex/Contents/MacOS/misterdownloadmanager-nmhost",
+            "/Applications/NetGuard Download Manager.app/Contents/PlugIns/NetGuard Download Manager.appex/Contents/MacOS/misterdownloadmanager-nmhost",
         );
         assert_eq!(
             bundle_of(exe),
-            Some(PathBuf::from("/Applications/Mister Download Manager.app"))
+            Some(PathBuf::from("/Applications/NetGuard Download Manager.app"))
         );
         assert_eq!(bundle_of(std::path::Path::new("/usr/bin/nmhost")), None);
     }
@@ -1171,7 +1171,7 @@ mod tests {
         );
         assert!(r.ok && r.types.unwrap().contains("ZIP"));
         assert_eq!(file_name_of(&msg("https://x.org/f/b.rar?x=1", "")), "b.rar");
-        // Right-click → Download with Mister Download Manager: any link, whatever Options say.
+        // Right-click → Download with NetGuard Download Manager: any link, whatever Options say.
         let mut page = msg("https://example.com/page.html", "");
         assert!(verdict(&page, &rules).is_err());
         page.explicit = true;
@@ -1521,7 +1521,7 @@ mod tests {
         assert_eq!(c.user_agent.as_deref(), Some("UA"));
         assert_eq!(
             c.name, None,
-            "empty filename means: let Mister Download Manager decide"
+            "empty filename means: let NetGuard Download Manager decide"
         );
         assert!(!c.later && !c.silent);
         assert_eq!((c.proxy, c.proxy_pac, c.proxy_login), (None, None, false));

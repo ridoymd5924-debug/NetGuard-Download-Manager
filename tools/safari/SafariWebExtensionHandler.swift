@@ -1,4 +1,4 @@
-// Mister Download Manager's Safari extension: the native half. Safari's extension can't start a
+// NetGuard Download Manager's Safari extension: the native half. Safari's extension can't start a
 // program of its own (no native messaging host manifests), it can only talk to this app
 // extension. So this does nothing but pass each message on to the same helper the other browsers
 // start (misterdownloadmanager-nmhost; the build puts a copy of it in this extension, signed to

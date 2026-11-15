@@ -23,7 +23,7 @@ cd ~; setsid -f "$app" >/dev/null 2>&1 </dev/null
 main=""
 for _ in $(seq 60); do
   pid=$(pgrep -f "^$app$" | head -1)
-  [ -n "$pid" ] && main=$(wmctrl -lp | awk -v p="$pid" '$3 == p && /Mister Download Manager 0\./ {print $1}' | head -1)
+  [ -n "$pid" ] && main=$(wmctrl -lp | awk -v p="$pid" '$3 == p && /NetGuard Download Manager 0\./ {print $1}' | head -1)
   [ -n "$main" ] && break; sleep 1
 done
 [ -z "$main" ] && { echo "MDM's main window didn't appear"; exit 1; }

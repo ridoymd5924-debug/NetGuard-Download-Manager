@@ -43,7 +43,7 @@ const IDLE: Duration = Duration::from_secs(30);
 /// Bytes read from a data connection at a time.
 const READ: usize = 64 * 1024;
 
-/// Whether MDM downloads `url` over FTP.
+/// Whether NetGuard downloads `url` over FTP.
 pub fn is_ftp(url: &Url) -> bool {
     matches!(url.scheme(), "ftp" | "ftps" | "ftpes")
 }
@@ -470,7 +470,7 @@ fn connector(extra: &[Vec<u8>]) -> Result<tokio_rustls::TlsConnector, Error> {
     Ok(tokio_rustls::TlsConnector::from(Arc::new(config)))
 }
 
-/// MDM's own TLS client configuration (FTPS, DNS over TLS and HTTPS): the system's verifier, as
+/// NetGuard's own TLS client configuration (FTPS, DNS over TLS and HTTPS): the system's verifier, as
 /// reqwest uses for HTTPS, with `extra` certificates also trusted (the tests' own CA). On a
 /// system without certificates, one that refuses every server, saying why (#264): the DNS
 /// setting that holds it may still use plain DNS, and FTP stays plain FTP.

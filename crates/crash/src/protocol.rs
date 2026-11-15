@@ -64,7 +64,7 @@ pub struct Freeze {
     pub main: bool,
     pub seconds: u64,
     /// How much the window thread ran while the frame went on (None: not measured, by an older
-    /// MDM or on macOS). It tells a loop from a wait from a computer too busy to run MDM.
+    /// NetGuard or on macOS). It tells a loop from a wait from a computer too busy to run NetGuard.
     #[serde(default)]
     pub busy: Option<Busy>,
 }
@@ -82,7 +82,7 @@ pub struct Busy {
     pub faults: Option<u64>,
 }
 
-/// What MDM had open and running (counts only: no addresses or file names).
+/// What NetGuard had open and running (counts only: no addresses or file names).
 #[derive(Clone, Debug, Default, Serialize, Deserialize, PartialEq)]
 pub struct AppState {
     pub downloads: usize,

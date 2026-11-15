@@ -72,7 +72,7 @@ mod winui;
 mod xdgicons;
 
 /// The main window's title (dialogs find their owner by it).
-pub const MAIN_TITLE: &str = "NetGuard Download Manager";
+pub const MAIN_TITLE: &str = concat!("NetGuard Download Manager ", env!("CARGO_PKG_VERSION"));
 
 /// The app icon (art/, made with ChatGPT; sizes by tools/icon/build_icon.py), for windows that
 /// show one as IDM's do: the 256 px size, which the system scales down for the title bar, the
@@ -172,7 +172,7 @@ pub enum Start {
     /// In front, as a start by the user does.
     Shown,
     /// Started with the session (the startup entry's [`mdm_ipc::STARTUP`]): hidden, downloads,
-    /// queues and the Scheduler running. It stays in the notification area once MDM's icon is
+    /// queues and the Scheduler running. It stays in the notification area once NetGuard's icon is
     /// there, or shows minimized if none comes (app.rs `at_login`, decided there alone).
     Session,
     /// Started with the session where a window can't be hidden (Wayland): minimized.
@@ -198,7 +198,7 @@ fn can_hide() -> bool {
 }
 
 /// Whether the main window can wait hidden in the notification area (Options' tooltip): a tray
-/// shows MDM's icon (Linux: a tray host is there, #59) and the window can be hidden.
+/// shows NetGuard's icon (Linux: a tray host is there, #59) and the window can be hidden.
 pub fn can_start_in_tray() -> bool {
     can_hide() && tray::available()
 }
@@ -218,7 +218,7 @@ fn main() -> std::process::ExitCode {
         // Downloads go through the debrid accounts of Options → Accounts (#44).
         return mdm_cli::main_with(cli.args, Some(&debrid::CliAccounts));
     }
-    // The Windows uninstaller, when the user chose to remove the data too: MDM's sign-ins leave
+    // The Windows uninstaller, when the user chose to remove the data too: NetGuard's sign-ins leave
     // the system's keychain with it (#44).
     if std::env::args().nth(1).as_deref() == Some("--forget-sign-ins") {
         return secrets::forget_all();
@@ -239,8 +239,8 @@ fn main() -> std::process::ExitCode {
 }
 
 fn app() -> eframe::Result {
-    // MDM's crash monitor (crash.rs started it): the report window when the app crashes or
-    // freezes; it never becomes MDM's instance.
+    // NetGuard's crash monitor (crash.rs started it): the report window when the app crashes or
+    // freezes; it never becomes NetGuard's instance.
     let all: Vec<String> = std::env::args().collect();
     if let Some(m) = mdm_crash::MonitorArgs::parse(&all) {
         return crashui::monitor_main(m);
@@ -284,7 +284,7 @@ fn app() -> eframe::Result {
     win32::mark_running();
     // Started with the session (#226): in the notification area, not in front.
     let start = start_mode(cmd.as_ref().is_some_and(|c| c.startup), can_hide());
-    // This launch is MDM: its fonts are looked up while the rest starts (only the instance pays
+    // This launch is NetGuard: its fonts are looked up while the rest starts (only the instance pays
     // for them, not a launch that hands its command over).
     theme::prepare_fonts();
     // And the file icons' themes (Linux: gsettings), off the window's thread.
@@ -292,7 +292,7 @@ fn app() -> eframe::Result {
     unix::prepare_file_icons();
     // What an earlier update set aside (old programs, a Mac's old app, downloaded files).
     update::tidy();
-    // The command channel opens now, before the window: the browser's host that started MDM
+    // The command channel opens now, before the window: the browser's host that started NetGuard
     // waits for it, and what arrives meanwhile is handled at the first frame. Without it the
     // app still works; it just can't receive commands.
     let (tx, commands) = std::sync::mpsc::channel();
@@ -336,7 +336,7 @@ fn app() -> eframe::Result {
         );
     }
     // Linux: the libraries the window loads when it opens (#265). Without them it can't open
-    // (winit stopped at start): MDM says what's missing, in its language, and how to install it.
+    // (winit stopped at start): NetGuard says what's missing, in its language, and how to install it.
     #[cfg(target_os = "linux")]
     {
         i18n::set_lang(loaded.settings.language.as_deref());

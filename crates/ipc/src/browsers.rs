@@ -31,7 +31,7 @@ pub enum Family {
     Gecko,
 }
 
-/// A browser MDM knows by name.
+/// A browser NetGuard knows by name.
 #[derive(Debug)]
 pub struct Browser {
     /// Its name in the app (the offer window, Options).
@@ -134,7 +134,7 @@ const fn gecko(
     }
 }
 
-/// Every browser MDM names, Chromium's first.
+/// Every browser NetGuard names, Chromium's first.
 pub const BROWSERS: &[Browser] = &[
     // Each channel keeps its own folder (Chromium's chrome_paths_linux.cc and chrome_paths_mac.mm).
     chromium(

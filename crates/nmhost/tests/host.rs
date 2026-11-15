@@ -1,5 +1,5 @@
 //! The native host as the browser runs it: the real program, its standard streams framed as
-//! native messages, its own data folder (MDM_DATA_DIR) with a fake Mister Download Manager
+//! native messages, its own data folder (MDM_DATA_DIR) with a fake NetGuard Download Manager
 //! listening where `ipc.json` says, answering as the test wants.
 
 use std::io::{BufRead, BufReader, Read, Write};

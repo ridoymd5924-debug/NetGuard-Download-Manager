@@ -24,7 +24,7 @@ const SIGN_IN: &str = "accounts.google.com";
 const MESSAGE_MAX: usize = 300;
 
 /// The User-Agent Drive's hosts are asked with: a current browser's, as a browser asks them.
-/// Google's file host answers MDM's default (D-007's Internet Explorer 11 agent) with "500
+/// Google's file host answers NetGuard's default (D-007's Internet Explorer 11 agent) with "500
 /// Internal Server Error" for every file, so the maintainer decided (PR #67): Drive's three hosts
 /// get a current Chrome-style agent; every other site keeps D-007's, and an agent the browser
 /// handed over (the extension's downloads) wins everywhere (`download::request_agent`). Keep the

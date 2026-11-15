@@ -24,7 +24,7 @@ pub enum Route {
     Proxy(String),
 }
 
-/// The routes for `url` under `script`: its answer's entries that MDM can use, in order (the
+/// The routes for `url` under `script`: its answer's entries that NetGuard can use, in order (the
 /// first is taken). Err if the script doesn't run.
 pub fn routes(script: &Arc<str>, url: &Url) -> Result<Vec<Route>, String> {
     use std::hash::{Hash, Hasher};

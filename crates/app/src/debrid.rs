@@ -20,7 +20,7 @@ pub fn services() -> Services {
     Services::default()
 }
 
-/// A client for the services, through MDM's own network settings (proxy, DNS, adapter).
+/// A client for the services, through NetGuard's own network settings (proxy, DNS, adapter).
 pub fn http() -> Result<Arc<Http>, String> {
     Http::new(&crate::settings::own_net(), services()).map(Arc::new)
 }

@@ -225,7 +225,7 @@ impl Extension {
                     o.y + y + 16.0,
                     &format!(
                         "\u{2714} {}",
-                        // i18n: in the browser extension's window, beside a browser whose extension reached MDM
+                        // i18n: in the browser extension's window, beside a browser whose extension reached NetGuard
                         crate::i18n::t("Connected")
                     ),
                     winui::SUCCESS(),
@@ -284,7 +284,7 @@ impl Extension {
             let fix = winui::button(
                 ui,
                 r(o, fix_x, y - 4.0, fix_w, 25.0),
-                // i18n: button in the browser extension's window: register MDM's helper with the browsers
+                // i18n: button in the browser extension's window: register NetGuard's helper with the browsers
                 "Set it up",
                 ButtonKind::Accent,
                 false,
@@ -331,7 +331,7 @@ impl Extension {
             crate::help::open_page(mdm_ipc::extension::GUIDE_DOC);
         }
         // As wide as their labels in this language (#192), Don't ask again only while no
-        // extension has reached MDM.
+        // extension has reached NetGuard.
         let row: Vec<(&str, f32)> = if self.connected {
             vec![("Close", 90.0)]
         } else {
@@ -513,7 +513,7 @@ pub enum Registration {
     Ready,
     /// A browser's folder (or the registry) has no manifest.
     Missing,
-    /// No browser MDM knows was found to register with (Linux and macOS find them by their
+    /// No browser NetGuard knows was found to register with (Linux and macOS find them by their
     /// folders; Windows registers for every browser at once).
     #[cfg_attr(windows, allow(dead_code))]
     NoBrowser,
@@ -535,7 +535,7 @@ pub fn registered() -> bool {
     registration() == Registration::Ready
 }
 
-/// Why the last registration failed, in the system's words (Linux and macOS, where MDM
+/// Why the last registration failed, in the system's words (Linux and macOS, where NetGuard
 /// registers itself at each start).
 fn register_error() -> Option<String> {
     #[cfg(windows)]
@@ -625,14 +625,14 @@ pub fn checks(settings: &crate::settings::Settings) -> Vec<Check> {
     out.push(match &registration {
         Registration::Ready | Registration::Missing => check(
             registration == Registration::Ready,
-            // i18n: a check of Test browser integration: the browsers find MDM's helper program
+            // i18n: a check of Test browser integration: the browsers find NetGuard's helper program
             "The browsers can find NetGuard Download Manager",
             Some("not-installed"),
         ),
         Registration::NoBrowser => check(
             false,
-            // i18n: a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
-            "No browser MDM can connect to was found",
+            // i18n: a check of Test browser integration (Linux, macOS): NetGuard found no browser it can connect to (one installed as a Flatpak isn't found)
+            "No browser NetGuard can connect to was found",
             Some("not-installed"),
         ),
         Registration::HelperMissing(path) => {
@@ -662,7 +662,7 @@ pub fn checks(settings: &crate::settings::Settings) -> Vec<Check> {
     if seen.is_empty() {
         out.push(check(
             false,
-            // i18n: a check of Test browser integration: no browser's extension has reached MDM
+            // i18n: a check of Test browser integration: no browser's extension has reached NetGuard
             "No browser's extension has connected yet",
             None,
         ));

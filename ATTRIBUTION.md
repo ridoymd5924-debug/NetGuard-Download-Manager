@@ -14,12 +14,20 @@
 | adwaita-icon-theme 51.0, 50 of its icons (the Adwaita theme's toolbar, categories, file types and title-bar buttons), unchanged; its one-colour icons are drawn in the theme's text colour when read | The GNOME Project, <https://gitlab.gnome.org/GNOME/adwaita-icon-theme> (commit 70ecd52) | LGPL-3.0 (of LGPL-3.0 or CC BY-SA 3.0 US) — `crates/app/assets/themes/adwaita/icons/LICENSE`, `COPYING` | `crates/app/assets/themes/adwaita/icons/` (its PDF, torrent-file and Hide to the notification area icons are MDM's own) |
 | breeze-icons 6.31, 51 of its icons (the Breeze theme's toolbar, categories, file types and title-bar buttons), unchanged; its one-colour icons are drawn in the theme's text colour when read | Uri Herrera and the KDE Visual Design Group, <https://invent.kde.org/frameworks/breeze-icons> (commit 60ca517) | LGPL-3.0-or-later — `crates/app/assets/themes/breeze/icons/LICENSE` | `crates/app/assets/themes/breeze/icons/` (its PDF and Hide to the notification area icons are MDM's own) |
 
-The app icon (`art/NetGuard Download Manager.png`) was made for NetGuard Download Manager by its
-author, Ahmed Nefzaoui, with ChatGPT (OpenAI's image generation); every icon size is built from
-it by `tools/icon/build_icon.py`.
+## NetGuard Download Manager (fork)
+
+NetGuard Download Manager is a fork of Mister Download Manager 0.5.2, Copyright (C) Ahmed
+Nefzaoui and contributors, licensed under the GNU General Public License v3.0 or later. All
+original copyright notices and the `LICENSE` file are kept unchanged; the changes made in the
+fork are listed in `NETGUARD-FORK.md`, and NetGuard is distributed under the same licence.
+
+The NetGuard logo (`art/NetGuard Download Manager.png`) and every app icon size are original
+artwork for NetGuard, drawn by code in `tools/icon/make_netguard_logo.py` (a shield with a
+download arrow) and built into each size by `tools/icon/build_icon.py`. They contain nothing
+from the Mister Download Manager icon, which is no longer in the project.
 
 The Luna, Aero and Aqua themes' icons (`crates/app/assets/themes/luna/icons/`, `aero/icons/`,
-`aqua/icons/`) were drawn for NetGuard Download Manager, as were the Metro, Adwaita and Breeze
+`aqua/icons/`) were drawn for Mister Download Manager, as were the Metro, Adwaita and Breeze
 icons named MDM's own above; each set's `SOURCES.txt` lists them.
 
 The README's block icons (`docs/images/icons/`: arrow, globe, gift, magnet) were made for it

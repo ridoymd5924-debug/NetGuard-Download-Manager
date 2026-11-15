@@ -1,4 +1,4 @@
-# Mister Download Manager in Chinese (Simplified) (简体中文): tools/i18n/translate.py
+# NetGuard Download Manager in Chinese (Simplified) (简体中文): tools/i18n/translate.py
 # writes the rows marked '#, machine'; a native speaker deletes that line after checking.
 # context	source	translation (craft-i18n format, rows as in en.tsv)
 @id	language.name	简体中文
@@ -11,7 +11,7 @@
 #. never shown for a single download
 #. {n} = a number (keep the braces as they are)
 #, machine
-@plural	Are you sure you want to delete {n} download from Mister Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from Mister Download Manager list of downloads?	是否确定要从 Mister Download Manager 下载列表中删除这 {n} 个下载？
+@plural	Are you sure you want to delete {n} download from NetGuard Download Manager list of downloads?|Are you sure you want to delete these {n} downloads from NetGuard Download Manager list of downloads?	是否确定要从 NetGuard Download Manager 下载列表中删除这 {n} 个下载？
 #. count in the Add torrent window
 #. while a magnet link's file list is fetched; {n} = peers that answered
 #. {n} = a number (keep the braces as they are)
@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives MDM a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	网盘服务使用您自己的付费帐户下载文件主机的链接，并为 MDM 提供直接链接。请仅使用您自己的帐户：共享帐户或其链接违反服务条款，并可能导致帐户被暂停。浏览器已开始的下载将保持不变。
+	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	网盘服务使用您自己的付费帐户下载文件主机的链接，并为 NetGuard 提供直接链接。请仅使用您自己的帐户：共享帐户或其链接违反服务条款，并可能导致帐户被暂停。浏览器已开始的下载将保持不变。
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -217,7 +217,7 @@
 #, machine
 	a server on this computer sent the download elsewhere, which would not go through {adapter}	此计算机上的服务器将下载发送到其他位置，无法通过 {adapter} 传输
 #. text in the Add torrent window
-#. Add trackers: MDM never contacts a tracker on this computer or the local network
+#. Add trackers: NetGuard never contacts a tracker on this computer or the local network
 #, machine
 	A tracker on this computer or the local network is never contacted: {line}	不会联系此计算机或本地网络上的跟踪器: {line}
 #. text in extracting archives (a download's log, the Archive password window)
@@ -226,7 +226,7 @@
 	a volume of it is missing	缺少其中一个卷
 #. window title in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	About Mister Download Manager	关于 Mister Download Manager
+	About NetGuard Download Manager	关于 NetGuard Download Manager
 #. text in whereis.rs
 #. a download's server's round trip: {ms} a number of milliseconds, {reach} near, medium or far
 #, machine
@@ -280,7 +280,7 @@
 #. window title in extension.rs
 #. title of the window that offers the browser extension
 #, machine
-	Add Mister Download Manager to your browser	将 Mister Download Manager 添加到您的浏览器
+	Add NetGuard Download Manager to your browser	将 NetGuard Download Manager 添加到您的浏览器
 #. message or event log entry in the main window; text in the tray icon's menu
 #. link in the empty download list: opens Add URL
 #, machine
@@ -342,9 +342,9 @@
 #, machine
 	Added.	已添加。
 #. text in remote.rs
-#. remote control page (on a phone): a magnet link or .torrent file was added; MDM reads the torrent's files first
+#. remote control page (on a phone): a magnet link or .torrent file was added; NetGuard reads the torrent's files first
 #, machine
-	Added. MDM is reading the torrent: it joins the list in a moment.	已添加。MDM 正在读取种子：它稍后将加入列表。
+	Added. NetGuard is reading the torrent: it joins the list in a moment.	已添加。NetGuard 正在读取种子：它稍后将加入列表。
 #. text in the Batch download window; text in a dialog box; label in the Options window; text in a download's progress window
 #. noun: the web address (URL)
 #. column title: the web address (URL)
@@ -428,7 +428,7 @@
 #, machine
 	Already reported as issue #{number}: {title}	已报告为问题 #{number}：{title}
 #. checkbox in crashui.rs
-#. crash report window: checkbox; the .dmp file holds what MDM had in memory
+#. crash report window: checkbox; the .dmp file holds what NetGuard had in memory
 #, machine
 	Also attach the crash data (.dmp): it may hold addresses, cookies and passwords	同时附加崩溃数据(.dmp)：它可能包含地址、Cookie 和密码
 #. text in a dialog box
@@ -447,7 +447,7 @@
 	Always into a folder named after it	始终解压到以其命名的文件夹中
 #. checkbox in a dialog box
 #, machine
-	Always turn on Speed Limiter on Mister Download Manager startup	在 Mister Download Manager 启动时始终开启限速器
+	Always turn on Speed Limiter on NetGuard Download Manager startup	在 NetGuard Download Manager 启动时始终开启限速器
 #. text in regional.rs; text in the Scheduler window
 #. before noon, after a time of day (12-hour clock). Its pair is "PM": write both the same way (this language's own short marks, or both kept as AM and PM)
 #, machine
@@ -513,7 +513,7 @@
 #. text in a dialog box
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	Are you sure you want to delete "{name}" from Mister Download Manager list of downloads?	是否确定要从 Mister Download Manager 下载列表中删除“{name}”？
+	Are you sure you want to delete "{name}" from NetGuard Download Manager list of downloads?	是否确定要从 NetGuard Download Manager 下载列表中删除“{name}”？
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -652,7 +652,7 @@
 	Bosnia and Herzegovina	波斯尼亚和黑塞哥维那
 #. text in helpers.rs
 #, machine
-	Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	两者都是开源的。MDM 通过自己的下载器从其官方版本获取它们，并在运行前检查每个文件的签名。大约 100 MB，一次性。
+	Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.	两者都是开源的。NetGuard 通过自己的下载器从其官方版本获取它们，并在运行前检查每个文件的签名。大约 100 MB，一次性。
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -682,7 +682,7 @@
 	Browse...	浏览...
 #. text in extension.rs
 #, machine
-	Browser integration isn't set up on this computer, so no browser can reach Mister Download Manager yet.	此计算机上未设置浏览器集成，因此尚无浏览器可以访问 Mister Download Manager。
+	Browser integration isn't set up on this computer, so no browser can reach NetGuard Download Manager yet.	此计算机上未设置浏览器集成，因此尚无浏览器可以访问 NetGuard Download Manager。
 #. page title in the Options window
 #, machine
 	Browser/System Integration	浏览器/系统集成
@@ -814,16 +814,16 @@
 #, machine
 	Check for updates	检查更新
 #. checkbox in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#. check box in the update window: look for a new version every time MDM starts
+#. check box in the update window: look for a new version every time NetGuard starts
 #, machine
 	Check for updates at every start	每次启动时检查更新
 #. text in helpers.rs
 #, machine
 	Check your connection, then try again, or get them later from the video window.	检查您的连接，然后重试，或者稍后从视频窗口获取。
 #. text in the Options window
-#. tooltip of the close-setting: checked keeps MDM running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
+#. tooltip of the close-setting: checked keeps NetGuard running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
 #, machine
-	Checked, closing the window keeps MDM running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits MDM	选中此项后，关闭窗口将使 MDM 继续运行：在可用时隐藏到通知区域，否则最小化到任务栏，并且下载会继续；未选中此项时，关闭窗口将退出 MDM。
+	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	选中此项后，关闭窗口将使 NetGuard 继续运行：在可用时隐藏到通知区域，否则最小化到任务栏，并且下载会继续；未选中此项时，关闭窗口将退出 NetGuard。
 #. message or event log entry in the main window
 #. event log entry after Recheck: {have} and {total} are sizes ("1.2 GB of 4 GB there")
 #, machine
@@ -882,7 +882,7 @@
 	Choose a language	选择语言
 #. text in langpick.rs
 #, machine
-	Choose the language Mister Download Manager shows its windows in:	选择 Mister Download Manager 显示窗口的语言：
+	Choose the language NetGuard Download Manager shows its windows in:	选择 NetGuard Download Manager 显示窗口的语言：
 #. text in the Options window
 #. Options → Sites Logins → Cookies for video sites: the title of the window, and the tooltip of the button, that pick a browser profile's folder
 #, machine
@@ -962,7 +962,7 @@
 #, machine
 	Congo	刚果
 #. text in extension.rs
-#. in the browser extension's window, beside a browser whose extension reached MDM
+#. in the browser extension's window, beside a browser whose extension reached NetGuard
 #, machine
 	Connected	已连接
 #. text in extension.rs
@@ -1038,13 +1038,13 @@
 	Customize "Download progress" dialog	自定义“下载进度”对话框
 #. text in the Options window
 #, machine
-	Customize keys to prevent or force downloading with MDM	自定义按键以阻止或强制使用 MDM 下载
+	Customize keys to prevent or force downloading with NetGuard	自定义按键以阻止或强制使用 NetGuard 下载
 #. text in the Options window
 #, machine
-	Customize MDM Download panels in browsers	自定义浏览器中的 MDM 下载面板
+	Customize NetGuard Download panels in browsers	自定义浏览器中的 NetGuard 下载面板
 #. text in the Options window
 #, machine
-	Customize MDM menu items in context menu of browsers	自定义浏览器上下文菜单中的 MDM 菜单项
+	Customize NetGuard menu items in context menu of browsers	自定义浏览器上下文菜单中的 NetGuard 菜单项
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -1417,9 +1417,9 @@
 #, machine
 	Empty: all of them. On most sites the newest come first.	留空：全部。在大多数网站上，最新的文件排在最前面。
 #. text in crashui.rs
-#. crash report window button: end the frozen MDM and start it again
+#. crash report window button: end the frozen NetGuard and start it again
 #, machine
-	End and restart MDM	结束并重启 MDM
+	End and restart NetGuard	结束并重启 NetGuard
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	输入磁力链接或选择 .torrent 文件
@@ -1502,7 +1502,7 @@
 	Exit	退出
 #. checkbox in a download's progress window; checkbox in the Scheduler window
 #, machine
-	Exit Mister Download Manager when done	完成后退出 Mister Download Manager
+	Exit NetGuard Download Manager when done	完成后退出 NetGuard Download Manager
 #. text in the Checksum window
 #, machine
 	Expected checksum (MD5, SHA-1, SHA-256, SHA-512 or CRC32):	预期校验和 (MD5、SHA-1、SHA-256、SHA-512 或 CRC32):
@@ -1688,7 +1688,7 @@
 #, machine
 	For example:  {address}	例如: {address}
 #. text in the Add torrent window
-#. Torrent settings, under the switch that makes MDM open magnet links and .torrent files (macOS, Linux)
+#. Torrent settings, under the switch that makes NetGuard open magnet links and .torrent files (macOS, Linux)
 #, machine
 	For your account only. Another app set as the default stays first.	仅限您的帐户。其他应用设置为默认应用时，仍会优先。
 #. text in the Add torrent window
@@ -1698,7 +1698,7 @@
 #, machine
 	Force processes to terminate	强制终止进程
 #. text in remote.rs
-#. remote control page (on a phone): menu command: unpair this phone or computer from MDM
+#. remote control page (on a phone): menu command: unpair this phone or computer from NetGuard
 #, machine
 	Forget this device	忘记此设备
 #. text in remote.rs
@@ -1909,11 +1909,11 @@
 #, machine
 	Help	帮助
 #. window title in helpers.rs
-#. window title: where MDM takes its helper programs (yt-dlp, ffmpeg, gallery-dl) from
+#. window title: where NetGuard takes its helper programs (yt-dlp, ffmpeg, gallery-dl) from
 #, machine
 	Helpers	帮助程序
 #. button in gallerydlg.rs; button in the Download video window
-#. button in Download video: where MDM takes yt-dlp and ffmpeg from
+#. button in Download video: where NetGuard takes yt-dlp and ffmpeg from
 #. the trailing ... means it opens a window: keep it
 #, machine
 	Helpers...	帮助程序...
@@ -1938,7 +1938,7 @@
 	Hide web pages	隐藏网页
 #. text in the Options window
 #, machine
-	Hold Alt while clicking a link to let the browser download it instead of Mister Download Manager.	按住 Alt 键并单击链接，让浏览器下载而不是 Mister Download Manager。
+	Hold Alt while clicking a link to let the browser download it instead of NetGuard Download Manager.	按住 Alt 键并单击链接，让浏览器下载而不是 NetGuard Download Manager。
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Home page	主页
@@ -1974,7 +1974,7 @@
 	Hungary	匈牙利
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	I download with Mister Download Manager: fast, free, and it looks like the download manager you already know. {link}	我使用 Mister Download Manager 下载：速度快、免费，而且它看起来就像您已经熟悉的下载管理器。{link}
+	I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}	我使用 NetGuard Download Manager 下载：速度快、免费，而且它看起来就像您已经熟悉的下载管理器。{link}
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2002,7 +2002,7 @@
 #, machine
 	In the categories: the selected category's menu	类别中：所选类别的菜单
 #. text in the Options window
-#. Options → Accounts: the account's sign-in is in the system's keyring (Linux), which is locked now; MDM never unlocks it
+#. Options → Accounts: the account's sign-in is in the system's keyring (Linux), which is locked now; NetGuard never unlocks it
 #, machine
 	in the locked keyring	在锁定的密钥环中
 #. text in standard windows
@@ -2042,7 +2042,7 @@
 #, machine
 	Install it by hand	手动安装
 #. text in unix.rs
-#. Linux, after a missing library's name, on a distribution MDM doesn't know
+#. Linux, after a missing library's name, on a distribution NetGuard doesn't know
 #, machine
 	Install what's missing from your distribution's packages.	从您的发行版软件包中安装缺失的库。
 #. text in the Download video window
@@ -2101,7 +2101,7 @@
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
-	it is not an archive MDM extracts	它不是 MDM 提取的存档
+	it is not an archive NetGuard extracts	它不是 NetGuard 提取的存档
 #. text in extracting archives (a download's log, the Archive password window)
 #. why an archive wasn't extracted (after "Couldn't extract {name}: ")
 #, machine
@@ -2122,7 +2122,7 @@
 #. text in the Batch download window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to MDM download queue. Use the asterisk wildcard for the file name pattern.	可以将一组连续的文件名（如 img001.jpg、img002.jpg 等，\nimg100.jpg）添加到 MDM 下载队列。对文件名模式使用星号通配符。
+	It's possible to add a group of sequential file names like img001.jpg, img002.jpg, etc.,\nimg100.jpg to NetGuard download queue. Use the asterisk wildcard for the file name pattern.	可以将一组连续的文件名（如 img001.jpg、img002.jpg 等，\nimg100.jpg）添加到 NetGuard 下载队列。对文件名模式使用星号通配符。
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2170,7 +2170,7 @@
 #, machine
 	KBytes/sec	千字节/秒
 #. text in the Options window
-#. checkbox: closing keeps MDM running, in the notification area when available or else the taskbar, instead of quitting
+#. checkbox: closing keeps NetGuard running, in the notification area when available or else the taskbar, instead of quitting
 #, machine
 	Keep running when closing the window	关闭窗口时保持运行
 #. checkbox in the Add torrent window
@@ -2188,7 +2188,7 @@
 #, machine
 	Keyboard shortcuts	键盘快捷方式
 #. window title in the Options window
-#. window title: the keys that force or prevent downloading with MDM
+#. window title: the keys that force or prevent downloading with NetGuard
 #, machine
 	Keys	按键
 #. button in the Options window
@@ -2224,14 +2224,14 @@
 #, machine
 	Laos	老挝
 #. message or event log entry in the main window
-#. RSS: a feed bigger than MDM reads (5 MB)
+#. RSS: a feed bigger than NetGuard reads (5 MB)
 #, machine
 	larger than a feed can be	大于源的最大大小
 #. text in the Batch download window
 #, machine
 	Last file:	最后一个文件:
 #. text in the Options window
-#. column title: when the device last reached MDM
+#. column title: when the device last reached NetGuard
 #, machine
 	Last seen	上次查看时间
 #. text in a download's Properties window
@@ -2249,7 +2249,7 @@
 	Latvia	拉脱维亚
 #. text in the Options window
 #, machine
-	Launch Mister Download Manager on startup	启动时运行 Mister Download Manager
+	Launch NetGuard Download Manager on startup	启动时运行 NetGuard Download Manager
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -2261,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control MDM	允许本地网络上的手机和电脑控制 MDM
+	Let phones and computers on the local network control NetGuard	允许本地网络上的手机和电脑控制 NetGuard
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2310,7 +2310,7 @@
 #, machine
 	List the rest	列出其余部分
 #. text in the Options window
-#. Options → Remote: label before the choice of the address MDM listens on
+#. Options → Remote: label before the choice of the address NetGuard listens on
 #, machine
 	Listen on:	侦听:
 #. text in playlistdlg.rs
@@ -2479,32 +2479,32 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
 #, machine
-	MDM can't be reached on the network now: Options → Remote says why.	MDM 现在无法在网络上访问：选项 → 远程中说明了原因。
+	NetGuard can't be reached on the network now: Options → Remote says why.	NetGuard 现在无法在网络上访问：选项 → 远程中说明了原因。
 #. text in remote.rs
-#. remote control page (on a phone): the address typed isn't one MDM downloads (not http, https, ftp or magnet)
+#. remote control page (on a phone): the address typed isn't one NetGuard downloads (not http, https, ftp or magnet)
 #, machine
-	MDM cannot download this address.	MDM 无法下载此地址。
+	NetGuard cannot download this address.	NetGuard 无法下载此地址。
 #. text in remote.rs
 #. remote control page (on a phone): adding a download failed
 #, machine
-	MDM could not add it.	MDM 无法添加。
+	NetGuard could not add it.	NetGuard 无法添加。
 #. text in remote.rs
 #. remote control page (on a phone): an action failed
 #, machine
-	MDM could not do it.	MDM 无法执行此操作。
+	NetGuard could not do it.	NetGuard 无法执行此操作。
 #. text in remote.rs
-#. remote control page (on a phone): MDM can't be reached while pairing
+#. remote control page (on a phone): NetGuard can't be reached while pairing
 #, machine
-	MDM does not answer. Check that it is running and on the same network.	MDM 没有响应。请检查它是否正在运行且在同一网络上。
+	NetGuard does not answer. Check that it is running and on the same network.	NetGuard 没有响应。请检查它是否正在运行且在同一网络上。
 #. text in remote.rs
-#. remote control page (on a phone): MDM can't be reached now; the page keeps trying by itself
+#. remote control page (on a phone): NetGuard can't be reached now; the page keeps trying by itself
 #. the trailing ... means it is still going on: keep it
 #, machine
-	MDM does not answer. Trying again...	MDM 没有响应。正在重试...
+	NetGuard does not answer. Trying again...	NetGuard 没有响应。正在重试...
 #. text in remote.rs
-#. remote control page (on a phone): no pairing code is shown in MDM; "Pair a device" is MDM's button
+#. remote control page (on a phone): no pairing code is shown in NetGuard; "Pair a device" is NetGuard's button
 #, machine
-	MDM shows no code now. Click Pair a device there first.	MDM 现在没有显示代码。请先点击“配对设备”。
+	NetGuard shows no code now. Click Pair a device there first.	NetGuard 现在没有显示代码。请先点击“配对设备”。
 #. text in whereis.rs
 #. how far a download's server is, by its round trip (60 to 150 ms)
 #, machine
@@ -2522,7 +2522,7 @@
 #, machine
 	Minimize	最小化
 #. text in the Options window
-#. checkbox: the Minimize button hides MDM's windows to the notification area (system tray) instead of the taskbar
+#. checkbox: the Minimize button hides NetGuard's windows to the notification area (system tray) instead of the taskbar
 #, machine
 	Minimize to the notification area	最小化到通知区域
 #. text in rssdlg.rs; text in the Add torrent window
@@ -2536,54 +2536,54 @@
 	Missing	缺失
 #. message or event log entry in the main window; window title in a dialog box; text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Mister Download Manager	Mister Download Manager
+	NetGuard Download Manager	NetGuard Download Manager
 #. text in unix.rs
 #. Linux, at start, on the terminal and in a message box: a library the window needs isn't installed; {libraries} = its file names (libxkbcommon-x11.so.0…), left as they are
 #, machine
-	Mister Download Manager can't open its window: this system lacks {libraries}.	Mister Download Manager 无法打开其窗口：此系统缺少 {libraries}。
+	NetGuard Download Manager can't open its window: this system lacks {libraries}.	NetGuard Download Manager 无法打开其窗口：此系统缺少 {libraries}。
 #. text in crashui.rs
-#. crash report window heading: MDM crashed and is gone
+#. crash report window heading: NetGuard crashed and is gone
 #, machine
-	Mister Download Manager closed unexpectedly	Mister Download Manager 意外关闭
+	NetGuard Download Manager closed unexpectedly	NetGuard Download Manager 意外关闭
 #. window title in the Options window
 #, machine
-	Mister Download Manager Configuration	Mister Download Manager 配置
+	NetGuard Download Manager Configuration	NetGuard Download Manager 配置
 #. text in crashui.rs
 #, machine
-	Mister Download Manager crash report	Mister Download Manager 崩溃报告
+	NetGuard Download Manager crash report	NetGuard Download Manager 崩溃报告
 #. text in crashui.rs
-#. crash report window heading: an internal error, MDM still running
+#. crash report window heading: an internal error, NetGuard still running
 #, machine
-	Mister Download Manager hit an internal error	Mister Download Manager 遇到内部错误
+	NetGuard Download Manager hit an internal error	NetGuard Download Manager 遇到内部错误
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
 #. {queue} = a queue name such as "Main queue" (keep the braces as they are)
 #, machine
-	Mister Download Manager is running the queue "{queue}"	Mister Download Manager 正在运行队列“{queue}”
+	NetGuard Download Manager is running the queue "{queue}"	NetGuard Download Manager 正在运行队列“{queue}”
 #. text in crashui.rs
-#. crash report window heading: MDM's window doesn't answer (frozen)
+#. crash report window heading: NetGuard's window doesn't answer (frozen)
 #, machine
-	Mister Download Manager stopped responding	Mister Download Manager 已停止响应
+	NetGuard Download Manager stopped responding	NetGuard Download Manager 已停止响应
 #. text in crashui.rs
 #, machine
-	Mister Download Manager stopped responding for a while	Mister Download Manager 已停止响应一段时间
+	NetGuard Download Manager stopped responding for a while	NetGuard Download Manager 已停止响应一段时间
 #. text in the Options window
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	Mister Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	Mister Download Manager 将每个连接直接写入最终文件\n（旁边是一个稀疏部分文件），因此不需要临时目录和\n组装步骤。
+	NetGuard Download Manager writes every connection straight into the final\nfile (a sparse part file next to it), so no temporary directory and no\nassembling step are needed.	NetGuard Download Manager 将每个连接直接写入最终文件\n（旁边是一个稀疏部分文件），因此不需要临时目录和\n组装步骤。
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager {version} is available (released {date}).	Mister Download Manager {version} 已可用（发布于 {date}）。
+	NetGuard Download Manager {version} is available (released {date}).	NetGuard Download Manager {version} 已可用（发布于 {date}）。
 #. text in helpers.rs
-#. Video helpers: {version} = the version of MDM's own copy
+#. Video helpers: {version} = the version of NetGuard's own copy
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Mister Download Manager's own copy, version {version}	Mister Download Manager 自带副本，版本 {version}
+	NetGuard Download Manager's own copy, version {version}	NetGuard Download Manager 自带副本，版本 {version}
 #. text in unix.rs
 #. Linux, at start, on the terminal: the libraries an X11 window needs aren't installed, so the window opens through Wayland instead, where menus can't be placed under what was clicked; {libraries} = their file names, left as they are
 #, machine
-	Mister Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	Mister Download Manager 的 X11 窗口需要 {libraries}，但此系统缺少这些库：它将在 Wayland 上打开，菜单可能会出现在对应标题之外的位置。
+	NetGuard Download Manager's X11 window needs {libraries}, which this system lacks: it opens on Wayland instead, where its menus may open away from their titles.	NetGuard Download Manager 的 X11 窗口需要 {libraries}，但此系统缺少这些库：它将在 Wayland 上打开，菜单可能会出现在对应标题之外的位置。
 #. text in the Scheduler window
 #. Monday, as short as a calendar's column head (two letters in English)
 #, machine
@@ -2788,11 +2788,11 @@
 #, machine
 	No addresses yet	尚无地址
 #. text in extension.rs
-#. a check of Test browser integration (Linux, macOS): MDM found no browser it can connect to (one installed as a Flatpak isn't found)
+#. a check of Test browser integration (Linux, macOS): NetGuard found no browser it can connect to (one installed as a Flatpak isn't found)
 #, machine
-	No browser MDM can connect to was found	未找到 MDM 可连接的浏览器
+	No browser NetGuard can connect to was found	未找到 NetGuard 可连接的浏览器
 #. text in extension.rs
-#. a check of Test browser integration: no browser's extension has reached MDM
+#. a check of Test browser integration: no browser's extension has reached NetGuard
 #, machine
 	No browser's extension has connected yet	尚无浏览器扩展连接
 #. text in torrent downloads
@@ -2858,9 +2858,9 @@
 #, machine
 	No proxy/socks	无代理/SOCKS
 #. text in the Options window
-#. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in MDM's settings folder, which only the user's account may read
+#. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in MDM's settings, which only you can read.	没有系统密钥环响应，因此登录信息和密码保存在 MDM 的设置中，只有您可以读取。
+	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	没有系统密钥环响应，因此登录信息和密码保存在 NetGuard 的设置中，只有您可以读取。
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -2991,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach MDM.	关闭：网络上的任何内容都无法访问 MDM。
+	Off: nothing on the network can reach NetGuard.	关闭：网络上的任何内容都无法访问 NetGuard。
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	提供下载复制到剪贴板的链接
@@ -3018,7 +3018,7 @@
 #, machine
 	On macOS, only an administrator can schedule a wake	在 macOS 上，只有管理员才能安排唤醒
 #. text in remote.rs
-#. remote control page (on a phone): how to pair; "Options", "Remote" and "Pair a device" are MDM's dialog, tab and button
+#. remote control page (on a phone): how to pair; "Options", "Remote" and "Pair a device" are NetGuard's dialog, tab and button
 #, machine
 	On the computer, open Options, then Remote, and click Pair a device. Enter the code it shows.	在电脑上，打开“选项”，然后选择“远程”，再点击“配对设备”。输入它显示的代码。
 #. text in the Options window
@@ -3067,9 +3067,9 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about MDM's own certificate: its fingerprint is the one above.	只有配对的设备才能查看或更改任何内容。首次使用时，手机浏览器会警告 MDM 自己的证书：其指纹就是上面显示的指纹。
+	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	只有配对的设备才能查看或更改任何内容。首次使用时，手机浏览器会警告 NetGuard 自己的证书：其指纹就是上面显示的指纹。
 #. text in playlistdlg.rs
-#. in Download video, a list longer than MDM lists: only its first {n} videos are shown
+#. in Download video, a list longer than NetGuard lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
 #, machine
 	Only the first {n} videos are listed.	仅列出前 {n} 个视频。
@@ -3089,10 +3089,10 @@
 	Open folder	打开文件夹
 #. checkbox in the Add torrent window
 #, machine
-	Open magnet links and .torrent files with Mister Download Manager	使用 Mister Download Manager 打开磁力链接和 .torrent 文件
+	Open magnet links and .torrent files with NetGuard Download Manager	使用 NetGuard Download Manager 打开磁力链接和 .torrent 文件
 #. text in the tray icon's menu
 #, machine
-	Open Mister Download Manager	打开 Mister Download Manager
+	Open NetGuard Download Manager	打开 NetGuard Download Manager
 #. text in extension.rs
 #. step 2 of turning on the Safari extension; Cmd is the Command key
 #, machine
@@ -3148,7 +3148,7 @@
 #, machine
 	Page address	页面地址
 #. text in remote.rs
-#. remote control page (on a phone): button: pair this phone with MDM
+#. remote control page (on a phone): button: pair this phone with NetGuard
 #, machine
 	Pair	配对
 #. window title in the Options window
@@ -3163,7 +3163,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): title of the pairing screen
 #, machine
-	Pair with Mister Download Manager	与 Mister Download Manager 配对
+	Pair with NetGuard Download Manager	与 NetGuard Download Manager 配对
 #. text in the Options window
 #. column title: when the device was paired
 #, machine
@@ -3446,11 +3446,11 @@
 #, machine
 	Remember this path for "{category}" category	记住“{category}”类别的此路径
 #. text in the Options window
-#. tab title: control MDM from a phone or another computer on the local network
+#. tab title: control NetGuard from a phone or another computer on the local network
 #, machine
 	Remote	远程
 #. text in the Options window
-#. Options page title: control MDM from a phone or another computer on the local network
+#. Options page title: control NetGuard from a phone or another computer on the local network
 #, machine
 	Remote control	远程控制
 #. button in the Options window; text in remote.rs; button in rssdlg.rs
@@ -3476,9 +3476,9 @@
 #, machine
 	Replace asterisk to	将星号替换为
 #. text in crashui.rs
-#. crash report window button: start MDM again
+#. crash report window button: start NetGuard again
 #, machine
-	Restart MDM	重启 MDM
+	Restart NetGuard	重启 NetGuard
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	恢复内置类别
@@ -3649,7 +3649,7 @@
 	Select or unselect the download with the dotted outline	选择或取消选择带虚线轮廓的下载
 #. group box title in the Options window
 #, machine
-	Select sounds for Mister Download Manager events	选择 Mister Download Manager 事件的声音
+	Select sounds for NetGuard Download Manager events	选择 NetGuard Download Manager 事件的声音
 #. what a keyboard shortcut does in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	Select the downloads in the box	选择框中的下载
@@ -3672,7 +3672,7 @@
 #, machine
 	Send this to a friend:	发送给朋友:
 #. text in the Options window
-#. Options → Accounts: checkbox: magnet links and .torrent files go to the first account's service, which downloads them; MDM then downloads the files from it (no connections to peers)
+#. Options → Accounts: checkbox: magnet links and .torrent files go to the first account's service, which downloads them; NetGuard then downloads the files from it (no connections to peers)
 #, machine
 	Send torrents and magnet links to the first account instead of to peers	将种子和磁力链接发送到第一个帐户，而不是发送到对等方
 #. text in countries.rs
@@ -3717,8 +3717,8 @@
 #, machine
 	Set file creation date as provided by the server	将文件创建日期设置为服务器提供日期
 #. button in extension.rs; button in the Options window
-#. button in the browser extension's window: register MDM's helper with the browsers
-#. button in Test browser integration: register MDM's helper with the browsers
+#. button in the browser extension's window: register NetGuard's helper with the browsers
+#. button in Test browser integration: register NetGuard's helper with the browsers
 #, machine
 	Set it up	设置
 #. message or event log entry in the main window
@@ -3865,7 +3865,7 @@
 	Sites Logins	站点登录
 #. text in helpers.rs
 #, machine
-	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.	网站以单独的视频和音频形式发送其最佳质量，ffmpeg 将它们合并。在此系统上，MDM 使用您的：请使用您的包管理器安装 ffmpeg。
+	Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.	网站以单独的视频和音频形式发送其最佳质量，ffmpeg 将它们合并。在此系统上，NetGuard 使用您的：请使用您的包管理器安装 ffmpeg。
 #. text in helpers.rs
 #, machine
 	Sites send their best quality as separate video and audio. ffmpeg puts them together into one file that plays anywhere.	网站以单独的视频和音频形式发送其最佳质量。ffmpeg 将它们合并成一个可在任何地方播放的文件。
@@ -3975,7 +3975,7 @@
 	Start download at	在以下时间开始下载
 #. checkbox in the Scheduler window
 #, machine
-	Start download on Mister Download Manager startup	在 Mister Download Manager 启动时开始下载
+	Start download on NetGuard Download Manager startup	在 NetGuard Download Manager 启动时开始下载
 #. checkbox in the Options window
 #, machine
 	Start downloading immediately while displaying "Download File Info" dialog	显示“下载文件信息”对话框时立即开始下载
@@ -4006,11 +4006,11 @@
 #, machine
 	Started with gallery-dl {version}	已使用 gallery-dl {version} 启动
 #. text in the Options window
-#. the same tooltip where no notification area (system tray) shows MDM's icon (some Linux desktops): its window starts minimized instead
+#. the same tooltip where no notification area (system tray) shows NetGuard's icon (some Linux desktops): its window starts minimized instead
 #, machine
 	Started with the computer, it starts minimized: no notification area shows its icon here	随计算机启动，它会最小化启动：此处无通知区域显示其图标
 #. text in the Options window
-#. tooltip of "Launch Mister Download Manager on startup": started with the computer, MDM's window stays hidden, its icon in the notification area (system tray)
+#. tooltip of "Launch NetGuard Download Manager on startup": started with the computer, NetGuard's window stays hidden, its icon in the notification area (system tray)
 #, machine
 	Started with the computer, it waits in the notification area	随计算机启动，它在通知区域中等待
 #. message or event log entry in the main window
@@ -4114,7 +4114,7 @@
 	Sunday	星期日
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Support MDM on GitHub Sponsors	在 GitHub Sponsors 上支持 MDM
+	Support NetGuard on GitHub Sponsors	在 GitHub Sponsors 上支持 NetGuard
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -4225,13 +4225,13 @@
 #, machine
 	The best qualities, MP3, Opus and FLAC need ffmpeg: install it with your system's package manager (or Homebrew).	最佳音质（MP3、Opus 和 FLAC）需要 ffmpeg：请使用系统的包管理器（或 Homebrew）安装。
 #. text in the settings
-#. an error: the browser's VPN or proxy extension logs in to its proxy itself, and MDM can't; Options → Proxy / Socks → Network adapter is where an adapter can be chosen
+#. an error: the browser's VPN or proxy extension logs in to its proxy itself, and NetGuard can't; Options → Proxy / Socks → Network adapter is where an adapter can be chosen
 #, machine
 	the browser's proxy (a VPN or proxy extension) asks for a login only that extension has: use the VPN's own app, or choose its network adapter in Options → Proxy / Socks	浏览器代理（VPN 或代理扩展）要求登录，但只有该扩展拥有登录信息：使用 VPN 自带的应用，或在“选项”→“代理/SOCKS”中选择相应的网络适配器
 #. text in extension.rs
-#. a check of Test browser integration: the browsers find MDM's helper program
+#. a check of Test browser integration: the browsers find NetGuard's helper program
 #, machine
-	The browsers can find Mister Download Manager	浏览器可以找到 Mister Download Manager
+	The browsers can find NetGuard Download Manager	浏览器可以找到 NetGuard Download Manager
 #. text in the Options window
 #. Options → Remote → Status: the settings were changed; they apply on OK
 #, machine
@@ -4255,7 +4255,7 @@
 #. text in the Scheduler window
 #. tooltip on the Scheduler's "Wake the computer to run this queue"
 #, machine
-	The computer is woken a minute before the start time and kept awake while the queue runs. Mister Download Manager has to be running (it can wait in the notification area).	电脑会在开始时间前一分钟被唤醒，并在队列运行时保持唤醒状态。Mister Download Manager 必须正在运行（它可以在通知区域等待）。
+	The computer is woken a minute before the start time and kept awake while the queue runs. NetGuard Download Manager has to be running (it can wait in the notification area).	电脑会在开始时间前一分钟被唤醒，并在队列运行时保持唤醒状态。NetGuard Download Manager 必须正在运行（它可以在通知区域等待）。
 #. text in the Scheduler window
 #. the Scheduler, under "Wake the computer to run this queue": when it will happen; {date} = e.g. 06/11/2026, {time} = e.g. 22:59:00
 #. {time} = a time of day (keep the braces as they are)
@@ -4300,7 +4300,7 @@
 #. message or event log entry in the main window
 #. {error} = an error message (keep the braces as they are)
 #, machine
-	The download list could not be saved: {error}. Changes are kept while MDM runs.	无法保存下载列表：{error}。MDM运行时将保留更改。
+	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	无法保存下载列表：{error}。MDM运行时将保留更改。
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.	您熟悉的下载管理器，经过重建，速度更快。基于 GNU GPL 第 3 版或更高版本免费开源。视频由 yt-dlp 查找；种子由 librqbit 处理。
@@ -4426,7 +4426,7 @@
 #. text in a dialog box
 #. \\n starts a new line: break lines where they fit the translation
 #, machine
-	The selected download is not complete. Are you sure you want to delete\nit from Mister Download Manager list of downloads?	所选下载未完成。您确定要从 Mister Download Manager 下载列表中删除它吗？
+	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?	所选下载未完成。您确定要从 NetGuard Download Manager 下载列表中删除它吗？
 #. text in errors.rs
 #, machine
 	the server answered {status}	服务器响应 {status}
@@ -4461,9 +4461,9 @@
 #, machine
 	The symbols couldn't be fetched: some lines of the report show addresses instead of names (the developers can still read them).	无法获取符号：报告中的某些行显示的是地址而不是名称（开发者仍然可以读取它们）。
 #. text in the Options window
-#. Options → Accounts (Linux): the system keyring is locked (MDM never unlocks it: that would ask for its password), so the sign-ins stay in MDM's settings folder, which only the user's account may read
+#. Options → Accounts (Linux): the system keyring is locked (NetGuard never unlocks it: that would ask for its password), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and MDM doesn't unlock it, so sign-ins and passwords are kept in MDM's settings, which only you can read.	系统密钥环已锁定，MDM 不会解锁它，因此登录信息和密码保存在 MDM 的设置中，只有您可以读取。
+	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	系统密钥环已锁定，NetGuard 不会解锁它，因此登录信息和密码保存在 NetGuard 的设置中，只有您可以读取。
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4495,7 +4495,7 @@
 #, machine
 	The web page from which this file was obtained:	获取此文件的网页：
 #. message or event log entry in the main window
-#. the kind of file View → Theme → Add a theme file lists: MDM's themes (TOML, JSON), Base16 schemes (YAML) and pywal's colors.json
+#. the kind of file View → Theme → Add a theme file lists: NetGuard's themes (TOML, JSON), Base16 schemes (YAML) and pywal's colors.json
 #, machine
 	Themes and colour schemes	主题和配色方案
 #. text in the Options window
@@ -4554,7 +4554,7 @@
 #, machine
 	This date has passed: the queue will not start	此日期已过：队列将不会启动
 #. text in remote.rs
-#. remote control page (on a phone): label of the box naming this phone (shown in MDM's list of paired devices)
+#. remote control page (on a phone): label of the box naming this phone (shown in NetGuard's list of paired devices)
 #, machine
 	This device's name	此设备的名称
 #. message or event log entry in the main window
@@ -4653,7 +4653,7 @@
 #. message or event log entry in the main window
 #. event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
 #, machine
-	Through {service}: the service downloads the torrent, then MDM its files	通过 {service}：服务下载种子，然后 MDM 下载其文件
+	Through {service}: the service downloads the torrent, then NetGuard its files	通过 {service}：服务下载种子，然后 NetGuard 下载其文件
 #. text in the Scheduler window
 #, machine
 	Thursday	星期四
@@ -4790,7 +4790,7 @@
 #. text in extension.rs
 #. step 8 of turning on the Safari extension
 #, machine
-	Turn on "Mister Download Manager" and allow it on all websites.	打开“Mister Download Manager”，并允许其在所有网站上运行。
+	Turn on "NetGuard Download Manager" and allow it on all websites.	打开“NetGuard Download Manager”，并允许其在所有网站上运行。
 #. text in extension.rs
 #. step 4 of turning on the Safari extension; the quoted switch name is what Safari's settings show in this language: use Apple's own words for it, or keep the English name when unsure
 #, machine
@@ -4846,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow MDM; waiting for you (the code expires in {time}).	在 {page} 输入此代码并允许 MDM；正在等待（代码在 {time} 后过期）。
+	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	在 {page} 输入此代码并允许 NetGuard；正在等待（代码在 {time} 后过期）。
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4941,9 +4941,9 @@
 #, machine
 	Use FTP in PASV mode	在 PASV 模式下使用 FTP
 #. button in helpers.rs
-#. Video helpers: button: go back to the copy MDM downloads and checks itself
+#. Video helpers: button: go back to the copy NetGuard downloads and checks itself
 #, machine
-	Use MDM's own copy	使用 MDM 自带的副本
+	Use NetGuard's own copy	使用 NetGuard 自带的副本
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5137,9 +5137,9 @@
 #, machine
 	Windows allows wake timers only while plugged in	Windows 仅在接通电源时允许唤醒计时器
 #. text in the Options window
-#. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in MDM's settings, encrypted so that only this Windows account can read them
+#. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in NetGuard's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in MDM's settings, encrypted for your Windows account.	Windows 凭据管理器没有响应，因此登录信息和密码保存在 MDM 的设置中，并为您的 Windows 帐户加密。
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows 凭据管理器没有响应，因此登录信息和密码保存在 NetGuard 的设置中，并为您的 Windows 帐户加密。
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine
@@ -5171,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in MDM and try again.	代码错误。请在 MDM 中显示新代码并重试。
+	Wrong code. Show a new code in NetGuard and try again.	代码错误。请在 NetGuard 中显示新代码并重试。
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5203,9 +5203,9 @@
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	You have the latest version of Mister Download Manager ({version}).	您已拥有最新版本的 Mister Download Manager ({version})。
+	You have the latest version of NetGuard Download Manager ({version}).	您已拥有最新版本的 NetGuard Download Manager ({version})。
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-#. Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
+#. Check for updates, under the new version's line, when NetGuard was installed by the Linux system's package manager (pacman, ...), which NetGuard can't update itself
 #. {version} = a version number (keep the braces as they are)
 #, machine
 	You have version {version}, from your system's package manager: update it there.	您安装的版本为 {version}，来自系统的包管理器：请通过包管理器更新。
@@ -5226,10 +5226,10 @@
 #, machine
 	your Google account has no access to this file, or its owner turned off downloading	您的 Google 帐户无权访问此文件，或者文件所有者已禁止下载
 #. text in helpers.rs
-#. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
+#. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest NetGuard can use
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Your own program ({version}) is too old: MDM needs {oldest} or newer	您的程序 ({version}) 版本过旧：MDM 需要 {oldest} 或更高版本
+	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	您的程序 ({version}) 版本过旧：NetGuard 需要 {oldest} 或更高版本
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -5324,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control MDM now.	{device} 已配对。它现在可以控制 MDM。
+	{device} is paired. It can control NetGuard now.	{device} 已配对。它现在可以控制 NetGuard。
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5404,7 +5404,7 @@
 #. in the "7-Zip needed" window: {name} is the archive's file name; 7-Zip is a program's name
 #. {name} = a file name (keep the braces as they are)
 #, machine
-	{name} is a 7z or RAR archive. MDM extracts those with 7-Zip, which isn't installed.	{name} 是 7z 或 RAR 压缩包。MDM 使用 7-Zip 提取这些压缩包，但尚未安装 7-Zip。
+	{name} is a 7z or RAR archive. NetGuard extracts those with 7-Zip, which isn't installed.	{name} 是 7z 或 RAR 压缩包。NetGuard 使用 7-Zip 提取这些压缩包，但尚未安装 7-Zip。
 #. text in extracting archives (a download's log, the Archive password window)
 #. in Archive password: {name} is the archive's file name
 #. {name} = a file name (keep the braces as they are)
@@ -5416,10 +5416,10 @@
 #, machine
 	{name} isn't offered as {how}.	{name} 不提供 {how} 形式。
 #. text in errors.rs
-#. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one MDM can use
+#. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one NetGuard can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
 #, machine
-	{name} {version} is too old: MDM needs {oldest} or newer	{name} {version} 版本过旧：MDM 需要 {oldest} 或更高版本
+	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version} 版本过旧：NetGuard 需要 {oldest} 或更高版本
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
@@ -5435,16 +5435,16 @@
 #, machine
 	{n} of {total} selected	已选择 {total} 个中的 {n} 个
 #. text in the download list (sizes, speeds, status)
-#. a torrent's status while the user's debrid service downloads it, before MDM gets its files; {service} the service ("Real-Debrid"), {percent} how far it is ("45%")
+#. a torrent's status while the user's debrid service downloads it, before NetGuard gets its files; {service} the service ("Real-Debrid"), {percent} how far it is ("45%")
 #, machine
 	{percent} at {service}	{service} 上的进度：{percent}
 #. text in errors.rs
 #, machine
 	{problem} ({cause})	{problem} ({cause})
 #. text in errors.rs
-#. a debrid service's error: too many requests; MDM waits and retries
+#. a debrid service's error: too many requests; NetGuard waits and retries
 #, machine
-	{service} asks to slow down; MDM will try again in a minute	{service} 要求降低请求频率；MDM 将在一分钟后重试
+	{service} asks to slow down; NetGuard will try again in a minute	{service} 要求降低请求频率；NetGuard 将在一分钟后重试
 #. text in errors.rs
 #. a debrid service's error: it wants the user to allow this computer (it sent an email)
 #, machine
@@ -5454,7 +5454,7 @@
 	{service} can't get this torrent: nobody shares it, or its link can't be read	{service} 无法获取此种子：无人共享，或其链接无法读取
 #. text in errors.rs
 #, machine
-	{service} can't reach this file host right now; MDM will try again later	{service} 暂时无法访问此文件主机；MDM 将稍后重试
+	{service} can't reach this file host right now; NetGuard will try again later	{service} 暂时无法访问此文件主机；NetGuard 将稍后重试
 #. text in errors.rs
 #. a debrid service's error: it isn't answering
 #, machine
@@ -5489,7 +5489,7 @@
 	{service}: this needs a premium account	{service}：这需要高级帐户
 #. text in errors.rs
 #, machine
-	{service}: too many downloads at once through your account; MDM will try again	{service}：您的帐户同时下载过多；MDM 将重试
+	{service}: too many downloads at once through your account; NetGuard will try again	{service}：您的帐户同时下载过多；NetGuard 将重试
 #. text in errors.rs
 #. a debrid service's error: the account's limit (traffic) for this host is used up
 #, machine
@@ -5524,7 +5524,7 @@
 #, machine
 	{title}: already in the list	{title}: 已在列表中
 #. message or event log entry in the main window
-#. RSS feeds window, under the rules: not added, because files of its names are already in the folder (MDM never writes into them unasked)
+#. RSS feeds window, under the rules: not added, because files of its names are already in the folder (NetGuard never writes into them unasked)
 #, machine
 	{title}: not added: files of its names are already in {folder}	{title}: 未添加：同名文件已在 {folder} 中
 #. message or event log entry in the main window
@@ -5590,15 +5590,15 @@ column	Time left	剩余时间
 #, machine
 column	Transfer rate	传输速率
 #. text in the browser extension
-#. choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name Mister Download Manager as it is
+#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Another Mister Download Manager (a server)	另一个 Mister Download Manager（服务器）
+extension	Another NetGuard Download Manager (a server)	另一个 NetGuard Download Manager（服务器）
 #. text in the browser extension
-#. the name this browser gets in the other MDM's list of paired devices
+#. the name this browser gets in the other NetGuard's list of paired devices
 #, machine
 extension	Browser extension	浏览器扩展
 #. text in the browser extension
-#. menu command of the download button over a video: opens its settings in Mister Download Manager
+#. menu command of the download button over a video: opens its settings in NetGuard Download Manager
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Button settings...	按钮设置...
@@ -5607,41 +5607,41 @@ extension	Button settings...	按钮设置...
 #, machine
 extension	Can't tell which video this is: open its own page and try there	无法判断这是哪个视频：请打开该视频自己的页面再试
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Connected to Mister Download Manager	已连接到 Mister Download Manager
+extension	Connected to NetGuard Download Manager	已连接到 NetGuard Download Manager
 #. text in the browser extension
-#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name Mister Download Manager as it is
+#. the toolbar button's status when the browser reaches the app, with the app's version number; keep the name NetGuard Download Manager as it is
 #. {version} = a version number (keep the braces as they are)
 #, machine
-extension	Connected to Mister Download Manager {version}	已连接到 Mister Download Manager {version}
+extension	Connected to NetGuard Download Manager {version}	已连接到 NetGuard Download Manager {version}
 #. text in the browser extension
 #. button beside a video, sound or stream in the toolbar button's popup: download it with the app; verb; short
 #, machine
 extension	Download	下载
 #. text in the browser extension
-#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a page: download the links of the whole page; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Download all links with Mister Download Manager	使用 Mister Download Manager 下载所有链接
+extension	Download all links with NetGuard Download Manager	使用 NetGuard Download Manager 下载所有链接
 #. text in the browser extension
-#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on selected text: download the links in the selection; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Download selected links with Mister Download Manager	使用 Mister Download Manager 下载选定链接
+extension	Download selected links with NetGuard Download Manager	使用 NetGuard Download Manager 下载选定链接
 #. text in the browser extension
 #. the button over a video on a web page that downloads it; verb; short (it sits on the video)
 #, machine
 extension	Download video	下载视频
 #. text in the browser extension
-#. command in the browser's right-click menu on a link, picture, video or sound; keep the name Mister Download Manager as it is
+#. command in the browser's right-click menu on a link, picture, video or sound; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Download with Mister Download Manager	使用 Mister Download Manager 下载
+extension	Download with NetGuard Download Manager	使用 NetGuard Download Manager 下载
 #. text in the browser extension
 #. shown in the toolbar button's popup after the site was excluded
 #. {site} = a web site's name such as "example.com" (keep the braces as they are)
 #, machine
 extension	Downloads from {site} stay with the browser	来自 {site} 的下载将保留在浏览器中
 #. text in the browser extension
-#. the toolbar button's status while downloads go to another MDM
+#. the toolbar button's status while downloads go to another NetGuard
 #, machine
 extension	Downloads go to {address}	下载发送到 {address}
 #. text in the browser extension
@@ -5653,9 +5653,9 @@ extension	Drag to move it along the video's edge	拖动以沿视频边缘移动
 #, machine
 extension	Enter its https:// address.	输入其 https:// 地址。
 #. text in the browser extension
-#. the extension's description in the browser's list of extensions; keep the name Mister Download Manager as it is
+#. the extension's description in the browser's list of extensions; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Hands downloads from the browser to Mister Download Manager.	将下载从浏览器交给 Mister Download Manager。
+extension	Hands downloads from the browser to NetGuard Download Manager.	将下载从浏览器交给 NetGuard Download Manager。
 #. text in the browser extension
 #. link in the toolbar button's popup to the help page
 #, machine
@@ -5677,7 +5677,7 @@ extension	How to fix it	如何修复
 #, machine
 extension	It didn't work. Try again.	操作失败。请重试。
 #. text in the browser extension
-#. pairing failed: the other MDM shows no pairing code; Pair a device is its button
+#. pairing failed: the other NetGuard shows no pairing code; Pair a device is its button
 #, machine
 extension	It shows no code now: click Pair a device there first.	它现在未显示代码：请先点击“配对设备”。
 #. text in the browser extension
@@ -5710,33 +5710,33 @@ extension	Live	直播
 #, machine
 extension	Media on this page	此页面上的媒体
 #. text in the browser extension
-#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name Mister Download Manager as it is
+#. the extension's name in the browser's list of extensions and on its toolbar button; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager	Mister Download Manager
+extension	NetGuard Download Manager	NetGuard Download Manager
 #. text in the browser extension
-#. status when the app was started for a download but didn't answer in time; keep the name Mister Download Manager as it is
+#. status when the app was started for a download but didn't answer in time; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager didn't start in time	Mister Download Manager 未及时启动
+extension	NetGuard Download Manager didn't start in time	NetGuard Download Manager 未及时启动
 #. text in the browser extension
-#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name Mister Download Manager as it is
+#. status when the app refuses this copy of the extension (another copy is installed, or it came from another store); keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager doesn't accept this copy of the extension	Mister Download Manager 不接受此扩展副本
+extension	NetGuard Download Manager doesn't accept this copy of the extension	NetGuard Download Manager 不接受此扩展副本
 #. text in the browser extension
-#. shown briefly on the download button when the app could not be reached; keep the name Mister Download Manager as it is
+#. shown briefly on the download button when the app could not be reached; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager isn't installed or didn't start	Mister Download Manager 未安装或未启动
+extension	NetGuard Download Manager isn't installed or didn't start	NetGuard Download Manager 未安装或未启动
 #. text in the browser extension
-#. status when the browser can't find the app's connection; keep the name Mister Download Manager as it is
+#. status when the browser can't find the app's connection; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager isn't installed, or its browser integration isn't set up	Mister Download Manager 未安装，或其浏览器集成未设置
+extension	NetGuard Download Manager isn't installed, or its browser integration isn't set up	NetGuard Download Manager 未安装，或其浏览器集成未设置
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	Mister Download Manager 将通过与此浏览器相同的代理下载。浏览器会要求您允许一次；关闭此功能将撤销该权限。
+extension	NetGuard Download Manager then downloads through the same proxy as this browser. The browser asks you once to allow it; turning this off takes that back.	NetGuard Download Manager 将通过与此浏览器相同的代理下载。浏览器会要求您允许一次；关闭此功能将撤销该权限。
 #. text in the browser extension
-#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name Mister Download Manager as it is
+#. tooltip of the switch Send downloads through this browser's proxy or VPN extension in Chrome, Edge and the other Chromium browsers (they ask for no permission at the switch); keep the name NetGuard Download Manager as it is
 #, machine
-extension	Mister Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	Mister Download Manager 将通过此浏览器使用的相同代理下载。关闭此选项时，扩展程序不会读取浏览器的代理设置。
+extension	NetGuard Download Manager then downloads through the same proxy as this browser. While this is off, the extension doesn't read the browser's proxy.	NetGuard Download Manager 将通过此浏览器使用的相同代理下载。关闭此选项时，扩展程序不会读取浏览器的代理设置。
 #. text in the browser extension
 #. the small arrow next to the Download video button that opens its menu (read aloud by screen readers)
 #, machine
@@ -5756,11 +5756,11 @@ extension	Never take downloads from {site}	永不从 {site} 获取下载
 #, machine
 extension	No video or sound found on this page yet. Play it, then open this again.	此页面上尚未找到视频或音频。请播放后再次打开。
 #. text in the browser extension
-#. pairing failed: the other MDM didn't answer
+#. pairing failed: the other NetGuard didn't answer
 #, machine
 extension	Not reached. Open its address once in this browser and accept its certificate, then try again.	无法访问。请先在此浏览器中打开其地址并接受其证书，然后重试。
 #. text in the browser extension
-#. button: open the other MDM's address in a tab (to accept its certificate once)
+#. button: open the other NetGuard's address in a tab (to accept its certificate once)
 #, machine
 extension	Open it	打开它
 #. text in the browser extension
@@ -5768,20 +5768,20 @@ extension	Open it	打开它
 #, machine
 extension	Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).	请先打开其地址并接受其证书，然后从其“选项”、“远程”、“配对设备”中输入代码（或 misterdownloadmanager-cli pair）。
 #. text in the browser extension
-#. button in the toolbar button's popup; keep the name Mister Download Manager as it is
+#. button in the toolbar button's popup; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Open Mister Download Manager	打开 Mister Download Manager
+extension	Open NetGuard Download Manager	打开 NetGuard Download Manager
 #. text in the browser extension
 #. button in the toolbar button's popup: open the app's Options
 #. the trailing ... means it is still going on: keep it
 #, machine
 extension	Options...	选项...
 #. text in the browser extension
-#. button: pair this browser with the other MDM using the code
+#. button: pair this browser with the other NetGuard using the code
 #, machine
 extension	Pair	配对
 #. text in the browser extension
-#. placeholder of the box for the 8-digit code the other MDM shows
+#. placeholder of the box for the 8-digit code the other NetGuard shows
 #, machine
 extension	Pairing code	配对代码
 #. text in the browser extension
@@ -5809,13 +5809,13 @@ extension	Send downloads through this browser's proxy or VPN extension	通过此
 #, machine
 extension	Send downloads to	将下载发送到
 #. text in the browser extension
-#. shown briefly on the download button after it was clicked; keep the name Mister Download Manager as it is
+#. shown briefly on the download button after it was clicked; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Sent to Mister Download Manager	已发送到 Mister Download Manager
+extension	Sent to NetGuard Download Manager	已发送到 NetGuard Download Manager
 #. text in the browser extension
-#. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (MDM is free; this is an optional donation)
+#. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (NetGuard is free; this is an optional donation)
 #, machine
-extension	Support MDM	支持 MDM
+extension	Support NetGuard	支持 NetGuard
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine
@@ -5825,9 +5825,9 @@ extension	Take downloads from this browser	从此浏览器接管下载
 #, machine
 extension	The Chrome Web Store's rules keep this copy of the add-on away from this site's videos. Help says what you can do.	Chrome 应用商店的规则使此扩展副本不能用于此网站的视频。请查看“帮助”了解您可以怎么做。
 #. text in the browser extension
-#. status when the connection to the app broke off (often security software blocking it); keep the name Mister Download Manager as it is
+#. status when the connection to the app broke off (often security software blocking it); keep the name NetGuard Download Manager as it is
 #, machine
-extension	The connection to Mister Download Manager failed	与 Mister Download Manager 的连接失败
+extension	The connection to NetGuard Download Manager failed	与 NetGuard Download Manager 的连接失败
 #. text in the browser extension
 #. shown briefly on the download button over a video when the app's settings keep the button off on this web site
 #, machine
@@ -5845,7 +5845,7 @@ extension	The last download was left to the browser.	上次下载已留给浏览
 #, machine
 extension	This browser isn't ticked in Options → General.	此浏览器未在“选项”→“常规”中勾选。
 #. text in the browser extension
-#. choice under Send downloads to: the Mister Download Manager on this computer
+#. choice under Send downloads to: the NetGuard Download Manager on this computer
 #, machine
 extension	This computer	此电脑
 #. text in the browser extension
@@ -5857,9 +5857,9 @@ extension	This download's details were too large to hand over	此下载的详细
 #, machine
 extension	This page's player streams its video in pieces, so there's no file to list. Point at the video and use its Download video button.	此页面的播放器以分片方式串流视频，因此没有可列出的文件。请将指针移到视频上，然后使用其“下载视频”按钮。
 #. text in the browser extension
-#. status when the app is older than the extension; keep the name Mister Download Manager as it is
+#. status when the app is older than the extension; keep the name NetGuard Download Manager as it is
 #, machine
-extension	Update Mister Download Manager to use everything this extension offers	更新 Mister Download Manager 以使用此扩展提供的所有功能
+extension	Update NetGuard Download Manager to use everything this extension offers	更新 NetGuard Download Manager 以使用此扩展提供的所有功能
 #. text in the browser extension
 #. why a download stayed with the browser: the app's setting 'Use advanced browser integration' is off; keep the setting's name as the app shows it
 #, machine
@@ -5975,7 +5975,7 @@ key	Up / Down	向上/向下
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	&About Mister Download Manager	关于 Mister Download Manager(&A)
+menu	&About NetGuard Download Manager	关于 NetGuard Download Manager(&A)
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6011,7 +6011,7 @@ menu	&Exit	退出(&X)
 #, machine
 menu	&Import	导入(&I)
 #. menu command in the main window
-#. View menu: submenu choosing how large MDM draws its windows and text (100 % to 200 %), as a browser's zoom
+#. View menu: submenu choosing how large NetGuard draws its windows and text (100 % to 200 %), as a browser's zoom
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
 menu	&Interface size	界面&大小
@@ -6128,9 +6128,9 @@ menu	Adwaita	Adwaita
 #, machine
 menu	Aero	Aero
 #. menu command in the main window
-#. View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
+#. View → Draw with: a greyed note under the choices; the choice takes effect when NetGuard is started again
 #, machine
-menu	Applies the next time MDM starts	下次 MDM 启动时应用
+menu	Applies the next time NetGuard starts	下次 NetGuard 启动时应用
 #. menu command in the main window
 #. View → Theme: a style theme's name (Mac OS X's look), a name: keep "Aqua" as written
 #, machine
@@ -6205,7 +6205,7 @@ menu	C&ustomize URL List...	自定义 URL 列表(&U)...
 #, machine
 menu	Check for &updates...	检查更新(&U)...
 #. menu command in the main window
-#. View → Theme: MDM's own look, the default (IDM's layout, Windows 11's controls)
+#. View → Theme: NetGuard's own look, the default (IDM's layout, Windows 11's controls)
 #, machine
 menu	Classic	经典
 #. menu command in the main window
@@ -6251,7 +6251,7 @@ menu	Download &video from a page...	从页面下载视频(&V)...
 #, machine
 menu	Download in order	按顺序下载
 #. menu command in the main window
-#. View menu: submenu choosing what draws MDM's windows: OpenGL, or Direct3D, Vulkan or Metal (graphics systems)
+#. View menu: submenu choosing what draws NetGuard's windows: OpenGL, or Direct3D, Vulkan or Metal (graphics systems)
 #, machine
 menu	Draw with	绘制方式
 #. menu command in the main window
@@ -6307,15 +6307,15 @@ menu	Hide drop target	隐藏拖放目标
 #, machine
 menu	High contrast	高对比度
 #. menu command in the main window
-#. View → Draw with: a greyed note under "… didn't start here"; why: another error, written in MDM's log
+#. View → Draw with: a greyed note under "… didn't start here"; why: another error, written in NetGuard's log
 #, machine
 menu	It couldn't start: the log says why	无法启动：日志中说明了原因
 #. menu command in the main window
-#. View → Draw with: a greyed note under "… didn't start here"; why: the window stayed empty, so MDM started again with OpenGL
+#. View → Draw with: a greyed note under "… didn't start here"; why: the window stayed empty, so NetGuard started again with OpenGL
 #, machine
 menu	Its first frame didn't show within 10 seconds	其第一帧未在 10 秒内显示
 #. menu command in the main window
-#. View → Draw with: a greyed note under "… didn't start here"; why: MDM crashed or was closed while starting with it
+#. View → Draw with: a greyed note under "… didn't start here"; why: NetGuard crashed or was closed while starting with it
 #, machine
 menu	Its last start ended before its first frame	其上次启动在其第一帧之前结束
 #. menu command in the main window
@@ -6337,7 +6337,7 @@ menu	Metro	现代
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Mister Download Manager &Home Page	Mister Download Manager 主页(&H)
+menu	NetGuard Download Manager &Home Page	NetGuard Download Manager 主页(&H)
 #. menu command in the main window
 #, machine
 menu	Move/Rename (Ctrl-M)	移动/重命名 (Ctrl-M)
@@ -6450,7 +6450,7 @@ menu	Select &all	全选(&A)
 menu	Show &drop target	显示&拖放目标
 #. menu command in the main window
 #, machine
-menu	Show Mister Download Manager	显示 Mister Download Manager
+menu	Show NetGuard Download Manager	显示 NetGuard Download Manager
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6472,7 +6472,7 @@ menu	Stop Download	停止下载
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Support &MDM	支持 &MDM
+menu	Support &NetGuard	支持 &NetGuard
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
@@ -6482,7 +6482,7 @@ menu	Tell a &friend	推荐给&朋友
 #, machine
 menu	The graphics card was lost twice in 10 minutes	显卡在 10 分钟内丢失了两次
 #. menu command in the main window
-#. View menu: submenu choosing MDM's look (colours, sizes, icons): Classic, Native…
+#. View menu: submenu choosing NetGuard's look (colours, sizes, icons): Classic, Native…
 #, machine
 menu	Theme	主题
 #. menu command in the main window

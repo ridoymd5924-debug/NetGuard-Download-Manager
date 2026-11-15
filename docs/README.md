@@ -1,6 +1,6 @@
-# Mister Download Manager — documentation
+# NetGuard Download Manager — documentation
 
-Mister Download Manager (MDM) is a free download manager for Windows and Linux (and, still experimental, macOS). It is laid out the way Internet Download Manager users expect: a toolbar, categories on the left, one list of downloads and a browser extension that hands downloads to it.
+NetGuard Download Manager (MDM) is a free download manager for Windows and Linux (and, still experimental, macOS). It is laid out the way Internet Download Manager users expect: a toolbar, categories on the left, one list of downloads and a browser extension that hands downloads to it.
 
 These pages explain each part of the program. The tutorials walk through the things people do most, one task each.
 

@@ -1,6 +1,6 @@
 [package]
 name = "mdm-tools"
-description = "Verified, pinned installs of helper tools (yt-dlp) for Mister Download Manager"
+description = "Verified, pinned installs of helper tools (yt-dlp) for NetGuard Download Manager"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

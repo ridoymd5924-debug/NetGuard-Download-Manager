@@ -1,7 +1,7 @@
 //! IP blocklists for torrents (#40). The usual lists come as PeerGuardian/P2P text
 //! (`name:1.2.3.4-1.2.3.255`) or eMule's `.dat` (`001.002.003.004 - 001.002.003.255 , 000 , name`),
 //! often gzipped. librqbit reads only the first, rejects zero-padded addresses, and a list it
-//! can't read stops the whole torrent session from starting: MDM converts a list itself, to
+//! can't read stops the whole torrent session from starting: NetGuard converts a list itself, to
 //! plain P2P lines it has checked, and hands librqbit that file.
 
 use std::io::Read;
@@ -13,7 +13,7 @@ pub struct Converted {
     /// P2P lines (`mdm:start-end`), one per blocked range.
     pub text: String,
     pub ranges: usize,
-    /// Lines that weren't a range MDM could read, and eMule ranges marked allowed (level > 127).
+    /// Lines that weren't a range NetGuard could read, and eMule ranges marked allowed (level > 127).
     pub skipped: usize,
 }
 

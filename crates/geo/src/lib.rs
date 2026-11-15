@@ -1,5 +1,5 @@
 //! Where a download's server is (#140): the country of an IP address, from DB-IP's IP to Country
-//! Lite database (CC BY 4.0: "IP Geolocation by DB-IP", <https://db-ip.com>), shipped with MDM as a
+//! Lite database (CC BY 4.0: "IP Geolocation by DB-IP", <https://db-ip.com>), shipped with NetGuard as a
 //! compressed range table (`tools/geo/build.py`). Addresses are looked up here, on this computer;
 //! none is ever sent anywhere. And the countries' flags, in one picture (`examples/flag_atlas.rs`,
 //! lipis/flag-icons, MIT).

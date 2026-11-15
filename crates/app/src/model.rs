@@ -885,7 +885,7 @@ impl Item {
         };
         let (service, progress) = r.at_service()?;
         Some(crate::i18n::fmt(
-            // i18n: a torrent's status while the user's debrid service downloads it, before MDM gets its files; {service} the service ("Real-Debrid"), {percent} how far it is ("45%")
+            // i18n: a torrent's status while the user's debrid service downloads it, before NetGuard gets its files; {service} the service ("Real-Debrid"), {percent} how far it is ("45%")
             crate::i18n::t("{percent} at {service}"),
             &[
                 ("service", service),

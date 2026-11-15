@@ -13,39 +13,39 @@ Browsers built on them work too: Chromium and Helium take the extension as Chrom
 Browser integration has two parts: a small helper program that the browser talks to, and the extension itself.
 
 1. Install MDM with the setup and keep **Set up browser integration (Chrome, Edge, Brave, Firefox)** ticked. This registers the helper. (The portable copy can't do this; see [Portable mode](portable.md).) On Linux and macOS MDM registers it itself, each time it starts, for the browsers installed then.
-2. Add the extension to each browser you use, as below: Firefox from its add-ons store, the others from the Chrome Web Store. Until a browser's extension has reached MDM, MDM's **Add Mister Download Manager to your browser** window opens at each start: it lists the browsers it found, and **Add the extension** opens the store's page in that browser. **Install it by hand** opens the steps for loading it without the store; **Don't ask again** stops the window.
+2. Add the extension to each browser you use, as below: Firefox from its add-ons store, the others from the Chrome Web Store. Until a browser's extension has reached MDM, MDM's **Add NetGuard Download Manager to your browser** window opens at each start: it lists the browsers it found, and **Add the extension** opens the store's page in that browser. **Install it by hand** opens the steps for loading it without the store; **Don't ask again** stops the window.
 
-![Add Mister Download Manager to your browser: each browser found, with a button to its store page](images/help/browser-offer.webp)
+![Add NetGuard Download Manager to your browser: each browser found, with a button to its store page](images/help/browser-offer.webp)
 *MDM's own window opens each browser's store page for you.*
 
 ### Firefox
 
-Firefox 140 or later is needed. Install the add-on from its page on addons.mozilla.org, [Mister Download Manager](https://addons.mozilla.org/firefox/addon/mister-download-manager/): click **Add to Firefox**. Firefox keeps it updated. Zen and LibreWolf install it from the same page. (MDM's **Add Mister Download Manager to your browser** window opens that page for you.)
+Firefox 140 or later is needed. Install the add-on from its page on addons.mozilla.org, [NetGuard Download Manager](https://addons.mozilla.org/firefox/addon/mister-download-manager/): click **Add to Firefox**. Firefox keeps it updated. Zen and LibreWolf install it from the same page. (MDM's **Add NetGuard Download Manager to your browser** window opens that page for you.)
 
 ### Chrome, Edge, Brave, Opera and Vivaldi
 
-Install the extension from its page in the Chrome Web Store, [Mister Download Manager](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp): click **Add to Chrome**. In Edge the button is **Get**: Edge first asks to **Allow extensions from other stores** (click **Allow**), then **Add extension**. The browser keeps it updated. MDM's **Add Mister Download Manager to your browser** window opens that page in each browser for you, and Chrome may offer it by itself at its next start once MDM is installed.
+Install the extension from its page in the Chrome Web Store, [NetGuard Download Manager](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp): click **Add to Chrome**. In Edge the button is **Get**: Edge first asks to **Allow extensions from other stores** (click **Allow**), then **Add extension**. The browser keeps it updated. MDM's **Add NetGuard Download Manager to your browser** window opens that page in each browser for you, and Chrome may offer it by itself at its next start once MDM is installed.
 
-To load it by hand instead (a browser that can't use the store, or a build of your own): its files are in the `extension` folder where MDM is installed: `%LOCALAPPDATA%\Programs\Mister Download Manager\extension` if you installed it for yourself, or `Program Files\Mister Download Manager\extension` if you installed it for everyone. Every release also has them as their own download, `...-extension-chromium.zip` (unzip it first).
+To load it by hand instead (a browser that can't use the store, or a build of your own): its files are in the `extension` folder where MDM is installed: `%LOCALAPPDATA%\Programs\NetGuard Download Manager\extension` if you installed it for yourself, or `Program Files\NetGuard Download Manager\extension` if you installed it for everyone. Every release also has them as their own download, `...-extension-chromium.zip` (unzip it first).
 
 1. Open the extensions page: `chrome://extensions`, `edge://extensions` or `brave://extensions`.
 2. Turn on **Developer mode**.
 3. Click **Load unpacked** and choose the `extension\chromium` folder.
 
-**Mister Download Manager** appears in the list. Leave it turned on. Pin its button to the toolbar to see at a glance whether the browser reaches MDM.
+**NetGuard Download Manager** appears in the list. Leave it turned on. Pin its button to the toolbar to see at a glance whether the browser reaches MDM.
 
 ### Safari (macOS)
 
 The Mac app carries the Safari extension: there is nothing to download. Safari 17 or later and macOS 14 or later are needed.
 
-1. Drag MDM to Applications and start it once. MDM's **Add Mister Download Manager to your browser** window lists Safari: **How to Add** shows the steps below.
-2. In Safari open **Settings → Extensions** and tick **Mister Download Manager**. Click **Always Allow on Every Website**: the extension needs to read the site to pass your sign-in on.
+1. Drag MDM to Applications and start it once. MDM's **Add NetGuard Download Manager to your browser** window lists Safari: **How to Add** shows the steps below.
+2. In Safari open **Settings → Extensions** and tick **NetGuard Download Manager**. Click **Always Allow on Every Website**: the extension needs to read the site to pass your sign-in on.
 3. While the app is not notarized by Apple (the experimental builds are not), Safari lists the extension only with unsigned extensions allowed: **Settings → Advanced** → **Show features for web developers**, then **Settings → Developer** → **Allow unsigned extensions**. Safari forgets that setting each time it quits.
 
 Safari lets an extension neither see nor stop the browser's downloads, so what works differs from the other browsers:
 
 - **Works as in the other browsers:** the right-click items, the button over videos, **Media on this page**, the toolbar button, **Alt**-click, MDM starting by itself, and every rule in Options.
-- **A click on a link to a file type MDM takes** goes to MDM. A download the page starts by itself (a script, or a link with no file name in its address that the server answers with a file) stays with Safari: use right-click → **Download with Mister Download Manager** for those.
+- **A click on a link to a file type MDM takes** goes to MDM. A download the page starts by itself (a script, or a link with no file name in its address that the server answers with a file) stays with Safari: use right-click → **Download with NetGuard Download Manager** for those.
 - **Not available:** sharing the browser's proxy or VPN, and a download from a form.
 
 ### From the plain zip
@@ -103,7 +103,7 @@ The extension's button shows whether the browser reaches MDM. A red **!** means 
 
 - **Take downloads from this browser**: untick it to pause, and every download stays with the browser until you tick it again.
 - **Never take downloads from** the current site: adds it to MDM's excluded sites.
-- **Open Mister Download Manager** and **Options...**.
+- **Open NetGuard Download Manager** and **Options...**.
 - **Media on this page**: what the page has loaded that MDM can download (see below).
 
 ## A VPN or proxy extension
@@ -159,11 +159,11 @@ This needs nothing more from you: the extension already sees what the browser do
 to hand downloads over. What it notes stays in the browser's memory and is forgotten when the
 browser closes.
 
-## Right-click: Download with Mister Download Manager
+## Right-click: Download with NetGuard Download Manager
 
-Right-click a link, a video, a sound or a picture and choose **Download with Mister Download Manager**. MDM downloads it whatever its type: you asked for it, so the file types list and the excluded sites don't apply here (they only decide which downloads MDM takes over by itself). A video that plays as a stream goes to the **Download video** window with the stream its player loaded (HLS or DASH), as the [button over videos](#the-download-button-over-videos) sends it, with your cookies for the stream's server and the page as the referrer.
+Right-click a link, a video, a sound or a picture and choose **Download with NetGuard Download Manager**. MDM downloads it whatever its type: you asked for it, so the file types list and the excluded sites don't apply here (they only decide which downloads MDM takes over by itself). A video that plays as a stream goes to the **Download video** window with the stream its player loaded (HLS or DASH), as the [button over videos](#the-download-button-over-videos) sends it, with your cookies for the stream's server and the page as the referrer.
 
-Select part of a page and right-click it for **Download selected links with Mister Download Manager**, or right-click the page for **Download all links with Mister Download Manager**: the links open in **[Link grabber](link-grabber.md)**, sorted into packages, where you tick the ones you want.
+Select part of a page and right-click it for **Download selected links with NetGuard Download Manager**, or right-click the page for **Download all links with NetGuard Download Manager**: the links open in **[Link grabber](link-grabber.md)**, sorted into packages, where you tick the ones you want.
 
 If MDM can't be reached when you choose one of these, the help page opens at the section that explains why.
 

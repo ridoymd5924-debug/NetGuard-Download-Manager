@@ -1,6 +1,6 @@
 # Architecture
 
-How Mister Download Manager's pieces fit together.
+How NetGuard Download Manager's pieces fit together.
 
 ## Crates
 

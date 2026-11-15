@@ -227,7 +227,7 @@ pub fn galley(p: &Painter, font: FontId, s: &str, color: Color32) -> std::sync::
 }
 
 /// The banner atop a first-start window (the browser extension's offer, the video helpers):
-/// MDM's logo at the start side, a bold headline, and a muted subline that wraps. 84 px tall, and
+/// NetGuard's logo at the start side, a bold headline, and a muted subline that wraps. 84 px tall, and
 /// taller by what a long translation's extra lines need: that extra is returned, for the window
 /// to add to its height and to move what is below the banner down by (it is known from the frame
 /// before: [`crate::dialogs::grow_extra`] under `key`).

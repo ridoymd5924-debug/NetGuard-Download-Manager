@@ -4,7 +4,7 @@
 //! Ethernet adapter's), an address alone doesn't hold on Linux (it routes by destination, the weak
 //! host model), and none of them can bind a device or an interface. So while an adapter is chosen
 //! they are given this proxy (`--proxy`, and `HTTP_PROXY`… for what they start), and it opens
-//! their connections through [`mdm_engine::net`], bound as MDM's own are, with the chosen DNS. The
+//! their connections through [`mdm_engine::net`], bound as NetGuard's own are, with the chosen DNS. The
 //! same code holds them on Windows, Linux and macOS, IPv4 and IPv6: the binding is the engine's.
 //!
 //! - It listens on 127.0.0.1 only, on a port the system picks (no firewall asks about a socket
@@ -136,7 +136,7 @@ async fn serve(mut client: TcpStream, inner: Arc<Inner>) -> io::Result<()> {
         return client
             .write_all(
                 b"HTTP/1.1 407 Proxy Authentication Required\r\n\
-                  Proxy-Authenticate: Basic realm=\"MDM\"\r\n\
+                  Proxy-Authenticate: Basic realm=\"NetGuard\"\r\n\
                   Content-Length: 0\r\nConnection: close\r\n\r\n",
             )
             .await;

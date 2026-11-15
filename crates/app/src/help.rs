@@ -13,13 +13,13 @@ use crate::winui::{self, ButtonKind, r};
 
 /// The repository: problem reports, releases, source, licences.
 pub const REPO: &str = "https://github.com/anefzaoui/misterdownloadmanager";
-/// The creator's GitHub Sponsors page: Help → Support MDM, About's last line. The website, the
+/// The creator's GitHub Sponsors page: Help → Support NetGuard, About's last line. The website, the
 /// extension's popup and the repository's Sponsor button (.github/FUNDING.yml) point there too.
 pub const SPONSORS: &str = "https://github.com/sponsors/anefzaoui";
 const LATEST: &str = "https://api.github.com/repos/anefzaoui/misterdownloadmanager/releases/latest";
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 pub const COMMIT: &str = env!("MDM_COMMIT");
-/// While MDM runs, the automatic check comes again this often (it also checks at every start).
+/// While NetGuard runs, the automatic check comes again this often (it also checks at every start).
 pub const CHECK_EVERY: i64 = 24 * 3600;
 /// The check at start waits this long (the window, the list and the downloads first).
 pub const CHECK_AFTER_START: std::time::Duration = std::time::Duration::from_secs(5);
@@ -76,7 +76,7 @@ pub fn open_page(doc: &str) {
     }
 }
 
-/// Help → Support MDM and About's link: the Sponsors page in the browser. Asked for only: MDM
+/// Help → Support NetGuard and About's link: the Sponsors page in the browser. Asked for only: NetGuard
 /// never brings it up by itself, and never in an off-screen test run (MDM_OFFSCREEN), whose
 /// clicks come from scripts, not from a person at the browser.
 pub fn support() {
@@ -86,7 +86,7 @@ pub fn support() {
 }
 
 /// A new GitHub issue on the Bug report form (.github/ISSUE_TEMPLATE/bug.yml), filled with
-/// what MDM knows: its version, the system and its version, how it was installed, the
+/// what NetGuard knows: its version, the system and its version, how it was installed, the
 /// language. The parameters are the form's field ids (all text fields: GitHub's page drops a
 /// dropdown's value from the address).
 pub fn report_problem() {
@@ -105,7 +105,7 @@ pub fn report_problem() {
         });
 }
 
-/// The Bug report form's fields MDM fills in: (field id, value).
+/// The Bug report form's fields NetGuard fills in: (field id, value).
 fn report_fields() -> Vec<(&'static str, String)> {
     #[cfg(windows)]
     let os_version = crate::win32::windows_version();
@@ -266,7 +266,7 @@ pub struct Updates {
     result: Option<Result<Found, String>>,
     /// Update now: the release file on its way (crate::update).
     job: Option<crate::update::Job>,
-    /// What Update now came to, when it didn't close MDM.
+    /// What Update now came to, when it didn't close NetGuard.
     status: Option<UpdateStatus>,
     /// Update now pressed by a test (`/show update-now`, feature `test-update`).
     press: bool,
@@ -308,7 +308,7 @@ impl Updates {
     }
 
     /// `weekly`: the automatic check (its switch is here, under the answer). `Done(true)`:
-    /// the update is going in place, MDM closes for it (and starts again).
+    /// the update is going in place, NetGuard closes for it (and starts again).
     pub fn show(
         &mut self,
         ctx: &egui::Context,
@@ -320,7 +320,7 @@ impl Updates {
             self.slot = None;
         }
         let install = mdm_tools::update::Install::detect();
-        // The release file arrived (checked) and is in place (on the job's thread): MDM closes
+        // The release file arrived (checked) and is in place (on the job's thread): NetGuard closes
         // once the new copy (or the installer) has started.
         if let Some(res) = self.job.as_ref().and_then(crate::update::Job::result) {
             self.job = None;
@@ -408,7 +408,7 @@ impl Updates {
                         // A package of another package manager (pacman, …): that one updates it.
                         let have = if install == mdm_tools::update::Install::System {
                             crate::i18n::fmt(
-                                // i18n: Check for updates, under the new version's line, when MDM was installed by the Linux system's package manager (pacman, ...), which MDM can't update itself
+                                // i18n: Check for updates, under the new version's line, when NetGuard was installed by the Linux system's package manager (pacman, ...), which NetGuard can't update itself
                                 crate::i18n::t(
                                     "You have version {version}, from your system's package manager: update it there.",
                                 ),
@@ -562,7 +562,7 @@ impl Updates {
                         ui,
                         o + vec2(11.0, bottom + 4.0),
                         weekly,
-                        // i18n: check box in the update window: look for a new version every time MDM starts
+                        // i18n: check box in the update window: look for a new version every time NetGuard starts
                         "Check for updates at every start",
                         true,
                         Some(o.x + status_right),
@@ -783,14 +783,14 @@ impl About {
                 ) {
                     crate::launch::open(format!("{REPO}/blob/main/ATTRIBUTION.md"));
                 }
-                // Its own row under them: the creator's Sponsors page (Help → Support MDM).
+                // Its own row under them: the creator's Sponsors page (Help → Support NetGuard).
                 y += 22.0;
                 if winui::link(
                     ui,
                     &p,
                     o.x + 80.0,
                     y,
-                    "Support MDM on GitHub Sponsors",
+                    "Support NetGuard on GitHub Sponsors",
                     "support",
                 ) {
                     support();

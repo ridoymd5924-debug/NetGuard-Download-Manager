@@ -345,7 +345,7 @@ pub const MP3: &str = "mp3:";
 pub const MP3_RATES: [u32; 4] = [320, 256, 192, 128];
 
 /// yt-dlp's `--audio-quality` for an MP3 choice's `<kbps>` (`MP3`): `0` (the best variable
-/// bitrate) or a bitrate MDM offers, written exactly (`192`, not `+192` or `0192`); none for
+/// bitrate) or a bitrate NetGuard offers, written exactly (`192`, not `+192` or `0192`); none for
 /// anything else.
 pub fn mp3_quality(selector: &str) -> Option<String> {
     let kbps = selector.strip_prefix(MP3)?;

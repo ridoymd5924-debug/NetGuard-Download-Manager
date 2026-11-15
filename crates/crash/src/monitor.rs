@@ -1,4 +1,4 @@
-//! The monitor: a second MDM process (`--crash-monitor`) that waits beside the app. When the app
+//! The monitor: a second NetGuard process (`--crash-monitor`) that waits beside the app. When the app
 //! crashes, panics or freezes, it asks; the monitor writes the minidump of every thread from
 //! outside (a crashed process can't be trusted to do it), and hands the report window an event.
 

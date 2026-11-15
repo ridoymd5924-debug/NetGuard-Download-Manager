@@ -1,4 +1,4 @@
-//! Options → Proxy / Socks → Network adapter (#35): every connection MDM opens goes out through
+//! Options → Proxy / Socks → Network adapter (#35): every connection NetGuard opens goes out through
 //! the chosen adapter (a VPN's, usually), or not at all.
 //!
 //! A socket bound to the adapter before it connects can't leave through another one: the
@@ -25,7 +25,7 @@ use std::net::{IpAddr, Ipv4Addr, Ipv6Addr, SocketAddr};
 use std::sync::{Arc, OnceLock};
 use std::time::Duration;
 
-/// How MDM's connections leave this computer.
+/// How NetGuard's connections leave this computer.
 #[derive(Clone, Debug, Default, PartialEq, Eq, Hash)]
 pub enum Route {
     /// No adapter chosen: the system decides (the default).
@@ -148,7 +148,7 @@ impl Binding {
                 SocketAddr::V6(_) => socket.bind_device_by_index_v6(Some(index)),
             }
         }
-        // Elsewhere there is no way to hold a socket to an adapter that MDM knows of: refuse.
+        // Elsewhere there is no way to hold a socket to an adapter that NetGuard knows of: refuse.
         #[cfg(not(any(
             windows,
             target_os = "linux",
@@ -205,7 +205,7 @@ pub fn system_proxy(url: &url::Url) -> Option<String> {
         .map(|i| i.uri().to_string())
 }
 
-/// `builder` with its connections held to `route`: a reqwest client anywhere in MDM goes through
+/// `builder` with its connections held to `route`: a reqwest client anywhere in NetGuard goes through
 /// this. `Route::Down` refuses to build one. `to_this_computer`: every connection the client
 /// makes goes to this computer (a local server, or a proxy on it), which isn't bound. On a
 /// system without certificates, its secure connections fail saying so (crate::tls, #264).
@@ -246,7 +246,7 @@ pub fn bind_client(
     }
 }
 
-/// A client builder for MDM's own requests to `url`'s server (release lists, the update check),
+/// A client builder for NetGuard's own requests to `url`'s server (release lists, the update check),
 /// with the chosen DNS and adapter as downloads have them, and the system's proxy (reqwest's
 /// default). With an adapter chosen, that proxy is looked up now and checked; one on this
 /// computer carries the requests unbound.
@@ -459,7 +459,7 @@ pub fn set_source_lookup(f: fn(IpAddr) -> Option<IpAddr>) {
 
 /// The address a connection to `dst` would leave from (PAC's `myIpAddress`). Nothing is sent, and
 /// on Windows no socket is opened: a UDP socket there is a listening socket to the firewall, which
-/// would ask the user about MDM.
+/// would ask the user about NetGuard.
 pub fn source_address(dst: IpAddr) -> Option<IpAddr> {
     if let Some(f) = SOURCE.get() {
         return f(dst);

@@ -44,7 +44,7 @@ The queues are on the left, with **Download limits** below them. The right side 
 
 ## Schedule: starting and stopping on time
 
-- **Start download on Mister Download Manager startup** — start the queue whenever MDM starts.
+- **Start download on NetGuard Download Manager startup** — start the queue whenever MDM starts.
 - **Start download at** — a time, then either:
   - **Once at** a date, or
   - **Daily**, on the days you tick.
@@ -98,7 +98,7 @@ sudo pmset repeat wakeorpoweron MTWRFSU 22:59:00
 
 - **Open the following file when done** — for example a sound, a script or a program. **...** picks the file.
 - **Hang up modem when done** — ends a dial-up connection, if you use one.
-- **Exit Mister Download Manager when done**.
+- **Exit NetGuard Download Manager when done**.
 - **Turn off computer when done** — choose **Shut down**, **Sleep** or **Hibernate**.
   - MDM first shows a 30-second countdown. **Cancel** stops it; **Turn off now** goes ahead at once.
   - **Force processes to terminate** closes programs that would otherwise hold Windows up.

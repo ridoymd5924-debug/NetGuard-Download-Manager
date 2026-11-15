@@ -53,7 +53,7 @@ CWS = "https://chromewebstore.google.com/detail/mister-download-manager/ejoleppd
 # The creator's GitHub Sponsors page: the header, the footer and the home page's Support MDM
 # (the app's Help menu and About, the extension's popup and .github/FUNDING.yml point there too).
 SPONSORS = "https://github.com/sponsors/anefzaoui"
-NAME = "Mister Download Manager"
+NAME = "NetGuard Download Manager"
 # The next release, as the site announces it. What is in the source but not in a download yet
 # says "Coming with version <this>" (coming_banner(): the feature pages, the Themes page, the
 # features' tiles), shown for a feature whose `since` is this version or later. At that release
@@ -156,7 +156,7 @@ DOCS_MD: list[tuple[str, str, str, str]] = []
 FAQ_MD: list[tuple[str, str, str]] = []
 
 # The visit counter (privacy.md says what it records). Statcounter's own code, as given.
-STATCOUNTER = """<!-- Default Statcounter code for Mister Download Manager
+STATCOUNTER = """<!-- Default Statcounter code for NetGuard Download Manager
 https://misterdownloadmanager.com/ -->
 <script type="text/javascript">
 var sc_project=13364153;
@@ -364,7 +364,7 @@ def gh_pill(cls: str = "gh-pill") -> str:
     """The GitHub link with its star count (when known): header, hero, open-source card."""
     stars = STATS.get("stars")
     count = f'<span class="gh-count">{stars}</span>' if stars else ""
-    return (f'<a class="{cls}" href="{REPO}" aria-label="Mister Download Manager on GitHub'
+    return (f'<a class="{cls}" href="{REPO}" aria-label="NetGuard Download Manager on GitHub'
             f'{f", {stars} stars" if stars else ""}">'
             f'<svg aria-hidden="true"><use href="#i-github"/></svg><span class="gh-label">GitHub</span>{count}</a>')
 
@@ -441,7 +441,7 @@ def header(section: str = "") -> str:
         <button class="icon-btn theme" type="button" aria-label="Switch between light and dark" title="Light / dark">
           <svg class="for-light-i" aria-hidden="true"><use href="#i-moon"/></svg><svg class="for-dark-i" aria-hidden="true"><use href="#i-sun"/></svg>
         </button>
-        <a class="icon-btn top-gh" href="{REPO}" aria-label="Mister Download Manager on GitHub" title="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
+        <a class="icon-btn top-gh" href="{REPO}" aria-label="NetGuard Download Manager on GitHub" title="GitHub"><svg aria-hidden="true"><use href="#i-github"/></svg></a>
         <a class="icon-btn top-sponsor" href="{SPONSORS}" aria-label="Sponsor the creator on GitHub" title="Sponsor"><svg aria-hidden="true"><use href="#i-heart"/></svg></a>
         <a class="btn btn-go top-dl" href="/download.html">Download</a>
         <details class="menu">
@@ -1191,7 +1191,7 @@ def build_repo_pages() -> None:
     trail = [("Home", "/"), ("Contributing", path)]
     lede = ("Bug reports, ideas, translation fixes and pull requests are all welcome. "
             f'Everything happens in the open on <a href="{REPO}">GitHub</a>.')
-    body = f"""{page_head("Contribute to Mister Download Manager", lede, trail)}
+    body = f"""{page_head("Contribute to NetGuard Download Manager", lede, trail)}
     <div class="wrap narrow prose page-body">
       <div class="contrib-ways">
         <a href="{REPO}/issues/new?template=bug.yml"><b>Report a bug</b><span>Something broken or odd? Tell us what you saw.</span></a>
@@ -1203,7 +1203,7 @@ def build_repo_pages() -> None:
       {page_tools("CONTRIBUTING.md", path, "Contributing")}
     </div>"""
     write(path, f"Contribute — {NAME}",
-          "How to help Mister Download Manager: report bugs, fix translations, build it from source and send pull requests. The checks CI runs and the project's rules.",
+          "How to help NetGuard Download Manager: report bugs, fix translations, build it from source and send pull requests. The checks CI runs and the project's rules.",
           body, jsonld=[crumbs_ld(trail)], priority="0.5")
 
 
@@ -1430,7 +1430,7 @@ def feature_label(m: dict) -> str:
         rows.append(f'<div class="wide"><dt>Full guide</dt><dd><a href="{help_href(m["help"])}">Step by step in the help</a></dd></div>')
     return (f'<aside class="waybill feature-label" aria-label="At a glance"><div class="wb-band">'
             f'<img src="/assets/logo-64.png" width="32" height="32" alt=""><span class="wb-from"><b>{esc(m["name"])}</b>'
-            f'<small>Mister Download Manager</small></span></div><dl class="fields">{"".join(rows)}</dl></aside>')
+            f'<small>NetGuard Download Manager</small></span></div><dl class="fields">{"".join(rows)}</dl></aside>')
 
 
 def build_features() -> None:

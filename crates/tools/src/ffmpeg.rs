@@ -57,7 +57,7 @@ fn best_build(release: &Release) -> Option<&Asset> {
         .map(|(_, a)| a)
 }
 
-/// The ffmpeg to use: the person's own (`chosen`, #51), else MDM's install in `dir`
+/// The ffmpeg to use: the person's own (`chosen`, #51), else NetGuard's install in `dir`
 /// (`dir/ffmpeg/current.json`), if any and still there; on Linux and macOS, else the system's
 /// own. Its `exe` is `ffmpeg(.exe)`; yt-dlp is given its folder.
 pub fn installed(dir: &Path) -> Option<Installed> {
@@ -68,7 +68,7 @@ pub fn installed(dir: &Path) -> Option<Installed> {
     own
 }
 
-/// MDM's own install in `dir`.
+/// NetGuard's own install in `dir`.
 fn own(dir: &Path) -> Option<Installed> {
     std::fs::read(dir.join("ffmpeg").join("current.json"))
         .ok()
@@ -93,7 +93,7 @@ fn system() -> Option<Installed> {
 }
 
 /// Install the newest stable LGPL build into `dir` unless the installed one is as new, the zip
-/// downloaded with MDM's engine (`net`), counted into `progress`.
+/// downloaded with NetGuard's engine (`net`), counted into `progress`.
 pub async fn install_latest(
     dir: &Path,
     net: &mdm_engine::Options,

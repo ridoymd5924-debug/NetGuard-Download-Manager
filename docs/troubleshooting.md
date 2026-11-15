@@ -33,9 +33,9 @@ Every download keeps a log of its recent events: retries, redirects, the server'
 ## The browser doesn't send downloads to MDM
 
 1. Was MDM installed with the setup, with **Set up browser integration** ticked? A portable copy can't take browser downloads. Run the setup again to add it.
-2. Is the extension loaded and turned on? Look for **Mister Download Manager** on the browser's extensions page. In Firefox, install it from addons.mozilla.org: a temporary add-on is gone after a restart. See [Browser integration](browser-integration.md).
+2. Is the extension loaded and turned on? Look for **NetGuard Download Manager** on the browser's extensions page. In Firefox, install it from addons.mozilla.org: a temporary add-on is gone after a restart. See [Browser integration](browser-integration.md).
 3. Is **Options → General → Use advanced browser integration** on, and your browser ticked under **Capture downloads from the following browsers**?
-4. Is the file's type in **Options → File types**? Only listed types are taken automatically. **Download with Mister Download Manager** on the right-click menu takes any link.
+4. Is the file's type in **Options → File types**? Only listed types are taken automatically. **Download with NetGuard Download Manager** on the right-click menu takes any link.
 5. Is the site in **Don't start downloading automatically from the following sites**?
 
 When none of this helps, the browser keeps the download, so nothing is lost. The extension's toolbar button says why it couldn't reach MDM; see [The browser and MDM aren't connected](browser-help.md).
@@ -141,9 +141,9 @@ MDM installs an update only when the release's list of checksums is signed by MD
 
 The AppImage can also be updated by AppImage tools (AppImageLauncher, Gear Lever, AppImageUpdate): it carries the address of its updates, and each release has its `.AppImage.zsync` file, so those tools download only the parts that changed. This starts with the AppImage of the version after 0.2.4.
 
-**Help → About Mister Download Manager** shows the version you have.
+**Help → About NetGuard Download Manager** shows the version you have.
 
-![About Mister Download Manager: its version, licence and links](images/help/about-updates.webp)
+![About NetGuard Download Manager: its version, licence and links](images/help/about-updates.webp)
 *Help → About: the version you have.*
 
 ## Reporting a problem

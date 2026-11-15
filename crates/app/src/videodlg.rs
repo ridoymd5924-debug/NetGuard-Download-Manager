@@ -384,7 +384,7 @@ impl VideoDialog {
             winui::BG(),
             |ui, o| self.body(ui, o, rt),
         );
-        // Helpers... open: on Close, the helpers are read again (another program, or MDM's own).
+        // Helpers... open: on Close, the helpers are read again (another program, or NetGuard's own).
         if let Some(h) = &mut self.helpers
             && !matches!(h.show(ctx), Outcome::Open)
         {
@@ -570,7 +570,7 @@ impl VideoDialog {
                     "Video lookups use yt-dlp (about 23 MB, checked against its signature).",
                 ),
             )),
-            // MDM installs ffmpeg on Windows only (its builds are Windows ones); elsewhere the
+            // NetGuard installs ffmpeg on Windows only (its builds are Windows ones); elsewhere the
             // system's package manager has it, and the note says so instead of a button.
             (Some(_), None) if cfg!(windows) => Some((
                 Tool::Ffmpeg,
@@ -881,11 +881,11 @@ impl VideoDialog {
             &[("Helpers...", 90.0)],
             now_at.0 - 8.0 - 11.0,
         )[0];
-        // Where yt-dlp and ffmpeg come from: MDM's own copies or the person's (#51).
+        // Where yt-dlp and ffmpeg come from: NetGuard's own copies or the person's (#51).
         if winui::button(
             ui,
             r(o, helpers_at.0, 358.0, helpers_at.1, 21.0),
-            // i18n: button in Download video: where MDM takes yt-dlp and ffmpeg from
+            // i18n: button in Download video: where NetGuard takes yt-dlp and ffmpeg from
             "Helpers...",
             ButtonKind::Normal,
             false,
@@ -1016,7 +1016,7 @@ fn all_offered(subs: &[SubChoice]) -> bool {
     subs.iter().filter(|s| !s.automatic).count() >= 2
 }
 
-/// The Subtitles list (English where it is MDM's words; combo_light shows them translated):
+/// The Subtitles list (English where it is NetGuard's words; combo_light shows them translated):
 /// None, All the uploader's, then each language, the automatic ones marked.
 fn sub_items(subs: &[SubChoice], looked_up: bool) -> Vec<String> {
     let mut out = vec![if looked_up && subs.is_empty() {
@@ -1217,7 +1217,7 @@ pub(crate) fn choice_label(label: &str) -> String {
 mod tests {
     use super::*;
 
-    /// #229: yt-dlp's refusals and its trouble with a browser's cookies, in MDM's words, saying
+    /// #229: yt-dlp's refusals and its trouble with a browser's cookies, in NetGuard's words, saying
     /// which cookies it had.
     #[test]
     fn cookie_and_sign_in_errors_in_plain_words() {

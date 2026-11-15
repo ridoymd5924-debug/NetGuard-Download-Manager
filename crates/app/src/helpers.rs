@@ -1,6 +1,6 @@
 //! The first start's offer of the video helpers (user request 2026-11-01): yt-dlp finds a page's
 //! video, ffmpeg joins its picture and sound. Both are asked for once, explained, and downloaded
-//! on Yes (through MDM's own engine, checked against their publishers' signed checksums: see
+//! on Yes (through NetGuard's own engine, checked against their publishers' signed checksums: see
 //! mdm_tools); Not now leaves them to Tasks → Download video from a page, which offers them again.
 
 use std::sync::Arc;
@@ -38,7 +38,7 @@ pub struct Helpers {
 }
 
 /// Whether to offer the helpers at this start: never asked, and one of them is missing (ffmpeg
-/// counts only where MDM installs it; elsewhere the system's is used).
+/// counts only where NetGuard installs it; elsewhere the system's is used).
 pub fn worth_asking() -> bool {
     let Some(dir) = mdm_tools::tools_dir() else {
         return false;
@@ -65,7 +65,7 @@ impl Helpers {
         if mdm_tools::installed(&dir).is_none() {
             list.push("yt-dlp");
         }
-        // ffmpeg: MDM's own on Windows; elsewhere the system's.
+        // ffmpeg: NetGuard's own on Windows; elsewhere the system's.
         if cfg!(windows) && mdm_tools::ffmpeg::installed(&dir).is_none() {
             list.push("ffmpeg");
         }
@@ -162,7 +162,7 @@ impl Helpers {
         let p = ui.painter().clone();
         let (ink, muted) = (winui::TEXT(), winui::MUTED());
         let w = 520.0;
-        // The banner: MDM's own logo, what this is for, in one line, and why now.
+        // The banner: NetGuard's own logo, what this is for, in one line, and why now.
         let extra = winui::banner(
             ui,
             &p,
@@ -205,7 +205,7 @@ impl Helpers {
                     .to_owned()
                 } else {
                     crate::i18n::t(
-                        "Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system MDM uses yours: install ffmpeg with your package manager.",
+                        "Sites send their best quality as separate video and audio, and ffmpeg joins them. On this system NetGuard uses yours: install ffmpeg with your package manager.",
                     )
                     .to_owned()
                 },
@@ -215,7 +215,7 @@ impl Helpers {
                 // i18n: a promise in the helpers window: the helpers are free, official and checked
                 "Free, official and checked",
                 crate::i18n::t(
-                    "Both are open source. MDM gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.",
+                    "Both are open source. NetGuard gets them from their official releases with its own downloader and checks each file's signature before it runs. About 100 MB, once.",
                 )
                 .to_owned(),
             ),
@@ -421,12 +421,12 @@ impl Helpers {
     }
 }
 
-// ---- Video helpers: MDM's own copies or the person's (#51) ------------------------------------
+// ---- Video helpers: NetGuard's own copies or the person's (#51) ------------------------------------
 
 use mdm_tools::chosen::Helper;
 
 /// Helpers (Download video from a page or a gallery → Helpers...): for yt-dlp, ffmpeg and
-/// gallery-dl (#58), where MDM takes it from (its own copy, or a program of the person's), and the
+/// gallery-dl (#58), where NetGuard takes it from (its own copy, or a program of the person's), and the
 /// way to choose another: one copy of each for every program that uses them (#51).
 pub struct Programs {
     dir: Option<std::path::PathBuf>,
@@ -496,7 +496,7 @@ impl Programs {
         window(
             ctx,
             "video-helpers",
-            // i18n: window title: where MDM takes its helper programs (yt-dlp, ffmpeg, gallery-dl) from
+            // i18n: window title: where NetGuard takes its helper programs (yt-dlp, ffmpeg, gallery-dl) from
             "Helpers",
             [500.0, 292.0],
             false,
@@ -534,9 +534,9 @@ impl Programs {
                     crate::i18n::t("Checking the program...").to_owned()
                 }
                 (Some(old), _) => crate::i18n::fmt(
-                    // i18n: Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest MDM can use
+                    // i18n: Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest NetGuard can use
                     crate::i18n::t(
-                        "Your own program ({version}) is too old: MDM needs {oldest} or newer",
+                        "Your own program ({version}) is too old: NetGuard needs {oldest} or newer",
                     ),
                     &[
                         ("version", &old.version),
@@ -557,7 +557,7 @@ impl Programs {
                     &[("path", &crate::i18n::ltr(&i.exe.display().to_string()))],
                 ),
                 (None, Some(i)) => crate::i18n::fmt(
-                    // i18n: Video helpers: {version} = the version of MDM's own copy
+                    // i18n: Video helpers: {version} = the version of NetGuard's own copy
                     crate::i18n::t("NetGuard Download Manager's own copy, version {version}"),
                     &[("version", &i.version)],
                 ),
@@ -580,7 +580,7 @@ impl Programs {
                 &p,
                 &[
                     ("Use another program...", 14.0, 180.0),
-                    ("Use MDM's own copy", 202.0, 180.0),
+                    ("Use NetGuard's own copy", 202.0, 180.0),
                 ],
                 8.0,
                 486.0,
@@ -613,8 +613,8 @@ impl Programs {
             if winui::button(
                 ui,
                 r(o, own_at.0, y - o.y + 46.0, own_at.1, 21.0),
-                // i18n: Video helpers: button: go back to the copy MDM downloads and checks itself
-                "Use MDM's own copy",
+                // i18n: Video helpers: button: go back to the copy NetGuard downloads and checks itself
+                "Use NetGuard's own copy",
                 if mine && !busy {
                     ButtonKind::Normal
                 } else {

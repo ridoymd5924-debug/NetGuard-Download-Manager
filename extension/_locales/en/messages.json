@@ -148,8 +148,8 @@
     "description": "link in the toolbar button's popup to the help page"
   },
   "popup_support": {
-    "message": "Support MDM",
-    "description": "link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (MDM is free; this is an optional donation)"
+    "message": "Support NetGuard",
+    "description": "link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (NetGuard is free; this is an optional donation)"
   },
   "popup_fix": {
     "message": "How to fix it",
@@ -251,19 +251,19 @@
   },
   "popup_send_remote": {
     "message": "Another NetGuard Download Manager (a server)",
-    "description": "choice under Send downloads to: an MDM running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is"
+    "description": "choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is"
   },
   "popup_remote_code": {
     "message": "Pairing code",
-    "description": "placeholder of the box for the 8-digit code the other MDM shows"
+    "description": "placeholder of the box for the 8-digit code the other NetGuard shows"
   },
   "popup_remote_open": {
     "message": "Open it",
-    "description": "button: open the other MDM's address in a tab (to accept its certificate once)"
+    "description": "button: open the other NetGuard's address in a tab (to accept its certificate once)"
   },
   "popup_remote_pair": {
     "message": "Pair",
-    "description": "button: pair this browser with the other MDM using the code"
+    "description": "button: pair this browser with the other NetGuard using the code"
   },
   "popup_remote_help": {
     "message": "Open its address once and accept its certificate, then enter a code from its Options, Remote, Pair a device (or misterdownloadmanager-cli pair).",
@@ -271,7 +271,7 @@
   },
   "status_remote": {
     "message": "Downloads go to $address$",
-    "description": "the toolbar button's status while downloads go to another MDM",
+    "description": "the toolbar button's status while downloads go to another NetGuard",
     "placeholders": {
       "address": {
         "content": "$1",
@@ -285,7 +285,7 @@
   },
   "remote_unreachable": {
     "message": "Not reached. Open its address once in this browser and accept its certificate, then try again.",
-    "description": "pairing failed: the other MDM didn't answer"
+    "description": "pairing failed: the other NetGuard didn't answer"
   },
   "remote_wrong_code": {
     "message": "Wrong code.",
@@ -293,7 +293,7 @@
   },
   "remote_no_code": {
     "message": "It shows no code now: click Pair a device there first.",
-    "description": "pairing failed: the other MDM shows no pairing code; Pair a device is its button"
+    "description": "pairing failed: the other NetGuard shows no pairing code; Pair a device is its button"
   },
   "remote_too_soon": {
     "message": "Wait a moment, then try again.",
@@ -305,7 +305,7 @@
   },
   "remote_device_name": {
     "message": "Browser extension",
-    "description": "the name this browser gets in the other MDM's list of paired devices"
+    "description": "the name this browser gets in the other NetGuard's list of paired devices"
   },
   "popup_media_title_name": {
     "message": "Prefix media file names with the page title",

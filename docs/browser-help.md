@@ -46,8 +46,8 @@ MDM's helper serves only its own extension. The browser says this copy isn't one
   Until then, remove the store's copy
   and load the one in MDM's folder instead (`extension\chromium`, see
   [Browser integration](browser-integration.md#chrome-edge-brave-opera-and-vivaldi)).
-- **Two copies installed?** Open the browser's extensions page (`chrome://extensions`, `edge://extensions`, `brave://extensions`) and keep only one **Mister Download Manager**.
-- **A copy from elsewhere?** Remove it and add the extension as MDM's **Add Mister Download Manager to your browser** window shows (see [Browser integration](browser-integration.md)).
+- **Two copies installed?** Open the browser's extensions page (`chrome://extensions`, `edge://extensions`, `brave://extensions`) and keep only one **NetGuard Download Manager**.
+- **A copy from elsewhere?** Remove it and add the extension as MDM's **Add NetGuard Download Manager to your browser** window shows (see [Browser integration](browser-integration.md)).
 - **An older MDM?** Update MDM: a newer extension may have an ID an old helper doesn't know.
 
 ## The extension is newer than MDM {#update-app}
@@ -93,10 +93,10 @@ An add-on loaded with **Load Temporary Add-on** (from `about:debugging`) is remo
 
 Browsers installed as a Flatpak or a Snap run in a sandbox, which decides whether they can reach MDM.
 
-- **Firefox as a Snap** (Ubuntu's own Firefox) reaches MDM through the desktop, which reads the browser files in your home folder and those the .deb or .rpm installs for everyone. The first time the extension calls MDM, the desktop asks **Allow Firefox to start WebExtension backend?** for Mister Download Manager: choose **Allow**. After **Don't allow**, the extension says the connection failed and the desktop doesn't ask again; to be asked again, run this in a terminal, then use the extension again:
+- **Firefox as a Snap** (Ubuntu's own Firefox) reaches MDM through the desktop, which reads the browser files in your home folder and those the .deb or .rpm installs for everyone. The first time the extension calls MDM, the desktop asks **Allow Firefox to start WebExtension backend?** for NetGuard Download Manager: choose **Allow**. After **Don't allow**, the extension says the connection failed and the desktop doesn't ask again; to be asked again, run this in a terminal, then use the extension again:
 
   `gdbus call --session --dest org.freedesktop.impl.portal.PermissionStore --object-path /org/freedesktop/impl/portal/PermissionStore --method org.freedesktop.impl.portal.PermissionStore.Delete webextensions com.misterdownloadmanager.host`
-- **Chromium as a Snap** (Ubuntu's Chromium) starts MDM's helper inside its sandbox, where it can't reach MDM, so MDM doesn't list it in **Add Mister Download Manager to your browser**. Use Firefox, or Google Chrome from its own `.deb`.
+- **Chromium as a Snap** (Ubuntu's Chromium) starts MDM's helper inside its sandbox, where it can't reach MDM, so MDM doesn't list it in **Add NetGuard Download Manager to your browser**. Use Firefox, or Google Chrome from its own `.deb`.
 - **Flatpak browsers** (such as Zen's `app.zen_browser.zen`) can't start MDM's helper, so MDM doesn't list them either. Install the browser from your distribution's packages (or the browser maker's own `.deb`, `.rpm`, tarball or AppImage) to use browser integration.
 
 ## Next steps

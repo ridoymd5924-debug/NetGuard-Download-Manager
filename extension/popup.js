@@ -4,7 +4,7 @@
 // to download. background.js does the work.
 const ext = globalThis.browser ?? globalThis.chrome;
 const HELP = "https://misterdownloadmanager.com/help/browser-help.html";
-// The creator's GitHub Sponsors page (the app's Help → Support MDM): a plain link, in a new tab.
+// The creator's GitHub Sponsors page (the app's Help → Support NetGuard): a plain link, in a new tab.
 const SPONSORS = "https://github.com/sponsors/anefzaoui";
 const t = (key, ...subs) => ext.i18n.getMessage(key, subs) || key;
 const $ = (id) => document.getElementById(id);
@@ -53,7 +53,7 @@ async function show() {
   $("take").disabled = !s.connected;
   $("open").disabled = $("options").disabled = !s.connected;
   $("version").textContent = s.version ? `v${s.version}` : "";
-  // Send downloads to: this computer, or another MDM (#157).
+  // Send downloads to: this computer, or another NetGuard (#157).
   $("to-here").checked = !s.remote && $("remote-form").hidden;
   $("to-remote").checked = Boolean(s.remote) || !$("remote-form").hidden;
   $("open").disabled = $("open").disabled || Boolean(s.remote);
@@ -81,7 +81,7 @@ async function show() {
   if (site) await showMedia(tab, s.connected);
 }
 
-// The last download left to the browser by MDM's Options, and which one (#208); a later one
+// The last download left to the browser by NetGuard's Options, and which one (#208); a later one
 // taken clears it (background.js noteLeft). A reason this version can't name says no more.
 function showDeclined(d) {
   const box = $("declined");
@@ -275,7 +275,7 @@ $("options").addEventListener("click", async () => {
   window.close();
 });
 
-// Send downloads to (#157): another MDM is paired here with its address and a code it shows.
+// Send downloads to (#157): another NetGuard is paired here with its address and a code it shows.
 $("to-remote").addEventListener("change", () => {
   $("remote-form").hidden = false;
   $("remote-url").focus();

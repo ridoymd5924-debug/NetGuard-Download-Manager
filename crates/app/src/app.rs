@@ -56,7 +56,7 @@ enum Cmd {
     CheckUpdates,
     About,
     TellFriend,
-    /// Help → Support MDM: the creator's GitHub Sponsors page in the browser.
+    /// Help → Support NetGuard: the creator's GitHub Sponsors page in the browser.
     Support,
     Exit,
     Stop,
@@ -362,10 +362,10 @@ fn next_trim(done: u32) -> Duration {
 }
 
 /// Started with the session (#226), the window waits hidden until the notification area is
-/// known: MDM's own tray icon created and a tray there to show it. A desktop's tray can come
-/// after MDM (GNOME's AppIndicator extension at sign-in answered 11.5 s after MDM's icon, on
-/// the lab's VM), and MDM's icon after its own first look: this long they are waited for,
-/// counted from MDM's icon (from the start while it has none), the window still hidden,
+/// known: NetGuard's own tray icon created and a tray there to show it. A desktop's tray can come
+/// after NetGuard (GNOME's AppIndicator extension at sign-in answered 11.5 s after NetGuard's icon, on
+/// the lab's VM), and NetGuard's icon after its own first look: this long they are waited for,
+/// counted from NetGuard's icon (from the start while it has none), the window still hidden,
 /// before it shows minimized.
 const TRAY_GRACE: Duration = Duration::from_secs(30);
 
@@ -374,15 +374,15 @@ const TRAY_GRACE: Duration = Duration::from_secs(30);
 enum AtLogin {
     /// Not known yet: hidden, looked at again in a second.
     Wait,
-    /// MDM's icon is in a notification area: the window stays hidden there.
+    /// NetGuard's icon is in a notification area: the window stays hidden there.
     Tray,
     /// No notification area within [`TRAY_GRACE`]: shown, minimized.
     Minimize,
 }
 
-/// `since` the start, and since MDM's tray `icon` was created (None: not yet): whether a tray
+/// `since` the start, and since NetGuard's tray `icon` was created (None: not yet): whether a tray
 /// `host` shows it (Windows, macOS: always one; Linux: a StatusNotifierWatcher, #59). The
-/// grace counts from the icon, so a slow start of MDM's own doesn't eat the desktop's time.
+/// grace counts from the icon, so a slow start of NetGuard's own doesn't eat the desktop's time.
 fn at_login(since: Duration, icon: Option<Duration>, host: bool) -> AtLogin {
     if icon.is_some() && host {
         AtLogin::Tray
@@ -466,7 +466,7 @@ pub struct App {
     /// Options was asked for from outside (the extension's Button settings..., `/show`): it comes
     /// to the front once shown, or it would open behind the browser (#77).
     raise_options: bool,
-    /// When MDM started (the update check waits a few seconds after it).
+    /// When NetGuard started (the update check waits a few seconds after it).
     started: Instant,
     /// When this run last checked for updates by itself (seconds since the epoch).
     update_checked_this_run: Option<i64>,
@@ -590,7 +590,7 @@ pub struct App {
     trim_when_hidden: Option<Instant>,
     trims_since_hidden: u32,
     /// Started with the session, the window hidden until the notification area is known
-    /// (#226, [`at_login`]): when, when MDM's tray icon was first seen, and when it was last
+    /// (#226, [`at_login`]): when, when NetGuard's tray icon was first seen, and when it was last
     /// looked at.
     at_login: Option<Instant>,
     at_login_icon: Option<Instant>,
@@ -966,7 +966,7 @@ impl App {
         }
         // "Launch on startup" is whatever the Run key says (the installer may have set it); on
         // Linux and macOS, the autostart entry / LaunchAgent.
-        // An entry written before #226 (by versions before 0.5.0, or by their installer) starts MDM
+        // An entry written before #226 (by versions before 0.5.0, or by their installer) starts NetGuard
         // with its window in front: written again, with the argument that starts it in the
         // notification area. Only an entry for this very program (not one a copy elsewhere
         // wrote), and never by a portable copy, which writes nothing outside its folder.
@@ -1700,7 +1700,7 @@ impl App {
     /// everything running stops (its connections were held to the route before, or to none;
     /// sockets that are bound can't leak, this is so they don't wait for a timeout) and the
     /// torrent session with it; what was stopped so starts again once the route lets it.
-    /// Each frame (#44): the debrid accounts set up again when they, or MDM's network settings
+    /// Each frame (#44): the debrid accounts set up again when they, or NetGuard's network settings
     /// (the API calls take the same proxy, DNS and adapter), changed; then the services' host
     /// lists read, off the window's thread. No account: no request at all.
     fn debrid_tick(&mut self) {
@@ -2011,7 +2011,7 @@ impl App {
                     ctx.set_zoom_factor(z);
                 }
             }
-            // The system's graphics API's device lost on purpose (Direct3D, Vulkan, Metal); MDM
+            // The system's graphics API's device lost on purpose (Direct3D, Vulkan, Metal); NetGuard
             // starts again (renderer.rs).
             #[cfg(gpu)]
             "renderer-lost" if crate::offscreen() => crate::renderer::test_device_lost(),
@@ -2263,7 +2263,7 @@ impl App {
             }
             return;
         }
-        // The startup entry's (#226): this start began in the tray (main.rs), or MDM already
+        // The startup entry's (#226): this start began in the tray (main.rs), or NetGuard already
         // ran; either way the window stays where it is.
         if cmd.startup {
             return;
@@ -2472,7 +2472,7 @@ impl App {
                 None if ua.is_empty() => Options::default().user_agent,
                 None => ua.to_owned(),
             },
-            // The browser's User-Agent may be refused on this connection (#372): MDM's own
+            // The browser's User-Agent may be refused on this connection (#372): NetGuard's own
             // (Options' or the default) is tried once then, as Add URL would.
             agent_fallback: context.user_agent.is_some().then(|| {
                 if ua.is_empty() {
@@ -3734,7 +3734,7 @@ impl App {
             item.note(crate::i18n::fmt(
                 // i18n: event log: a torrent goes through the user's debrid account, not to peers; {service} its name ("Real-Debrid")
                 crate::i18n::t(
-                    "Through {service}: the service downloads the torrent, then MDM its files",
+                    "Through {service}: the service downloads the torrent, then NetGuard its files",
                 ),
                 &[("service", service.name())],
             ));
@@ -3975,7 +3975,7 @@ impl App {
         }
     }
 
-    /// Fetch feed `id` in the background (once at a time), with MDM's own connection settings.
+    /// Fetch feed `id` in the background (once at a time), with NetGuard's own connection settings.
     fn rss_fetch(&mut self, id: u64) {
         let Some(feed) = self.rss.feeds.iter().find(|f| f.id == id) else {
             return;
@@ -3997,7 +3997,7 @@ impl App {
                     };
                     match crate::torrents::fetch_small(remote, crate::rss::MAX_FEED).await {
                         Ok(Some(bytes)) => crate::rss::parse(&String::from_utf8_lossy(&bytes)),
-                        // i18n: RSS: a feed bigger than MDM reads (5 MB)
+                        // i18n: RSS: a feed bigger than NetGuard reads (5 MB)
                         Ok(None) => Err(crate::i18n::t("larger than a feed can be").to_owned()),
                         Err(e) => Err(e),
                     }
@@ -4108,7 +4108,7 @@ impl App {
             self.rss.note(
                 now,
                 crate::i18n::fmt(
-                    // i18n: RSS feeds window, under the rules: not added, because files of its names are already in the folder (MDM never writes into them unasked)
+                    // i18n: RSS feeds window, under the rules: not added, because files of its names are already in the folder (NetGuard never writes into them unasked)
                     crate::i18n::t(
                         "{title}: not added: files of its names are already in {folder}",
                     ),
@@ -4548,7 +4548,7 @@ impl App {
             .ok()
             .filter(mdm_engine::supported)
         else {
-            return fail("unsupported", "not an address MDM downloads");
+            return fail("unsupported", "not an address NetGuard downloads");
         };
         // Already in the list: no one at the computer to ask, so Options' choice, with "ask"
         // taken as "add it again" (under a numbered name).
@@ -5114,7 +5114,7 @@ impl App {
             Cmd::AddThemeFile => {
                 // i18n: title of the file dialog of View → Theme → Add a theme file
                 let title = crate::i18n::t("Add a theme file").to_owned();
-                // i18n: the kind of file View → Theme → Add a theme file lists: MDM's themes (TOML, JSON), Base16 schemes (YAML) and pywal's colors.json
+                // i18n: the kind of file View → Theme → Add a theme file lists: NetGuard's themes (TOML, JSON), Base16 schemes (YAML) and pywal's colors.json
                 let kinds = crate::i18n::t("Themes and colour schemes").to_owned();
                 let all = crate::i18n::t("All files").to_owned();
                 // Where pywal writes its colours, when it has: the first place to look.
@@ -5557,7 +5557,7 @@ impl App {
                             crate::i18n::mark("NetGuard Download Manager"),
                             crate::i18n::fmt(
                                 crate::i18n::t(
-                                    "The download list could not be saved: {error}. Changes are kept while MDM runs.",
+                                    "The download list could not be saved: {error}. Changes are kept while NetGuard runs.",
                                 ),
                                 &[("error", &e)],
                             ),
@@ -5733,7 +5733,7 @@ impl App {
                     true,
                     self.settings.dark_mode_support,
                 ),
-                // MDM's (#60): dark whatever the system says (a desktop that reports nothing).
+                // NetGuard's (#60): dark whatever the system says (a desktop that reports nothing).
                 I(
                     // i18n: View menu: a check item; dark mode on, whatever the system's setting
                     "Always dark",
@@ -5780,11 +5780,11 @@ impl App {
                 Sep,
                 I("&About NetGuard Download Manager", Cmd::About, true, false),
                 I("Tell a &friend", Cmd::TellFriend, true, false),
-                // MDM's, not IDM's: the creator's GitHub Sponsors page, asked for only.
-                I("Support &MDM", Cmd::Support, true, false),
+                // NetGuard's, not IDM's: the creator's GitHub Sponsors page, asked for only.
+                I("Support &NetGuard", Cmd::Support, true, false),
             ],
         };
-        // View → Theme (MDM's, #45), after Always dark; then Draw with (#89, #206), where wgpu is
+        // View → Theme (NetGuard's, #45), after Always dark; then Draw with (#89, #206), where wgpu is
         // built (Windows, Linux, macOS: renderer.rs).
         if let Some(at) = menu
             .iter()
@@ -5806,7 +5806,7 @@ impl App {
         let mut items = Vec::new();
         let mut files = false;
         let on = |id: &str| chosen == id;
-        // i18n: View → Theme: MDM's own look, the default (IDM's layout, Windows 11's controls)
+        // i18n: View → Theme: NetGuard's own look, the default (IDM's layout, Windows 11's controls)
         items.push(Radio("Classic", Cmd::Theme("classic"), true, on("classic")));
         // i18n: View → Theme: the system's own colours (its accent colour, its high contrast)
         items.push(Radio("Native", Cmd::Theme("native"), true, on("native")));
@@ -5851,7 +5851,7 @@ impl App {
         items.push(I("Add a theme file…", Cmd::AddThemeFile, true, false));
         // i18n: View → Theme: opens the folder where theme files go (TOML or JSON)
         items.push(I("Open themes folder", Cmd::OpenThemesFolder, true, false));
-        // i18n: View menu: submenu choosing MDM's look (colours, sizes, icons): Classic, Native…
+        // i18n: View menu: submenu choosing NetGuard's look (colours, sizes, icons): Classic, Native…
         Sub("Theme", true, items)
     }
 
@@ -5867,7 +5867,7 @@ impl App {
                 MenuEntry::Radio(label, Cmd::InterfaceSize(p), true, p == now)
             })
             .collect();
-        // i18n: View menu: submenu choosing how large MDM draws its windows and text (100 % to 200 %), as a browser's zoom
+        // i18n: View menu: submenu choosing how large NetGuard draws its windows and text (100 % to 200 %), as a browser's zoom
         MenuEntry::Sub("&Interface size", true, items)
     }
 
@@ -5925,22 +5925,22 @@ impl App {
                     match why {
                         // i18n: View → Draw with: a greyed note under "… didn't start here"; why: no graphics card here has a driver for that graphics system ("it")
                         Why::NoAdapter => off("No graphics card here has a driver for it"),
-                        // i18n: View → Draw with: a greyed note under "… didn't start here"; why: the window stayed empty, so MDM started again with OpenGL
+                        // i18n: View → Draw with: a greyed note under "… didn't start here"; why: the window stayed empty, so NetGuard started again with OpenGL
                         Why::NoFirstFrame => off("Its first frame didn't show within 10 seconds"),
-                        // i18n: View → Draw with: a greyed note under "… didn't start here"; why: MDM crashed or was closed while starting with it
+                        // i18n: View → Draw with: a greyed note under "… didn't start here"; why: NetGuard crashed or was closed while starting with it
                         Why::EndedEarly => off("Its last start ended before its first frame"),
                         // i18n: View → Draw with: a greyed note under "… didn't start here"; why: the graphics card stopped working twice (a driver update or reset)
                         Why::LostTwice => off("The graphics card was lost twice in 10 minutes"),
-                        // i18n: View → Draw with: a greyed note under "… didn't start here"; why: another error, written in MDM's log
+                        // i18n: View → Draw with: a greyed note under "… didn't start here"; why: another error, written in NetGuard's log
                         Why::Other => off("It couldn't start: the log says why"),
                     }
                 }
-                // i18n: View → Draw with: a greyed note under the choices; the choice takes effect when MDM is started again
-                None => off("Applies the next time MDM starts"),
+                // i18n: View → Draw with: a greyed note under the choices; the choice takes effect when NetGuard is started again
+                None => off("Applies the next time NetGuard starts"),
             };
             items.push(last);
         }
-        // i18n: View menu: submenu choosing what draws MDM's windows: OpenGL, or Direct3D, Vulkan or Metal (graphics systems)
+        // i18n: View menu: submenu choosing what draws NetGuard's windows: OpenGL, or Direct3D, Vulkan or Metal (graphics systems)
         Sub("Draw with", true, items)
     }
 
@@ -7412,7 +7412,7 @@ impl App {
                     ctx,
                 );
             } else {
-                // A file MDM can't download or import (a picture, a program).
+                // A file NetGuard can't download or import (a picture, a program).
                 self.notice = Some((
                     crate::i18n::mark("NetGuard Download Manager"),
                     crate::i18n::fmt(
@@ -7771,7 +7771,7 @@ impl App {
 
     /// IDM looks for a new version once a week; so do we (off: the switch in Check for updates). Found: the
     /// update window says so; otherwise nothing shows.
-    /// The automatic update check: a few seconds after every start, then once a day while MDM
+    /// The automatic update check: a few seconds after every start, then once a day while NetGuard
     /// runs (it was at most once a week). A new version's window comes to the front, as apps
     /// announce theirs. Not in off-screen test runs (their windows stay as asked).
     fn auto_update_check(&mut self, ctx: &egui::Context) {
@@ -7901,7 +7901,7 @@ impl App {
         if let Some(d) = &mut self.updates {
             match d.show(ctx, &self.rt, &mut weekly) {
                 Outcome::Open => {}
-                // Update now: the new copy is going in place; MDM saves and closes for it.
+                // Update now: the new copy is going in place; NetGuard saves and closes for it.
                 Outcome::Done(true) => {
                     self.updates = None;
                     close_for_update = true;
@@ -8595,7 +8595,7 @@ impl eframe::App for App {
     /// (#162). A command that opens a window gets the UI pass that creates it, minimized or not
     /// (no window is raised or focused for it beyond what the command itself does).
     fn logic(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        // MDM's own work: not counted as the graphics API's time to its first frame (#280).
+        // NetGuard's own work: not counted as the graphics API's time to its first frame (#280).
         crate::renderer::own_work_begin();
         self.tick(ctx);
         crate::renderer::own_work_end();
@@ -8658,7 +8658,7 @@ impl App {
             .is_none_or(|t| t.elapsed() > Duration::from_secs(2))
         {
             self.ticked = Some(Instant::now());
-            // For a crash report: what MDM has open and running (sent when it changes).
+            // For a crash report: what NetGuard has open and running (sent when it changes).
             crate::crash::state(
                 self.items.len(),
                 self.items.iter().filter(|i| i.live.is_some()).count(),
@@ -8828,7 +8828,7 @@ impl Drop for App {
     fn drop(&mut self) {
         // An archive being extracted stops; its staging folder goes with it.
         self.extracts.stop();
-        // No wake for a queue MDM won't be there to start (Linux's alarm would outlive it).
+        // No wake for a queue NetGuard won't be there to start (Linux's alarm would outlive it).
         self.wake.clear();
         self.keep_unseen();
         // What the saver has in hand first, then the last state, written here and now.
@@ -9001,10 +9001,10 @@ mod at_login_tests {
     fn the_window_waits_for_the_tray_then_stays_there_or_shows_minimized() {
         let s = Duration::from_secs;
         let icon = |d| Some(s(d));
-        // The tray first (Windows, KDE): MDM's icon registered, the window stays hidden.
+        // The tray first (Windows, KDE): NetGuard's icon registered, the window stays hidden.
         assert_eq!(at_login(s(0), icon(0), true), AtLogin::Tray);
-        // The decision first (XFCE: MDM looked before its own icon had registered; GNOME: the
-        // AppIndicator extension's tray came 11.5 s after MDM's icon): waited for, hidden, then
+        // The decision first (XFCE: NetGuard looked before its own icon had registered; GNOME: the
+        // AppIndicator extension's tray came 11.5 s after NetGuard's icon): waited for, hidden, then
         // the tray.
         assert_eq!(at_login(s(0), None, false), AtLogin::Wait);
         assert_eq!(at_login(s(0), icon(0), false), AtLogin::Wait);
@@ -9013,7 +9013,7 @@ mod at_login_tests {
             at_login(s(60), TRAY_GRACE.checked_sub(s(1)), true),
             AtLogin::Tray
         );
-        // The grace counts from MDM's icon: a slow start of its own leaves the desktop its time.
+        // The grace counts from NetGuard's icon: a slow start of its own leaves the desktop its time.
         assert_eq!(at_login(TRAY_GRACE + s(5), icon(5), false), AtLogin::Wait);
         // No tray within the grace period (a desktop without one, #59; Windows' taskbar not
         // there to take the icon): shown, minimized.

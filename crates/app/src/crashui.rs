@@ -1,6 +1,6 @@
 //! The crash monitor's process (`--crash-monitor`, started by crash.rs) and its report window.
 //!
-//! The monitor waits without a window. When MDM crashes, panics or freezes, mdm-crash writes the
+//! The monitor waits without a window. When NetGuard crashes, panics or freezes, mdm-crash writes the
 //! dump and this window opens: what happened, a box for what the user was doing, the whole report
 //! to read, and Send on GitHub (the browser opens the Crash report form filled in; nothing is sent
 //! by itself). Behind it, the report is made readable: the release's symbols are fetched when the
@@ -69,7 +69,7 @@ pub fn monitor_main(m: MonitorArgs) -> eframe::Result {
                 if !clean && notes.session.is_some() {
                     // Kept for a later look, without a window (a shutdown can look the same).
                     let made = report::make(None, Kind::Exit, notes, &m.data, &[]);
-                    tracing::warn!("MDM ended unexpectedly: {}", made.path.display());
+                    tracing::warn!("NetGuard ended unexpectedly: {}", made.path.display());
                 }
                 return Ok(());
             }
@@ -83,7 +83,7 @@ pub fn monitor_main(m: MonitorArgs) -> eframe::Result {
     };
     tracing::warn!("crash monitor: {} report", kind.word());
 
-    // The window speaks MDM's language and follows its theme. The language first: the title
+    // The window speaks NetGuard's language and follows its theme. The language first: the title
     // below is translated before the window exists, and Windows' caption is found by it
     // (`win32::caption_dark` in `update`).
     let settings = crate::store::load().settings;
@@ -309,7 +309,7 @@ fn set(shared: &Mutex<Shared>, ctx: &egui::Context, f: impl FnOnce(&mut Shared))
 
 impl eframe::App for ReportWindow {
     fn ui(&mut self, ui: &mut Ui, _frame: &mut eframe::Frame) {
-        // The caption in the window's light or dark, as every MDM window's (Windows would draw
+        // The caption in the window's light or dark, as every NetGuard window's (Windows would draw
         // it in its own app mode).
         if !self.caption_set {
             // As the app logs its windows (crash.rs), for the log and the tests.
@@ -336,7 +336,7 @@ impl eframe::App for ReportWindow {
                 self.recovered = true;
             }
         }
-        // MDM's state is checked now and then (a frozen one may recover or be ended).
+        // NetGuard's state is checked now and then (a frozen one may recover or be ended).
         ui.ctx().request_repaint_after(Duration::from_secs(1));
         egui::CentralPanel::no_frame()
             .frame(egui::Frame::new().fill(winui::BG()))
@@ -353,15 +353,15 @@ impl eframe::App for ReportWindow {
 impl ReportWindow {
     fn heading(&self, alive: bool) -> &'static str {
         match self.job.kind {
-            // i18n: crash report window heading: the window of MDM stopped answering, then answered again
+            // i18n: crash report window heading: the window of NetGuard stopped answering, then answered again
             Kind::Freeze if self.recovered => {
                 crate::i18n::t("NetGuard Download Manager stopped responding for a while")
             }
-            // i18n: crash report window heading: MDM's window doesn't answer (frozen)
+            // i18n: crash report window heading: NetGuard's window doesn't answer (frozen)
             Kind::Freeze => crate::i18n::t("NetGuard Download Manager stopped responding"),
-            // i18n: crash report window heading: an internal error, MDM still running
+            // i18n: crash report window heading: an internal error, NetGuard still running
             Kind::Panic if alive => crate::i18n::t("NetGuard Download Manager hit an internal error"),
-            // i18n: crash report window heading: MDM crashed and is gone
+            // i18n: crash report window heading: NetGuard crashed and is gone
             _ => crate::i18n::t("NetGuard Download Manager closed unexpectedly"),
         }
     }
@@ -512,7 +512,7 @@ impl ReportWindow {
                 ui,
                 o + egui::vec2(16.0, 462.0),
                 &mut self.attach,
-                // i18n: crash report window: checkbox; the .dmp file holds what MDM had in memory
+                // i18n: crash report window: checkbox; the .dmp file holds what NetGuard had in memory
                 "Also attach the crash data (.dmp): it may hold addresses, cookies and passwords",
                 true,
             );
@@ -528,14 +528,14 @@ impl ReportWindow {
             // i18n: crash report window button: open GitHub's crash report form filled in
             "Send on GitHub"
         };
-        // A frozen MDM can be ended; a gone one started again.
+        // A frozen NetGuard can be ended; a gone one started again.
         let frozen = self.job.kind == Kind::Freeze && alive && !self.recovered;
         let restart_label = if frozen {
-            // i18n: crash report window button: end the frozen MDM and start it again
-            "End and restart MDM"
+            // i18n: crash report window button: end the frozen NetGuard and start it again
+            "End and restart NetGuard"
         } else {
-            // i18n: crash report window button: start MDM again
-            "Restart MDM"
+            // i18n: crash report window button: start NetGuard again
+            "Restart NetGuard"
         };
         let [send_at, copy_at, folder_at, restart_at, close_at] = winui::button_row(
             &p,

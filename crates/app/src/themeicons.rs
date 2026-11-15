@@ -1,4 +1,4 @@
-//! A theme's icon set (#45): files named by what MDM needs them for (`tb-add-url`, `cat-music`,
+//! A theme's icon set (#45): files named by what NetGuard needs them for (`tb-add-url`, `cat-music`,
 //! `ft-pdf`…, the list in [`NEEDS`]), at 16 pixels and at 24 (drawn at 24 and up), pictures at
 //! 32 and 48 too (a screen at 150 % to 300 %, [`SIZES`]). A theme that
 //! has a set draws its icons where the classic look draws its own (the toolbar's outlines, the
@@ -22,7 +22,7 @@ use std::sync::{Arc, LazyLock, Mutex};
 
 use egui::{Color32, ImageSource};
 
-/// Every icon MDM can take from a theme, with what it stands for (the Themes help page lists
+/// Every icon NetGuard can take from a theme, with what it stands for (the Themes help page lists
 /// them).
 pub const NEEDS: &[(&str, &str)] = &[
     ("tb-add-url", "Toolbar: Add URL"),
@@ -297,8 +297,8 @@ macro_rules! builtin_files {
 static SETS: LazyLock<Mutex<HashMap<String, Arc<Set>>>> = LazyLock::new(|| {
     let mut sets = HashMap::new();
     // Microsoft's Fluent UI System Icons (MIT, assets/themes/metro/icons/LICENSE), recoloured
-    // white to be tinted; the magnet and the torrent file are MDM's own at their weight, Hide
-    // to the notification area MDM's own one-colour picture.
+    // white to be tinted; the magnet and the torrent file are NetGuard's own at their weight, Hide
+    // to the notification area NetGuard's own one-colour picture.
     let metro = builtin_files!("metro";
         16: ["cat-all.svg", "cat-compressed.svg", "cat-documents.svg", "cat-finished.svg",
             "cat-folder-open.svg", "cat-folder.svg", "cat-music.svg", "cat-programs.svg",
@@ -330,7 +330,7 @@ static SETS: LazyLock<Mutex<HashMap<String, Arc<Set>>>> = LazyLock::new(|| {
     sets.insert("metro".to_owned(), Arc::new(Set::from_files(metro, true)));
     // GNOME's adwaita-icon-theme 51.0 (LGPL-3, assets/themes/adwaita/icons/LICENSE), its files
     // as GNOME ships them: colour pictures at 16 pixels and drawings above, one-colour symbolic
-    // icons tinted. The PDF, torrent-file and Hide to the notification area icons are MDM's
+    // icons tinted. The PDF, torrent-file and Hide to the notification area icons are NetGuard's
     // own, in its style.
     let adwaita = builtin_files!("adwaita";
         16: ["cat-all.png", "cat-compressed.png", "cat-documents.png", "cat-finished.png",
@@ -373,7 +373,7 @@ static SETS: LazyLock<Mutex<HashMap<String, Arc<Set>>>> = LazyLock::new(|| {
     // KDE's breeze-icons 6.31 (LGPL-3.0-or-later, assets/themes/breeze/icons/LICENSE), its files
     // as KDE ships them: colour drawings for files and categories, one-colour icons (its
     // ColorScheme-Text ones) in the theme's ink, their highlight and warning colours kept. The
-    // PDF and Hide to the notification area icons are MDM's own, in its style.
+    // PDF and Hide to the notification area icons are NetGuard's own, in its style.
     let breeze = builtin_files!("breeze";
         16: ["cat-all-symbolic.svg", "cat-compressed.svg", "cat-documents.svg",
             "cat-finished-symbolic.svg", "cat-folder-open-symbolic.svg", "cat-folder-symbolic.svg",
@@ -412,8 +412,8 @@ static SETS: LazyLock<Mutex<HashMap<String, Arc<Set>>>> = LazyLock::new(|| {
         "breeze".to_owned(),
         Arc::new(Set::from_files(breeze, false)),
     );
-    // The era themes' sets (#45): pictures drawn for MDM in the manner of Windows XP, Windows 7
-    // and Mac OS X, in colour, at 16, 24, 32 and 48 pixels. The title bar's buttons are MDM's own
+    // The era themes' sets (#45): pictures drawn for NetGuard in the manner of Windows XP, Windows 7
+    // and Mac OS X, in colour, at 16, 24, 32 and 48 pixels. The title bar's buttons are NetGuard's own
     // vector glyphs (drawn by `winui::caption`), but for Hide to the notification area.
     let luna = builtin_files!("luna";
         16: ["cat-all.png", "cat-compressed.png", "cat-documents.png", "cat-finished.png",
@@ -753,7 +753,7 @@ mod tests {
         for (need, _) in NEEDS {
             assert!(metro.has(need), "metro lacks {need}");
             let (_, f) = metro.file(need, 16.0).unwrap();
-            // One colour, to be tinted: Fluent's drawings recoloured white, MDM's own pictures
+            // One colour, to be tinted: Fluent's drawings recoloured white, NetGuard's own pictures
             // made white where they are grey.
             assert!(f.mono, "{need}");
             if f.png {
@@ -763,7 +763,7 @@ mod tests {
             let text = std::str::from_utf8(&f.bytes).unwrap();
             assert!(!text.contains("#212121"), "{need} keeps Fluent's ink");
         }
-        // MDM's own Hide to the notification area, where Fluent has none of that meaning: a
+        // NetGuard's own Hide to the notification area, where Fluent has none of that meaning: a
         // picture at every size; its torrent icons are drawings at Fluent's weight.
         for px in [16.0, 24.0, 32.0, 48.0] {
             assert!(metro.file("ui-to-tray", px).unwrap().1.png, "{px}");
@@ -833,7 +833,7 @@ mod tests {
         }
     }
 
-    /// Every file in a built-in set's folders is named for a need MDM asks for, and is in the
+    /// Every file in a built-in set's folders is named for a need NetGuard asks for, and is in the
     /// program (the lists above match the folders).
     #[test]
     fn every_built_in_icon_file_is_a_need_and_carried() {
@@ -913,7 +913,7 @@ mod tests {
                 let f = f.unwrap();
                 if f.png {
                     assert!(f.bytes.starts_with(b"\x89PNG"), "{need} {px}");
-                    // MDM's own Hide to the notification area: one colour, as GNOME's toolbar.
+                    // NetGuard's own Hide to the notification area: one colour, as GNOME's toolbar.
                     assert_eq!(f.mono, *need == "ui-to-tray", "{need} {px}");
                     if f.mono {
                         assert_white(&f.bytes, need);
@@ -953,7 +953,7 @@ mod tests {
             assert!(set.has(need), "breeze lacks {need}");
             for px in [16.0, 32.0] {
                 let (_, f) = set.file(need, px).unwrap();
-                // MDM's own: the PDF in colour, Hide to the notification area in one colour.
+                // NetGuard's own: the PDF in colour, Hide to the notification area in one colour.
                 if f.png {
                     assert!(matches!(*need, "ft-pdf" | "ui-to-tray"), "{need}");
                     assert_eq!(f.mono, *need == "ui-to-tray", "{need}");

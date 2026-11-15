@@ -1027,7 +1027,7 @@ fn place_menu(ctx: &egui::Context, at: Pos2, size: egui::Vec2, parent: Option<Re
 }
 
 /// Whether the menu bar's menus share one window per level ([`menu_viewport`]): on X11 and
-/// XWayland, where MDM places its menus itself.
+/// XWayland, where NetGuard places its menus itself.
 fn bar_shares_window() -> bool {
     #[cfg(target_os = "linux")]
     {

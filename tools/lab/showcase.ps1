@@ -1,4 +1,4 @@
-# Website screenshots: runs a separate Mister Download Manager instance (its own data folder via
+# Website screenshots: runs a separate NetGuard Download Manager instance (its own data folder via
 # MDM_DATA_DIR, so the real download list is untouched), fills it from labserver with realistic
 # file names (some complete, one still downloading), and captures the main window in dark and
 # light mode plus the progress dialog. The user's own instance is stopped for the run (same
@@ -36,7 +36,7 @@ try {
   Start-Sleep -Milliseconds 800
   $app = Start-Process -PassThru $exe
   Start-Sleep 3
-  & "$PSScriptRoot\to-vscode-monitor.ps1" -Title "Mister Download Manager" -DX 185 -DY 570 -Width 929 -Height 465 | Out-Null
+  & "$PSScriptRoot\to-vscode-monitor.ps1" -Title "NetGuard Download Manager" -DX 185 -DY 570 -Width 929 -Height 465 | Out-Null
   $files = @(
     @("big-buck-bunny-1080p.mp4", "180M", ""), @("project-report-2026.pdf", "4M", ""),
     @("holiday-photos.zip", "64M", ""), @("podcast-episode-42.mp3", "38M", ""),
@@ -68,5 +68,5 @@ try {
   Get-Process misterdownloadmanager -ErrorAction SilentlyContinue | Stop-Process
   Stop-Process $srv.Id -ErrorAction SilentlyContinue
   Remove-Item Env:MDM_DATA_DIR
-  if ($hadUserInstance) { Start-Process $exe; Start-Sleep 2; & "$PSScriptRoot\to-vscode-monitor.ps1" -Title "Mister Download Manager" -DX 185 -DY 570 -Width 929 -Height 465 | Out-Null }
+  if ($hadUserInstance) { Start-Process $exe; Start-Sleep 2; & "$PSScriptRoot\to-vscode-monitor.ps1" -Title "NetGuard Download Manager" -DX 185 -DY 570 -Width 929 -Height 465 | Out-Null }
 }

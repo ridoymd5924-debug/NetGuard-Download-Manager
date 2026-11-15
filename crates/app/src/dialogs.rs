@@ -209,7 +209,7 @@ const QUEUE_GATES: [&str; 2] = ["file-info", "duplicate"];
 
 /// A window that must be on the screen and isn't (hidden, not minimized): shown again after a
 /// moment, however it got that way, directly: winit believes it is still visible and ignores
-/// `Visible(true)`. The other platforms have nothing to ask: MDM's windows have no owner there,
+/// `Visible(true)`. The other platforms have nothing to ask: NetGuard's windows have no owner there,
 /// and the window manager doesn't say whether it shows a window.
 #[cfg(windows)]
 fn keep_on_screen(ctx: &egui::Context, key: egui::Id, title: &str) {
@@ -807,7 +807,7 @@ pub struct FileInfo {
     /// … category on last selected" says.
     pub remember: bool,
     url_text: String,
-    /// The URL box holds no address MDM downloads: Start and Later wait.
+    /// The URL box holds no address NetGuard downloads: Start and Later wait.
     url_bad: bool,
     /// Save As has been given the focus (once, when the dialog opens).
     focused: bool,
@@ -944,7 +944,7 @@ impl FileInfo {
     }
 
     /// The account that takes the address appeared or changed (the services' host lists are
-    /// read when MDM starts, and Options may change them while the dialog is open): looked up
+    /// read when NetGuard starts, and Options may change them while the dialog is open): looked up
     /// again its way. A download the browser had started keeps the browser's answer, and goes
     /// directly unless the line is ticked.
     fn follow_route(&mut self, ctx: &egui::Context) {
@@ -959,7 +959,7 @@ impl FileInfo {
         }
     }
 
-    /// The URL box changed: a new address MDM downloads is the one to download (looked up
+    /// The URL box changed: a new address NetGuard downloads is the one to download (looked up
     /// again; its file name too, unless Save As was edited); anything else holds Start and
     /// Later back.
     fn url_edited(&mut self, ctx: &egui::Context) {

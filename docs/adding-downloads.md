@@ -49,7 +49,7 @@ mode** switches it off for servers that only take active connections. FTP connec
 server directly, not through the HTTP proxy.
 
 Browsers no longer download `ftp://` links themselves. Right-click one and choose **Download with
-Mister Download Manager**, or copy it and use **Add URL**.
+NetGuard Download Manager**, or copy it and use **Add URL**.
 
 ## Google Drive links
 
@@ -69,7 +69,7 @@ it as **Download anyway** does.
 size is unknown until they arrive and they can't be resumed: a cut-off download starts again.
 
 **Files that aren't shared with everyone.** Right-click the link in the browser and choose
-**Download with Mister Download Manager**, or use Drive's own **Download** button: the extension
+**Download with NetGuard Download Manager**, or use Drive's own **Download** button: the extension
 passes your browser's Google sign-in with the download. MDM never asks for or keeps your
 password. Without a sign-in, MDM says the file **needs you to sign in**.
 
@@ -127,7 +127,7 @@ With **Options → General → Offer to download links copied to the clipboard**
 1. Choose **Tasks → Show drop target**. A small box with the MDM icon appears and stays on top of other windows.
 2. Drag a link from your browser onto it. MDM adds it as if you had used **Add URL**.
 
-You can also drop magnet links and `.torrent` files on it. Drag the box to move it, and double-click it to bring the main window back. Right-click it for **Show Mister Download Manager**, **Add new download** and **Hide drop target**.
+You can also drop magnet links and `.torrent` files on it. Drag the box to move it, and double-click it to bring the main window back. Right-click it for **Show NetGuard Download Manager**, **Add new download** and **Hide drop target**.
 
 ## Batch download: many numbered files
 

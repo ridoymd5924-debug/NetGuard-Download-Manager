@@ -42,10 +42,10 @@ misterdownloadmanager-cli api on
 
 | You installed | The server |
 |---|---|
-| Windows, for you only (the installer's default) | `%LOCALAPPDATA%\Programs\Mister Download Manager\misterdownloadmanager-mcp.exe` |
-| Windows, for everyone | `C:\Program Files\Mister Download Manager\misterdownloadmanager-mcp.exe` |
+| Windows, for you only (the installer's default) | `%LOCALAPPDATA%\Programs\NetGuard Download Manager\misterdownloadmanager-mcp.exe` |
+| Windows, for everyone | `C:\Program Files\NetGuard Download Manager\misterdownloadmanager-mcp.exe` |
 | Windows, a zip or [portable copy](portable.md) | `misterdownloadmanager-mcp.exe` in its folder |
-| macOS | `/Applications/Mister Download Manager.app/Contents/MacOS/misterdownloadmanager-mcp` |
+| macOS | `/Applications/NetGuard Download Manager.app/Contents/MacOS/misterdownloadmanager-mcp` |
 | Linux, the .deb or .rpm | `/usr/bin/misterdownloadmanager-mcp` |
 | Linux, the .tar.gz | `misterdownloadmanager-mcp` in its folder (the AppImage doesn't expose it: use the .tar.gz) |
 
@@ -59,7 +59,7 @@ A portable copy's server finds the portable copy's MDM by itself, from its own f
 {
   "mcpServers": {
     "misterdownloadmanager": {
-      "command": "C:\\Users\\you\\AppData\\Local\\Programs\\Mister Download Manager\\misterdownloadmanager-mcp.exe"
+      "command": "C:\\Users\\you\\AppData\\Local\\Programs\\NetGuard Download Manager\\misterdownloadmanager-mcp.exe"
     }
   }
 }
@@ -68,7 +68,7 @@ A portable copy's server finds the portable copy's MDM by itself, from its own f
 **Claude Code**:
 
 ```
-claude mcp add misterdownloadmanager -- "C:\Users\you\AppData\Local\Programs\Mister Download Manager\misterdownloadmanager-mcp.exe"
+claude mcp add misterdownloadmanager -- "C:\Users\you\AppData\Local\Programs\NetGuard Download Manager\misterdownloadmanager-mcp.exe"
 ```
 
 **Cursor**: the same `mcpServers` entry as Claude Desktop's, in `~/.cursor/mcp.json` (or add it in Cursor's MCP settings).
@@ -80,7 +80,7 @@ claude mcp add misterdownloadmanager -- "C:\Users\you\AppData\Local\Programs\Mis
   "servers": {
     "misterdownloadmanager": {
       "type": "stdio",
-      "command": "C:\\Users\\you\\AppData\\Local\\Programs\\Mister Download Manager\\misterdownloadmanager-mcp.exe"
+      "command": "C:\\Users\\you\\AppData\\Local\\Programs\\NetGuard Download Manager\\misterdownloadmanager-mcp.exe"
     }
   }
 }
@@ -96,7 +96,7 @@ MDM itself still sends nothing anywhere: the server talks only to the MDM on thi
 
 | The assistant says | What to do |
 |---|---|
-| Mister Download Manager isn't running | Start MDM. The server can't start it for you. |
+| NetGuard Download Manager isn't running | Start MDM. The server can't start it for you. |
 | The automation API is off | Run `misterdownloadmanager-cli api on` with MDM running. |
 | MDM didn't answer in time | A window in MDM may be waiting for you (a question, **Add torrent**); answer it and ask again. |
 | MDM refused the request | MDM's channel file is from an earlier start; restart MDM. |

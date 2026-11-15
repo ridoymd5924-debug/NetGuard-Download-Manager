@@ -27,9 +27,9 @@ use crate::unix as os;
 #[cfg(windows)]
 use crate::win32 as os;
 
-/// The keychain's name for MDM's entries (Credential Manager's targets start with it; Secret
+/// The keychain's name for NetGuard's entries (Credential Manager's targets start with it; Secret
 /// Service's `service` attribute; the macOS keychain's service).
-pub const SERVICE: &str = "NetGuard Download Manager";
+pub const SERVICE: &str = "Mister Download Manager"; // keystore service id: kept so saved sign-ins stay readable
 /// What the settings hold in a secret's place.
 pub const REF: &str = "keychain:";
 
@@ -42,7 +42,7 @@ pub enum Kept {
     Keychain,
     /// A portable copy: in its own settings.
     Portable,
-    /// The keyring is locked (MDM never unlocks it): in the settings.
+    /// The keyring is locked (NetGuard never unlocks it): in the settings.
     Locked,
     /// No keychain answered: in the settings.
     Missing,
@@ -201,7 +201,7 @@ impl Vault {
     /// A reference read from the settings: its secret, or "" when it can't be read now (the
     /// reference is then kept for the next save). The list is read before the window opens:
     /// once the keychain didn't answer (none, or none within the Secret Service's 5 s), the
-    /// other references aren't asked this session, so MDM waits for it once, not once each.
+    /// other references aren't asked this session, so NetGuard waits for it once, not once each.
     pub fn open(&self, stored: &str) -> String {
         let Some(target) = Target::parse(stored) else {
             tracing::warn!("sign-ins: a keychain reference that doesn't read");
@@ -503,7 +503,7 @@ fn scope() -> String {
 }
 
 /// The service's name: `SERVICE`, or a test's own (`MDM_KEYCHAIN_SERVICE=MDM-test-…`; only names
-/// of that form, so a test never writes MDM's real entries).
+/// of that form, so a test never writes NetGuard's real entries).
 fn service() -> String {
     std::env::var("MDM_KEYCHAIN_SERVICE")
         .ok()
@@ -579,7 +579,7 @@ pub fn is_prepared() -> bool {
 }
 
 /// `--forget-sign-ins` (the Windows uninstaller runs it when the user chose to remove the data
-/// too): every entry of MDM's service goes, whichever data folder wrote it. Nothing else is
+/// too): every entry of NetGuard's service goes, whichever data folder wrote it. Nothing else is
 /// touched.
 pub fn forget_all() -> std::process::ExitCode {
     match Vault::new(Box::new(System), &service(), "", true, false).forget_all() {
@@ -746,7 +746,7 @@ mod tests {
             assert!(!before.contains(REF));
             let loaded = read(&before);
             assert_eq!(loaded, sample());
-            // Not confirmed yet: the list keeps them as before (nothing lost if MDM ends now).
+            // Not confirmed yet: the list keeps them as before (nothing lost if NetGuard ends now).
             let first = on_disk(&loaded);
             assert!(!first.contains(REF));
             assert_eq!(read(&first), sample());

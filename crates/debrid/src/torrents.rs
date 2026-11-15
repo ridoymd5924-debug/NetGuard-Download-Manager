@@ -1,5 +1,5 @@
 //! Torrents through the service (#44): a magnet link goes to the user's account, the service
-//! downloads the torrent on its own servers, and its files then come over HTTP through MDM's
+//! downloads the torrent on its own servers, and its files then come over HTTP through NetGuard's
 //! engine (every connection, resume). Nothing connects to peers from this computer. A `.torrent`
 //! file is sent as its magnet link (the app makes it: its hash, name and trackers).
 //!
@@ -129,7 +129,7 @@ impl Debrid {
 }
 
 /// A path from the service, made safe to write under the torrent's folder: each part a file
-/// name MDM accepts, no `..`, no root, nothing empty. None: nothing usable is left.
+/// name NetGuard accepts, no `..`, no root, nothing empty. None: nothing usable is left.
 pub fn safe_path(path: &str) -> Option<PathBuf> {
     let mut out = PathBuf::new();
     for part in path.split(['/', '\\']) {
@@ -330,7 +330,7 @@ impl RemoteTorrent {
         for f in &files {
             let link = Url::parse(&f.link).map_err(|_| {
                 Fault::Service(ServiceFault::Other(
-                    "the service gave a link MDM can't read".into(),
+                    "the service gave a link NetGuard can't read".into(),
                 ))
             })?;
             let dest = match safe_path(&within(&f.path)) {
@@ -722,7 +722,7 @@ mod tests {
         assert_eq!(safe_path("ok/../../evil"), None);
         assert_eq!(safe_path(""), None);
         assert_eq!(safe_path("///"), None);
-        // Each part a name MDM writes: no drive, no reserved characters.
+        // Each part a name NetGuard writes: no drive, no reserved characters.
         let p = safe_path("C:/x<y>.txt").unwrap();
         assert!(
             p.components().all(|c| matches!(c, Component::Normal(_))),

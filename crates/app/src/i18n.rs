@@ -1,4 +1,4 @@
-//! The interface language (M16, D-019). craft-i18n reads MDM's catalogs (`i18n/<locale>.tsv`,
+//! The interface language (M16, D-019). craft-i18n reads NetGuard's catalogs (`i18n/<locale>.tsv`,
 //! embedded at build time) and looks the English source text up: a missing translation is the
 //! English itself. The language follows Windows' display language until the user picks one in
 //! View → Language; numbers are grouped and pointed as the interface language writes them
@@ -226,7 +226,7 @@ pub fn info(code: &str) -> Option<Info> {
         })
 }
 
-/// The code of Windows' display language as MDM offers it (English when none fits).
+/// The code of Windows' display language as NetGuard offers it (English when none fits).
 pub fn system_code() -> &'static str {
     i18n().code(i18n().system_lang())
 }

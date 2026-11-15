@@ -1,6 +1,6 @@
 //! The remote control's certificate and its HTTPS listener. A self-signed certificate is made
 //! once (`remote/cert.der`, its key `remote/key.der`, readable by the user only) and kept: its
-//! fingerprint, shown in Options, is how a device can tell it talks to this MDM the first time
+//! fingerprint, shown in Options, is how a device can tell it talks to this NetGuard the first time
 //! its browser warns about it, and the same certificate every time is what lets the browser
 //! remember that choice. It is made again only when it runs out (800 days, under the limit
 //! Apple's systems accept) or is deleted.

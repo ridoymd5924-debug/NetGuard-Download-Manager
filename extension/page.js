@@ -67,7 +67,7 @@
     const name = a.getAttribute("download") || "";
     tell({ type: "link", url: a.href, ...(name ? { name } : {}) }).then((reply) => {
       if (reply && reply.taken) return;
-      // Not the app's (Options, an excluded site, MDM not running): the click as it was, its
+      // Not the app's (Options, an excluded site, NetGuard not running): the click as it was, its
       // Cmd/Shift/Ctrl too (a new tab or window stays one). This one isn't trusted, so `note`
       // leaves it alone.
       const keys = { ctrlKey: e.ctrlKey, metaKey: e.metaKey, shiftKey: e.shiftKey };

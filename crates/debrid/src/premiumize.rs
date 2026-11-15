@@ -1,11 +1,11 @@
 //! Premiumize.me's API, as documented at <https://www.premiumize.me/api> (read 2026-11-05). Only
-//! what MDM uses: the account, the supported services, and direct links (`transfer/directdl`).
+//! what NetGuard uses: the account, the supported services, and direct links (`transfer/directdl`).
 //!
 //! - Every call carries `Authorization: Bearer <API key>` (the docs' recommended way; never the
 //!   legacy `?apikey=`, which ends up in logs).
 //! - Every answer has `status`: `"success"` with its fields, or `"error"` with `message` and
 //!   `code`, with HTTP 200 for business errors too; 500 is a server failure.
-//! - Sign-in by code (OAuth device flow) needs a client registered by MDM's maintainer: until then,
+//! - Sign-in by code (OAuth device flow) needs a client registered by NetGuard's maintainer: until then,
 //!   the user pastes the API key from the Account page.
 
 use std::collections::HashMap;
@@ -27,7 +27,7 @@ struct Status {
     code: String,
 }
 
-/// What an error code means for MDM (the documentation's list of codes).
+/// What an error code means for NetGuard (the documentation's list of codes).
 pub(crate) fn fault_of(code: &str, message: &str) -> Fault {
     use mdm_engine::ServiceFault as F;
     Fault::Service(match code {
@@ -59,14 +59,14 @@ fn read<T: serde::de::DeserializeOwned>(
         return Err(Fault::Service(if status >= 500 {
             F::ServiceDown
         } else {
-            F::Other("an answer MDM can't read".into())
+            F::Other("an answer NetGuard can't read".into())
         }));
     };
     if s.status != "success" {
         return Err(fault_of(&s.code, &s.message));
     }
     serde_json::from_slice(body)
-        .map_err(|_| Fault::Service(F::Other("an answer MDM can't read".into())))
+        .map_err(|_| Fault::Service(F::Other("an answer NetGuard can't read".into())))
 }
 
 async fn call<T: serde::de::DeserializeOwned>(

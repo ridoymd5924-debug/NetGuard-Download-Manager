@@ -1,7 +1,7 @@
 //! Safe archive extraction (#37): zip (Deflate, Deflate64, AES), tar and its gz/xz forms and a
 //! single `.gz`/`.xz` file in process; 7z (split `.7z.001` too) and RAR through an installed
 //! 7-Zip, run as its own program (UnRAR's licence forbids linking it into a GPL program, and a 7z
-//! decoder in MDM cost about 1 MB for a format most people who use it have 7-Zip for).
+//! decoder in NetGuard cost about 1 MB for a format most people who use it have 7-Zip for).
 //!
 //! Every archive is extracted into an empty staging folder beside the destination, each entry's
 //! path checked ([`safe`]), then moved into place: a folder named after the archive when it holds
@@ -42,7 +42,7 @@ pub enum Format {
 
 impl Format {
     /// The format of the archive at `path` (its first volume for a split one), or None when it
-    /// isn't one MDM extracts.
+    /// isn't one NetGuard extracts.
     pub fn detect(path: &Path) -> std::io::Result<Option<Format>> {
         use std::io::Read;
         let mut head = [0u8; 512];
@@ -115,7 +115,7 @@ pub struct Policy<'a> {
     /// Told every file put in place: the app marks it as downloaded from the internet, as the
     /// archive is.
     pub on_file: &'a mut dyn FnMut(&Path),
-    /// Set from elsewhere to stop (the download was deleted, MDM is closing).
+    /// Set from elsewhere to stop (the download was deleted, NetGuard is closing).
     pub cancel: Option<&'a AtomicBool>,
 }
 
@@ -151,7 +151,7 @@ pub enum Error {
     TooMany,
     /// 7z or RAR, and no 7-Zip was found.
     NoTool,
-    /// Not an archive MDM extracts.
+    /// Not an archive NetGuard extracts.
     Unsupported,
     Cancelled,
     Io(std::io::Error),
@@ -170,7 +170,7 @@ impl std::fmt::Display for Error {
             }
             Error::TooMany => write!(f, "too many entries or folders too deep"),
             Error::NoTool => write!(f, "7z and RAR archives need 7-Zip, and none was found"),
-            Error::Unsupported => write!(f, "not an archive MDM extracts"),
+            Error::Unsupported => write!(f, "not an archive NetGuard extracts"),
             Error::Cancelled => write!(f, "cancelled"),
             Error::Io(e) => write!(f, "{e}"),
         }

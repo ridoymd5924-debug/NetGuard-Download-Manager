@@ -1,5 +1,5 @@
 //! Just enough OpenPGP (RFC 9580, and RFC 4880 before it) to check a detached signature by one
-//! of the keys MDM pins: yt-dlp's (RSA) and MDM's own release key (Ed25519, in its legacy
+//! of the keys NetGuard pins: yt-dlp's (RSA) and NetGuard's own release key (Ed25519, in its legacy
 //! EdDSA form, algorithm 22). Both sign their checksum lists as binary documents with v4
 //! signatures; that, with SHA-256 or SHA-512, is all this understands, and anything else fails.
 //! The keys are built into the program, so their self-signatures aren't checked: every key and

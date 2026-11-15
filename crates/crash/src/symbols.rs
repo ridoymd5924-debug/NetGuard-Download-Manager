@@ -59,7 +59,7 @@ pub fn have(data: &Path, version: &str) -> bool {
     any_sym(&store(data, version), 3)
 }
 
-/// Fetch `version`'s symbols into the store with MDM's own engine (`net`); `progress(done,
+/// Fetch `version`'s symbols into the store with NetGuard's own engine (`net`); `progress(done,
 /// total)` as it downloads. A download cut off resumes next time. Earlier versions' symbols are
 /// removed (only the running version's are useful).
 pub async fn fetch(

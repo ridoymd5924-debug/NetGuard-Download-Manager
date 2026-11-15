@@ -1,4 +1,4 @@
-//! A fake Real-Debrid (#44) for MDM's tests, answering as its documentation says
+//! A fake Real-Debrid (#44) for NetGuard's tests, answering as its documentation says
 //! (<https://api.real-debrid.com/>): the same paths under `/rd/`, the same JSON shapes, the same
 //! error envelope (`{"error", "error_code"}` with the HTTP status). Nothing here is copied from
 //! the service; the shapes are the documented ones.
@@ -25,7 +25,7 @@ use serde_json::json;
 
 use crate::server::unix_ms;
 
-/// The fake file host's name: resolve it to nothing (the service reaches it, MDM doesn't).
+/// The fake file host's name: resolve it to nothing (the service reaches it, NetGuard doesn't).
 pub const HOSTER: &str = "hoster.test";
 
 static DEVICE_POLLS: Mutex<Option<HashMap<String, u32>>> = Mutex::new(None);
@@ -84,7 +84,7 @@ pub async fn unrestrict(headers: HeaderMap, body: Bytes) -> Response {
     };
     let form: HashMap<String, String> = serde_urlencoded::from_bytes(&body).unwrap_or_default();
     if form.get("remote").map(String::as_str) != Some("0") {
-        // MDM always sends remote=0; anything else is a test failure, said loudly.
+        // NetGuard always sends remote=0; anything else is a test failure, said loudly.
         return error(StatusCode::BAD_REQUEST, "remote must be 0", 2);
     }
     let Some(link) = form.get("link").and_then(|l| url::Url::parse(l).ok()) else {

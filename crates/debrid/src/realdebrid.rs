@@ -1,11 +1,11 @@
 //! Real-Debrid's REST API 1.0 and its OAuth v2 device flow, as documented at
-//! <https://api.real-debrid.com/> (read 2026-11-04). Only what MDM uses: the account, the
+//! <https://api.real-debrid.com/> (read 2026-11-04). Only what NetGuard uses: the account, the
 //! supported hosts, unrestricting a link, and signing in.
 //!
 //! - Every call carries `Authorization: Bearer <token>` (never `?auth_token=`, which ends up in
 //!   logs).
 //! - Errors are HTTP 4xx/5xx with `{"error": "...", "error_code": N}` (`fault`).
-//! - `remote` is always 0: MDM is a desktop program, and remote traffic is for servers.
+//! - `remote` is always 0: NetGuard is a desktop program, and remote traffic is for servers.
 
 use serde::Deserialize;
 use url::Url;
@@ -79,7 +79,7 @@ pub struct DeviceCode {
     pub verification_url: String,
 }
 
-/// `GET oauth/v2/device/credentials`: the user-bound credentials, once the user allowed MDM.
+/// `GET oauth/v2/device/credentials`: the user-bound credentials, once the user allowed NetGuard.
 #[derive(Clone, Debug, Deserialize)]
 pub(crate) struct DeviceCredentials {
     pub client_id: String,
@@ -102,7 +102,7 @@ struct ErrorBody {
     error_code: Option<i64>,
 }
 
-/// What an error answer means for MDM (the API documentation's list of codes).
+/// What an error answer means for NetGuard (the API documentation's list of codes).
 pub(crate) fn fault(status: u16, body: &[u8], retry_after: Option<u64>) -> Fault {
     use mdm_engine::ServiceFault as F;
     let e: ErrorBody = serde_json::from_slice(body).unwrap_or(ErrorBody {
@@ -181,7 +181,7 @@ pub async fn device_code(http: &Http) -> Result<DeviceCode, Fault> {
 }
 
 /// Step 2, asked every `interval` seconds: the user-bound credentials once the user allowed
-/// MDM, None while waiting.
+/// NetGuard, None while waiting.
 pub(crate) async fn device_credentials(
     http: &Http,
     device_code: &str,

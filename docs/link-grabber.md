@@ -8,7 +8,7 @@
 
 ## Where links come from
 
-- **The browser.** Right-click a page for **Download all links with Mister Download Manager**, or select part of it for **Download selected links with Mister Download Manager**. The page's referrer and cookies go with each link.
+- **The browser.** Right-click a page for **Download all links with NetGuard Download Manager**, or select part of it for **Download selected links with NetGuard Download Manager**. The page's referrer and cookies go with each link.
 - **Tasks → Import → From text file** and **From IDM export file**. An `.ef2` file brings each download's referrer and cookies.
 - Several links, or a `.txt` or `.ef2` list, dropped on the download list.
 - **Pasting.** Choose **Tasks → Link grabber...** and press **Ctrl+V**: every web address in the copied text is added.

@@ -83,7 +83,7 @@ pub struct Options {
     pub user_agent: String,
     /// Asked with instead of `user_agent` when the server refuses the first request with 403
     /// (#372): a browser's User-Agent on a connection that isn't a browser's trips some sites'
-    /// bot checks (Cloudflare, seen on a public PDF), while MDM's own passes. Set when
+    /// bot checks (Cloudflare, seen on a public PDF), while NetGuard's own passes. Set when
     /// `user_agent` is the browser's. A later 403 is left to the download.
     pub agent_fallback: Option<String>,
     /// How often resume state is saved (IDM: "several times per minute").
@@ -619,7 +619,7 @@ fn post_for(opts: &Options, as_get: bool, headers: &mut HeaderMap) -> Option<Byt
 
 /// A request for `url` with `headers`: a POST with `post` as its body, else a GET. `agent` is the
 /// download's User-Agent (`Options::user_agent`, the client's default); a site that wants a
-/// browser's gets it instead when `agent` is MDM's default (`request_agent`).
+/// browser's gets it instead when `agent` is NetGuard's default (`request_agent`).
 fn build(
     client: &Client,
     url: Url,
@@ -641,7 +641,7 @@ fn build(
 }
 
 /// The User-Agent a request to `url` carries instead of the download's own `agent`: a site's
-/// browser agent (`sites::user_agent`: Google Drive's hosts), only when `agent` is MDM's default
+/// browser agent (`sites::user_agent`: Google Drive's hosts), only when `agent` is NetGuard's default
 /// (D-007). A browser's agent handed over with the download, or one the user set, always wins.
 fn request_agent(agent: &str, url: &Url) -> Option<&'static str> {
     (agent == DEFAULT_USER_AGENT)
@@ -819,7 +819,7 @@ pub async fn probe_kept(
     };
     let seen = Arc::new(crate::server::ServerSeen::default());
     let client = client(opts, &target, &as_get, &seen)?;
-    // A browser's User-Agent refused (#372): asked once more as MDM.
+    // A browser's User-Agent refused (#372): asked once more as NetGuard.
     let (client, asked) = match get(
         &client,
         target.clone(),
@@ -1047,7 +1047,7 @@ impl Download {
     }
 }
 
-/// Download `url` to `path` and wait for it: MDM's own downloads that aren't in the list (its
+/// Download `url` to `path` and wait for it: NetGuard's own downloads that aren't in the list (its
 /// helpers, its updates, a crash report's symbols) use the engine like every download. An
 /// earlier attempt cut off at `path` resumes; `progress(done, total)` while it runs.
 pub async fn fetch(
@@ -1401,7 +1401,7 @@ fn client(
             }
             b
         }
-        // The script's first route MDM can use: a proxy, or straight to the server.
+        // The script's first route NetGuard can use: a proxy, or straight to the server.
         (Proxy::Pac { script }, _) => {
             let first = crate::pac::routes(script, url).ok().and_then(|routes| {
                 routes.into_iter().find_map(|r| match r {
@@ -1550,11 +1550,11 @@ async fn run_fresh(
                 .await
             {
                 Err(e) if agent_refused(&e) && opts.agent_fallback.is_some() => {
-                    // #372: the rest of the download goes as MDM too.
+                    // #372: the rest of the download goes as NetGuard too.
                     opts.user_agent = opts.agent_fallback.take().unwrap_or_default();
                     asked_as_mdm = true;
                     shared.event(
-                            "The server refused the browser's User-Agent; asking as Mister Download Manager",
+                            "The server refused the browser's User-Agent; asking as NetGuard Download Manager",
                         );
                     let client1 = client(&opts, &target, &as_get, &seen)?;
                     let first = first_get(&client1, &target, &asked, &opts, shared, cancel).await;

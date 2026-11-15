@@ -1,6 +1,6 @@
 The Aero theme's icon set (#45).
 
-MDM's own: pictures drawn for Mister Download Manager in the manner of Windows Vista's and Windows 7's desktop icons (2006-2009): glass, a light top
+MDM's own: pictures drawn for NetGuard Download Manager in the manner of Windows Vista's and Windows 7's desktop icons (2006-2009): glass, a light top
 half, chrome. Not one of
 Microsoft's icons, or any other project's, is used or copied. GPL-3.0-or-later, as MDM (its
 LICENSE, at the top of the repository).

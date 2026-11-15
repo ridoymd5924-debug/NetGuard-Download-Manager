@@ -522,21 +522,21 @@ async fn run(cmd: Cmd, json: bool, accounts: Option<&dyn Accounts>) -> anyhow::R
                 ));
             }
             let dir = mdm_tools::tools_dir().ok_or_else(|| anyhow::anyhow!("no data folder"))?;
-            // A gallery-dl of the person's too old for MDM is passed over (#236), said plainly.
+            // A gallery-dl of the person's too old for NetGuard is passed over (#236), said plainly.
             let old = mdm_tools::gallery::chosen_too_old(&dir).map(|old| {
                 format!(
-                    "your gallery-dl {} ({}) is too old: MDM needs {} or newer",
+                    "your gallery-dl {} ({}) is too old: NetGuard needs {} or newer",
                     old.version,
                     old.exe.display(),
                     mdm_tools::gallery::OLDEST
                 )
             });
             let tool = mdm_tools::gallery::installed(&dir).ok_or_else(|| match &old {
-                Some(why) => anyhow::anyhow!("{why}; run install-gallery-dl for MDM's own copy"),
+                Some(why) => anyhow::anyhow!("{why}; run install-gallery-dl for NetGuard's own copy"),
                 None => anyhow::anyhow!("gallery-dl is not installed: run install-gallery-dl"),
             })?;
             if let Some(why) = &old {
-                eprintln!("{why}: using MDM's own copy, {}", tool.version);
+                eprintln!("{why}: using NetGuard's own copy, {}", tool.version);
             }
             if !mdm_tools::gallery::handles(&tool, &url)? {
                 anyhow::bail!("gallery-dl can't read this address");

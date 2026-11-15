@@ -124,15 +124,15 @@ pub fn service(service: &str, fault: &mdm_engine::ServiceFault) -> String {
         F::AccountBlocked => t("{service}: the account is locked or not activated"),
         // i18n: a debrid service's error: the account has no premium (or it ended)
         F::NotPremium => t("{service}: this needs a premium account"),
-        // i18n: a debrid service's error: it can't reach the file's host now; MDM retries later
+        // i18n: a debrid service's error: it can't reach the file's host now; NetGuard retries later
         F::HostDown => {
-            t("{service} can't reach this file host right now; MDM will try again later")
+            t("{service} can't reach this file host right now; NetGuard will try again later")
         }
         // i18n: a debrid service's error: the account's limit (traffic) for this host is used up
         F::LimitReached => t("{service}: your limit for this file host is used up for now"),
         // i18n: a debrid service's error: too many downloads at once through the account
         F::TooManyActive => {
-            t("{service}: too many downloads at once through your account; MDM will try again")
+            t("{service}: too many downloads at once through your account; NetGuard will try again")
         }
         // i18n: a debrid service's error: it refuses this computer's address (a VPN or a server address)
         F::IpRefused => t("{service} refuses this connection (a VPN or server address?)"),
@@ -142,8 +142,8 @@ pub fn service(service: &str, fault: &mdm_engine::ServiceFault) -> String {
         F::FileRefused => t("{service} won't give this file"),
         // i18n: a debrid service's error: the file has a password
         F::PasswordNeeded => t("{service}: this file is password-protected"),
-        // i18n: a debrid service's error: too many requests; MDM waits and retries
-        F::TooManyRequests(_) => t("{service} asks to slow down; MDM will try again in a minute"),
+        // i18n: a debrid service's error: too many requests; NetGuard waits and retries
+        F::TooManyRequests(_) => t("{service} asks to slow down; NetGuard will try again in a minute"),
         // i18n: a debrid service's error: it isn't answering
         F::ServiceDown => t("{service} is not responding; try again later"),
         // i18n: a debrid service's error: it can't get the torrent sent to it (nobody shares it any more, or its magnet link can't be read)
@@ -274,8 +274,8 @@ pub fn tools(e: &mdm_tools::Error) -> String {
             version,
             oldest,
         } => fmt(
-            // i18n: error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one MDM can use
-            t("{name} {version} is too old: MDM needs {oldest} or newer"),
+            // i18n: error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one NetGuard can use
+            t("{name} {version} is too old: NetGuard needs {oldest} or newer"),
             &[("name", name), ("version", version), ("oldest", oldest)],
         ),
     }

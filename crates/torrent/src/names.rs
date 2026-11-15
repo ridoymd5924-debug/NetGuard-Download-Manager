@@ -1,6 +1,6 @@
-//! Whether a torrent's file names are safe to write (#40). MDM checks every name itself, before a
+//! Whether a torrent's file names are safe to write (#40). NetGuard checks every name itself, before a
 //! torrent is listed or added, so only plain names reach the disk. librqbit writes the files under
-//! the torrent's own names, so MDM can't rename them: an unsafe name refuses the torrent, saying
+//! the torrent's own names, so NetGuard can't rename them: an unsafe name refuses the torrent, saying
 //! which.
 //!
 //! Everywhere: no empty part, `.`, `..`, separator or control character. On Windows also none of

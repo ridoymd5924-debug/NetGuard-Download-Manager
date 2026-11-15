@@ -1,4 +1,4 @@
-//! Mister Download Manager's command channel (shared by the app, its command line and the browser host).
+//! NetGuard Download Manager's command channel (shared by the app, its command line and the browser host).
 //! Single-instance command channel. The running app listens on a localhost port and writes
 //! `{port, token}` to `%APPDATA%\misterdownloadmanager\ipc.json`; a second launch (IDM-style command line)
 //! or the browser's native messaging host sends one JSON line per command, carrying the token.
@@ -90,7 +90,7 @@ pub struct Command {
     /// or an uninstall). Starts nothing when no app runs.
     pub exit: bool,
     /// `/startup` (beyond IDM): started with the session (Options → General → Launch on
-    /// startup, or the installer's "Start when Windows starts", #226): MDM starts in the
+    /// startup, or the installer's "Start when Windows starts", #226): NetGuard starts in the
     /// notification area, its window hidden. Changes nothing in a running app.
     pub startup: bool,
     /// `/show <window>` (beyond IDM): the running app opens one of its windows by name, for
@@ -329,7 +329,7 @@ impl std::fmt::Display for SendError {
     }
 }
 
-/// Send `cmd` to a running Mister Download Manager.
+/// Send `cmd` to a running NetGuard Download Manager.
 pub fn send(cmd: &Command) -> Result<(), SendError> {
     let ack = exchange(cmd)?;
     if ack.trim() == "ok" {
@@ -584,7 +584,7 @@ fn random_token() -> String {
 }
 
 /// The argument every startup entry passes (the Run key, the XDG autostart entry, the
-/// LaunchAgent, the installer's): MDM starts in the notification area ([`Command::startup`]).
+/// LaunchAgent, the installer's): NetGuard starts in the notification area ([`Command::startup`]).
 pub const STARTUP: &str = "/startup";
 
 /// Parse IDM's command line: `/d URL [/p dir] [/f name] [/a] [/n] [/q] [/s]` (case-insensitive;

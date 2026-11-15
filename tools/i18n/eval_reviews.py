@@ -30,7 +30,7 @@ JUDGE = "openai/gpt-6.1-sol"
 REVIEWER = "anthropic/claude-sonnet-5.5"
 
 JUDGE_PROMPT = """You grade {english} ({native}) translations of a Windows download manager's
-interface (Mister Download Manager) against the text a native reviewer shipped. For each row you
+interface (NetGuard Download Manager) against the text a native reviewer shipped. For each row you
 get the English, where it is used (context, notes), the reviewer's "reference" and a "candidate".
 
 Grade the candidate:

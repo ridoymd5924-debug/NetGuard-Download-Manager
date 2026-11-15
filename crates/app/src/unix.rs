@@ -64,7 +64,7 @@ pub fn run_at_startup() -> bool {
     startup_file().is_some_and(|f| f.is_file())
 }
 
-/// The startup entry for the program `exe`: started with the session, MDM waits in the
+/// The startup entry for the program `exe`: started with the session, NetGuard waits in the
 /// notification area (`/startup`, #226). A LaunchAgent on macOS, an XDG autostart entry on
 /// Linux.
 fn startup_entry(exe: &Path, macos: bool) -> String {
@@ -185,7 +185,7 @@ static REGISTER_ERROR: std::sync::Mutex<Option<String>> = std::sync::Mutex::new(
 ///
 /// From an AppImage, whose programs sit in a mount that is gone once it quits, the host is first
 /// copied to the data folder with the AppImage's path beside it (`app-path`: the host starts
-/// that when MDM isn't running), and registered from there (#253).
+/// that when NetGuard isn't running), and registered from there (#253).
 pub fn register_browsers() {
     let started = std::thread::Builder::new()
         .name("register-browsers".into())
@@ -1172,7 +1172,7 @@ const WAYLAND_LIBS: &[WindowLib] = &[
     },
 ];
 
-/// Linux: the display system MDM's windows use, decided once (`window_system`), and what the
+/// Linux: the display system NetGuard's windows use, decided once (`window_system`), and what the
 /// system lacks for it.
 #[cfg(target_os = "linux")]
 #[derive(Debug, Default, PartialEq, Eq)]
@@ -1181,14 +1181,14 @@ pub struct WindowSystem {
     pub wayland: bool,
     /// X11 is chosen in a Wayland session (XWayland): winit is told so.
     x11_over_wayland: bool,
-    /// X11 was MDM's choice, but these are missing: Wayland's windows instead.
+    /// X11 was NetGuard's choice, but these are missing: Wayland's windows instead.
     pub x11_missing: Vec<&'static WindowLib>,
     /// The chosen system lacks these: no window can open (#265).
     pub missing: Vec<&'static WindowLib>,
 }
 
 /// The windows run through X11 (XWayland, in a Wayland session) when there is one, unless
-/// `MDM_WAYLAND=1` (#50). Wayland lets no program place its own windows, and MDM's menus and drop
+/// `MDM_WAYLAND=1` (#50). Wayland lets no program place its own windows, and NetGuard's menus and drop
 /// lists are windows it places under what was clicked: Wayland put them in the middle of the
 /// screen. Without the libraries X11's windows need, Wayland's when there is one (#265).
 /// `loads`: whether a library can be loaded.
@@ -1219,7 +1219,7 @@ fn choose_window_system(
     ws
 }
 
-/// Linux: the display system MDM's windows use (see `choose_window_system`), decided at the
+/// Linux: the display system NetGuard's windows use (see `choose_window_system`), decided at the
 /// first question.
 #[cfg(target_os = "linux")]
 pub fn window_system() -> &'static WindowSystem {
@@ -1274,13 +1274,13 @@ pub fn event_loop_hook() -> Option<eframe::EventLoopBuilderHook> {
     }
 }
 
-/// Linux: MDM's windows are Wayland's (not X11's or XWayland's), as `window_system` decided.
+/// Linux: NetGuard's windows are Wayland's (not X11's or XWayland's), as `window_system` decided.
 #[cfg(target_os = "linux")]
 pub fn on_wayland() -> bool {
     window_system().wayland
 }
 
-/// Linux, X11 and XWayland (MDM's default): a menu's window as X11 menus are (GTK's, Qt's).
+/// Linux, X11 and XWayland (NetGuard's default): a menu's window as X11 menus are (GTK's, Qt's).
 /// Override-redirect: no window manager manages it, so it opens exactly where it's placed (a
 /// tiling compositor, sway, centred a managed one, #267), and compositors treat it as a menu:
 /// Hyprland gives it no border and doesn't slide or pop it in as it does a new window (it only
@@ -1340,7 +1340,7 @@ fn installer(os_release: &str) -> Option<(usize, &'static str)> {
 }
 
 /// The command that installs `libs` on the distribution /etc/os-release (`os_release`) names;
-/// None for one MDM doesn't know.
+/// None for one NetGuard doesn't know.
 #[cfg(target_os = "linux")]
 fn install_command(libs: &[&WindowLib], os_release: &str) -> Option<String> {
     let (family, command) = installer(os_release)?;
@@ -1377,14 +1377,14 @@ pub fn missing_text(libs: &[&WindowLib], opening: bool) -> String {
             t("To install what's missing: {command}"),
             &[("command", &ltr(&command))],
         ),
-        // i18n: Linux, after a missing library's name, on a distribution MDM doesn't know
+        // i18n: Linux, after a missing library's name, on a distribution NetGuard doesn't know
         None => t("Install what's missing from your distribution's packages.").to_owned(),
     };
     format!("{what}\n{how}")
 }
 
 /// Says `text` on the terminal, in the log and, when a display is there, in a message box
-/// (zenity or kdialog, the first there): MDM's own window can't open.
+/// (zenity or kdialog, the first there): NetGuard's own window can't open.
 #[cfg(target_os = "linux")]
 pub fn tell_window_failed(text: &str) {
     eprintln!("{text}");
@@ -1411,7 +1411,7 @@ pub fn tell_window_failed(text: &str) {
     }
 }
 
-/// Linux: a tray host is there to show MDM's icon (a StatusNotifierWatcher on the session bus:
+/// Linux: a tray host is there to show NetGuard's icon (a StatusNotifierWatcher on the session bus:
 /// KDE, waybar's tray, GNOME's AppIndicator extension), #59. Without one (MangoWC, plain
 /// window managers), closing the window would hide it where nothing can bring it back.
 ///
@@ -1719,7 +1719,7 @@ pub fn to_trash(files: &[PathBuf]) -> bool {
         if run(Command::new("trash").args(files)) {
             return true;
         }
-        // The Finder moves them as a person would (it may ask once to let MDM drive it).
+        // The Finder moves them as a person would (it may ask once to let NetGuard drive it).
         let list: Vec<String> = files
             .iter()
             .map(|f| {
@@ -1765,7 +1765,7 @@ pub fn gl_driver(gl: &eframe::glow::Context) -> String {
     format!("{renderer} ({version})")
 }
 
-/// End process `pid` (a frozen MDM the user chose to close from the crash report).
+/// End process `pid` (a frozen NetGuard the user chose to close from the crash report).
 #[allow(unsafe_code)]
 pub fn end_process(pid: u32) -> bool {
     // SAFETY: a signal to a process id we were given.
@@ -1799,10 +1799,10 @@ pub fn browsers() -> Vec<(String, PathBuf)> {
             .unwrap_or_default()
     };
     // A Flatpak browser (`app.zen_browser.zen` …) isn't listed: its sandbox can't start the
-    // native host, so the extension couldn't reach MDM (docs/browser-help.md). Nor is a Chromium
+    // native host, so the extension couldn't reach NetGuard (docs/browser-help.md). Nor is a Chromium
     // browser that runs as a Snap (Ubuntu's Chromium): it starts the host inside its sandbox,
-    // which can't read MDM's data folder (~/.local/share is hidden from Snaps) and so started a
-    // second, sandboxed MDM. The Snap Firefox is listed: it starts the host through the desktop
+    // which can't read NetGuard's data folder (~/.local/share is hidden from Snaps) and so started a
+    // second, sandboxed NetGuard. The Snap Firefox is listed: it starts the host through the desktop
     // portal, outside its sandbox.
     mdm_ipc::browsers::BROWSERS
         .iter()
@@ -2245,14 +2245,14 @@ mod host_copy_tests {
         let t = tempfile::tempdir().unwrap();
         let from = program(t.path(), "mount-host", "echo one");
         let dir = t.path().join("data/browser-host");
-        let image = Path::new("/home/u/Apps/MDM.AppImage");
+        let image = Path::new("/home/u/Apps/NetGuard.AppImage");
         let copy = install_host_copy(&from, &dir, image).unwrap();
         assert_eq!(copy, dir.join(HOST));
         assert!(runs(&copy));
         assert_eq!(std::fs::read(&copy).unwrap(), std::fs::read(&from).unwrap());
         assert_eq!(
             std::fs::read_to_string(dir.join("app-path")).unwrap(),
-            "/home/u/Apps/MDM.AppImage"
+            "/home/u/Apps/NetGuard.AppImage"
         );
         // Moved by an AppImage manager, and the copy deleted: both put right.
         std::fs::remove_file(&copy).unwrap();
@@ -2373,7 +2373,7 @@ mod startup_tests {
         }
     }
 
-    /// The autostart entry and the LaunchAgent start MDM with `/startup` (#226), and name the
+    /// The autostart entry and the LaunchAgent start NetGuard with `/startup` (#226), and name the
     /// program as it is, quoting and all.
     #[test]
     fn the_startup_entries_start_mdm_in_the_tray() {
@@ -2420,7 +2420,7 @@ mod startup_tests {
 
 // Sign-in secrets in the system's keychain (#44, secrets.rs). Linux: the Secret Service
 // (GNOME Keyring, KeePassXC, KDE's wallet in its Secret Service mode) over D-Bus, its default
-// collection only, and only while it is unlocked: MDM never unlocks it nor answers a prompt
+// collection only, and only while it is unlocked: NetGuard never unlocks it nor answers a prompt
 // (desktops that log in on their own often have a locked keyring, #164), so a locked or missing
 // keyring leaves the secrets in the owner-only settings. macOS: the login keychain's generic
 // passwords (SecItemAdd / SecItemCopyMatching, through security-framework).
@@ -2453,7 +2453,7 @@ mod secret_service {
     const COLLECTION: &str = "org.freedesktop.Secret.Collection";
     const ITEM: &str = "org.freedesktop.Secret.Item";
     const SESSION: &str = "org.freedesktop.Secret.Session";
-    /// Groups MDM's entries in Seahorse and the like.
+    /// Groups NetGuard's entries in Seahorse and the like.
     const SCHEMA: &str = "io.github.anefzaoui.misterdownloadmanager.Secret";
 
     /// The D-Bus error's kind; its text (the service's own words) is never kept.
@@ -2538,7 +2538,7 @@ mod secret_service {
             Ok(path)
         }
 
-        /// MDM's items of `service` (one account's, or all): (unlocked, locked).
+        /// NetGuard's items of `service` (one account's, or all): (unlocked, locked).
         fn find(
             &self,
             service: &str,
@@ -2729,7 +2729,7 @@ mod mac_keychain {
 #[cfg(target_os = "linux")]
 const WAKEALARM: &str = "/sys/class/rtc/rtc0/wakealarm";
 
-/// Whether MDM may wake this computer.
+/// Whether NetGuard may wake this computer.
 pub fn wake_support() -> crate::wake::Support {
     #[cfg(target_os = "linux")]
     {
@@ -2745,7 +2745,7 @@ pub fn wake_support() -> crate::wake::Support {
             Support::NeedsAdmin
         }
     }
-    // macOS: `pmset schedule wake` and IOPMSchedulePowerEvent need an administrator, and MDM
+    // macOS: `pmset schedule wake` and IOPMSchedulePowerEvent need an administrator, and NetGuard
     // never asks for one by itself.
     #[cfg(target_os = "macos")]
     {
@@ -2767,11 +2767,11 @@ fn rtc_offset() -> i64 {
     }
 }
 
-/// Wake the computer at `at` (seconds since 1970, UTC), or cancel MDM's wake (None).
+/// Wake the computer at `at` (seconds since 1970, UTC), or cancel NetGuard's wake (None).
 #[cfg(target_os = "linux")]
 pub fn wake_at(at: Option<i64>) -> Result<(), String> {
-    // The alarm MDM set (in the chip's time), to tell it from another program's: kept in the
-    // data folder, so an alarm left by an MDM that was killed (or signed out of) is still ours.
+    // The alarm NetGuard set (in the chip's time), to tell it from another program's: kept in the
+    // data folder, so an alarm left by an NetGuard that was killed (or signed out of) is still ours.
     let file = mdm_ipc::data_dir().map(|d| d.join("wake-alarm"));
     let mut ours = file
         .as_ref()
@@ -2884,7 +2884,7 @@ pub fn keep_awake(reason: Option<&str>) -> bool {
     }
 }
 
-/// macOS: `caffeinate -i` (no idle sleep) for as long as MDM runs, ended when not needed.
+/// macOS: `caffeinate -i` (no idle sleep) for as long as NetGuard runs, ended when not needed.
 #[cfg(target_os = "macos")]
 pub fn keep_awake(reason: Option<&str>) -> bool {
     use std::sync::Mutex;

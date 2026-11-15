@@ -51,7 +51,7 @@ pub fn store_page() -> Option<String> {
 /// the interface language (the app's help::page_url).
 pub const GUIDE_DOC: &str = "guide-catch-browser-downloads.md";
 
-/// The help page for a browser that doesn't reach Mister Download Manager, at the section for
+/// The help page for a browser that doesn't reach NetGuard Download Manager, at the section for
 /// `why` (the native host's reasons, and the app's own checks): its file in docs/ and the
 /// section, as GUIDE_DOC.
 pub fn help_doc(why: &str) -> String {

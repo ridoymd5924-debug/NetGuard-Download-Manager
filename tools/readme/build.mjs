@@ -78,7 +78,7 @@ async function render(spec, file) {
 
 function timeChart(t) {
   const rows = scenarios.flatMap((s) => [
-    { scenario: s.label, client: "Mister Download Manager", seconds: s.mdm / 1000 },
+    { scenario: s.label, client: "NetGuard Download Manager", seconds: s.mdm / 1000 },
     { scenario: s.label, client: "Internet Download Manager 6.42", seconds: s.idm / 1000 },
   ]);
   return {
@@ -92,7 +92,7 @@ function timeChart(t) {
       y: { field: "scenario", type: "nominal", sort: scenarios.map((s) => s.label), title: null,
            scale: { paddingInner: 0.35, paddingOuter: 0.2 },
            axis: { grid: false, labelFontSize: 13, labelColor: t.text, labelLimit: 400 } },
-      yOffset: { field: "client", sort: ["Mister Download Manager", "Internet Download Manager 6.42"],
+      yOffset: { field: "client", sort: ["NetGuard Download Manager", "Internet Download Manager 6.42"],
                  scale: { paddingInner: 0 } },
       x: { field: "seconds", type: "quantitative", title: null,
            axis: { tickCount: 5, format: "~s", labelExpr: "datum.label + ' s'" } },
@@ -102,7 +102,7 @@ function timeChart(t) {
     layer: [
       { mark: { type: "bar", height: 16, cornerRadiusEnd: 4 },
         encoding: { color: { field: "client", type: "nominal",
-                             sort: ["Mister Download Manager", "Internet Download Manager 6.42"],
+                             sort: ["NetGuard Download Manager", "Internet Download Manager 6.42"],
                              scale: { range: [t.mdm, t.idm] } } } },
       { mark: { type: "text", align: "left", dx: 6, fontSize: 12, color: t.muted },
         transform: [{ calculate: "format(datum.seconds, datum.seconds < 0.1 ? '.2f' : '.1f')", as: "value" }],
@@ -162,7 +162,7 @@ function races(t) {
   <rect x="${pad}" y="${pad}" width="${cw - 2 * pad}" height="${H - 2 * pad}" rx="12" fill="${t.tile}"/>
   ${sketch(gen.rectangle(pad, pad, cw - 2 * pad, H - 2 * pad, { seed, roughness: 1.4, bowing: 1.2, stroke: t.border, strokeWidth: 1.8 }))}
   ${write(c.title, 22, 40, 22, t.text, "start", true)}
-  ${write("Mister Download Manager", 22, 72, 17, t.text)}
+  ${write("NetGuard Download Manager", 22, 72, 17, t.text)}
   ${write(seconds(c.mdm), cw - 22, 72, 17, t.text, "end", true)}
   ${bar(80, mdmW, t.mdm, -41, seed + 1)}
   ${write("IDM 6.42", 22, 122, 17, t.muted)}
@@ -172,7 +172,7 @@ function races(t) {
   ${sketch(gen.line(22, 194, 22 + vw, 194, { seed: seed + 3, roughness: 1.6, bowing: 2, stroke: t.mdm, strokeWidth: 2.4 }))}
 </g>`;
   });
-  const label = cases.map((c) => `${c.title}: Mister Download Manager ${seconds(c.mdm)}, IDM ${seconds(c.idm)}, ${verdict(c.idm / c.mdm).toLowerCase()}`).join("; ");
+  const label = cases.map((c) => `${c.title}: NetGuard Download Manager ${seconds(c.mdm)}, IDM ${seconds(c.idm)}, ${verdict(c.idm / c.mdm).toLowerCase()}`).join("; ");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}">
 <title>${esc(label)}</title>
 ${parts.join("\n")}
@@ -195,7 +195,7 @@ function compareTable() {
   const row = (label, id, key = "e2e_ms") =>
     `| ${label} | **${seconds(med(byId[id], "MDM", key))}** | ${seconds(med(byId[id], "IDM", key))} |`;
   return [
-    "| | Mister Download Manager | IDM 6.42 |",
+    "| | NetGuard Download Manager | IDM 6.42 |",
     "| --- | --- | --- |",
     row("Download a big file (1 GB)", "fast-1g"),
     row("Download a small file", "small-256k"),

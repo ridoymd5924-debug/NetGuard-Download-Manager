@@ -28,7 +28,7 @@ pub enum TrayCmd {
     ShowDownload(u64),
 }
 
-/// Whether a tray shows MDM's icon at all, so hiding a window there can be undone. Windows and
+/// Whether a tray shows NetGuard's icon at all, so hiding a window there can be undone. Windows and
 /// macOS (the menu bar) always have one; on Linux only when a StatusNotifierItem host runs (#59),
 /// asked each time: it may come and go.
 pub fn available() -> bool {

@@ -1,6 +1,6 @@
 The Luna theme's icon set (#45).
 
-MDM's own: pictures drawn for Mister Download Manager in the manner of Windows XP's desktop icons (2001): a three-quarter view, a thin dark outline,
+MDM's own: pictures drawn for NetGuard Download Manager in the manner of Windows XP's desktop icons (2001): a three-quarter view, a thin dark outline,
 saturated colours lit from the top left. Not one of
 Microsoft's icons, or any other project's, is used or copied. GPL-3.0-or-later, as MDM (its
 LICENSE, at the top of the repository).

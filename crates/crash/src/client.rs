@@ -19,7 +19,7 @@ pub struct Reporter {
 
 impl Reporter {
     /// Start `exe --crash-monitor <socket> --data <dir>` and connect to it (up to 5 s for it to
-    /// listen). None when it can't start: MDM runs on without crash reports.
+    /// listen). None when it can't start: NetGuard runs on without crash reports.
     pub fn start(exe: &Path, data: &Path) -> Option<Reporter> {
         let socket = crate::monitor::socket_path(std::process::id());
         let mut cmd = Command::new(exe);
@@ -51,7 +51,7 @@ impl Reporter {
                 }
                 Err(e) => {
                     tracing::warn!("crash monitor didn't answer: {e}");
-                    // It can never answer now: don't leave a second MDM process behind.
+                    // It can never answer now: don't leave a second NetGuard process behind.
                     let _ = child.kill();
                     let _ = child.wait();
                     return None;
