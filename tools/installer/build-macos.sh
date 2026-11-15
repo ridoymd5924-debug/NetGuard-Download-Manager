@@ -94,8 +94,9 @@ for pair in "${targets[@]}"; do
 </dict>
 </plist>
 EOF
-  # The Safari extension (it carries its own copy of the helper, signed for its sandbox).
-  "$root/tools/safari/build-appex.sh" "$app" "$arch-apple-macos14.0" "$root/target/extension/safari" \
+  # The Safari extension (it carries its own copy of the helper, signed for its sandbox). Run through
+  # bash, so it works even when a checkout lost the script's executable bit (a Windows upload).
+  bash "$root/tools/safari/build-appex.sh" "$app" "$arch-apple-macos14.0" "$root/target/extension/safari" \
     "$app/Contents/MacOS/misterdownloadmanager-nmhost" "$version" "$sign"
   # The helper programs, then the app, which signs its own program (not --deep: that would sign
   # the extension again, without the entitlements it was given). Signing the app's own program

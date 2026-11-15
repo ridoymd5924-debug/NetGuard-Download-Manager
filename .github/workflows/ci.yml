@@ -98,7 +98,7 @@ jobs:
         if: runner.os == 'macOS'
         run: |
           cargo build --release -p mdm-nmhost
-          tools/safari/selftest.sh target/release/misterdownloadmanager-nmhost
+          bash tools/safari/selftest.sh target/release/misterdownloadmanager-nmhost
 
   # A translator's reviewed rows (no "#, machine" line) must survive every pull request: no
   # tool or merge may drop them or hand them back to machine translation.

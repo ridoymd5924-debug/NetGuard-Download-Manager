@@ -92,6 +92,44 @@ View → Always dark still turns it off.
   "NetGuard Download Manager vX.Y.Z" (it was hard-coded). The light variant of the classic look and the other
   built-in themes (Luna, Aero, Metro, ...), the marketing `website/` folder, `i18n/site` and `i18n/style`.
 
+## Fixes after the first Release run
+
+The first run on GitHub (Windows, macOS) showed two problems; both are fixed in this version.
+Neither was run again on Windows or macOS here (no such machine was available): the next Release
+run on GitHub is the check.
+
+1. **Windows: `win32::startup_tests::old_startup_entries_are_rewritten` failed.** Cause: a test
+   mistake from the rename, not a change in behaviour. The test's `EXE` constant became
+   `...\NetGuard Download Manager\misterdownloadmanager.exe`, but one hand-typed lowercase path in
+   the same test (`c:\program files\mister download manager\...`) was not matched by the
+   case-sensitive rename, so it no longer described `EXE`. `startup_outdated()` and the startup
+   code in `crates/app/src/win32.rs` are unchanged: they compare an entry with the running
+   program's own path, and the Run-key value name (`MisterDownloadManager`) and the exe name are the
+   original's, so existing users' entries are found and migrated as before. Fixed: the test's path
+   now reads `netguard download manager`. Added (nothing removed or disabled): the test
+   `entries_of_an_install_under_the_old_name_still_migrate`, which checks that an install still in
+   the old `Mister Download Manager` folder (what an upgrade over the original uses, because the
+   installer keeps the original `AppId`) has its old entries migrated too.
+2. **macOS: `build-appex.sh: Permission denied` (`tools/installer/build-macos.sh`, line 98).**
+   Cause: `build-macos.sh` ran `tools/safari/build-appex.sh` directly, which needs the executable bit.
+   The original project and the ZIPs from here have it (mode 755), but files uploaded to GitHub from
+   Windows or through the web page are stored as 100644, so the run failed. Fixed in two ways:
+   `build-macos.sh` now runs `bash "$root/tools/safari/build-appex.sh"` (works whatever the mode), and
+   the same one-word change was made to `tools/safari/selftest.sh` in the macOS step of
+   `.github/workflows/ci.yml`. The Safari extension build step is kept. Also set the mode in Git
+   (see below). The dSYM warnings were not the cause: `dsymutil` runs at line 65 of the same script,
+   before line 98, and the log shows the script got past it.
+
+Setting the executable bit in Git (once, from the repository folder):
+```
+git update-index --chmod=+x tools/safari/build-appex.sh tools/safari/selftest.sh tools/installer/build-macos.sh tools/installer/build-linux.sh
+git commit -m "Restore executable bit on build scripts"
+git ls-files -s tools/safari/build-appex.sh      # should start with 100755
+```
+
+Files changed by these fixes: `crates/app/src/win32.rs`, `tools/installer/build-macos.sh`,
+`.github/workflows/ci.yml`, `NETGUARD-FORK.md`.
+
 ## Known risks and limits
 
 0. **Old screenshots and website text.** The screenshots in `docs/images/*.webp` (and the README
