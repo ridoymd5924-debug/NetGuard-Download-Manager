@@ -16,7 +16,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 "misterdownloadmanager-mcp: NetGuard Download Manager's MCP server, for AI \
                  assistants. The assistant starts it (no arguments) and talks to it on stdin and \
                  stdout. Setup: \
-                 https://misterdownloadmanager.com/help/ai-assistants.html"
+                 https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/docs/ai-assistants.md"
             ),
         }
         return Ok(());

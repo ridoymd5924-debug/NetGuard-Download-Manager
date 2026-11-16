@@ -1,4 +1,4 @@
-# Issue #145: a magnet link or a download handed over from the browser while MDM's main window was
+# Issue #145: a magnet link or a download handed over from the browser while NetGuard's main window was
 # hidden (closed to the notification area) crashed 0.2.4 ("egui backend is implemented incorrectly
 # - the user callback was never called"). This script plays it on a test copy, off the screens:
 #
@@ -12,13 +12,13 @@
 #             ID) with one native message; the host passes it on and the copy opens Download File
 #             Info. The address is on 127.0.0.1 port 9, where nothing answers.
 # -State: visible (the window as it opens), hidden (ShowWindow hides it, as the notification area
-#   does), tray (MDM hides it there itself: `/show tray`, after 0.2.4), minimized,
+#   does), tray (NetGuard hides it there itself: `/show tray`, after 0.2.4), minimized,
 #   dialog (Options open, the main window minimized), twice (two in a row, hidden), restoring (a
 #   plain second launch, which shows the window again, right before), all (each in turn).
 # -Renderer: glow or direct3d (MDM_RENDERER; after 0.2.4).
 #
 # Each run has its own data folder (MDM_DATA_DIR, deleted after unless -Keep), so nothing touches
-# an installed MDM, its registrations or the browsers. Nothing goes to the internet: the magnet
+# an installed NetGuard, its registrations or the browsers. Nothing goes to the internet: the magnet
 # names no tracker, the update check is off, and the torrent engine's DHT, local discovery, UPnP
 # and incoming connections are off. A release that can't turn them off (0.2.4 and older) needs
 # -NoTorrentEngine: a file named `torrents` in its data folder, so its torrent engine can't start.
@@ -67,7 +67,7 @@ public static class MagWin {
 }
 "@
 $SW_HIDE = 0; $SW_SHOWMINNOACTIVE = 7; $WM_CLOSE = 0x10
-# Windows of the test copy that aren't MDM's own (OpenGL's and the input method's helpers).
+# Windows of the test copy that aren't NetGuard's own (OpenGL's and the input method's helpers).
 $Helpers = "__wglDummyWindowFodder", "NVOGLDC invisible", "Default IME", "MSCTFIME UI"
 
 function Windows-Of([int]$ProcId) {

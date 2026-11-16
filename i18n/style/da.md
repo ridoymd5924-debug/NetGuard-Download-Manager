@@ -1,4 +1,4 @@
-<!-- How Danish writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Danish writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Brug en direkte, venlig og professionel tone. Tiltal brugeren med “du”, ikke “De”. (Vil du slette denne download?; Dine indstillinger er gemt.)
 - Formulér kommandoer og knapper som korte bydeformer. Brug samme form i menupunkter, og afslut dem ikke med punktum. (Gem; Annuller)
 - Brug en kort, beskrivende formulering til afkrydsningsfelter. Undgå at formulere valget som et spørgsmål. (Start downloads automatisk; Vis meddelelser)
@@ -10,7 +10,7 @@
 - Skriv hændelsesloglinjer kort og faktuelt. Brug en hel sætning, hvis det gør hændelsen tydeligere. (Download startet; Forbindelsen blev afbrudt.)
 - Sørg for, at verber passer til det underforståede subjekt. Bevar en tydelig entals- eller flertalsform, når subjektet er angivet. (Filen kunne ikke åbnes.; Filerne kunne ikke åbnes.)
 - Brug naturlig dansk ordstilling, også når teksten indeholder pladsholdere. Undgå at kopiere engelsk ordstilling direkte. (Henter {n} filer; Filen blev gemt i mappen)
-- Brug sætningsstil i titler: stort begyndelsesbogstav i det første ord og i egennavne, men ikke i hvert ord. (Downloadindstillinger; Forbind til Mister Download Manager)
+- Brug sætningsstil i titler: stort begyndelsesbogstav i det første ord og i egennavne, men ikke i hvert ord. (Downloadindstillinger; Forbind til NetGuard Download Manager)
 - Skriv ugedage og måneder med lille begyndelsesbogstav. (mandag; januar)
 - Brug dansk tegnsætning. Sæt ikke mellemrum før komma, punktum, kolon eller spørgsmålstegn; sæt ét mellemrum efter kolon. (Fejl: {error}; Vil du fortsætte?)
 - Brug tre punktummer (...) til udeladelse eller når en kommando åbner en dialogboks. Sæt ikke mellemrum før dem. (Gem som...; Kontrollerer...)

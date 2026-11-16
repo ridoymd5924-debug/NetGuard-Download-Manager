@@ -7,7 +7,7 @@
 // nothing here changes.
 //
 // The sandbox (Safari only loads sandboxed extensions) is opened just as far as the helper needs:
-// MDM's data folder (the channel to the app, Options' rules) and the loopback connection to the
+// NetGuard's data folder (the channel to the app, Options' rules) and the loopback connection to the
 // app (extension.entitlements).
 //
 // The helper speaks the browsers' native messaging protocol: a 32-bit little-endian length,
@@ -36,7 +36,7 @@ final class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
         Bundle.main.bundleURL.appendingPathComponent("Contents/MacOS/misterdownloadmanager-nmhost")
     }
 
-    /// MDM's data folder in the user's real home: the sandbox gives this process a home of its
+    /// NetGuard's data folder in the user's real home: the sandbox gives this process a home of its
     /// own, where the app's files are not (the helper reads MDM_DATA_DIR before anything).
     private static var dataFolder: String? {
         // (selftest.sh points it at a folder of its own.)

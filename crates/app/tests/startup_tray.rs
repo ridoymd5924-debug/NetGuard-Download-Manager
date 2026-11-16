@@ -1,4 +1,4 @@
-//! #226: started with the session, MDM waits in the notification area. The real app, off the
+//! #226: started with the session, NetGuard waits in the notification area. The real app, off the
 //! screens (MDM_OFFSCREEN), with a data folder of its own, started as its startup entry starts
 //! it (`/startup`), with its tray icon (MDM_TEST_TRAY: off-screen copies have none otherwise):
 //! the icon is shown and no window is, the list's clock runs, and a second launch by the user

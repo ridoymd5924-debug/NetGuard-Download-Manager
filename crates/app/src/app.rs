@@ -56,7 +56,7 @@ enum Cmd {
     CheckUpdates,
     About,
     TellFriend,
-    /// Help → Support NetGuard: the creator's GitHub Sponsors page in the browser.
+    /// Help → Support NetGuard: the project's GitHub page in the browser.
     Support,
     Exit,
     Stop,
@@ -2987,7 +2987,11 @@ impl App {
         let wanted =
             !crate::offscreen() || std::env::var_os("MDM_TEST_TRAY").is_some_and(|v| v == "1");
         if self.tray.is_none() && self.tray_limiter.is_none() && wanted {
-            let icon = crate::app_icon();
+            // The notification area's own icon (tray.png, 32 px), else the window's.
+            const TRAY_PNG: &[u8] = include_bytes!("../assets/icons/app/tray.png");
+            let icon = eframe::icon_data::from_png_bytes(TRAY_PNG)
+                .map(std::sync::Arc::new)
+                .unwrap_or_else(|_| crate::app_icon());
             self.tray = crate::tray::Tray::new(
                 ctx,
                 icon.rgba.clone(),
@@ -5236,7 +5240,7 @@ impl App {
             Cmd::Shortcuts => self.shortcuts = Some(crate::help::Shortcuts),
             Cmd::ReportProblem => crate::help::report_problem(),
             Cmd::CheckUpdates => {
-                if self.updates.is_none() {
+                if crate::help::UPDATES_ENABLED && self.updates.is_none() {
                     self.updates = Some(crate::help::Updates::check(&self.rt, ctx));
                 }
             }
@@ -5776,11 +5780,9 @@ impl App {
                 ),
                 I("&Report a problem", Cmd::ReportProblem, true, false),
                 Sep,
-                I("Check for &updates...", Cmd::CheckUpdates, true, false),
-                Sep,
                 I("&About NetGuard Download Manager", Cmd::About, true, false),
                 I("Tell a &friend", Cmd::TellFriend, true, false),
-                // NetGuard's, not IDM's: the creator's GitHub Sponsors page, asked for only.
+                // NetGuard's, not IDM's: the project's GitHub page, asked for only.
                 I("Support &NetGuard", Cmd::Support, true, false),
             ],
         };
@@ -5806,7 +5808,14 @@ impl App {
         let mut items = Vec::new();
         let mut files = false;
         let on = |id: &str| chosen == id;
-        // i18n: View → Theme: NetGuard's own look, the default (IDM's layout, Windows 11's controls)
+        // i18n: View → Theme: NetGuard's own look, the default (Dark Navy and Emerald); a name: keep "NetGuard" as written
+        items.push(Radio(
+            "NetGuard",
+            Cmd::Theme("netguard"),
+            true,
+            on("netguard"),
+        ));
+        // i18n: View → Theme: the original look (IDM's layout, Windows 11's controls)
         items.push(Radio("Classic", Cmd::Theme("classic"), true, on("classic")));
         // i18n: View → Theme: the system's own colours (its accent colour, its high contrast)
         items.push(Radio("Native", Cmd::Theme("native"), true, on("native")));
@@ -6933,7 +6942,12 @@ impl App {
                 Popup::Node(node) => (self.node_entries(node), None),
                 Popup::DropTarget => (
                     vec![
-                        MenuEntry::Item("Show NetGuard Download Manager", Cmd::ShowMain, true, false),
+                        MenuEntry::Item(
+                            "Show NetGuard Download Manager",
+                            Cmd::ShowMain,
+                            true,
+                            false,
+                        ),
                         MenuEntry::Item("&Add new download", Cmd::AddUrl, true, false),
                         MenuEntry::Sep,
                         MenuEntry::Item("Hide drop target", Cmd::ToggleDropTarget, true, false),
@@ -7781,7 +7795,8 @@ impl App {
         let again = self
             .update_checked_this_run
             .is_some_and(|t| now - t >= crate::help::CHECK_EVERY);
-        if self.auto_update.is_none()
+        if crate::help::UPDATES_ENABLED
+            && self.auto_update.is_none()
             && self.settings.update_check
             // Off-screen test runs check only when told where (MDM_UPDATE_FEED: their own feed).
             && (!crate::offscreen() || std::env::var_os("MDM_UPDATE_FEED").is_some())
@@ -7807,7 +7822,10 @@ impl App {
             self.raise_options = false;
         }
         // Until the check at start is due.
-        if self.update_checked_this_run.is_none() && self.settings.update_check {
+        if crate::help::UPDATES_ENABLED
+            && self.update_checked_this_run.is_none()
+            && self.settings.update_check
+        {
             ctx.request_repaint_after(crate::help::CHECK_AFTER_START);
         }
         let done = self

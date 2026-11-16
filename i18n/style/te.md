@@ -1,4 +1,4 @@
-<!-- How Telugu writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Telugu writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Commands use a concise, respectful imperative. Do not add a word for “please.” (డౌన్‌లోడ్‌ను ప్రారంభించండి; లింక్‌ను కాపీ చేయండి)
 - Button labels use the same imperative for actions; retain established short labels where appropriate. (సేవ్ చేయండి; సరే)
 - Menu items use a short action phrase or noun phrase, consistent with what the item does. (ఫైల్‌ను తెరవండి; సెట్టింగ్‌లు)

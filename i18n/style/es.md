@@ -1,4 +1,4 @@
-<!-- How Spanish (Spain) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Spanish (Spain) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Usa el infinitivo para comandos, opciones de menú y etiquetas de casilla. En botones, usa la forma breve habitual; no conviertas las acciones en instrucciones con imperativo. (Menú: «Iniciar descarga»; Botón: «Aceptar»)
 - Dirígete al usuario de tú cuando sea necesario, pero omite el pronombre si queda claro. Mantén un tono directo, cordial y neutro; evita usted. (¿Quieres eliminar esta descarga?; Selecciona una carpeta.)
 - Formula las confirmaciones como preguntas directas y completas. Indica claramente la acción y, si procede, sus consecuencias. (¿Quieres detener la descarga?)

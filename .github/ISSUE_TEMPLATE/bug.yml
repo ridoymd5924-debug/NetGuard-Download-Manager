@@ -1,4 +1,4 @@
-# The bug report form. MDM's Help -> Report a problem opens it with the text fields filled in
+# The bug report form. NetGuard's Help -> Report a problem opens it with the text fields filled in
 # (crates/app/src/help.rs: the ids below are the URL's parameters; keep them in step). System and
 # Installed with are text fields, not dropdowns: GitHub's page showed a dropdown's value from the
 # address for a moment, then put it back to none.
@@ -9,8 +9,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time. **Help → Report a problem** in MDM opens this form with your version and system already filled in.
-        A security problem? Please don't report it here: see the [security page](https://misterdownloadmanager.com/security.html).
+        Thanks for taking the time. **Help → Report a problem** in NetGuard opens this form with your version and system already filled in.
+        A security problem? Please don't report it here: see the [security page](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/SECURITY.md).
   - type: input
     id: os
     attributes:
@@ -30,7 +30,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: MDM version
+      label: NetGuard version
       description: Help → About shows it.
       placeholder: "0.2.0"
     validations:
@@ -46,7 +46,7 @@ body:
   - type: dropdown
     id: area
     attributes:
-      label: Part of MDM
+      label: Part of NetGuard
       options:
         - Downloads (speed, resuming, errors)
         - Browser extension
@@ -55,7 +55,7 @@ body:
         - Queues and the Scheduler
         - The window, menus and dialogs
         - Languages and translations
-        - Installing, updating or removing MDM
+        - Installing, updating or removing NetGuard
         - Command line, automation API or MCP server
         - Something else
   - type: input
@@ -67,7 +67,7 @@ body:
   - type: input
     id: language
     attributes:
-      label: MDM's language
+      label: NetGuard's language
       placeholder: en
   - type: textarea
     id: what
@@ -97,11 +97,11 @@ body:
     attributes:
       label: Log or screenshots
       description: |
-        A download's recent events: hover over its **Status** in the list. A crash: crash.log in MDM's data folder (Windows: %APPDATA%\misterdownloadmanager). Drag screenshots in here.
+        A download's recent events: hover over its **Status** in the list. A crash: crash.log in NetGuard's data folder (Windows: %APPDATA%\misterdownloadmanager). Drag screenshots in here.
   - type: checkboxes
     id: searched
     attributes:
       label: Before you send it
       options:
-        - label: I looked through the [open issues](https://github.com/anefzaoui/misterdownloadmanager/issues) and this one isn't there yet.
+        - label: I looked through the [open issues](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues) and this one isn't there yet.
           required: true

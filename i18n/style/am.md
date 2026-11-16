@@ -1,4 +1,4 @@
-<!-- How Amharic writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Amharic writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Phrase commands as concise, respectful imperatives. Use the same form across the interface. (ያውርዱ; ያቁሙ)
 - Use a short imperative on action buttons. Keep menu items as concise nouns or imperatives, depending on whether they name a section or perform an action. (ያስቀምጡ; ቅንብሮች)
 - Write check box labels as short, clear statements describing the setting or its effect; omit sentence-final punctuation. (ማውረዱ ሲጠናቀቅ መተግበሪያው ይዝጋ)
@@ -14,4 +14,4 @@
 - Ensure verbs agree with an explicitly stated subject. Omit the subject only when it is obvious from the screen context or the text is intentionally a compact status fragment. (ፋይሉ ወርዷል።; በማውረድ ላይ…)
 - Use natural Amharic word order, generally placing the verb at the end. Reorder English source text rather than following it word for word. (ፋይሉን መክፈት አልተቻለም።)
 - Prefer established Amharic computing terms. Use familiar loanwords where they are standard, and do not transliterate English unnecessarily when a clear Amharic term exists. (ፋይል; ቅንብሮች)
-- Keep numbers, variables, format specifiers, and product names intact. Place them where they read naturally in Amharic, without changing their spelling or order when the software requires an exact token. ({n} ፋይል; Mister Download Manager)
+- Keep numbers, variables, format specifiers, and product names intact. Place them where they read naturally in Amharic, without changing their spelling or order when the software requires an exact token. ({n} ፋይል; NetGuard Download Manager)

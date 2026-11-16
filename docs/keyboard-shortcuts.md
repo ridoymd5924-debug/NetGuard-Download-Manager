@@ -2,15 +2,15 @@
 
 [← Back to docs index](README.md)
 
-The same list is in MDM under **Help → Keyboard shortcuts**, and the menus show each command's
+The same list is in NetGuard under **Help → Keyboard shortcuts**, and the menus show each command's
 keys beside it. On a Mac, **⌘** (Command) takes the place of **Ctrl**: **⌘N** adds a download.
 
-Everything can be done from the keyboard, and MDM works with screen readers (such as
+Everything can be done from the keyboard, and NetGuard works with screen readers (such as
 Narrator and NVDA on Windows): its windows, dialogs and menus tell them what each control is
 and its state, and the download list reads each download's name, status and size. The
 **Categories** pane reads as a tree (each category with its count, open or shut, selected or
 not), and the menu bar and every right-click menu as menus whose items can be run from there.
-On Linux, screen readers (Orca) don't read MDM's windows yet; the keyboard works there as
+On Linux, screen readers (Orca) don't read NetGuard's windows yet; the keyboard works there as
 everywhere.
 
 ## Adding and finding

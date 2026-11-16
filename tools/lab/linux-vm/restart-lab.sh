@@ -1,5 +1,5 @@
 #!/bin/bash
-# The lab server and MDM from one build (~/lab/bin/<label>), restarted.
+# The lab server and NetGuard from one build (~/lab/bin/<label>), restarted.
 . ~/lab/env.sh
 pkill -x labserver; pkill -x misterdownloadm; sleep 2
 setsid -f ~/lab/bin/$1/labserver --bind 127.0.0.1:8097 --log-file ~/lab/labserver.jsonl >/tmp/labserver.out 2>&1 </dev/null

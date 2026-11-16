@@ -1,6 +1,6 @@
 #!/bin/bash
 # Another desktop beside GNOME in a lab clone (vm.ps1 clone), GDM kept as the login manager and the
-# auto-login session switched to the new desktop, for MDM's checks on KDE Plasma, Cinnamon, XFCE.
+# auto-login session switched to the new desktop, for NetGuard's checks on KDE Plasma, Cinnamon, XFCE.
 # Reboot the clone afterwards. The sudo password comes on stdin (vm.ps1 run passes MDM_SUDO_PASSWORD):
 #   echo "$MDM_SUDO_PASSWORD" | bash desktop.sh "<packages>" <session>
 #   e.g. "kde-plasma-desktop xdg-desktop-portal-kde" plasma · cinnamon-core cinnamon ·

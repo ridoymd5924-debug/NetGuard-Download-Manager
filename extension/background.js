@@ -13,7 +13,7 @@
 const ext = globalThis.browser ?? globalThis.chrome;
 const HOST = "com.misterdownloadmanager.host";
 const VERSION = ext.runtime.getManifest().version;
-const HELP = "https://misterdownloadmanager.com/help/browser-help.html";
+const HELP = "https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/docs/browser-help.md";
 const action = ext.action ?? ext.browserAction;
 // Safari has no downloads API at all (nor proxy): it can't take a download from the browser, so
 // the links clicked in a page are handed over instead (`link`, below; page.js).

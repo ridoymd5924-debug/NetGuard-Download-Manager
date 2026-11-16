@@ -5171,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in NetGuard and try again.	Còd ceàrr. Seall còd ùr ann an NetGuard agus feuch a-rithist.
+	Wrong code. Show a new code in NetGuard and try again.	Còd ceàrr. Seall còd ùr ann a NetGuard agus feuch a-rithist.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5590,7 +5590,7 @@ column	Time left	Ùine air fhàgail
 #, machine
 column	Transfer rate	Ìre gluasaid
 #. text in the browser extension
-#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
 extension	Another NetGuard Download Manager (a server)	NetGuard Download Manager eile (frithealaiche)
 #. text in the browser extension

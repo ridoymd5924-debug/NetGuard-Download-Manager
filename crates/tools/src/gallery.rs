@@ -32,7 +32,7 @@ const RELEASES: &str = "https://codeberg.org/api/v1/repos/mikf/gallery-dl/releas
 pub const USER_AGENT: &str = concat!(
     "MisterDownloadManager/",
     env!("CARGO_PKG_VERSION"),
-    " (+https://misterdownloadmanager.com) gallery-dl"
+    " (+https://github.com/ridoymd5924-debug/NetGuard-Download-Manager) gallery-dl"
 );
 
 /// gallery-dl's program for this system in its releases. None on macOS (it publishes no build

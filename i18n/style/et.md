@@ -1,4 +1,4 @@
-<!-- How Estonian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Estonian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Sõnasta käsud, nupud ja käskivad menüüüksused lühikese ainsuse teise isiku käskiva kõneviisiga. Ära lisa asesõna „sina”. (Ava; Alusta allalaadimist)
 - Sõnasta märkeruudu tekst lühikese tegevusjuhisena. Kui valik kirjeldab olekut, kasuta lühikest nimisõna- või omadussõnafraasi. (Käivita Windowsi sisselogimisel; Näita teatisi)
 - Pöördu kasutaja poole neutraalselt ja järjekindlalt. Kasuta käskudes ainsuse käskivat kõneviisi; väldi tarbetuid asesõnu ja familiaarseid väljendeid. (Vali allalaadimiseks kaust; Allalaadimise jätkamiseks vali „Jätka”)
@@ -14,4 +14,4 @@
 - Kontrolli tegusõna ühildumist lause mõttelise alusega ka siis, kui alus on eestipäraselt välja jäetud. Kasuta ainsust umbmäärase arvu järel impersonaalses konstruktsioonis. (Allalaadimine on lõpetatud.; {n} faili laaditakse alla.)
 - Kasuta loomulikku eestikeelset sõnajärge ja väldi inglise keele sõnajärje jäljendamist. Tõsta oluline tegevus või olek arusaadavalt esile. (Fail laaditakse kausta alla.; Allalaadimine on peatatud.)
 - Eelista väljakujunenud eestikeelseid termineid. Kasuta laen- või võõrsõna siis, kui see on tavakasutuses või Microsofti terminoloogias kinnistunud; ära jäta ingliskeelset sõna tõlkimata pelgalt lühiduse pärast. (link; kaust)
-- Kasuta tootenime „Mister Download Manager” muutmata kujul. Ära tõlgi ega käänamisel muuda nime ennast. (Mister Download Manageri sätted)
+- Kasuta tootenime „NetGuard Download Manager” muutmata kujul. Ära tõlgi ega käänamisel muuda nime ennast. (NetGuard Download Manageri sätted)

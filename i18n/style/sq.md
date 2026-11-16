@@ -1,4 +1,4 @@
-<!-- How Albanian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Albanian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Përdor trajtën joformale të vetës së dytë njëjës për t’iu drejtuar përdoruesit. Mbaje të njëjtën trajtë në udhëzime dhe pyetje. (Zgjidh dosjen ku do t’i ruash skedarët.; A dëshiron ta ndalosh shkarkimin?)
 - Formulo komandat me folje në urdhërore, njëjës. Mbaji të shkurtra dhe nisji me veprimin kryesor. (Shkarko; Rifillo shkarkimin)
 - Përdor urdhëroren e shkurtër për butonat; mos shto shpjegime që nuk duhen për të dalluar veprimin. (Ruaj; Anulo)

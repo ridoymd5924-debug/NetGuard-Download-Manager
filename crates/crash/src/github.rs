@@ -3,7 +3,7 @@
 
 use serde::Deserialize;
 
-pub const REPO: &str = "anefzaoui/misterdownloadmanager";
+pub const REPO: &str = "ridoymd5924-debug/NetGuard-Download-Manager";
 
 /// GitHub turns away very long addresses: the form's address is kept under this, the report cut
 /// to fit (the full one goes in as the attached file).

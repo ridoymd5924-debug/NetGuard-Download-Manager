@@ -281,16 +281,16 @@ mod tests {
                 .collect()
         };
         let full = a(&[
-            "MisterDownloadManager-0.2.2-setup.exe",
+            "NetGuard-Download-Manager-0.2.2-setup.exe",
             "SHA256SUMS.txt",
             "SHA256SUMS.txt.sig",
         ]);
         assert_eq!(
             asset_for(Install::Installer, "0.2.2", &full).as_deref(),
-            Some("MisterDownloadManager-0.2.2-setup.exe")
+            Some("NetGuard-Download-Manager-0.2.2-setup.exe")
         );
         // An unsigned release, another kind's file, a build from source: no.
-        let unsigned = a(&["MisterDownloadManager-0.2.2-setup.exe", "SHA256SUMS.txt"]);
+        let unsigned = a(&["NetGuard-Download-Manager-0.2.2-setup.exe", "SHA256SUMS.txt"]);
         assert_eq!(asset_for(Install::Installer, "0.2.2", &unsigned), None);
         assert_eq!(asset_for(Install::PortableZip, "0.2.2", &full), None);
         assert_eq!(asset_for(Install::Source, "0.2.2", &full), None);
@@ -307,9 +307,9 @@ mod tests {
                 .map(|n| (n.to_string(), format!("https://x/{n}")))
                 .collect()
         };
-        let old = "MisterDownloadManager-0.3.0-linux-x86_64-experimental.AppImage";
-        let new = "MisterDownloadManager-0.3.0-linux-x86_64.AppImage";
-        let deb = "MisterDownloadManager-0.3.0-linux-x86_64.deb";
+        let old = "NetGuard-Download-Manager-0.3.0-linux-x86_64-experimental.AppImage";
+        let new = "NetGuard-Download-Manager-0.3.0-linux-x86_64.AppImage";
+        let deb = "NetGuard-Download-Manager-0.3.0-linux-x86_64.deb";
         for (assets, want) in [
             (release(&[old]), Some(old)),
             (release(&[new, deb]), Some(new)),

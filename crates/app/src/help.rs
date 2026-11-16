@@ -1,7 +1,6 @@
-//! The Help menu (D-020): the user guide and the home page on the website (docs/ made into
-//! pages, in the interface language), problem reports on GitHub (pre-filled), update checks
-//! against GitHub Releases (on demand, and at every start and once a day while running), About,
-//! Keyboard shortcuts and Tell a friend.
+//! The Help menu (D-020): the user guide (docs/ in the repository on GitHub) and the home page,
+//! problem reports on GitHub (pre-filled), About, Keyboard shortcuts and Tell a friend. Update
+//! checks are switched off in this release ([`UPDATES_ENABLED`]).
 
 use std::sync::{Arc, Mutex};
 use std::time::Duration;
@@ -12,11 +11,17 @@ use crate::dialogs::{Outcome, window};
 use crate::winui::{self, ButtonKind, r};
 
 /// The repository: problem reports, releases, source, licences.
-pub const REPO: &str = "https://github.com/anefzaoui/misterdownloadmanager";
-/// The creator's GitHub Sponsors page: Help → Support NetGuard, About's last line. The website, the
-/// extension's popup and the repository's Sponsor button (.github/FUNDING.yml) point there too.
-pub const SPONSORS: &str = "https://github.com/sponsors/anefzaoui";
-const LATEST: &str = "https://api.github.com/repos/anefzaoui/misterdownloadmanager/releases/latest";
+pub const REPO: &str = "https://github.com/ridoymd5924-debug/NetGuard-Download-Manager";
+/// Help → Support NetGuard, About's last line, and the extension's popup: the project's page on
+/// GitHub.
+pub const SPONSORS: &str = REPO;
+/// Update checks and Update now are switched off in this release: no menu item, no automatic
+/// check, no notification. NetGuard has no release feed or release signing key yet; a future
+/// NetGuard updater sets its feed in [`LATEST`], pins its key in `mdm_tools` (`signed_by_mdm`)
+/// and turns this on.
+pub const UPDATES_ENABLED: bool = false;
+/// The address of the latest release's data. Empty until NetGuard has an update system.
+const LATEST: &str = "";
 pub const VERSION: &str = env!("CARGO_PKG_VERSION");
 pub const COMMIT: &str = env!("MDM_COMMIT");
 /// While NetGuard runs, the automatic check comes again this often (it also checks at every start).
@@ -24,50 +29,22 @@ pub const CHECK_EVERY: i64 = 24 * 3600;
 /// The check at start waits this long (the window, the list and the downloads first).
 pub const CHECK_AFTER_START: std::time::Duration = std::time::Duration::from_secs(5);
 
-/// The official website: the home page and the user guide, docs/*.md made into pages by
-/// tools/website/build.py. GitHub (REPO) keeps what is GitHub's: issues, releases, the source.
-pub const SITE: &str = "https://misterdownloadmanager.com";
-
-/// The website's languages besides English, its folders (`/de/help/`): tools/website/sitei18n.py's
-/// LANGS, which a test keeps this list equal to. English is at the root.
-const SITE_LANGS: &[&str] = &[
-    "es", "pt-br", "pt", "fr", "de", "ru", "ar", "zh-hans", "ja", "ko", "tr", "it", "id", "vi",
-    "hi", "fa", "pl", "uk", "nl", "th", "bn",
-];
-
-/// The website's folder for the interface language `code` (a catalog's code: `de`, `pt-br`,
-/// `es-mx`…): the language itself, else its base language (`es-mx` reads `/es/`, `fr-ca`
-/// `/fr/`), else none, English. `zh-hant` stays English: the site has Simplified Chinese only.
-fn site_lang(code: &str) -> Option<&'static str> {
-    let code = code.to_ascii_lowercase();
-    let base = code.split(['-', '_']).next().unwrap_or_default();
-    SITE_LANGS
-        .iter()
-        .find(|l| **l == code)
-        .or_else(|| SITE_LANGS.iter().find(|l| **l == base))
-        .copied()
-}
-
-/// The website's address of a user guide page in the language `lang` (an interface language
-/// code): `doc` is the page's file in docs/ with an optional section (`"video.md"`,
-/// `"README.md#tutorials"`; the guide's contents are README.md), `""` the home page. The mapping
-/// is build.py's: docs/README.md is /help/, docs/<page>.md /help/<page>.html.
-pub fn page_url(doc: &str, lang: &str) -> String {
+/// The address of a user guide page: `doc` is the page's file in docs/ with an optional section
+/// (`"video.md"`, `"README.md#tutorials"`; the guide's contents are README.md), `""` the project's
+/// home page. The guide is the repository's docs/ folder on GitHub (English). `_lang`, the
+/// interface language, is kept for a guide in more languages.
+pub fn page_url(doc: &str, _lang: &str) -> String {
     let (file, anchor) = match doc.split_once('#') {
         Some((file, anchor)) => (file, format!("#{anchor}")),
         None => (doc, String::new()),
     };
-    let path = match file {
-        "" => "/".to_owned(),
-        "README.md" => "/help/".to_owned(),
-        page => format!("/help/{}.html", page.strip_suffix(".md").unwrap_or(page)),
-    };
-    let folder = site_lang(lang).map(|l| format!("/{l}")).unwrap_or_default();
-    format!("{SITE}{folder}{path}{anchor}")
+    if file.is_empty() {
+        return REPO.to_owned();
+    }
+    format!("{REPO}/blob/main/docs/{file}{anchor}")
 }
 
-/// Open a page of the user guide on the website, in the interface language when the site has
-/// it (`doc` as page_url takes it: `"video.md"`, `"README.md#tutorials"`, `""` the home page).
+/// Open a page of the user guide in the browser (`doc` as page_url takes it: `"video.md"`, `"README.md#tutorials"`, `""` the home page).
 /// Never in an off-screen test run (MDM_OFFSCREEN), whose clicks come from scripts, not from a
 /// person at the browser.
 pub fn open_page(doc: &str) {
@@ -76,7 +53,7 @@ pub fn open_page(doc: &str) {
     }
 }
 
-/// Help → Support NetGuard and About's link: the Sponsors page in the browser. Asked for only: NetGuard
+/// Help → Support NetGuard and About's link: the project's page in the browser. Asked for only: NetGuard
 /// never brings it up by itself, and never in an off-screen test run (MDM_OFFSCREEN), whose
 /// clicks come from scripts, not from a person at the browser.
 pub fn support() {
@@ -184,7 +161,7 @@ async fn latest() -> Result<Found, String> {
     // The chosen DNS and network adapter, as downloads have them (#36, #35).
     let client = mdm_engine::net::client_builder(&net.dns, &net.route, &feed)
         .map_err(|e| e.to_string())?
-        .user_agent(concat!("MisterDownloadManager/", env!("CARGO_PKG_VERSION")))
+        .user_agent(concat!("NetGuard/", env!("CARGO_PKG_VERSION")))
         .timeout(Duration::from_secs(20))
         .build()
         .map_err(|e| e.to_string())?;
@@ -790,7 +767,7 @@ impl About {
                     &p,
                     o.x + 80.0,
                     y,
-                    "Support NetGuard on GitHub Sponsors",
+                    "Support NetGuard on GitHub",
                     "support",
                 ) {
                     support();
@@ -950,7 +927,7 @@ impl TellFriend {
             crate::i18n::t(
                 "I download with NetGuard Download Manager: fast, free, and it looks like the download manager you already know. {link}",
             ),
-            &[("link", SITE)],
+            &[("link", REPO)],
         )
     }
 
@@ -1201,65 +1178,26 @@ mod tests {
     }
 
     #[test]
-    fn help_pages_are_the_websites_in_the_interface_language() {
+    fn help_pages_are_the_guide_in_the_repository() {
         let at = |doc, lang| page_url(doc, lang);
-        assert_eq!(
-            at("README.md", "en"),
-            "https://misterdownloadmanager.com/help/"
-        );
+        let docs = format!("{REPO}/blob/main/docs");
+        assert_eq!(at("README.md", "en"), format!("{docs}/README.md"));
         assert_eq!(
             at("README.md#tutorials", "en"),
-            "https://misterdownloadmanager.com/help/#tutorials"
+            format!("{docs}/README.md#tutorials")
         );
-        assert_eq!(
-            at("video.md", "de"),
-            "https://misterdownloadmanager.com/de/help/video.html"
-        );
+        assert_eq!(at("video.md", "de"), format!("{docs}/video.md"));
         assert_eq!(
             at("queues-and-scheduler.md#the-scheduler-window", "ar"),
-            "https://misterdownloadmanager.com/ar/help/queues-and-scheduler.html#the-scheduler-window"
+            format!("{docs}/queues-and-scheduler.md#the-scheduler-window")
         );
-        assert_eq!(at("", "fr"), "https://misterdownloadmanager.com/fr/");
-        assert_eq!(at("", "en"), "https://misterdownloadmanager.com/");
-        // The site's folders: its own codes, a region read as its language, else English.
-        for (lang, folder) in [
-            ("pt-br", "/pt-br"),
-            ("pt", "/pt"),
-            ("zh-hans", "/zh-hans"),
-            ("es-mx", "/es"),
-            ("fr-ca", "/fr"),
-            ("zh-hant", ""),
-            ("sv", ""),
-            ("ca-es-valencia", ""),
-            ("he", ""),
-            ("", ""),
-        ] {
-            assert_eq!(
-                at("options.md", lang),
-                format!("https://misterdownloadmanager.com{folder}/help/options.html"),
-                "{lang}"
-            );
-        }
+        assert_eq!(at("", "fr"), REPO);
+        assert_eq!(at("", "en"), REPO);
     }
 
     /// The repository's root.
     fn root() -> std::path::PathBuf {
         std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../..")
-    }
-
-    #[test]
-    fn the_site_languages_are_the_websites() {
-        // tools/website/sitei18n.py: `LANGS = [` then one `("code", …),` per language.
-        let py = std::fs::read_to_string(root().join("tools/website/sitei18n.py")).unwrap();
-        let list = py.split("\nLANGS = [").nth(1).unwrap();
-        let codes: Vec<&str> = list
-            .split("\n]")
-            .next()
-            .unwrap()
-            .lines()
-            .filter_map(|l| l.trim().strip_prefix("(\"")?.split('"').next())
-            .collect();
-        assert_eq!(codes, SITE_LANGS);
     }
 
     /// Every user guide page the program links to (`doc` as page_url takes it): the literal
@@ -1273,9 +1211,10 @@ mod tests {
             docs.push(mdm_ipc::extension::help_doc(why));
         }
         let calls = regex::Regex::new(r#"(?:open_page|HelpPage)\(\s*"([^"]+)""#).unwrap();
-        let site =
-            regex::Regex::new(r"https://misterdownloadmanager\.com/help/([\w.-]*)(#[\w-]+)?")
-                .unwrap();
+        let site = regex::Regex::new(
+            r"https://github\.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/docs/([\w-]+\.md)(#[\w-]+)?",
+        )
+        .unwrap();
         let mut files = vec![];
         let mut dirs = vec![root().join("crates"), root().join("extension")];
         while let Some(dir) = dirs.pop() {
@@ -1295,10 +1234,7 @@ mod tests {
                 docs.extend(calls.captures_iter(&text).map(|c| c[1].to_owned()));
             }
             for c in site.captures_iter(&text) {
-                let page = match &c[1] {
-                    "" => "README.md".to_owned(),
-                    p => format!("{}.md", p.strip_suffix(".html").unwrap_or(p)),
-                };
+                let page = c[1].to_owned();
                 docs.push(format!("{page}{}", c.get(2).map_or("", |a| a.as_str())));
             }
         }
@@ -1345,33 +1281,6 @@ mod tests {
                     "{doc}: no section #{anchor} in docs/{file} ({ids:?})"
                 );
             }
-        }
-    }
-
-    /// The same pages on a built website: `python tools/website/build.py` (MDM_SITE_PREVIEW=1
-    /// is enough, English), then `MDM_SITE_DIR=target/site cargo test -p mdm-app --
-    /// --ignored linked_help_pages_are_on_the_built_site`: each page is a file there, with its
-    /// section's id.
-    #[test]
-    #[ignore = "needs the website built, in MDM_SITE_DIR"]
-    fn linked_help_pages_are_on_the_built_site() {
-        let out = std::path::PathBuf::from(std::env::var("MDM_SITE_DIR").expect("MDM_SITE_DIR"));
-        for doc in linked_docs() {
-            let url = page_url(&doc, "en");
-            let path = url.strip_prefix(SITE).unwrap();
-            let (path, anchor) = path.split_once('#').unwrap_or((path, ""));
-            let mut file = out.join(path.trim_start_matches('/'));
-            if path.ends_with('/') {
-                file.push("index.html");
-            }
-            let Ok(html) = std::fs::read_to_string(&file) else {
-                panic!("{doc}: {url} isn't built ({})", file.display());
-            };
-            if !anchor.is_empty() {
-                let id = format!("id=\"{anchor}\"");
-                assert!(html.contains(&id), "{doc}: {url} has no #{anchor}");
-            }
-            println!("{doc} -> {url}: ok");
         }
     }
 }

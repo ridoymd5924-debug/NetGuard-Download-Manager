@@ -1,4 +1,4 @@
-<!-- How Uzbek writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Uzbek writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use standard Uzbek in Latin script. Address the user politely with the second-person plural; do not switch to informal forms. (Faylni tanlang.; Davom etish uchun havolani kiriting.)
 - Phrase direct commands with the polite imperative. Use concise action phrases for menu commands; keep the form consistent within a menu. (Button: Yuklab oling; Menu item: Yuklab olish)
 - Use concise noun or action phrases for button labels. Prefer a clear action over a vague label. (Saqlash; Yuklab olishni bekor qilish)
@@ -8,7 +8,7 @@
 - Use concise status phrases rather than full sentences. For ongoing actions, use the -ilmoqda form; retain placeholders and include the counted item when needed. (Tekshirilmoqda…; {n} ta fayl yuklab olinmoqda)
 - Make error text natural and direct. In a fragment, put the failed action first and separate a supplied detail with a colon. (Ochib bo‘lmadi: {error})
 - Write event log entries as short, complete statements. Use a period for a complete sentence, but not for a label or fragment. (Yuklab olish boshlandi.)
-- Use sentence case for headings, buttons, menu items, and labels. Capitalize proper names, not every word in a title. (Yuklab olish sozlamalari; Mister Download Manager)
+- Use sentence case for headings, buttons, menu items, and labels. Capitalize proper names, not every word in a title. (Yuklab olish sozlamalari; NetGuard Download Manager)
 - Write month and weekday names in lowercase, except at the beginning of a sentence. (12-mart, dushanba)
 - Use Uzbek punctuation conventions. Put no space before punctuation and one space after it; use an ellipsis for an ongoing action or an action that opens another interface. (Tekshirilmoqda…; Qo‘shimcha parametrlar…)
 - Use Uzbek typographic quotation marks for quoted text. Keep placeholders exactly as supplied and do not insert spaces inside them. (“Yuklab olish” tugmasini bosing.; {file_name})

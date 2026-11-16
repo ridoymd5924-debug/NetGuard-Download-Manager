@@ -111,7 +111,9 @@ const PAGE: &[&str] = &[
     // i18n: remote control page (on a phone): codes were tried too fast
     crate::i18n::mark("Wait a moment, then try again."),
     // i18n: remote control page (on a phone): NetGuard can't be reached while pairing
-    crate::i18n::mark("NetGuard does not answer. Check that it is running and on the same network."),
+    crate::i18n::mark(
+        "NetGuard does not answer. Check that it is running and on the same network.",
+    ),
     // i18n: remote control page (on a phone): NetGuard can't be reached now; the page keeps trying by itself
     crate::i18n::mark("NetGuard does not answer. Trying again..."),
     // i18n: remote control page (on a phone): free disk space on the computer; {size} e.g. "120 GB"

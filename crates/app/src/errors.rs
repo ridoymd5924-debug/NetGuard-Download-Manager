@@ -143,7 +143,9 @@ pub fn service(service: &str, fault: &mdm_engine::ServiceFault) -> String {
         // i18n: a debrid service's error: the file has a password
         F::PasswordNeeded => t("{service}: this file is password-protected"),
         // i18n: a debrid service's error: too many requests; NetGuard waits and retries
-        F::TooManyRequests(_) => t("{service} asks to slow down; NetGuard will try again in a minute"),
+        F::TooManyRequests(_) => {
+            t("{service} asks to slow down; NetGuard will try again in a minute")
+        }
         // i18n: a debrid service's error: it isn't answering
         F::ServiceDown => t("{service} is not responding; try again later"),
         // i18n: a debrid service's error: it can't get the torrent sent to it (nobody shares it any more, or its magnet link can't be read)

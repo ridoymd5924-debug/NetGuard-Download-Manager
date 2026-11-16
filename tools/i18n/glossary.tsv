@@ -10,7 +10,7 @@ pause / stop	stop a download for now, keeping what was fetched
 segment / part	a piece of a file fetched over its own connection
 scheduler	the window that starts and stops queues at set times
 speed limiter	the feature that caps download speed
-browser integration	MDM taking over downloads from a web browser through its extension
+browser integration	NetGuard taking over downloads from a web browser through its extension
 extension	a web browser add-on (not a file name extension) unless the note says file extension
 file type	the kind of a file, given by its extension (.zip, .mp4)
 temporary folder	where parts are stored before the file is complete

@@ -3,9 +3,9 @@
 // site to the browser, opening the app or its Options, and the media the tab loaded (#38), each
 // to download. background.js does the work.
 const ext = globalThis.browser ?? globalThis.chrome;
-const HELP = "https://misterdownloadmanager.com/help/browser-help.html";
-// The creator's GitHub Sponsors page (the app's Help → Support NetGuard): a plain link, in a new tab.
-const SPONSORS = "https://github.com/sponsors/anefzaoui";
+const HELP = "https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/docs/browser-help.md";
+// The project's GitHub page (the app's Help → Support NetGuard): a plain link, in a new tab.
+const SPONSORS = "https://github.com/ridoymd5924-debug/NetGuard-Download-Manager";
 const t = (key, ...subs) => ext.i18n.getMessage(key, subs) || key;
 const $ = (id) => document.getElementById(id);
 const ask = (m) => ext.runtime.sendMessage(m).catch(() => ({ ok: false }));

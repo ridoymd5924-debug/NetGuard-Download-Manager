@@ -1,7 +1,7 @@
 # Security
 
 Please report security problems privately, not in a public issue: use GitHub's
-**[Report a vulnerability](https://github.com/anefzaoui/misterdownloadmanager/security/advisories/new)**
+**[Report a vulnerability](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/security/advisories/new)**
 form on this repository. Say what you found, how to reproduce it, and which version you used
 (**Help → About** shows it).
 
@@ -11,7 +11,7 @@ public.
 What matters most here:
 
 - **The browser host and the command channel.** Downloads handed over by the browser extension
-  go through the native messaging host (`crates/nmhost`), which only answers MDM's own extension,
+  go through the native messaging host (`crates/nmhost`), which only answers NetGuard's own extension,
   and the running app listens only on `127.0.0.1` with a random token (`crates/ipc`).
 - **Helpers downloaded at run time.** yt-dlp is checked against its developers' signing key and
   ffmpeg against its published checksums before either runs (`crates/tools`).

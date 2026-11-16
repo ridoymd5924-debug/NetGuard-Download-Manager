@@ -1,33 +1,33 @@
-# Run MDM on a server
+# Run NetGuard on a server
 
 Run NetGuard Download Manager on a home server or a NAS (Docker, Unraid, any Linux machine) without
 a window, and send it downloads from your phone or your browser: the server downloads them into
 its own folders, such as a network share.
 
-It is the same MDM as on a desktop: its list, categories, queues, Scheduler, speed limits and
+It is the same NetGuard as on a desktop: its list, categories, queues, Scheduler, speed limits and
 torrents. You control it with the [remote control's page](remote-control.md) (from any phone or
 computer on your network), the browser extension pointed at it, or its command line.
 
 > **New:** the server mode is new in this version. Please
-> [tell us how it goes](https://github.com/anefzaoui/misterdownloadmanager/issues).
+> [tell us how it goes](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues).
 
 ## With Docker
 
-Build the image from MDM's source (a published image comes later):
+Build the image from NetGuard's source (a published image comes later):
 
 ```sh
-git clone https://github.com/anefzaoui/misterdownloadmanager
+git clone https://github.com/ridoymd5924-debug/NetGuard-Download-Manager
 cd misterdownloadmanager
 docker build -t misterdownloadmanager .
 ```
 
 The first build is long (up to an hour on a small server: the whole program is optimised as
-one). The image is small, about 175 MB: Debian's slim base, MDM's two programs and the
-certificates downloads are checked against. It needs no desktop libraries: MDM loads those only
+one). The image is small, about 175 MB: Debian's slim base, NetGuard's two programs and the
+certificates downloads are checked against. It needs no desktop libraries: NetGuard loads those only
 to open a window, which a server never does.
 
 Then run it, with a folder for its settings and one for the downloads. Make both folders first,
-as the user MDM will run as: a folder Docker makes for you belongs to `root`, and MDM can't use it.
+as the user NetGuard will run as: a folder Docker makes for you belongs to `root`, and NetGuard can't use it.
 
 ```sh
 mkdir -p /srv/mdm-config /srv/downloads
@@ -42,7 +42,7 @@ docker run -d --name mdm --restart unless-stopped \
 - `/config` keeps the list, the settings, the certificate and the paired devices.
 - `/downloads` is where files land: each category has its folder inside (`Music`, `Video`,
   `Torrents`…). Mount a network share there to download straight onto it.
-- `--user`: the user that owns those folders (MDM runs as no particular user).
+- `--user`: the user that owns those folders (NetGuard runs as no particular user).
 
 [docker/compose.yml](../docker/compose.yml) does the same with Docker Compose.
 
@@ -57,19 +57,19 @@ Its certificate's SHA-256 fingerprint: DE:26:7F:…
 No device is paired yet. Open the address (or scan this) and enter the code 1037 1606 …
 ```
 
-Inside a container, the address MDM finds is the container's own: give it the one you open, the
+Inside a container, the address NetGuard finds is the container's own: give it the one you open, the
 **server's** address with the port you published, as `-e MDM_REMOTE_URL=https://192.168.1.10:8463/`,
 and the log and the QR code show that one. Then pair as
-[Control MDM from your phone](remote-control.md#pair-your-phone) says. For another code, at any
+[Control NetGuard from your phone](remote-control.md#pair-your-phone) says. For another code, at any
 time:
 
 ```sh
 docker exec mdm misterdownloadmanager-cli pair
 ```
 
-To open the page by the server's name (`https://nas.local:8463/`), give MDM that name:
+To open the page by the server's name (`https://nas.local:8463/`), give NetGuard that name:
 `-e MDM_REMOTE_HOSTS=nas.local` (several: separated by commas). Other names are refused, so that
-no web page can reach MDM through a name of its own.
+no web page can reach NetGuard through a name of its own.
 
 ## On Unraid
 
@@ -83,7 +83,7 @@ log says a folder belongs to another user, give it to `nobody:users` once:
 
 ## Without Docker
 
-On any Linux machine with MDM installed (the `.deb`, `.rpm`, AppImage or `tar.gz`):
+On any Linux machine with NetGuard installed (the `.deb`, `.rpm`, AppImage or `tar.gz`):
 
 ```sh
 misterdownloadmanager --headless --data ~/mdm-server --downloads /srv/downloads
@@ -102,7 +102,7 @@ The remote control is on in this mode (`MDM_REMOTE=off` turns it off). It stops 
 its list, when the system stops it (`docker stop`, systemd, Ctrl+C). It works on Windows and
 macOS too, the same way.
 
-The command line talks to it as to a desktop MDM, with the same data folder:
+The command line talks to it as to a desktop NetGuard, with the same data folder:
 `MDM_DATA_DIR=~/mdm-server misterdownloadmanager-cli status` (once `api on`), `pair`, and adding
 an address: `misterdownloadmanager /d https://example.com/file.zip`.
 

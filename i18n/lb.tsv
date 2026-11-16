@@ -4463,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (NetGuard never unlocks it: that would ask for its password), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	De System-Schlësselrank ass gespaart an NetGuard spärt en net op, dofir bleiwen d'Umeldungen an d'Passwierder an den NetGuard-Astellungen, déi nëmmen Dir liese kënnt.
+	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	De System-Schlësselrank ass gespaart a NetGuard spärt en net op, dofir bleiwen d'Umeldungen an d'Passwierder an den NetGuard-Astellungen, déi nëmmen Dir liese kënnt.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -5590,7 +5590,7 @@ column	Time left	Zäit iwwreg
 #, machine
 column	Transfer rate	Transfertstaux
 #. text in the browser extension
-#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
 extension	Another NetGuard Download Manager (a server)	En anere NetGuard Download Manager (e Server)
 #. text in the browser extension

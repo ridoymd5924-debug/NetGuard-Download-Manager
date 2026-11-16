@@ -13,5 +13,5 @@ remove	alih keluar	removing a download from the list; deleting the file itself: 
 pause	jeda	pausing a download; stopping it: 'henti'/'hentikan'
 resume	sambung semula	continuing a stopped download
 settings	Tetapan	the Settings window; the Options toolbar button and menu: 'Pilihan'
-scheduler	Penjadual	MDM's Scheduler window/tool
+scheduler	Penjadual	NetGuard's Scheduler window/tool
 piece	cebisan	torrent pieces; 'First and last pieces first' = 'Cebisan pertama dan terakhir dahulu'

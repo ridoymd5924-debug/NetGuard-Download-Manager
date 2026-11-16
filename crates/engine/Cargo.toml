@@ -1,6 +1,6 @@
 [package]
 name = "mdm-engine"
-description = "MDM download engine: dynamic segmentation, workers, resume"
+description = "NetGuard download engine: dynamic segmentation, workers, resume"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

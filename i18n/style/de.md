@@ -1,4 +1,4 @@
-<!-- How German writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How German writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Formulieren Sie Befehle und Menüeinträge als kurze Aktionsbezeichnungen im Infinitiv. Verwenden Sie keine englischen Imperativformen. (Download starten; Herunterladen)
 - Beschriften Sie Schaltflächen ebenfalls knapp mit der Aktion. Behalten Sie etablierte Schaltflächen wie „OK“ und „Abbrechen“ bei. (Fortsetzen; Abbrechen)
 - Formulieren Sie Kontrollkästchen als kurze Optionen oder Bedingungen, ohne Punkt am Ende. (Beim Start ausführen; Dateien nach dem Download überprüfen)

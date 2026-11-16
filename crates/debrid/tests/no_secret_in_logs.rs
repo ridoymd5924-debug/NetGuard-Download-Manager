@@ -1,4 +1,4 @@
-//! A debrid account's token never reaches a log (#44): MDM's own log at its most detailed
+//! A debrid account's token never reaches a log (#44): NetGuard's own log at its most detailed
 //! (every crate's `tracing` output, the HTTP client's included), the download's event log, its
 //! errors and debug dumps, while each service signs in, lists its hosts and unlocks a link
 //! downloaded end to end against the lab server's fakes.

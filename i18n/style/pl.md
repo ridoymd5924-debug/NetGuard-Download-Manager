@@ -1,4 +1,4 @@
-<!-- How Polish writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Polish writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Formułuj polecenia i przyciski jako krótkie czasowniki w trybie rozkazującym, w 2. osobie liczby pojedynczej. Nie dodawaj kropki. (Pobierz; Wstrzymaj)
 - Nazwy poleceń w menu zapisuj tak samo jak polecenia na przyciskach. Nazwy kategorii menu mogą być rzeczownikami. (Plik; Otwórz folder)
 - Etykiety pól wyboru formułuj zwięźle jako opis ustawienia lub czynności; nie kończ ich kropką. (Uruchamiaj przy starcie systemu; Powiadamiaj o zakończeniu pobierania)
@@ -8,7 +8,7 @@
 - W tekstach postępu stosuj zwięzłe rzeczowniki odczasownikowe lub stabilne konstrukcje, które nie wymagają odmiany placeholdera. (Sprawdzanie…; {n} pobrań w toku)
 - Fragmenty błędów tłumacz jako naturalne, bezosobowe zdania. Jeśli tekst jest tylko fragmentem komunikatu, nie dodawaj na końcu kropki. (Nie można otworzyć: {error})
 - W dzienniku zdarzeń używaj krótkich, jednoznacznych wpisów; bezosobowe formy czasu przeszłego pomagają uniknąć problemów ze zgodnością rodzaju. (Pobieranie wstrzymano; Plik pobrano)
-- W tytułach i nazwach elementów interfejsu stosuj zapis zdaniowy: wielką literą zapisuj pierwszy wyraz oraz nazwy własne, nie każdy wyraz. (Ustawienia pobierania; Menedżer pobierania Mister Download Manager)
+- W tytułach i nazwach elementów interfejsu stosuj zapis zdaniowy: wielką literą zapisuj pierwszy wyraz oraz nazwy własne, nie każdy wyraz. (Ustawienia pobierania; Menedżer pobierania NetGuard Download Manager)
 - Nazwy miesięcy i dni tygodnia zapisuj małą literą, także w harmonogramach i datach. (poniedziałek, 12 marca; Pobierz w każdy piątek)
 - Stosuj polską interpunkcję: bez spacji przed przecinkiem, kropką, dwukropkiem, średnikiem, znakiem zapytania i wykrzyknikiem; po nich wstawiaj jedną spację. (Błąd: nie można pobrać pliku.; Czy chcesz kontynuować?)
 - W tekstach interfejsu nie stawiaj kropki po krótkich etykietach, poleceniach ani nagłówkach. Pełne zdania i komunikaty zapisuj z kropką. (Folder docelowy; Nie można zapisać pliku.)

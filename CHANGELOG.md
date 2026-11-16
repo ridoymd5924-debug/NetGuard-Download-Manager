@@ -1,5 +1,10 @@
 # Changelog
 
+> **NetGuard Download Manager** is a fork of Mister Download Manager 0.5.2 (Ahmed Nefzaoui, GPL-3.0-or-later).
+> The entries below are the original project's history, with the product's name changed. This fork's
+> first release changes the name, logo, colour theme and distribution (Windows only), and
+> switches the updater off: see [README.md](README.md) and [ATTRIBUTION.md](ATTRIBUTION.md).
+
 Each release's notes on GitHub come from its section here (`## [X.Y.Z]`, see
 `.github/workflows/release.yml`).
 
@@ -12,59 +17,59 @@ A big fixes release: YouTube and video downloads, crashes and freezes, downloads
 ### Added
 
 - **Torrent → Files…**: the list of a torrent's files for any torrent, running, stopped or finished, with a box to choose each (also a Files… button in File Properties).
-- **Two columns for torrents in the download list** ([#357](https://github.com/anefzaoui/misterdownloadmanager/issues/357)): **Peers** (those a torrent has connected while it runs, seeders and leechers alike) and **Share ratio** (what it has sent against what it took), after **Transfer rate**. A layout saved before them gets them there.
+- **Two columns for torrents in the download list** ([#357](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/357)): **Peers** (those a torrent has connected while it runs, seeders and leechers alike) and **Share ratio** (what it has sent against what it took), after **Transfer rate**. A layout saved before them gets them there.
 - The extension's **Media on this page** can name a file after its page: **Prefix media file names with the page title** puts the page's title before the file's own name. Off as installed.
-- **Far more file types taken from the browser by default** ([#382](https://github.com/anefzaoui/misterdownloadmanager/issues/382)): AI models and datasets (GGUF, SAFETENSORS, CKPT, PT, ONNX, PARQUET...), 3D and CAD (GLB, FBX, OBJ, STL, BLEND, STEP...), design and camera RAW files, ebooks, Office files, DAT, disk images and split archives. A list you never edited gains them; one you edited stays yours.
-- **A Safari extension, inside the Mac app:** a click on a link to a file type MDM takes goes to MDM, and so do the right-click items, the button over videos and **Media on this page**, as in the other browsers. Safari gives extensions no access to its downloads, so a download a page starts by itself stays with Safari, and the browser's proxy is not shared. See [Browser integration](docs/browser-integration.md#safari-macos).
-- Help: what to do when an antivirus or VirusTotal flags MDM, and how to check your copy is the real one.
+- **Far more file types taken from the browser by default** ([#382](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/382)): AI models and datasets (GGUF, SAFETENSORS, CKPT, PT, ONNX, PARQUET...), 3D and CAD (GLB, FBX, OBJ, STL, BLEND, STEP...), design and camera RAW files, ebooks, Office files, DAT, disk images and split archives. A list you never edited gains them; one you edited stays yours.
+- **A Safari extension, inside the Mac app:** a click on a link to a file type NetGuard takes goes to NetGuard, and so do the right-click items, the button over videos and **Media on this page**, as in the other browsers. Safari gives extensions no access to its downloads, so a download a page starts by itself stays with Safari, and the browser's proxy is not shared. See [Browser integration](docs/browser-integration.md#safari-macos).
+- Help: what to do when an antivirus or VirusTotal flags NetGuard, and how to check your copy is the real one.
 
 ### Changed
 
-- In English, the **Last Try Date** and **Added** columns follow the system's 12- or 24-hour clock: `Oct 28 9:44:12 PM 2026` when Windows uses a 12-hour clock, and **Added** starts wide enough for it ([#392](https://github.com/anefzaoui/misterdownloadmanager/issues/392)).
+- In English, the **Last Try Date** and **Added** columns follow the system's 12- or 24-hour clock: `Oct 28 9:44:12 PM 2026` when Windows uses a 12-hour clock, and **Added** starts wide enough for it ([#392](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/392)).
 
 ### Fixed
 
-- With no tray icon to come back from, closing or minimizing the main window now leaves it in the taskbar, with downloads still going, instead of hiding it with no way back. **Options → General → Keep running when closing the window** (on by default) makes closing quit MDM when unticked ([#457](https://github.com/anefzaoui/misterdownloadmanager/pull/457)).
-- Crash reports: a crash monitor that can't open its connection no longer makes MDM wait five seconds at start or stays behind as a second process ([#458](https://github.com/anefzaoui/misterdownloadmanager/pull/458)).
-- Download File Info no longer stays open but out of sight, with every later download waiting behind it ([#440](https://github.com/anefzaoui/misterdownloadmanager/issues/440)). The next one after answering **Create folder** came up as an invisible window, and on Windows one hidden with a minimized main window is now shown again, as is the duplicate question
-- A file name sent by a site in plain UTF-8 now reaches MDM readable from Firefox and browsers built on it, such as Floorp, Waterfox and Zen: an Arabic name was saved as unreadable symbols ([#447](https://github.com/anefzaoui/misterdownloadmanager/issues/447)). A name written with percent signs in the same header is decoded as well. The add-on carries the fix
-- A download saved under a numbered name because another file already had its name (`master (1).mp4`) now shows that name in the list and opens its own file, instead of keeping the old name and opening the other file ([#442](https://github.com/anefzaoui/misterdownloadmanager/issues/442)). Two downloads waiting under one name no longer collide when they start: the later one takes the next free name, instead of failing with "already being downloaded" or continuing the other one's data.
-- A link sent from the browser no longer fails with 403 on sites that refuse a browser's User-Agent on a connection that isn't a browser's: MDM asks once more with its own, as Add URL does ([#372](https://github.com/anefzaoui/misterdownloadmanager/issues/372)).
-- The video download button moves to a free corner instead of covering a control of the page, such as a thumbnail's watch-later button ([#421](https://github.com/anefzaoui/misterdownloadmanager/issues/421)). Dragging it still puts it where you want it.
-- Crash reports: no report any more when one of the download engine's background tasks panics while MDM is already closing ([#422](https://github.com/anefzaoui/misterdownloadmanager/issues/422)).
-- Crash reports: a freeze whose window had recovered by the time its dump was taken is reported as a freeze, not as a crash in MDM's own watchdog ([#420](https://github.com/anefzaoui/misterdownloadmanager/issues/420)).
-- Text in a script outside the interface language (a video title in Bangla, a playlist in Japanese) now shows its letters, instead of boxes: the font for that script is loaded the first time it is needed ([#405](https://github.com/anefzaoui/misterdownloadmanager/issues/405)).
-- Options → Proxy / Socks now applies to yt-dlp and gallery-dl too, so video look-ups and downloads no longer go straight out when a proxy is set ([#363](https://github.com/anefzaoui/misterdownloadmanager/issues/363)).
-- The window no longer freezes while watching the clipboard when the program holding it hangs, or while a cancelled download's files are removed from a slow disk ([#418](https://github.com/anefzaoui/misterdownloadmanager/issues/418), [#423](https://github.com/anefzaoui/misterdownloadmanager/issues/423)).
-- Downloads at full speed no longer stop and go on a slow disk: writing the resume state flushed the file to the disk so often that every connection waited for it, and were then replaced as slow ([#361](https://github.com/anefzaoui/misterdownloadmanager/issues/361)).
+- With no tray icon to come back from, closing or minimizing the main window now leaves it in the taskbar, with downloads still going, instead of hiding it with no way back. **Options → General → Keep running when closing the window** (on by default) makes closing quit NetGuard when unticked ([#457](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/pull/457)).
+- Crash reports: a crash monitor that can't open its connection no longer makes NetGuard wait five seconds at start or stays behind as a second process ([#458](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/pull/458)).
+- Download File Info no longer stays open but out of sight, with every later download waiting behind it ([#440](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/440)). The next one after answering **Create folder** came up as an invisible window, and on Windows one hidden with a minimized main window is now shown again, as is the duplicate question
+- A file name sent by a site in plain UTF-8 now reaches NetGuard readable from Firefox and browsers built on it, such as Floorp, Waterfox and Zen: an Arabic name was saved as unreadable symbols ([#447](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/447)). A name written with percent signs in the same header is decoded as well. The add-on carries the fix
+- A download saved under a numbered name because another file already had its name (`master (1).mp4`) now shows that name in the list and opens its own file, instead of keeping the old name and opening the other file ([#442](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/442)). Two downloads waiting under one name no longer collide when they start: the later one takes the next free name, instead of failing with "already being downloaded" or continuing the other one's data.
+- A link sent from the browser no longer fails with 403 on sites that refuse a browser's User-Agent on a connection that isn't a browser's: NetGuard asks once more with its own, as Add URL does ([#372](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/372)).
+- The video download button moves to a free corner instead of covering a control of the page, such as a thumbnail's watch-later button ([#421](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/421)). Dragging it still puts it where you want it.
+- Crash reports: no report any more when one of the download engine's background tasks panics while NetGuard is already closing ([#422](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/422)).
+- Crash reports: a freeze whose window had recovered by the time its dump was taken is reported as a freeze, not as a crash in NetGuard's own watchdog ([#420](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/420)).
+- Text in a script outside the interface language (a video title in Bangla, a playlist in Japanese) now shows its letters, instead of boxes: the font for that script is loaded the first time it is needed ([#405](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/405)).
+- Options → Proxy / Socks now applies to yt-dlp and gallery-dl too, so video look-ups and downloads no longer go straight out when a proxy is set ([#363](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/363)).
+- The window no longer freezes while watching the clipboard when the program holding it hangs, or while a cancelled download's files are removed from a slow disk ([#418](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/418), [#423](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/423)).
+- Downloads at full speed no longer stop and go on a slow disk: writing the resume state flushed the file to the disk so often that every connection waited for it, and were then replaced as slow ([#361](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/361)).
 - A save folder shown as `Downloads/Video` could be taken literally, asking to create it in the wrong place or failing with "Read-only file system" on macOS.
-- macOS: **Download video** no longer stops with a Python error and a "Python.framework is damaged" alert on a copy of MDM downloaded by a browser ([#330](https://github.com/anefzaoui/misterdownloadmanager/issues/330), [#339](https://github.com/anefzaoui/misterdownloadmanager/issues/339)). MDM now installs yt-dlp's folder build, which it unpacks once and checks against yt-dlp's signed list, instead of the single-program build that unpacks Python afresh at every start. The video window then offers to install it in place of a copy that came with an earlier version.
+- macOS: **Download video** no longer stops with a Python error and a "Python.framework is damaged" alert on a copy of NetGuard downloaded by a browser ([#330](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/330), [#339](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/339)). NetGuard now installs yt-dlp's folder build, which it unpacks once and checks against yt-dlp's signed list, instead of the single-program build that unpacks Python afresh at every start. The video window then offers to install it in place of a copy that came with an earlier version.
 - Browser link import: tighter handling of site data.
-- Crash reports: a freeze that was over before its snapshot was taken says so, instead of calling it a deadlock in code that was only waiting for events ([#355](https://github.com/anefzaoui/misterdownloadmanager/issues/355)).
-- **Move/Rename** was greyed out with several downloads selected, for example a set just added to a queue. It now asks for a folder and moves them all there ([#333](https://github.com/anefzaoui/misterdownloadmanager/issues/333)).
-- The extension no longer asks you to update MDM when only a bug-fix version separates them, which it did even when there was no update to get.
-- **Download video** shows a plain file's size, from its server, instead of "size unknown" ([#320](https://github.com/anefzaoui/misterdownloadmanager/issues/320)).
-- **Download video** finds the video on pages whose player loads a `.mpd` or `.m3u8` address that answers something else first, as SVT Play does ([#377](https://github.com/anefzaoui/misterdownloadmanager/issues/377)).
-- RSS feeds: the boxes on the **Download rules** tab (**Episodes**, **Must contain** and the others) keep the keyboard while you type, instead of losing it after each key ([#353](https://github.com/anefzaoui/misterdownloadmanager/issues/353)).
-- A download refused by a site's bot check (Cloudflare's challenge) says so and how to get the file, instead of "the server answered 403 Forbidden" ([#376](https://github.com/anefzaoui/misterdownloadmanager/issues/376)).
-- **Open folder** works on a torrent that is still downloading ([#354](https://github.com/anefzaoui/misterdownloadmanager/issues/354)).
-- **Alt** and **F10** open the menu bar while a button or the list has the keyboard focus, not only when nothing does ([#328](https://github.com/anefzaoui/misterdownloadmanager/issues/328)).
-- **Hide tab** in a download's window takes the Speed Limiter or Options on completion tab off its tab row, instead of only going back to Download status. Right-click the tab row and choose **Show hidden tabs** to bring them back ([#326](https://github.com/anefzaoui/misterdownloadmanager/issues/326)).
-- Windows: no more crash on a computer where Direct3D can't start, when a window opened during the switch to OpenGL ([#337](https://github.com/anefzaoui/misterdownloadmanager/issues/337)).
-- Windows: no more crash when a screen is unplugged, turned off or rearranged while MDM runs ([#335](https://github.com/anefzaoui/misterdownloadmanager/issues/335)).
-- A finished torrent that isn't being shared lets go of its files, so they can be moved or deleted while MDM runs.
+- Crash reports: a freeze that was over before its snapshot was taken says so, instead of calling it a deadlock in code that was only waiting for events ([#355](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/355)).
+- **Move/Rename** was greyed out with several downloads selected, for example a set just added to a queue. It now asks for a folder and moves them all there ([#333](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/333)).
+- The extension no longer asks you to update NetGuard when only a bug-fix version separates them, which it did even when there was no update to get.
+- **Download video** shows a plain file's size, from its server, instead of "size unknown" ([#320](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/320)).
+- **Download video** finds the video on pages whose player loads a `.mpd` or `.m3u8` address that answers something else first, as SVT Play does ([#377](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/377)).
+- RSS feeds: the boxes on the **Download rules** tab (**Episodes**, **Must contain** and the others) keep the keyboard while you type, instead of losing it after each key ([#353](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/353)).
+- A download refused by a site's bot check (Cloudflare's challenge) says so and how to get the file, instead of "the server answered 403 Forbidden" ([#376](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/376)).
+- **Open folder** works on a torrent that is still downloading ([#354](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/354)).
+- **Alt** and **F10** open the menu bar while a button or the list has the keyboard focus, not only when nothing does ([#328](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/328)).
+- **Hide tab** in a download's window takes the Speed Limiter or Options on completion tab off its tab row, instead of only going back to Download status. Right-click the tab row and choose **Show hidden tabs** to bring them back ([#326](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/326)).
+- Windows: no more crash on a computer where Direct3D can't start, when a window opened during the switch to OpenGL ([#337](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/337)).
+- Windows: no more crash when a screen is unplugged, turned off or rearranged while NetGuard runs ([#335](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/335)).
+- A finished torrent that isn't being shared lets go of its files, so they can be moved or deleted while NetGuard runs.
 - A torrent says **Checking 42%** while its files are read and checked, and a Recheck no longer stops partway and stays there.
-- Video downloads: the progress no longer says 100 % while a video is still coming, when the site gives no total size, or between a video and its separate sound ([#344](https://github.com/anefzaoui/misterdownloadmanager/issues/344)). A video yt-dlp only knows by its address is named after the page, not a long hash ([#345](https://github.com/anefzaoui/misterdownloadmanager/issues/345)).
-- **A YouTube playlist in Add URL** ([#338](https://github.com/anefzaoui/misterdownloadmanager/issues/338)) opens the video window with its videos, instead of saving the page as a file named "playlist".
-- **Dailymotion's embedded player** ([#359](https://github.com/anefzaoui/misterdownloadmanager/issues/359)): its address is looked up as the video's own page, so the download button works on sites that embed one.
-- A download that a page starts by script (a thank-you page going to the installer, as obsproject.com's does) gets the file's address, not the page's, so MDM no longer saves that page under the installer's name ([#374](https://github.com/anefzaoui/misterdownloadmanager/issues/374)). A finished download also shows what really came down when the server gives no size.
-- **Stop** on a download in a running queue stays stopped, instead of the queue starting it again a moment later; **Stop All** too ([#341](https://github.com/anefzaoui/misterdownloadmanager/issues/341)).
-- Removing the last feed in the RSS feeds window no longer crashes the app ([#321](https://github.com/anefzaoui/misterdownloadmanager/issues/321)).
-- **YouTube formats with Node.js or Bun installed** ([#360](https://github.com/anefzaoui/misterdownloadmanager/issues/360)): yt-dlp needs a JavaScript runtime for them and looks for Deno alone, so MDM now tells it about Node.js (nvm's too) or Bun when there is no Deno.
-- **YouTube's look-up failing with "Requested format is not available"** ([#352](https://github.com/anefzaoui/misterdownloadmanager/issues/352)): signed-in cookies make yt-dlp use only YouTube's players that need a JavaScript runtime, and without one no video is left. The page is now looked up again without the cookies, and lists its qualities.
-- **Download video offering only the sound, with no reason given** ([#351](https://github.com/anefzaoui/misterdownloadmanager/issues/351)): when a page's better videos need ffmpeg and it isn't installed, the window now says so.
-- Adding a link again after its finished file was moved or deleted starts a new download, instead of asking about a duplicate that isn't there ([#342](https://github.com/anefzaoui/misterdownloadmanager/issues/342)).
-- **Sharp, evenly spaced text on Windows:** letters no longer run together or drift apart. English and other Latin, Greek and Cyrillic text is drawn the way Windows draws its own classic controls, with each letter's shape and width fitted together; every other script uses hinting suited to anti-aliased rendering ([#323](https://github.com/anefzaoui/misterdownloadmanager/issues/323), [#334](https://github.com/anefzaoui/misterdownloadmanager/issues/334)).
+- Video downloads: the progress no longer says 100 % while a video is still coming, when the site gives no total size, or between a video and its separate sound ([#344](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/344)). A video yt-dlp only knows by its address is named after the page, not a long hash ([#345](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/345)).
+- **A YouTube playlist in Add URL** ([#338](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/338)) opens the video window with its videos, instead of saving the page as a file named "playlist".
+- **Dailymotion's embedded player** ([#359](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/359)): its address is looked up as the video's own page, so the download button works on sites that embed one.
+- A download that a page starts by script (a thank-you page going to the installer, as obsproject.com's does) gets the file's address, not the page's, so NetGuard no longer saves that page under the installer's name ([#374](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/374)). A finished download also shows what really came down when the server gives no size.
+- **Stop** on a download in a running queue stays stopped, instead of the queue starting it again a moment later; **Stop All** too ([#341](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/341)).
+- Removing the last feed in the RSS feeds window no longer crashes the app ([#321](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/321)).
+- **YouTube formats with Node.js or Bun installed** ([#360](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/360)): yt-dlp needs a JavaScript runtime for them and looks for Deno alone, so NetGuard now tells it about Node.js (nvm's too) or Bun when there is no Deno.
+- **YouTube's look-up failing with "Requested format is not available"** ([#352](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/352)): signed-in cookies make yt-dlp use only YouTube's players that need a JavaScript runtime, and without one no video is left. The page is now looked up again without the cookies, and lists its qualities.
+- **Download video offering only the sound, with no reason given** ([#351](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/351)): when a page's better videos need ffmpeg and it isn't installed, the window now says so.
+- Adding a link again after its finished file was moved or deleted starts a new download, instead of asking about a duplicate that isn't there ([#342](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/342)).
+- **Sharp, evenly spaced text on Windows:** letters no longer run together or drift apart. English and other Latin, Greek and Cyrillic text is drawn the way Windows draws its own classic controls, with each letter's shape and width fitted together; every other script uses hinting suited to anti-aliased rendering ([#323](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/323), [#334](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/334)).
 
 ## [0.5.1] - 2026-11-08
 
@@ -76,7 +81,7 @@ YouTube fixes for the Download video button, and the button in Chrome, Edge and 
 
 ### Fixed
 
-- **The Download video button took the wrong video on YouTube** ([#311](https://github.com/anefzaoui/misterdownloadmanager/issues/311), thanks to [@mayankmohan1992](https://github.com/mayankmohan1992)): YouTube moves from one video to the next without loading a new page, and the browser kept naming the page it first loaded, so MDM got the video watched before. On the home page, a search or a channel it got that whole page instead, and offered about 50 videos. The button now sends the video playing in the player it's on, and a Short as the Short it is.
+- **The Download video button took the wrong video on YouTube** ([#311](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/311), thanks to [@mayankmohan1992](https://github.com/mayankmohan1992)): YouTube moves from one video to the next without loading a new page, and the browser kept naming the page it first loaded, so NetGuard got the video watched before. On the home page, a search or a channel it got that whole page instead, and offered about 50 videos. The button now sends the video playing in the player it's on, and a Short as the Short it is.
 - **Media on this page says why it's empty**: on a player that streams in pieces there's no file to list, and it says to use the button over the video instead of asking you to play it again.
 - A page's own short sounds (a click, a voice-search chime) are no longer listed in **Media on this page**.
 
@@ -86,17 +91,17 @@ YouTube fixes for the Download video button, and the button in Chrome, Edge and 
 
 #### Themes Support
 
-Now you can change Mister Download Manager's look and feel, and even its icons, with themes, and you can write your own.
+Now you can change NetGuard Download Manager's look and feel, and even its icons, with themes, and you can write your own.
 
 - 9 built-in looks in **View → Theme**: Classic, Native, High contrast, Metro, Adwaita, Breeze, Luna, Aero, Aqua.
 - Write your own theme as a TOML or JSON file, or import a Base16 scheme or your pywal colours.
 
 #### Remote Control and Headless Mode Support
 
-MDM no longer has to be in front of you: manage your downloads from your phone, or keep it running on a machine with no screen.
+NetGuard no longer has to be in front of you: manage your downloads from your phone, or keep it running on a machine with no screen.
 
 - Add links and manage your downloads and queues from your phone, on your own network: **Options → Remote**.
-- Run MDM with no window on a server, NAS, Docker or Unraid with `--headless`, and send it downloads from your browser.
+- Run NetGuard with no window on a server, NAS, Docker or Unraid with `--headless`, and send it downloads from your browser.
 
 #### Browser extension
 
@@ -110,7 +115,7 @@ The extension now installs from your browser's store, updates itself, and catche
 
 #### Video and Images
 
-MDM now goes well beyond single videos: whole playlists, subtitles, sound on its own, and picture galleries.
+NetGuard now goes well beyond single videos: whole playlists, subtitles, sound on its own, and picture galleries.
 
 - **Playlist and channel support:** download a whole playlist or channel from a video site: tick the videos you want and pick one quality for all.
 - **Subtitle support:** download a video's subtitles, saved beside it or put into it.
@@ -129,16 +134,16 @@ Torrents grew into a full client: watch while they download, follow feeds, or le
 
 #### Downloads
 
-Hand MDM a pile of links or a Google Drive link and let it get on with it.
+Hand NetGuard a pile of links or a Google Drive link and let it get on with it.
 
-- Link grabber: paste many links, MDM groups them, checks which are online, and extracts archives when they arrive.
+- Link grabber: paste many links, NetGuard groups them, checks which are online, and extracts archives when they arrive.
 - **Google Drive support:** links now download the actual file instead of Drive's web page.
 - Up to 128 connections per download, if you turn it on.
 - The Scheduler can wake the computer to run a queue.
 
 #### Network
 
-Decide exactly how MDM reaches the internet, and see where your files come from.
+Decide exactly how NetGuard reaches the internet, and see where your files come from.
 
 - Send every download through one network adapter, such as your VPN's. If it drops, nothing goes out through your normal connection.
 - **Custom DNS support:** choose who looks up addresses: Cloudflare, Google, Quad9, AdGuard, NextDNS or your own, over HTTPS, TLS or plain.
@@ -149,32 +154,32 @@ Decide exactly how MDM reaches the internet, and see where your files come from.
 Bigger when you need it, faster to open, and closer to your system.
 
 - Make every window larger, up to 200 %: **View → Interface size**, or Ctrl + and Ctrl −.
-- **Direct3D 12, Vulkan and Metal support:** MDM draws with Direct3D 12 on Windows; Vulkan on Linux and Metal on macOS are options.
+- **Direct3D 12, Vulkan and Metal support:** NetGuard draws with Direct3D 12 on Windows; Vulkan on Linux and Metal on macOS are options.
 - Every file name now has its file-type icon, the one your system uses.
 - The built-in categories can now be renamed, given other file types, or deleted.
 - Hide a download's progress window to the notification area while it keeps going.
-- When MDM starts with the computer, it now waits in the notification area instead of opening its window.
+- When NetGuard starts with the computer, it now waits in the notification area instead of opening its window.
 
 #### Other
 
 Smaller additions worth knowing about.
 
-- **System keychain support:** passwords and account sign-ins are now kept in your system's keychain, not in MDM's settings.
-- Use your own copies of yt-dlp and ffmpeg instead of MDM's.
+- **System keychain support:** passwords and account sign-ins are now kept in your system's keychain, not in NetGuard's settings.
+- Use your own copies of yt-dlp and ffmpeg instead of NetGuard's.
 - **AppImage tools support:** the AppImage can update through them, downloading only what changed.
 - Website: a page for every feature, a Themes gallery, and a hall of fame.
 
 ### Changed
 
-MDM got much lighter, and Linux is now supported like Windows.
+NetGuard got much lighter, and Linux is now supported like Windows.
 
 - Linux is no longer experimental: checked on GNOME, KDE Plasma, Xfce and Cinnamon, and on clean Ubuntu, Debian and Fedora.
 - Downloads are smaller: setup.exe 23 → 16 MB, AppImage 36 → 20 MB, .deb 27 → 17 MB.
 - Under 10 MB of memory in the notification area on Windows, from about 50 MB.
 - Machine translations in all 85 languages were checked again against the English and corrected.
 - Downloads from the browser keep the name, size and type the browser saw, so downloads behind a sign-in show correctly right away.
-- MDM follows every kind of redirect a browser does, including "your download starts in a moment" pages.
-- Freeze reports now say whether MDM was stuck in a loop, waiting on something, or the computer was too busy to run it.
+- NetGuard follows every kind of redirect a browser does, including "your download starts in a moment" pages.
+- Freeze reports now say whether NetGuard was stuck in a loop, waiting on something, or the computer was too busy to run it.
 
 ### Removed
 
@@ -188,31 +193,31 @@ No features were removed, only an old label and some bulky files.
 
 More than 80 fixes. The main ones:
 
-- Firefox and Waterfox: MDM now takes the download before the browser's file dialog, so the browser doesn't download it too.
-- The extension now reaches MDM from Ubuntu's Snap Firefox and from Brave Origin.
+- Firefox and Waterfox: NetGuard now takes the download before the browser's file dialog, so the browser doesn't download it too.
+- The extension now reaches NetGuard from Ubuntu's Snap Firefox and from Brave Origin.
 - Download File Info and the progress window open in front of the browser.
 - No more black band across menus and windows on Windows 11 Insider builds.
 - Text is sharper on Windows.
-- A slow start no longer makes MDM give up on Direct3D and stay on OpenGL.
+- A slow start no longer makes NetGuard give up on Direct3D and stay on OpenGL.
 - Linux: menus open in the right place and appear at once on Hyprland and similar compositors.
 - Linux: dark mode follows the desktop, and a slow keyring or sleep service no longer freezes the window.
-- No more crash when a magnet link or browser download arrives while MDM is minimized or in the tray.
-- A minimized MDM keeps running its queues and Scheduler.
+- No more crash when a magnet link or browser download arrives while NetGuard is minimized or in the tray.
+- A minimized NetGuard keeps running its queues and Scheduler.
 - Downloads no longer fail with "part file still in use" on a busy computer.
 - Links that work only once no longer fail with "403 Forbidden".
-- YouTube's "Requested format is not available" no longer stops a download: MDM takes the nearest quality below.
+- YouTube's "Requested format is not available" no longer stops a download: NetGuard takes the nearest quality below.
 - Stop now also stops yt-dlp, which used to keep downloading in the background.
 - Buttons fit their text in every language.
 - Screen readers read lists, menus and windows properly.
 
 ### Security
 
-This release tightens what MDM accepts from torrents.
+This release tightens what NetGuard accepts from torrents.
 
 - Unsafe file names in torrents are refused.
-- When a torrent's files are already in the folder, MDM asks before writing into them.
+- When a torrent's files are already in the folder, NetGuard asks before writing into them.
 - Files from torrents are marked as downloaded from the internet, so SmartScreen and Gatekeeper check programs before they first run.
-- MDM no longer contacts torrent trackers on this computer or the local network.
+- NetGuard no longer contacts torrent trackers on this computer or the local network.
 - The torrent library, librqbit, is updated to 9.1.0.
 
 ### Every change in detail
@@ -221,15 +226,15 @@ This release tightens what MDM accepts from torrents.
 
 ##### Themes and the look
 
-- **Themes: View → Theme** ([#45](https://github.com/anefzaoui/misterdownloadmanager/issues/45)).
-  **Classic** is MDM's look, unchanged and still the default. **Native** takes your system's
+- **Themes: View → Theme** ([#45](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/45)).
+  **Classic** is NetGuard's look, unchanged and still the default. **Native** takes your system's
   colours: Windows' accent colour and, when it is on, its contrast theme; the desktop's accent
   colour and higher-contrast setting on Linux (GNOME 47 and later, KDE Plasma); the accent colour
   on macOS; it follows them when they change. **High contrast** is black and white with a bright
   accent, every edge drawn and text at 7:1 or more. A theme applies at once, light and dark alike,
   and theme files in the themes folder (**View → Theme → Open themes folder**) are listed too;
   High contrast is itself such a file, in the same format. Six style themes keep the layout and
-  bring their own control shapes, icons and, on Windows, a title bar MDM draws (resizing, Snap
+  bring their own control shapes, icons and, on Windows, a title bar NetGuard draws (resizing, Snap
   Layouts on Maximize, double-click and Alt+Space work as with the system's):
   - **Metro**, after Windows 8's flat look: square corners, flat buttons, boxes that take an
     accent border when focused, check boxes with a tick, a bordered progress bar, scroll bars with
@@ -245,7 +250,7 @@ This release tightens what MDM accepts from torrents.
     a title bar in KDE's style: the title centred, round buttons that fill under the pointer
     (Close in red).
   - **Luna, Aero and Aqua**, after Windows XP, Windows 7 and Mac OS X (Leopard), each with a light
-    and a dark side and icons drawn for MDM in its era's manner. **Luna**: buttons shaded from
+    and a dark side and icons drawn for NetGuard in its era's manner. **Luna**: buttons shaded from
     white with a dark blue edge and an orange glow under the pointer, green ticks, square text
     boxes, progress in green blocks and a deep blue title bar with the title in bold and square
     buttons (Close red). **Aero**: glossy buttons in two halves that turn light blue under the
@@ -253,13 +258,13 @@ This release tightens what MDM accepts from torrents.
     a soft glow, its buttons hung from the top (Close wider and red). **Aqua**: gel buttons round
     at the ends (the default one blue), glossy check boxes, a blue focus ring, a blue gel progress
     bar and a grey title bar with the title centred and small round graphite buttons whose glyphs
-    show under the pointer. Every glyph and shade is MDM's own drawing; none of Microsoft's or
+    show under the pointer. Every glyph and shade is NetGuard's own drawing; none of Microsoft's or
     Apple's pictures or fonts are used.
-  - **MDM's own icons where Metro, Adwaita and Breeze had none**: Metro's Hide to the
+  - **NetGuard's own icons where Metro, Adwaita and Breeze had none**: Metro's Hide to the
     notification area, Adwaita's PDF, torrent file and Hide to the notification area, and
-    Breeze's PDF and Hide to the notification area, drawn for MDM in each one's style (the
+    Breeze's PDF and Hide to the notification area, drawn for NetGuard in each one's style (the
     one-colour ones in the theme's text colour).
-  - **Theme files**: every colour and size MDM's controls are drawn with (corner radii, borders,
+  - **Theme files**: every colour and size NetGuard's controls are drawn with (corner radii, borders,
     font sizes, the list's row height, the icons' ink) comes from the theme, by role; the classic
     look is that theme, unchanged pixel for pixel. A theme file (TOML or JSON in the data folder's
     `themes` folder) can change any role, choose each control's style (`[controls]`) and an icon
@@ -275,20 +280,20 @@ This release tightens what MDM accepts from torrents.
     (pywal: its background and foreground, color4); text is kept at 4.5:1 or more against every
     background and the accent at 3:1, moved a little where a scheme falls short. Once `wal` has
     run, **View → Theme** lists **pywal**, read from where pywal writes it
-    (`~/.cache/wal/colors.json`, `%USERPROFILE%\.cache\wal\colors.json` on Windows), and MDM
+    (`~/.cache/wal/colors.json`, `%USERPROFILE%\.cache\wal\colors.json` on Windows), and NetGuard
     follows each new wallpaper's colours within two seconds. A theme file can `inherits` a scheme
     to change more than its colours.
-- **View → Interface size** ([#262](https://github.com/anefzaoui/misterdownloadmanager/issues/262)):
+- **View → Interface size** ([#262](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/262)):
   every window larger, 100 % to 200 %, on top of the system's display scale; **Ctrl +**,
-  **Ctrl −** and **Ctrl 0** in any MDM window, as in a browser. Every open window follows at once
-  (dialogs, menus, the drop target) and MDM starts at that size, the crash report window too. A
+  **Ctrl −** and **Ctrl 0** in any NetGuard window, as in a browser. Every open window follows at once
+  (dialogs, menus, the drop target) and NetGuard starts at that size, the crash report window too. A
   window larger than the screen opens as large as the screen allows and scrolls the rest, its
   title bar on the screen.
-- **View → Always dark** ([#60](https://github.com/anefzaoui/misterdownloadmanager/issues/60)):
-  MDM stays dark whatever the system says, for a desktop that reports no light or dark
-  preference (MDM also reads it on Linux now, see Fixed).
+- **View → Always dark** ([#60](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/60)):
+  NetGuard stays dark whatever the system says, for a desktop that reports no light or dark
+  preference (NetGuard also reads it on Linux now, see Fixed).
 - **A file-type icon before every file name or folder**
-  ([#122](https://github.com/anefzaoui/misterdownloadmanager/issues/122)): the download list,
+  ([#122](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/122)): the download list,
   Download File Info, Properties, Download complete (its open folder), Add torrent (the torrent and
   its tree), a torrent's Files tab, the progress window's Save To, the Scheduler's files, Batch
   download's preview, and Download video's qualities and a playlist's videos (the file each one
@@ -297,26 +302,26 @@ This release tightens what MDM accepts from torrents.
   then the themes it builds on). It is sharp at every display scale (125, 150, 200 %), taken at
   the size the screen needs. Each type is looked up once, in the background, so a long list never
   waits for it. Where the system has no icon for a type (a Linux desktop without an icon theme),
-  MDM draws one of its own, from the Tango icons (public domain).
-- **Windows: MDM draws with Direct3D 12** ([#89](https://github.com/anefzaoui/misterdownloadmanager/issues/89)).
+  NetGuard draws one of its own, from the Tango icons (public domain).
+- **Windows: NetGuard draws with Direct3D 12** ([#89](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/89)).
   Its windows open faster (about a quarter of a second sooner on our test PC), and Direct3D may
   avoid the stalls some graphics drivers' OpenGL has
-  ([#82](https://github.com/anefzaoui/misterdownloadmanager/issues/82)). **View → Draw with**
+  ([#82](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/82)). **View → Draw with**
   goes back to OpenGL, as before, from the next start; a choice of OpenGL is kept. The window
   always opens: when Direct3D can't start, its first frame doesn't come within 10 seconds, or a
-  start with it ends before its first frame, MDM draws with OpenGL until Direct3D is chosen
+  start with it ends before its first frame, NetGuard draws with OpenGL until Direct3D is chosen
   again (the menu says so, and why); without a usable OpenGL either, it draws with Microsoft's
   software renderer (Remote Desktop, virtual machines without a graphics driver). When the
-  graphics card is reset while MDM runs (a driver update), MDM starts again by itself. Freeze and
+  graphics card is reset while NetGuard runs (a driver update), NetGuard starts again by itself. Freeze and
   crash reports say what was drawing. Linux and macOS keep OpenGL by default.
-- **Linux: Vulkan, and macOS: Metal, in View → Draw with** ([#206](https://github.com/anefzaoui/misterdownloadmanager/issues/206)).
+- **Linux: Vulkan, and macOS: Metal, in View → Draw with** ([#206](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/206)).
   Linux can draw its windows with Vulkan (on Wayland and X11), and macOS with Metal, the way
   Windows draws with Direct3D. OpenGL stays the default there until reports from real graphics
   cards are in: try it and tell us how it went. The same safety net as on Windows: when Vulkan
   or Metal can't start (no driver for it), its first frame doesn't come within 10 seconds, or a
-  start with it ends before its first frame, MDM draws with OpenGL until it is chosen again, and
-  the menu says why. A graphics card reset while MDM runs starts MDM again.
-- **Hide to the notification area** ([#63](https://github.com/anefzaoui/misterdownloadmanager/issues/63)):
+  start with it ends before its first frame, NetGuard draws with OpenGL until it is chosen again, and
+  the menu says why. A graphics card reset while NetGuard runs starts NetGuard again.
+- **Hide to the notification area** ([#63](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/63)):
   a download's progress window has a button that hides it in the tray while the download goes
   on: on Windows in its title bar, left of Minimize (the progress window draws its own Windows 11
   title bar now, keeping the system's snapping, shaking, menu and shadow), and in its Alt+Space
@@ -324,16 +329,16 @@ This release tightens what MDM accepts from torrents.
   progress** lists the running downloads to bring one's window back (double-clicking it in the
   list does too). With **Options → General → Minimize to the notification area** (on by
   default), Minimize hides the main window and progress windows there as well. Only where a tray
-  shows MDM's icon.
-- **Started with the computer, MDM waits in the notification area**
-  ([#226](https://github.com/anefzaoui/misterdownloadmanager/issues/226)): with **Options →
-  General → Launch Mister Download Manager on startup**, MDM no longer opens its window in front
+  shows NetGuard's icon.
+- **Started with the computer, NetGuard waits in the notification area**
+  ([#226](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/226)): with **Options →
+  General → Launch NetGuard Download Manager on startup**, NetGuard no longer opens its window in front
   at every sign-in. It starts hidden, its icon in the notification area, with its downloads,
-  queues, Scheduler and browser hand-overs running; its icon, or starting MDM again, shows the
-  window as before. The same on Linux and macOS; where no notification area shows MDM's icon
+  queues, Scheduler and browser hand-overs running; its icon, or starting NetGuard again, shows the
+  window as before. The same on Linux and macOS; where no notification area shows NetGuard's icon
   (some Linux desktops), it starts minimized, and the option's tooltip says so (it waits for
   one up to 30 seconds after its icon is made, its window hidden: a desktop's can come up after
-  MDM at sign-in). The startup entry now passes `/startup` (new on the
+  NetGuard at sign-in). The startup entry now passes `/startup` (new on the
   [command line](docs/command-line.md)); an entry written by an earlier version or its installer
   is written again at the next start, and the installer writes the new one.
 - **Drop-down lists for screen readers**: a screen reader or UI Automation can now set a
@@ -342,28 +347,28 @@ This release tightens what MDM accepts from torrents.
 ##### Downloads
 
 - **Downloads through one network adapter, with a kill switch**
-  ([#35](https://github.com/anefzaoui/misterdownloadmanager/issues/35)): **Options → Proxy /
-  Socks → Network adapter**. Pick one, usually your VPN's, and every connection MDM opens goes out
-  through it or not at all: downloads, FTP, the DNS you chose, MDM's own downloads and the update
+  ([#35](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/35)): **Options → Proxy /
+  Socks → Network adapter**. Pick one, usually your VPN's, and every connection NetGuard opens goes out
+  through it or not at all: downloads, FTP, the DNS you chose, NetGuard's own downloads and the update
   check. When the adapter disconnects, nothing goes out through your normal connection. Running
   downloads stop and start again when it's back. The command line's `get` takes `--adapter`. PAC
   scripts' `myIpAddress` no longer opens a network socket on Windows.
   - **Video pages and image galleries** go through it too, on Windows, Linux and macOS: video
-    downloads (yt-dlp and the ffmpeg it starts) and galleries (gallery-dl) go through a proxy MDM
-    runs on this computer, which opens their connections through the adapter as MDM opens its
+    downloads (yt-dlp and the ffmpeg it starts) and galleries (gallery-dl) go through a proxy NetGuard
+    runs on this computer, which opens their connections through the adapter as NetGuard opens its
     own, with the DNS you chose, IPv4 and IPv6. The same kill switch: when the adapter
     disconnects, their connections close at once and the downloads stop, then start again when
     it is back. Formats over RTMP, RTSP, MMS or FTP, which can't go through it, are refused. The
     command line's `video-get` and `gallery-get` take `--adapter`.
   - **Torrents** go through it on Windows too
-    ([#143](https://github.com/anefzaoui/misterdownloadmanager/issues/143)): every torrent
+    ([#143](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/143)): every torrent
     connection goes out from the adapter's address, with the same kill switch as downloads:
     peers, trackers, the DHT and the listening port. When the adapter disconnects, torrents stop,
     nothing goes out another way, and they start again when it is back.
   - Only `ftps://` (FTP with implicit TLS) can't be held to an adapter yet, so it doesn't start
     while one is chosen.
-- **Choose the DNS** ([#36](https://github.com/anefzaoui/misterdownloadmanager/issues/36)):
-  **Options → Connection → DNS** picks who turns names into addresses for downloads, FTP, MDM's
+- **Choose the DNS** ([#36](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/36)):
+  **Options → Connection → DNS** picks who turns names into addresses for downloads, FTP, NetGuard's
   own downloads and the update check. The system's (the default), Cloudflare, Google, Quad9,
   AdGuard, NextDNS (with your configuration ID) or your own, asked over HTTPS (the default), TLS,
   or plain over TCP. **Test** shows how long it takes to answer. When it can't be reached, the
@@ -371,38 +376,38 @@ This release tightens what MDM accepts from torrents.
   your hosts file and local names stay with the system's. The command line's `get` takes
   `--dns`. Torrent trackers still use the system's DNS, and so do video pages and galleries
   unless a network adapter is chosen.
-- **Where a download's server is** ([#140](https://github.com/anefzaoui/misterdownloadmanager/issues/140)):
+- **Where a download's server is** ([#140](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/140)):
   **Download File Info**, the progress window and **Properties** show the server's country, with
   its flag, and its round trip, such as **about 24 ms (near)**, in green, amber or red. The country
-  comes from a table that ships with MDM ([IP to Country Lite by DB-IP](https://db-ip.com),
+  comes from a table that ships with NetGuard ([IP to Country Lite by DB-IP](https://db-ip.com),
   CC BY 4.0, refreshed with each release), looked up on the computer: no address is sent
   anywhere. The time is measured from the download's own connections, with nothing extra sent.
-  Through a proxy MDM says so instead of guessing, and a CDN's server (Cloudflare, CloudFront,
+  Through a proxy NetGuard says so instead of guessing, and a CDN's server (Cloudflare, CloudFront,
   Fastly, Akamai and others) is said to be the CDN's, not the site owner's. Properties keeps what
-  the last run saw. MDM is about 770 KB larger (the table 674 KB, the flags 95 KB).
-- **More than 32 connections per download, if you want them** ([#12](https://github.com/anefzaoui/misterdownloadmanager/issues/12)):
+  the last run saw. NetGuard is about 770 KB larger (the table 674 KB, the flags 95 KB).
+- **More than 32 connections per download, if you want them** ([#12](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/12)):
   **Options → Connection** now takes any number from 1 to 32, typed or set with the arrows,
   and **Allow more than 32 connections** raises that to 128, for server exceptions too. Servers
   that allow fewer are still noticed and asked for fewer. The command line's `-c` takes 1 to 128.
-- **Google Drive links** ([#34](https://github.com/anefzaoui/misterdownloadmanager/issues/34)):
+- **Google Drive links** ([#34](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/34)):
   paste a Drive file's link (`drive.google.com/file/d/…/view`, `…/uc?id=…`, `…/open?id=…`) and
-  MDM downloads the file itself, as it was uploaded, over several connections and resumable,
+  NetGuard downloads the file itself, as it was uploaded, over several connections and resumable,
   with its real name and size in Download File Info. Large files get past Drive's "can't scan
   this file for viruses" page as **Download anyway** does. Google Docs, Sheets and Slides come
   as Word, Excel and PowerPoint files. A private file downloads with the sign-in the extension
   passes from the browser. When Drive won't give a file (too many downloads lately, sign-in
-  needed, no access), MDM says so in your language instead of saving Drive's page. The video
-  button over a Drive video downloads the original file. Folders aren't downloaded yet: MDM
+  needed, no access), NetGuard says so in your language instead of saving Drive's page. The video
+  button over a Drive video downloads the original file. Folders aren't downloaded yet: NetGuard
   says the link is a folder. See [Google Drive links](docs/adding-downloads.md#google-drive-links).
 - **Link grabber, and archives extracted when they are downloaded**
-  ([#37](https://github.com/anefzaoui/misterdownloadmanager/issues/37)). The window that took
+  ([#37](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/37)). The window that took
   the browser's "Download all links", Tasks → Import and dropped lists grew into Link grabber
   (also Tasks → Link grabber..., where pasted links go). Links come in packages: a split
   archive's volumes together, the other links of a page together, the rest in "Various files".
   Each link is looked up for its name, size and whether the server has it (Offline links come
   unticked), and each package has its folder, an archive password, "Extract when done" and
   "Delete archives after extracting". **Start** or **Add to queue** (IDM's import, unchanged:
-  an `.ef2` file still brings each download's referrer and cookies). MDM extracts ZIP (AES and
+  an `.ef2` file still brings each download's referrer and cookies). NetGuard extracts ZIP (AES and
   Deflate64 too), TAR, TAR.GZ, TAR.XZ, GZ and XZ itself; 7z and RAR need 7-Zip (split `.7z.001`
   and `.partN.rar` too), and a window says so when it isn't installed. It extracts when a package
   says so, for any download with **Options → Archives → Extract archives when their download
@@ -411,14 +416,14 @@ This release tightens what MDM accepts from torrents.
   archive is; names that would leave the folder, links, and archives that would fill the disk are
   refused; an existing file is never overwritten. The archive goes to the Recycle Bin (the Trash)
   only when you ask. Options has a new **Archives** page.
-- **Image galleries** ([#58](https://github.com/anefzaoui/misterdownloadmanager/issues/58)): a
+- **Image galleries** ([#58](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/58)): a
   gallery's address in Add URL (a Wikimedia Commons category, a Flickr album, a DeviantArt or
   Imgur gallery and more) opens **Download a gallery**, which downloads its pictures with
   gallery-dl into a folder of their own, all of them or the first N. Started again, a gallery
   fetches only its new pictures. gallery-dl is an optional helper like yt-dlp: installed from its
   releases only when signed by its author's key, or your own copy (Helpers). On the command line:
   `install-gallery-dl` and `gallery-get`.
-- **The built-in categories are yours to change** ([#93](https://github.com/anefzaoui/misterdownloadmanager/issues/93)):
+- **The built-in categories are yours to change** ([#93](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/93)):
   Compressed, Documents, Music, Programs and Video can be renamed, given other file types and
   deleted, like your own categories (right-click → Properties or Delete). A renamed category keeps
   its folder. Deleting one asks what happens to its downloads: move them to General, or take them
@@ -427,7 +432,7 @@ This release tightens what MDM accepts from torrents.
 
 ##### Videos
 
-- **Playlists and channels** ([#69](https://github.com/anefzaoui/misterdownloadmanager/issues/69)):
+- **Playlists and channels** ([#69](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/69)):
   Download video from a page lists a playlist's or a channel's videos, with their lengths, all
   ticked, with Select all and Select none. One quality applies to all of them (the best, up to a
   height, the original sound, MP3, Opus or FLAC). Each video gets its own download, in a folder
@@ -436,65 +441,65 @@ This release tightens what MDM accepts from torrents.
   up again (List the rest), and one the site breaks off says after how many videos and why. A
   channel is listed 50 videos at a time, with Load more. Lists of thousands stay quick, and adding
   more than 500 downloads asks first. On the command line: `playlist-info` and `playlist-get`.
-- **Video subtitles** ([#68](https://github.com/anefzaoui/misterdownloadmanager/issues/68)):
+- **Video subtitles** ([#68](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/68)):
   Download video from a page lists the video's subtitle languages, the uploader's first, then the
   site's automatic captions (in the language spoken, English and yours). They're saved beside the
   video as `<name>.<language>.srt`, or put into the video with ffmpeg (MP4, MKV), and the choice is
   offered again for the next video. Subtitles a site refuses (YouTube limits how often they may
-  be fetched) never cost the video: MDM asks once more after a pause, then says which are missing.
+  be fetched) never cost the video: NetGuard asks once more after a pause, then says which are missing.
   On the command line: `video-get --subs`, `--auto-subs`, `--embed-subs`; `video-info` lists them.
   A finished video and its subtitles are now marked as downloaded from the internet, as other
   downloads are.
 - **A video's sound as MP3, Opus or FLAC**
-  ([#32](https://github.com/anefzaoui/misterdownloadmanager/issues/32),
-  [#70](https://github.com/anefzaoui/misterdownloadmanager/issues/70)): **Download video** lists
+  ([#32](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/32),
+  [#70](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/70)): **Download video** lists
   **Audio only MP3** at its best variable bitrate (VBR) and at 320, 256, 192 and 128 kbps, after
   the sound in the site's own format, now named **Audio only, original**. ffmpeg converts it (on
-  Windows MDM offers to install it, as for the best video qualities; on Linux and macOS it uses
+  Windows NetGuard offers to install it, as for the best video qualities; on Linux and macOS it uses
   the system's), and the browser's **Download video** button offers the same. Under the MP3 ones,
   **Audio only OPUS** (YouTube's Opus is only moved into an `.opus` file, not converted) and
   **Audio only FLAC** (lossless, with an honest note in the window: it can't add quality the
   site's lossy sound doesn't have, the file is only bigger). The command line takes
   `video-get --format mp3:192` (`mp3:0` for VBR), `-f opus:` and `-f flac:`.
 - **Cookies for video sites**
-  ([#229](https://github.com/anefzaoui/misterdownloadmanager/issues/229)): **Options → Sites
+  ([#229](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/229)): **Options → Sites
   Logins** can let yt-dlp read a browser's cookies on this computer (Firefox, Chrome, Edge, Brave,
   Opera, Vivaldi, Chromium, Whale; Safari on macOS), with a profile by name or folder, so a pasted
   link to a video that needs you signed in (YouTube's "Sign in to confirm you're not a bot")
   works. Off by default. When the browser's extension passes the page's own cookies, those are
   used instead. When the browser's cookies can't be read (Chrome, Edge and Brave lock them on
   Windows; a locked keyring on Linux), the Download video window says so in plain words.
-- **Your own yt-dlp and ffmpeg** ([#51](https://github.com/anefzaoui/misterdownloadmanager/issues/51)):
+- **Your own yt-dlp and ffmpeg** ([#51](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/51)):
   **Download video from a page → Helpers...** shows where each comes from, and **Use another
-  program...** takes a copy you already have instead of MDM's own (checked once, then used by
-  the window and the command line alike; MDM leaves its updates to you). **Use MDM's own copy**
+  program...** takes a copy you already have instead of NetGuard's own (checked once, then used by
+  the window and the command line alike; NetGuard leaves its updates to you). **Use NetGuard's own copy**
   goes back.
 
 ##### Torrents
 
-- **Download in order** ([#39](https://github.com/anefzaoui/misterdownloadmanager/issues/39)): to
+- **Download in order** ([#39](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/39)): to
   watch a video while it downloads, tick **Download in order** in **Add torrent**, or choose
   **Torrent → Download in order** in the list's right-click menu, even while it runs. A file's
   start comes first, and with **First and last pieces first** (on by default) its end comes early
   too, which most video files need before they play. Slower peers take pieces a little further
   on, so the start isn't waiting for them. Other torrents now download the rarest pieces first,
-  as BitTorrent programs usually do: on MDM's test swarms they finished just as fast, and they
+  as BitTorrent programs usually do: on NetGuard's test swarms they finished just as fast, and they
   finished where a scarce piece's only holder left. Torrents already in the list carry on, with
-  nothing checked again. MDM also honours a peer's request to cancel a piece it no longer needs,
+  nothing checked again. NetGuard also honours a peer's request to cancel a piece it no longer needs,
   so its upload isn't spent on data nobody wants.
-- **RSS feeds** ([#39](https://github.com/anefzaoui/misterdownloadmanager/issues/39)): **Tasks →
+- **RSS feeds** ([#39](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/39)): **Tasks →
   RSS feeds...** watches RSS and Atom feeds of torrents, lists their articles (download one by
   hand), and its download rules add the new ones whose titles they match: words or regular
   expressions, words to skip, an episode filter (`1x2;1x5-8;2x1-`) that takes each episode once, a
   folder per rule. A feed's backlog is never downloaded by itself.
-- **Torrent commands** ([#39](https://github.com/anefzaoui/misterdownloadmanager/issues/39)): a
+- **Torrent commands** ([#39](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/39)): a
   torrent's right-click menu has **Torrent → Recheck files**, **Reannounce**, **Add trackers...**
   and **Copy magnet link**. Its Files tab can tick and untick files while it runs. A `.torrent`
   file's web address, in Add URL or from the browser, opens Add torrent with what the file holds.
   TORRENT is in Options → File types' defaults, so the browser hands `.torrent` files over; a
   list saved before keeps what it had.
 - **Seeding and upload limits, and a share ratio that lasts**
-  ([#39](https://github.com/anefzaoui/misterdownloadmanager/issues/39)): under "Keep sharing
+  ([#39](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/39)): under "Keep sharing
   torrents after they finish", Torrent settings can stop sharing a finished torrent at a share
   ratio, or after it has been shared for some minutes; both off by default. A torrent stopped so
   says it in its event log and isn't shared again at the next start. Torrent settings can limit
@@ -502,39 +507,39 @@ This release tightens what MDM accepts from torrents.
   it. Its General tab now counts what it sent and how long it shared over all its runs, so the
   share ratio no longer starts again at 0 after a pause or a restart.
 - **Torrent settings: the network is yours to choose**
-  ([#40](https://github.com/anefzaoui/misterdownloadmanager/issues/40)): accept incoming
+  ([#40](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/40)): accept incoming
   connections or not, map the port with UPnP or not, a fixed port, the DHT, finding peers on the
   local network, a SOCKS5 proxy from Proxy / Socks (which turns off what would go around it), an
   IP blocklist (P2P or eMule format, fetched again every 7 days), and stopping the torrent engine
   when no torrent runs. A new help page, [Torrents and your security](docs/torrent-security.md),
   says what others can see and what each switch does.
 - **Torrents through your debrid account**
-  ([#44](https://github.com/anefzaoui/misterdownloadmanager/issues/44)): with **Send torrents and
+  ([#44](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/44)): with **Send torrents and
   magnet links to the first account instead of to peers** ticked (**Options → Accounts**), a
   magnet link or a `.torrent` file goes to the account. Real-Debrid, AllDebrid and Premiumize
   download the torrent on their servers, and the list shows how far they are (**45% at
-  Real-Debrid**). MDM then downloads its files over HTTP, with all its connections and resume,
+  Real-Debrid**). NetGuard then downloads its files over HTTP, with all its connections and resume,
   and removes the torrent from the account's list. Your computer never connects to the torrent's
   peers. Experimental, as the accounts are.
 
 ##### Debrid accounts, experimental
 
-- **Real-Debrid, AllDebrid and Premiumize** ([#44](https://github.com/anefzaoui/misterdownloadmanager/issues/44)):
+- **Real-Debrid, AllDebrid and Premiumize** ([#44](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/44)):
   **Options → Accounts** keeps your debrid service accounts. Real-Debrid signs in by code in the
-  browser, or with your API token; AllDebrid by a PIN in the browser or with an API key, and MDM
+  browser, or with your API token; AllDebrid by a PIN in the browser or with an API key, and NetGuard
   waits while it prepares a slow link; Premiumize with its API key. A link from a file host your
-  service supports is unlocked through your account, then downloaded with all of MDM's
+  service supports is unlocked through your account, then downloaded with all of NetGuard's
   connections, pause and resume, from Add URL, the browser's link menu and batch downloads. When
-  the direct link expires, MDM asks the service for a new one. The direct link is never shown or
+  the direct link expires, NetGuard asks the service for a new one. The direct link is never shown or
   copied, and the sign-in is kept like your other passwords (the system's keychain, below). Each
   service is asked well under its request limit. See [Debrid service accounts](docs/debrid.md).
   Experimental: built from the services' public API documentation, not yet confirmed with a real
   paid account.
 - **One link directly, and the command line**
-  ([#44](https://github.com/anefzaoui/misterdownloadmanager/issues/44)): **Download File Info**
+  ([#44](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/44)): **Download File Info**
   says which account a link goes through (**Download through Real-Debrid (your account)**);
   untick it to download that link directly. **File Properties** has the same choice for a
-  download in the list, and MDM keeps it after a restart. The command line's `get` and `resume`
+  download in the list, and NetGuard keeps it after a restart. The command line's `get` and `resume`
   go through the accounts of **Options → Accounts** too, and `--direct` skips them. A download
   the browser had already started stays direct after a restart, and when one service doesn't
   answer, the other accounts still work.
@@ -542,32 +547,32 @@ This release tightens what MDM accepts from torrents.
 ##### The browser extension
 
 - **In the stores**: the Firefox add-on is on addons.mozilla.org,
-  [Mister Download Manager](https://addons.mozilla.org/firefox/addon/mister-download-manager/),
+  [NetGuard Download Manager](https://addons.mozilla.org/firefox/addon/mister-download-manager/),
   installed with one click and kept up to date by Firefox (and by Zen and LibreWolf); the
   Chromium one is in the Chrome Web Store,
-  [Mister Download Manager](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp),
+  [NetGuard Download Manager](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp),
   for Chrome, Edge, Brave, Opera and Vivaldi, installed with one click and kept up to date.
-  Chrome offers it by itself once MDM is installed, and the website, the help and the README
+  Chrome offers it by itself once NetGuard is installed, and the website, the help and the README
   offer **Add to Firefox** and **Add to Chrome** first. The store's copy needs this release of
-  MDM: the helper of MDM 0.2.x serves only the copy in MDM's own folder, and the browser refuses
-  the store's ([#208](https://github.com/anefzaoui/misterdownloadmanager/issues/208)). The
+  NetGuard: the helper of NetGuard 0.2.x serves only the copy in NetGuard's own folder, and the browser refuses
+  the store's ([#208](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/208)). The
   store's copy shows no Download video button on YouTube, whose downloads the store's policy
   forbids; **Tasks → Download video from a page** still takes any page.
-- **MDM offers the browser extension**: until a browser's extension has reached MDM, each start
-  shows **Add Mister Download Manager to your browser**, with a button for every browser
+- **NetGuard offers the browser extension**: until a browser's extension has reached NetGuard, each start
+  shows **Add NetGuard Download Manager to your browser**, with a button for every browser
   installed, which opens its store page (**Install it by hand** stays there for a browser that
   can't use its store). The window says when the extension is connected; **Don't ask again**
   stops it.
-- **The extension's toolbar button** says whether the browser reaches MDM. When it doesn't, a
-  red **!** and **How to fix it** lead to the new help page, [The browser and MDM aren't
-  connected](https://misterdownloadmanager.com/help/browser-help.html), at the section for the
+- **The extension's toolbar button** says whether the browser reaches NetGuard. When it doesn't, a
+  red **!** and **How to fix it** lead to the new help page, [The browser and NetGuard aren't
+  connected](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/docs/browser-help.md), at the section for the
   reason. Its popup also pauses taking downloads, leaves the current site to the browser for
-  good, and opens MDM or its Options.
-- **Options → General → Test browser integration** checks MDM's side in order (integration on,
-  the installed copy, the browsers can find MDM, which browsers' extension connected) and
-  offers **Set it up** when the browsers can't find MDM.
+  good, and opens NetGuard or its Options.
+- **Options → General → Test browser integration** checks NetGuard's side in order (integration on,
+  the installed copy, the browsers can find NetGuard, which browsers' extension connected) and
+  offers **Set it up** when the browsers can't find NetGuard.
 - **The extension lists the media a page has loaded**
-  ([#38](https://github.com/anefzaoui/misterdownloadmanager/issues/38)). The toolbar button's
+  ([#38](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/38)). The toolbar button's
   window has **Media on this page**: the HLS and DASH streams the page's players loaded (each
   once, with its qualities and length) and the video and sound files it played, with their size.
   **Download** sends a stream to the Download video window and a file to the list, with the
@@ -575,9 +580,9 @@ This release tightens what MDM accepts from torrents.
   give up can still be saved. Copy-protected (DRM) streams are listed as **Protected** and never
   sent. Nothing new to allow: the extension already watched the tab's responses.
 - **Downloads from a browser behind a VPN or proxy extension go through it too**
-  ([#42](https://github.com/anefzaoui/misterdownloadmanager/issues/42)): the browser extension
+  ([#42](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/42)): the browser extension
   passes the proxy the browser uses for a download (an extension's, or its settings' manual proxy
-  or auto-config script) with it. MDM downloads through the same proxy while **Options → Proxy /
+  or auto-config script) with it. NetGuard downloads through the same proxy while **Options → Proxy /
   Socks → Use proxy/socks from a browser's request** is on, which is the default. A proxy that
   needs the VPN extension's own login can't be shared: the download says so rather than going
   without it. It is an opt-in, off as installed: **Send downloads through this browser's proxy or
@@ -588,22 +593,22 @@ This release tightens what MDM accepts from torrents.
   nothing new. There the extension reads the browser's proxy settings: the server for the
   download's scheme (honouring their bypass list), or their auto-config script. Addresses on
   this computer (localhost, 127.0.0.1) go straight to it, as the browser sends them.
-- **Zen, Helium and other browsers built on Firefox or Chromium** ([#41](https://github.com/anefzaoui/misterdownloadmanager/issues/41)):
-  the extension reaches MDM in them, also when one is the only browser on Linux or macOS (Zen
-  reads Firefox's folder, which MDM now creates; Helium its own). **Add Mister Download Manager
+- **Zen, Helium and other browsers built on Firefox or Chromium** ([#41](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/41)):
+  the extension reaches NetGuard in them, also when one is the only browser on Linux or macOS (Zen
+  reads Firefox's folder, which NetGuard now creates; Helium its own). **Add NetGuard Download Manager
   to your browser** lists them, Zen, LibreWolf, Floorp and Waterfox by their own names (Options
-  too), and sends Firefox's family to the right page. On Windows MDM lists the browsers Windows
-  itself lists, so Helium is no longer taken for Chrome. Flatpak browsers can't start MDM's
+  too), and sends Firefox's family to the right page. On Windows NetGuard lists the browsers Windows
+  itself lists, so Helium is no longer taken for Chrome. Flatpak browsers can't start NetGuard's
   helper, which the help page now says.
-- **MDM says why the browser kept a download**
-  ([#208](https://github.com/anefzaoui/misterdownloadmanager/issues/208)): every download left
-  to the browser by Options is a line in MDM's log naming the setting that decided (its type
+- **NetGuard says why the browser kept a download**
+  ([#208](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/208)): every download left
+  to the browser by Options is a line in NetGuard's log naming the setting that decided (its type
   isn't in **File types**, its site or address is excluded, it's under the minimum size, the
   browser is unticked, browser integration is off, or the extension may not read the site), and
   the extension's button shows the last one, with the file's name. A download from a private
   window is logged without its name or site.
 - **More file types taken from the browser by default**
-  ([#208](https://github.com/anefzaoui/misterdownloadmanager/issues/208)): today's installers and
+  ([#208](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/208)): today's installers and
   packages (DMG and PKG for macOS, DEB, RPM and APPIMAGE for Linux, MSIX, APPX, APPXBUNDLE and CAB
   for Windows, JAR), archives (XZ, ZST, TGZ, TXZ) and WEBM, FLAC and OPUS join **Options → File
   types**. A list never edited gains them on the next start; one you edited stays as it is.
@@ -614,56 +619,56 @@ This release tightens what MDM accepts from torrents.
   clicking a link to let the browser have it.
 - **Download selected links** and **Download all links** on the browser's right-click menu: the
   page's links go to Import, to tick there.
-- **Downloads from forms** (a button that posts and gets a file back) are posted again by MDM,
+- **Downloads from forms** (a button that posts and gets a file back) are posted again by NetGuard,
   with the form's data, instead of being lost. A form that sends a file (multipart) stays with
   the browser.
 
 ##### Remote control, servers and scripts
 
-- **Control MDM from your phone** ([#141](https://github.com/anefzaoui/misterdownloadmanager/issues/141)):
+- **Control NetGuard from your phone** ([#141](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/141)):
   **Options → Remote**, off by default. A phone or another computer on the local network, paired
-  with a code (or a QR code) MDM shows, opens a page MDM serves over HTTPS: it adds links, magnet
+  with a code (or a QR code) NetGuard shows, opens a page NetGuard serves over HTTPS: it adds links, magnet
   links and `.torrent` files, shows the list with its progress, pauses, starts and removes
   downloads, and starts and stops the queues, in the phone's language. Only paired devices are
   answered, each removable in Options, and only on the computer's private network addresses.
   [Guide](docs/remote-control.md).
-- **Run MDM on a server** ([#157](https://github.com/anefzaoui/misterdownloadmanager/issues/157)):
-  `misterdownloadmanager --headless` runs MDM without a window (a home server, a NAS, Docker,
+- **Run NetGuard on a server** ([#157](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/157)):
+  `misterdownloadmanager --headless` runs NetGuard without a window (a home server, a NAS, Docker,
   Unraid), its folders and port set by flags or the environment; a `Dockerfile`, a Compose file
   and an Unraid template come with it. Phones pair with the code it prints (or
   `misterdownloadmanager-cli pair`), and the browser extension can **send downloads to another
-  MDM**. [Guide](docs/server.md).
+  NetGuard**. [Guide](docs/server.md).
 - The automation API's list also gives the queues, the categories and the free space; it starts
   and stops a queue by name, and an added address can choose its category and queue.
 
 ##### Accounts, the Scheduler and support
 
 - **Sign-ins in the system's keychain**
-  ([#44](https://github.com/anefzaoui/misterdownloadmanager/issues/44)): debrid accounts, Sites
+  ([#44](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/44)): debrid accounts, Sites
   Logins' passwords and the proxy's password are kept in Windows Credential Manager, in the
   system keyring on Linux (Secret Service: GNOME Keyring, KeePassXC and others) and in the
   macOS keychain, and the settings keep only a reference. Those already saved move there on
   the next start. A locked keyring is never unlocked and no keyring is ever asked for a
-  password: without one, they stay in MDM's settings as before, sealed for your Windows account
+  password: without one, they stay in NetGuard's settings as before, sealed for your Windows account
   on Windows (the proxy's password now too, like Sites Logins' passwords). **Options →
   Accounts** says where they are. A portable copy keeps them in its own folder, and uninstalling
   with **remove the download list and settings** removes them from Credential Manager too.
 - **The Scheduler wakes the computer to run a queue**
-  ([#142](https://github.com/anefzaoui/misterdownloadmanager/issues/142)): tick **Wake the
+  ([#142](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/142)): tick **Wake the
   computer to run this queue** under the start time, and a sleeping computer is woken a minute
   before the queue starts and kept awake while it runs; the line under it says when. On Windows
   it needs **Allow wake timers** in the power plan: when that is off the Scheduler says so, with a
   link to the setting. On Linux an administrator has to allow it once (the guide shows how); on
-  macOS only an administrator can schedule a wake, so the option says why it's greyed. MDM never
+  macOS only an administrator can schedule a wake, so the option says why it's greyed. NetGuard never
   asks for an administrator's password. The Scheduler is 40 pixels taller for it.
-- **Support MDM**: **Help → Support MDM** and a line in **About** open the creator's
+- **Support NetGuard**: **Help → Support NetGuard** and a line in **About** open the creator's
   [GitHub Sponsors](https://github.com/sponsors/anefzaoui) page in the browser; the website, the
-  README and the browser extension's popup link to it too. Only when asked: MDM stays free, with
+  README and the browser extension's popup link to it too. Only when asked: NetGuard stays free, with
   no reminders, and nothing changes or unlocks.
 
 ##### Linux
 
-- **The AppImage updates through AppImage tools too** ([#24](https://github.com/anefzaoui/misterdownloadmanager/issues/24)):
+- **The AppImage updates through AppImage tools too** ([#24](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/24)):
   it carries the address of its updates, and each release has its `.AppImage.zsync`, so
   AppImageLauncher, Gear Lever and AppImageUpdate download only the parts that changed.
   **Update now** works as before.
@@ -675,14 +680,14 @@ This release tightens what MDM accepts from torrents.
 ##### The website
 
 - **A page for every feature, and a Themes page**
-  ([#260](https://github.com/anefzaoui/misterdownloadmanager/issues/260)): each feature has a page
+  ([#260](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/260)): each feature has a page
   of its own, with the real window, where to find it in the app, since which version, and what it
   can't do yet; the home page lists them all, by group. The Themes page shows every built-in theme
-  in its light and dark side, and how to make your own theme file, try it without building MDM,
+  in its light and dark side, and how to make your own theme file, try it without building NetGuard,
   and share it, with a prompt to give an AI assistant. What isn't in a release yet says so.
 - **Made possible by these amazing humans**: the home page's first view thanks everyone who sent
   a pull request, opened an issue or joined a conversation on GitHub, with their round photos; the new
-  [Contributors](https://misterdownloadmanager.com/contributors.html) page shows what each one did;
+  [Contributors](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/graphs/contributors) page shows what each one did;
   each release, on the News page and in its notes on GitHub, ends with the people who helped since
   the one before; and the README thanks everyone too.
 
@@ -697,7 +702,7 @@ This release tightens what MDM accepts from torrents.
 - The address the browser was given is kept along with where its redirects led, so an expired
   signed link (a GitHub release, a cloud drive) is renewed when resumed, and a site excluded in
   Options is left alone even when it redirects to another.
-- **MDM follows every kind of redirect a browser does** ([#28](https://github.com/anefzaoui/misterdownloadmanager/issues/28)):
+- **NetGuard follows every kind of redirect a browser does** ([#28](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/28)):
   any HTTP redirect (301, 302, 303, 307, 308), up to 20 in a row instead of 10, and the pages
   download sites put in between ("your download starts in a moment"), which lead on with a
   `Refresh` header or a `<meta http-equiv="refresh">`: their wait is kept (up to 10 seconds), and
@@ -713,11 +718,11 @@ This release tightens what MDM accepts from torrents.
 - **Proxy auto-config scripts (PAC) run in QuickJS**, a much smaller JavaScript engine, with
   limits on memory and running time: a script that loops or grows forever now fails, as a broken
   script does (the download goes on with the default proxy settings), instead of holding it.
-- The extension is called **Mister Download Manager**.
+- The extension is called **NetGuard Download Manager**.
 
 ##### Smaller and lighter
 
-- **MDM's programs and downloads are much smaller** ([#25](https://github.com/anefzaoui/misterdownloadmanager/issues/25)):
+- **NetGuard's programs and downloads are much smaller** ([#25](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/25)):
   on Windows, the programs went from 93 MB to 41 MB (`misterdownloadmanager.exe` from 61 MB to
   38 MB, the command line from 28 MB to a 0.2 MB launcher), and setup.exe from 23 MB to 16 MB.
   On Linux the AppImage went from 36 MB to 20 MB, the .deb from 27 MB to 17 MB.
@@ -725,40 +730,40 @@ This release tightens what MDM accepts from torrents.
     command, `--json`, Ctrl+C and exit code work as before.
   - The translations (85 languages besides English) are packed, 12 MB of text in under 1 MB
     without the translators' notes, and unpacked once at start.
-  - Release signatures are checked by MDM's own small verifier instead of a full OpenPGP
+  - Release signatures are checked by NetGuard's own small verifier instead of a full OpenPGP
     library.
   - The code that draws the windows is optimised for size (the engine stays optimised for
     speed), and the programs are optimised as a whole.
   - Crash reports name functions from the release's symbol files only, without the debug-info
     reader a build from source can add.
-  - The installer packs tighter, and MDM's own code no longer carries the build machine's
+  - The installer packs tighter, and NetGuard's own code no longer carries the build machine's
     folder paths (a bundled C library still keeps a few of its own).
   - Later, the program is built for size
-    ([#158](https://github.com/anefzaoui/misterdownloadmanager/issues/158)), which takes the
+    ([#158](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/158)), which takes the
     installer from 16.1 to 13.6 MB and the zips from 19.3 to 15.6 MB, with the same features and
     the same download speed.
-- **Two smaller macOS downloads** ([#25](https://github.com/anefzaoui/misterdownloadmanager/issues/25)):
+- **Two smaller macOS downloads** ([#25](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/25)):
   a .dmg for Apple Silicon (`-macos-arm64`, about 14 MB) and one for Intel (`-macos-x86_64`,
   about 16 MB) instead of one universal .dmg of 80 MB. From 0.2.4 or older, update once by hand:
   **Download** in Check for updates opens the release; pick your Mac's .dmg. **Update now**
   works again after that.
-- **Less memory in the notification area** ([#72](https://github.com/anefzaoui/misterdownloadmanager/issues/72)):
-  closed to the tray, or minimized there (on by default), MDM gives the memory it isn't using back
+- **Less memory in the notification area** ([#72](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/72)):
+  closed to the tray, or minimized there (on by default), NetGuard gives the memory it isn't using back
   to Windows. Task Manager's **Memory** drops from about 50 MB to under 10 MB (with 500 downloads
   in the list, from 58 to about 14 MB). It gives it back again 2 minutes after hiding, when the
-  clock's ticks and a one-time allocation have brought some back, then every 10 minutes while MDM
+  clock's ticks and a one-time allocation have brought some back, then every 10 minutes while NetGuard
   stays there. After the language list (which needs a font for every script) closes, those fonts
   are let go: about 70 MB less than before. On Linux the heap's free memory goes back to the
-  system the same way. [MDM uses a lot of memory](docs/troubleshooting.md#mdm-uses-a-lot-of-memory)
+  system the same way. [NetGuard uses a lot of memory](docs/troubleshooting.md#mdm-uses-a-lot-of-memory)
   explains Task Manager's figures.
 
 ##### Reports, translations and help
 
-- **Freeze reports say what kind of freeze it was** ([#57](https://github.com/anefzaoui/misterdownloadmanager/issues/57)):
-  MDM measures how much processor time the window got while it didn't answer. The report then
+- **Freeze reports say what kind of freeze it was** ([#57](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/57)):
+  NetGuard measures how much processor time the window got while it didn't answer. The report then
   says whether it ran all along (a loop), waited (a deadlock, or the disk or the network), or
-  hardly ran at all, which means a computer too busy to run MDM or slow to load it from disk,
-  most likely not a bug in MDM. Those last ones share one signature, so they find one issue
+  hardly ran at all, which means a computer too busy to run NetGuard or slow to load it from disk,
+  most likely not a bug in NetGuard. Those last ones share one signature, so they find one issue
   instead of many.
 - **Better translations in every language.** Every machine-translated text of the program and
   of the website was read again against the English, with a style guide for each language (how
@@ -769,8 +774,8 @@ This release tightens what MDM accepts from torrents.
   `#, machine` line a person deleted is kept by `tools/i18n/translate.py` in every case (`--redo`
   included; a check it fails is printed for the person to decide), and CI fails a pull request
   that drops such a row or marks it `#, machine` again (`tools/i18n/reviewed_guard.py`). The first
-  reviewed catalog is Italian ([#150](https://github.com/anefzaoui/misterdownloadmanager/pull/150)).
-- **The help shows what it describes** ([#228](https://github.com/anefzaoui/misterdownloadmanager/issues/228)):
+  reviewed catalog is Italian ([#150](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/pull/150)).
+- **The help shows what it describes** ([#228](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/228)):
   every guide and the main help pages now have pictures of the windows they explain, cropped to
   what matters, numbered where a step points at one control, and step strips for the usual flows
   (a download from the browser, a first download, a video, a torrent, a queue overnight). On the
@@ -780,7 +785,7 @@ This release tightens what MDM accepts from torrents.
 
 ##### For developers
 
-- **A Linux test machine, scripted** (part of [#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164)):
+- **A Linux test machine, scripted** (part of [#164](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/164)):
   `tools/lab/linux-vm/` sets up an Ubuntu 24.04 desktop in VirtualBox from a Windows host
   (`vm.ps1`: hardware, headless start, linked clones; `setup.sh`: packages, Rust, Node, the
   browsers, UI automation, an unlocked keyring), builds any branch or pull request there with a
@@ -788,24 +793,24 @@ This release tightens what MDM accepts from torrents.
   pixel by pixel (`shots.sh`, `shot-host.sh`, `pixdiff.py`), HLS and DASH hand-overs from the Snap
   Firefox and Google Chrome (`streams.mjs`, `streams-chrome.mjs`), the extension's proxy switch
   (`proxy-optin.mjs`), hand-overs and the Scheduler while minimized, torrents without a network,
-  and MDM's start-up time (`measure.sh`). Every change is now checked on Linux as on Windows. The
+  and NetGuard's start-up time (`measure.sh`). Every change is now checked on Linux as on Windows. The
   machine also has copies on KDE Plasma, Cinnamon and XFCE (`desktop.sh`), which get a build
   copied over instead of making one (`vm.ps1 deploy`); a window harness shoots many windows from
-  one running MDM in any language, mode and theme, with real clicks and keys inside the machine
+  one running NetGuard in any language, mode and theme, with real clicks and keys inside the machine
   (`win.sh`, `win-host.sh`); and a store package is checked before it ships (`store-check.mjs`,
   `chrome-menu.mjs`).
 - **Linux builds and window shots in minutes, on WSL2** (part of
-  [#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164)): `tools/lab/wsl/` sets up
+  [#164](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/164)): `tools/lab/wsl/` sets up
   `mdm-lab`, an Ubuntu 24.04 WSL2 distribution of its own, which builds any branch or pull request
   for Linux at the computer's full speed (`build.sh`: about 5 minutes from scratch, under a minute
-  after a change, against 15 to 60 in the VirtualBox machine), shoots MDM's windows in any language
+  after a change, against 15 to 60 in the VirtualBox machine), shoots NetGuard's windows in any language
   and mode on a virtual screen that never shows on Windows (`shots.sh`: about a second a window,
   against 40), compares OpenGL and Vulkan pixel by pixel (`renderers.sh`), and hands a build to a
   VirtualBox machine for what needs a real desktop (`deploy.ps1`).
 - **The engine tests no longer fail on a busy computer**
-  ([#123](https://github.com/anefzaoui/misterdownloadmanager/issues/123),
-  [#136](https://github.com/anefzaoui/misterdownloadmanager/issues/136),
-  [#201](https://github.com/anefzaoui/misterdownloadmanager/issues/201)):
+  ([#123](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/123),
+  [#136](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/136),
+  [#201](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/201)):
   - the pause-and-resume and event-log tests no longer depend on how fast the machine is: the lab
     server can hold a byte back until a test lets it go (`stall_at`), and a test can wait until
     every request it made is in the server's log (#123);
@@ -824,7 +829,7 @@ This release tightens what MDM accepts from torrents.
     can hand out such links (`/redirect?uses=N`) and pace answers to range requests on their own
     (`range_rate`) (#201).
 - **The host connection limit test tells a reconnect from a connection too many**
-  ([#224](https://github.com/anefzaoui/misterdownloadmanager/issues/224)). A server sees that a
+  ([#224](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/224)). A server sees that a
   client dropped an answer only when it next writes to it, so on a busy computer a connection
   that reconnects can be refused once while the server still counts its old answer. The lab
   server now logs, with each refusal, how far the answers holding the client's slots had been
@@ -843,30 +848,30 @@ This release tightens what MDM accepts from torrents.
   icon in the flag's place, instead of "this computer or the local network" with nothing; the dot
   between the place and the time is round, where the font's thin "·" read as an apostrophe.
 - **Windows: a slow start no longer turns Direct3D off** (part of
-  [#280](https://github.com/anefzaoui/misterdownloadmanager/issues/280)): MDM gives Direct3D 10
+  [#280](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/280)): NetGuard gives Direct3D 10
   seconds to show its first frame, and goes back to OpenGL when it doesn't. Those 10 seconds
-  counted MDM's own loading too (the list, the fonts, the icons), which can take that long by
+  counted NetGuard's own loading too (the list, the fonts, the icons), which can take that long by
   itself on a busy computer just after it starts, so Direct3D was taken for failing and OpenGL drew
   from then on. Only Direct3D's own time counts now. Crash and freeze reports say what drew, on
   which graphics card and driver (OpenGL's too), and why, near their top, where a report cut to fit
   still has it.
 - **Linux: torrents work on a system without CA certificates too** (part of
-  [#264](https://github.com/anefzaoui/misterdownloadmanager/issues/264)): the torrent engine built
+  [#264](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/264)): the torrent engine built
   its own connection for the trackers, which can't be made without them, so no torrent or magnet
-  link started there. It now uses MDM's: peers, the DHT and `http://` trackers work, and an
+  link started there. It now uses NetGuard's: peers, the DHT and `http://` trackers work, and an
   `https://` tracker fails saying there are no certificates to check it with.
 - **Linux: uninstalling the .deb or .rpm leaves no browser files behind**
-  ([#266](https://github.com/anefzaoui/misterdownloadmanager/issues/266)): MDM wrote the files
+  ([#266](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/266)): NetGuard wrote the files
   that tell each browser where its helper is in every user's home folder, and `apt remove` or
   `dnf remove` left them there, naming a program that was gone. The packages now install them for
   everyone, in each browser's own folder (Chrome and Brave, Chromium and Vivaldi, Edge, Firefox,
-  the Snap Firefox included), and remove them with the package; MDM writes none in the home
+  the Snap Firefox included), and remove them with the package; NetGuard writes none in the home
   folder for those browsers, and takes away the ones an earlier version wrote. The AppImage and
   the tar.gz, and Opera, Helium, Thorium and Firefox's forks (which read them only in the home
   folder), still get them there.
 ##### Windows, menus and dialogs
 
-- **Sharper text on Windows** ([#262](https://github.com/anefzaoui/misterdownloadmanager/issues/262)):
+- **Sharper text on Windows** ([#262](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/262)):
   Segoe UI and Tahoma are grid-fitted across as well as up and down, and each letter starts on a
   whole pixel, as Windows draws its own grey text: upright strokes were two grey pixels wide at
   100 % and 125 %, which read as blurred.
@@ -875,23 +880,23 @@ This release tightens what MDM accepts from torrents.
 - **A menu shut with Escape opens again at the first click on its title**: a menu opened from
   the menu bar and shut with Escape, the pointer still on its title, was left marked open. On
   Linux the next click on that title only "shut" it, and a second click was needed; on Windows
-  Escape seemed to do nothing (the menu came back at once). Escape, or MDM losing the focus, now
+  Escape seemed to do nothing (the menu came back at once). Escape, or NetGuard losing the focus, now
   shuts the menu whatever the pointer rests on; a press on a title still shuts its own menu or
   opens another.
 - **Menus and the drop target without a black band across their top**
-  ([#208](https://github.com/anefzaoui/misterdownloadmanager/issues/208)): on a Windows 11
+  ([#208](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/208)): on a Windows 11
   Insider build (22635), every menu and submenu showed a black band a title bar tall across its
   top and a thin one down its left side, its items moved down by as much and its last ones cut
   off; so did the drop target (Tasks → Show drop target), its icon moved down. Each of these
-  windows had a title bar's style, hidden by MDM, and something on that build placed the window's
+  windows had a title bar's style, hidden by NetGuard, and something on that build placed the window's
   picture where the title bar would have ended. Menus and the drop target are now plain pop-up
   windows, as Windows' own menus are, with nothing above their contents to take for a title bar;
-  every window of MDM without a title bar is made one the same way.
+  every window of NetGuard without a title bar is made one the same way.
 - **The progress window, and the windows with a style theme's title bar, without a black band
-  across their top** ([#208](https://github.com/anefzaoui/misterdownloadmanager/issues/208)): on
+  across their top** ([#208](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/208)): on
   the same Windows 11 Insider build, the progress window showed a black band a title bar tall
   above its own title bar and a thin one down its left side, its contents moved down and cut off
-  at the bottom; so could every dialog and the main window with Metro, Luna, Aero or Aqua. MDM
+  at the bottom; so could every dialog and the main window with Metro, Luna, Aero or Aqua. NetGuard
   draws these title bars itself, in windows that kept the system's title bar style, hidden.
   On Windows 11 they now have no title bar style at all: the progress window and the dialogs are
   plain windows, all theirs; the main window keeps the system's resizing edges, so it still
@@ -899,46 +904,46 @@ This release tightens what MDM accepts from torrents.
   Moving them by their title bar, their taskbar button, Alt+Tab and the window menu (Alt+Space,
   or a right-click on the title bar) work as before. Windows 10 keeps the frames it had.
 - **Windows: Download File Info and the progress window open in front of the browser**
-  ([#208](https://github.com/anefzaoui/misterdownloadmanager/issues/208)): a download handed over
+  ([#208](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/208)): a download handed over
   by the browser could open its window behind the browser, and stay there. Windows lets a
   program in the background take the foreground only with the browser's say-so, which the user's
   next click or key ends, and a window refused it opens under the program in front. Every dialog
-  and progress window of MDM that opens without the foreground now goes above the other
+  and progress window of NetGuard that opens without the foreground now goes above the other
   programs' windows, without taking the keyboard from the one being typed in: a click on it does,
   as with Download complete.
 - **A window closed with its title bar's × no longer turns black first**
-  ([#207](https://github.com/anefzaoui/misterdownloadmanager/issues/207)): every dialog and the
+  ([#207](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/207)): every dialog and the
   progress window turned black for a moment when closed with the × or Alt+F4, rather than with
   Esc or one of its buttons: one to several seconds on Linux, a few hundredths of a second on
   Windows. The window now keeps its contents until it goes.
 - **Dark mode: grey notes and error texts are easier to read**
-  ([#45](https://github.com/anefzaoui/misterdownloadmanager/issues/45)): they now have the
+  ([#45](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/45)): they now have the
   contrast WCAG asks for (4.5:1) on every dark surface, Options' failed checks no longer use light
   mode's dark red on the dark dialog, and an editable drop-down's arrow is tinted dark under the
   pointer.
 - **Download complete shows above other programs' windows**, as IDM's does, so the end of a
-  download isn't missed ([#77](https://github.com/anefzaoui/misterdownloadmanager/issues/77)):
+  download isn't missed ([#77](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/77)):
   it doesn't take the keyboard from the program being typed in, and once clicked it is a window
   like any other. **Options opened from the extension's Button settings... comes to the front**
-  ([#77](https://github.com/anefzaoui/misterdownloadmanager/issues/77)), instead of opening
+  ([#77](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/77)), instead of opening
   behind the browser on Windows.
 - **Dragging the file out of Download complete works in every language**
-  ([#78](https://github.com/anefzaoui/misterdownloadmanager/issues/78)): the handle looked for the
+  ([#78](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/78)): the handle looked for the
   English window title, so outside English the drag did nothing. The handle now says what it does
   on hover. It is Windows only, and no longer shown on Linux and macOS, where it did nothing.
 - **Help opens the website's help pages, in your language**
-  ([#227](https://github.com/anefzaoui/misterdownloadmanager/issues/227)): **Help contents**,
+  ([#227](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/227)): **Help contents**,
   **Tutorials**, **Scheduler and queues**, **Video downloads**, the **Help** buttons of Options and
   the Scheduler, and the browser extension window's tutorial and help links opened the docs on
   GitHub (the Options and Scheduler buttons a page that wasn't there). They open
-  misterdownloadmanager.com now, at the same section, in the interface language when the website
+  github.com/ridoymd5924-debug/NetGuard-Download-Manager now, at the same section, in the interface language when the website
   has it (else English), and **Home Page** opens the website too. The command line's and the MCP
   server's help name the website's guide. Problem reports, releases and the source stay on GitHub.
 
 ##### Every language
 
 - **Buttons fit their text in every language, in every window**
-  ([#192](https://github.com/anefzaoui/misterdownloadmanager/issues/192)): many windows gave
+  ([#192](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/192)): many windows gave
   their buttons a width made for English, so a longer translation was cut with "..." (German
   **Später herunterla...** in Download File Info, **Hilfsprogramme...** in Download a gallery,
   Russian **Открыть с помощью...** in Download complete, French **Nouvelle file d’attente** in the
@@ -962,7 +967,7 @@ This release tightens what MDM accepts from torrents.
     translation review brought (such as Russian's Hibernate) are back to their earlier, shorter
     wording.
 - **Download video: the buttons fit their text in every language**
-  ([#172](https://github.com/anefzaoui/misterdownloadmanager/issues/172)): in German **ffmpeg
+  ([#172](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/172)): in German **ffmpeg
   installieren** showed as "ffmpeg installie...", and in Russian **Helpers...** and **Install
   ffmpeg** were cut too. Each button is now as wide as its translated text (English is unchanged),
   and the page's title stops before the Install button instead of running under it. In Arabic
@@ -972,208 +977,208 @@ This release tightens what MDM accepts from torrents.
   fit its label where there is room, through a shared helper other buttons can use.
 - **Add torrent: the labels fit in every language**: in German, **Speichern unter** ran under
   its field.
-- **A long file name ran out of the progress window** ([#62](https://github.com/anefzaoui/misterdownloadmanager/issues/62)):
+- **A long file name ran out of the progress window** ([#62](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/62)):
   on the **Options on completion** tab, a longer translation of "Save To:" (Turkish, German…)
   ran into the path, and the path ran past the window's edge. The label now takes the room its
   language needs, and the path is shortened in the middle, keeping the file's name in sight,
   and shown whole on hover; right-to-left languages included.
 - **The crash report window in other languages**
-  ([#204](https://github.com/anefzaoui/misterdownloadmanager/issues/204)): in any language but
+  ([#204](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/204)): in any language but
   English, the report in its box ran together on a few long lines, as its line breaks were taken
   for a translation's and flowed again. The report now keeps its own lines in every language, and
   in Arabic and Persian it reads left to right, from the box's left edge, as the English data it
   is (the window around it stays right to left). The release notes in **Check for updates** keep
-  their lines the same way. **End and restart MDM** showed cut in German, French, Russian and
+  their lines the same way. **End and restart NetGuard** showed cut in German, French, Russian and
   Arabic: the buttons are now as wide as their text, the others giving back room they don't need.
 - **The crash report window's status line stays inside the window**
-  ([#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164)): the line above the
+  ([#164](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/164)): the line above the
   check box ("The symbols couldn't be fetched: …", an issue's title, a translation) ran past the
   window's right edge, or its left edge in Persian. It is now cut with "…" at the margin and shown
-  whole under the pointer. Its title ("Mister Download Manager crash report") is now in MDM's
-  language too; it was always in the system's. On Windows that also gives its title bar MDM's
+  whole under the pointer. Its title ("NetGuard Download Manager crash report") is now in NetGuard's
+  language too; it was always in the system's. On Windows that also gives its title bar NetGuard's
   light or dark again in every language: outside English it kept Windows' own mode.
-- **The extension's popup: Open Mister Download Manager shows whole**
-  ([#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164)): on Linux, whose fonts
+- **The extension's popup: Open NetGuard Download Manager shows whole**
+  ([#164](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/164)): on Linux, whose fonts
   are wider, and in longer languages, the button was cut to "Open Mister Do…". Each button is now
   as wide as its text, and Options moves below it when both don't fit on one line.
-- **Numbers are written the interface language's way** ([#128](https://github.com/anefzaoui/misterdownloadmanager/issues/128)):
+- **Numbers are written the interface language's way** ([#128](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/128)):
   counts, sizes, speeds, percentages and the list's columns group and point their digits as the
   chosen language does (German `10.200` and `1,50 MB`, French `10 200`, Hindi `1,00,000`),
   whatever the Windows region; a region in the same language keeps its own way (Swiss German
   `10’200`). English is unchanged.
 - **Download complete's Open with... stayed in English** in every other language
-  ([#80](https://github.com/anefzaoui/misterdownloadmanager/issues/80)). The tool that collects
-  MDM's texts for translation now also finds labels given through a window's own helpers, and
+  ([#80](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/80)). The tool that collects
+  NetGuard's texts for translation now also finds labels given through a window's own helpers, and
   checks in CI that it keeps finding them.
 - **Download File Info's errors are worded in the interface language**, as the list's are.
 - Bangla shows Bangladesh's flag instead of India's, in the language picker, on the website and
-  in the README ([#27](https://github.com/anefzaoui/misterdownloadmanager/issues/27)).
+  in the README ([#27](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/27)).
 
 ##### Linux
 
-- **Ubuntu's Firefox reaches MDM** (part of [#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164)):
-  the Snap Firefox never makes the folder MDM looked for, so browser integration wasn't set up
-  for it and its extension couldn't find MDM. It is now, and the Snap goes through the desktop,
+- **Ubuntu's Firefox reaches NetGuard** (part of [#164](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/164)):
+  the Snap Firefox never makes the folder NetGuard looked for, so browser integration wasn't set up
+  for it and its extension couldn't find NetGuard. It is now, and the Snap goes through the desktop,
   which asks once (**Allow**); the help says how to be asked again after **Don't allow**.
-  Chromium as a Snap ran MDM's helper inside its sandbox, away from MDM (it started a second,
-  sandboxed MDM): MDM no longer offers it, and the help says why.
+  Chromium as a Snap ran NetGuard's helper inside its sandbox, away from NetGuard (it started a second,
+  sandboxed NetGuard): NetGuard no longer offers it, and the help says why.
 - **Brave Origin connects, and the AppImage's helper is always there**
-  ([#253](https://github.com/anefzaoui/misterdownloadmanager/issues/253)): Brave Origin keeps
-  its settings in a folder of its own (`~/.config/BraveSoftware/Brave-Origin`), which MDM didn't
-  know, so its extension said MDM wasn't installed. MDM now sets up Brave Origin, the Beta, Dev
+  ([#253](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/253)): Brave Origin keeps
+  its settings in a folder of its own (`~/.config/BraveSoftware/Brave-Origin`), which NetGuard didn't
+  know, so its extension said NetGuard wasn't installed. NetGuard now sets up Brave Origin, the Beta, Dev
   and Nightly versions of Brave, Chrome and Edge, and Vivaldi's snapshot; on macOS, Brave reads
-  Chrome's folder, which MDM now writes for it. From the AppImage, MDM copies the helper program
+  Chrome's folder, which NetGuard now writes for it. From the AppImage, NetGuard copies the helper program
   the browsers start out of the AppImage under a new name and swaps it in, so a browser still
   running the old copy no longer keeps the new one out, and puts it back at each start if it went
-  missing. A copy or setup that fails is written to MDM's log, and **Test browser integration**
+  missing. A copy or setup that fails is written to NetGuard's log, and **Test browser integration**
   says when the helper program is missing, when no browser was found, or why setting it up
   failed.
 - **Dark Mode support follows the desktop, on every desktop**
-  ([#156](https://github.com/anefzaoui/misterdownloadmanager/issues/156)): **View → Dark Mode
-  support** did nothing on Linux: MDM asked the window system for the desktop's light or dark
+  ([#156](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/156)): **View → Dark Mode
+  support** did nothing on Linux: NetGuard asked the window system for the desktop's light or dark
   setting, and X11 never says. It now asks the desktop itself (the freedesktop portal, which KDE,
   GNOME, Cinnamon and most others answer) and follows it as it changes. Where the portal doesn't
-  answer, as on XFCE and MATE, MDM stayed light under a dark theme: it now reads the theme the
+  answer, as on XFCE and MATE, NetGuard stayed light under a dark theme: it now reads the theme the
   desktop gives its programs (a name such as Adwaita-dark, Mint-Y-Dark or Greybird-dark is dark),
   GNOME's own dark style setting when there is no portal, and GTK's settings with no desktop at
   all, and follows changes as they happen. The portal still comes first. A change now shows at
   once too: the window waited for its next theme check, up to 20 s on a busy machine, on every
   desktop.
 - **Menus open where they belong**: in a Wayland session they opened in the middle of the screen
-  ([#50](https://github.com/anefzaoui/misterdownloadmanager/issues/50)), as Wayland lets no
-  program place its windows, and MDM's menus and drop-down lists are windows it places; MDM now
+  ([#50](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/50)), as Wayland lets no
+  program place its windows, and NetGuard's menus and drop-down lists are windows it places; NetGuard now
   runs through XWayland when it is there (`MDM_WAYLAND=1` keeps Wayland). Under tiling
-  compositors such as sway ([#267](https://github.com/anefzaoui/misterdownloadmanager/issues/267)),
+  compositors such as sway ([#267](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/267)),
   through XWayland, the menu bar's menus, their submenus, the right-click menus and the drop-down
   lists still opened in the middle of the screen, as the compositor placed them like windows. They
-  are now menu windows no window manager places, as X11 menus are, so they open where MDM puts
+  are now menu windows no window manager places, as X11 menus are, so they open where NetGuard puts
   them, on every window manager.
 - **Linux: menus appear at once, as menus, on compositors that animate windows** (Hyprland,
-  picom with fading, [#277](https://github.com/anefzaoui/misterdownloadmanager/issues/277)).
-  Before the fix above, Hyprland gave MDM's menus a window's border and slid each one down from
+  picom with fading, [#277](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/277)).
+  Before the fix above, Hyprland gave NetGuard's menus a window's border and slid each one down from
   the top of the screen. And moving from title to title along the menu bar closed one menu
   window and opened another, so such a compositor faded each menu out and the next one in at
   every switch. The menu bar's menus now share one window that moves from title to title, as a
   submenu's window already did from item to item, and each menu window says which menu it is (a
   drop-down menu, a right-click menu, a drop-down list), as GTK's and Qt's do.
 - **Leaving a submenu no longer closes the whole menu**
-  ([#250](https://github.com/anefzaoui/misterdownloadmanager/issues/250)): with a submenu open
+  ([#250](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/250)): with a submenu open
   (Tasks → Import, Downloads → Speed Limiter), moving the pointer back onto its menu, to another
   item, closed the menu itself as well. Some window managers (KWin, sway) give a submenu's window
   the focus; when the submenu closed, its window handed the focus on, and for a moment no window
-  of MDM had it, which counted as MDM losing the focus. A menu now closes for that only when the
+  of NetGuard had it, which counted as NetGuard losing the focus. A menu now closes for that only when the
   focus stays away (a click in another program). A submenu also closes when the pointer rests on
   another item without moving, instead of waiting for the next move.
 - **The window couldn't be closed** on desktops without a tray, such as MangoWC
-  ([#59](https://github.com/anefzaoui/misterdownloadmanager/issues/59)): closing hid it to a tray
-  that wasn't there. Closing now hides to the tray only when a tray shows MDM's icon, and quits
+  ([#59](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/59)): closing hid it to a tray
+  that wasn't there. Closing now hides to the tray only when a tray shows NetGuard's icon, and quits
   otherwise. (The menus and dark mode there: see #50 and #60.)
 - **The first window opens seconds sooner, and no longer freezes on a busy computer**
-  (part of [#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164)): MDM asked
+  (part of [#164](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/164)): NetGuard asked
   fontconfig for its fonts one at a time (one program for each of some thirty scripts, more each
   time the language list opened) while the window waited, 2 s on an idle computer and long
   enough on a busy one for a freeze report on the very first start. It now asks once, all
-  together, while the rest of MDM starts.
+  together, while the rest of NetGuard starts.
 - **Open folder no longer freezes the window**
-  ([#222](https://github.com/anefzaoui/misterdownloadmanager/issues/222)): Download complete's
-  **Open folder** asks the desktop's file manager (over D-Bus) to show the file, and MDM waited
+  ([#222](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/222)): Download complete's
+  **Open folder** asks the desktop's file manager (over D-Bus) to show the file, and NetGuard waited
   for its answer on the window's own thread. A file manager slow to start, or one that never
-  answered (seen on Pop!_OS), froze the window until the freeze report caught it. MDM now asks in
+  answered (seen on Pop!_OS), froze the window until the freeze report caught it. NetGuard now asks in
   the background and, when the file manager hasn't answered within 5 seconds, opens the folder
-  instead. Every other program MDM starts from a window goes the same way, on every system: Test
+  instead. Every other program NetGuard starts from a window goes the same way, on every system: Test
   browser integration's **Set it up**, moving an extracted archive to the Trash (on a Mac the
   Finder may ask first), putting an update in place (**Installing the update...**, with Cancel
   greyed while it runs), opening pages and folders, reading the icon theme on Linux and, on a
   Mac, the accent colour (every 2 seconds with the Native theme) and the system's version for a
   bug report.
 - **The window no longer freezes when the system's sleep or keychain service is slow**
-  (follows [#222](https://github.com/anefzaoui/misterdownloadmanager/issues/222)): a queue set to
+  (follows [#222](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/222)): a queue set to
   **Wake the computer to run this queue** asks the system to keep the computer awake while it
   runs. On Linux that is logind, which can be slow to answer just after the computer wakes,
-  exactly when such a queue starts, and MDM waited for it on the window's own thread (asking
+  exactly when such a queue starts, and NetGuard waited for it on the window's own thread (asking
   again every 5 seconds while it refused). It is now asked in the background, on every system;
   the queue's downloads, retries and log lines are the same. A keyring that doesn't answer at
   start (a stopped GNOME Keyring) is now waited for once, at most 5 seconds, instead of once per
   saved password, and saving the list no longer asks it at all. On Linux the check for a tray to
   hide windows in, and in Download File Info the check that **Save As** isn't a folder (slow on a
   network share that doesn't answer), no longer run on the window's thread on every frame.
-- **The .deb and .rpm bring what MDM's window needs** (part of
-  [#164](https://github.com/anefzaoui/misterdownloadmanager/issues/164)): on a system without
-  libxkbcommon-x11 (a minimal install, a container), MDM installed from them stopped at start
+- **The .deb and .rpm bring what NetGuard's window needs** (part of
+  [#164](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/164)): on a system without
+  libxkbcommon-x11 (a minimal install, a container), NetGuard installed from them stopped at start
   under X11 and XWayland, and without the CA certificates (Debian's minimal install) no download
   started. They now require both, and EGL for Wayland windows. They also require the glibc the
   programs were built against, read from the programs themselves, instead of a fixed version: a
   package built on a newer system no longer installs on an older one where it can't start.
 - **A missing window library is named, with how to install it**
-  ([#265](https://github.com/anefzaoui/misterdownloadmanager/issues/265)): from the tar.gz or the
-  AppImage, on a system without libxkbcommon-x11 (or another library X11 windows need), MDM
+  ([#265](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/265)): from the tar.gz or the
+  AppImage, on a system without libxkbcommon-x11 (or another library X11 windows need), NetGuard
   stopped at start with a crash. It now says which library is missing and the command that
   installs it (apt, dnf, zypper, pacman or apk, by the distribution), on the terminal and in a
   message box (zenity or kdialog, when there is one). In a Wayland session it opens its window
   on Wayland instead, saying so.
 - **Plain HTTP downloads work on a system without CA certificates**
-  ([#264](https://github.com/anefzaoui/misterdownloadmanager/issues/264)): on a minimal install
+  ([#264](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/264)): on a minimal install
   without the `ca-certificates` package (the tar.gz, the AppImage or a source build), no download
   started, `http://` ones included ("No CA certificates were loaded from the system"). Plain HTTP
   and FTP now work there, and each HTTPS or FTPS download fails at once, without retrying, saying
   that the computer has no certificates to check the server with and to install
   `ca-certificates`.
 - **Galleries work with the gallery-dl a Linux distribution ships**
-  ([#236](https://github.com/anefzaoui/misterdownloadmanager/issues/236)): with Ubuntu 24.04's
+  ([#236](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/236)): with Ubuntu 24.04's
   gallery-dl 1.26.9 chosen in Helpers, every gallery failed at once ("unrecognized arguments:
-  --no-input"): MDM passed options that only newer releases know. MDM now reads the chosen
+  --no-input"): NetGuard passed options that only newer releases know. NetGuard now reads the chosen
   gallery-dl's version and passes only what that release accepts, from 1.20 (Ubuntu 22.04) to
   today's; checked against every release from 1.17 to 1.32. An older one (Debian 11's 1.17) is
-  refused when chosen, saying it is too old and which version MDM needs, and one chosen before is
-  passed over for MDM's own copy, which Helpers says. gallery-dl 1.30.0, whose version starts
+  refused when chosen, saying it is too old and which version NetGuard needs, and one chosen before is
+  passed over for NetGuard's own copy, which Helpers says. gallery-dl 1.30.0, whose version starts
   with an empty line, is no longer taken for another program.
-- **Update now asks the package manager which package MDM is**: a copy in /usr/bin was taken
+- **Update now asks the package manager which package NetGuard is**: a copy in /usr/bin was taken
   for the .deb on a Debian-like system and for the .rpm anywhere else, so a copy installed with
-  another package manager (pacman on Arch) would have fetched and opened an .rpm. MDM now asks
+  another package manager (pacman on Arch) would have fetched and opened an .rpm. NetGuard now asks
   dpkg, rpm and pacman which one owns its program; the .deb and .rpm update as before, and a copy
   of another package manager is left to the system's updates: Check for updates shows the new
   version's notes and says to update it there.
 - **Update now finds the Linux and macOS files by either name**: a release's AppImage, .deb,
-  .rpm, .tar.gz and .dmg were named `…-experimental`; MDM now looks for the name without it
+  .rpm, .tar.gz and .dmg were named `…-experimental`; NetGuard now looks for the name without it
   first and still takes the older one, so Update now keeps working whichever a release uses.
 
 ##### Downloads
 
-- **A minimized MDM keeps working**: with the main window minimized (not to the notification
+- **A minimized NetGuard keeps working**: with the main window minimized (not to the notification
   area), queues didn't start their next file, the Scheduler's starts and stops didn't fire,
   download limits, the network adapter's kill switch, the clipboard monitor, the update check, the
   taskbar's progress and saving the list all waited until the window was restored. They run in
   every window state now, and their windows (Download complete, a limit's notice) open at once.
 - **A download or magnet link sent while the window is minimized opens at once**
-  ([#162](https://github.com/anefzaoui/misterdownloadmanager/issues/162)): with the main window
+  ([#162](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/162)): with the main window
   minimized (not to the notification area), a download from the browser or a magnet link was
-  accepted but its window waited until MDM was restored. Download File Info and Add torrent now
+  accepted but its window waited until NetGuard was restored. Download File Info and Add torrent now
   open right away, as they do with the window open or in the notification area.
-- MDM closed with an internal error when a window opened while the main window was minimized
+- NetGuard closed with an internal error when a window opened while the main window was minimized
   or hidden in the notification area, for example Download File Info for a download from the
   browser, or Add torrent for a magnet link opened in the browser
-  ([#22](https://github.com/anefzaoui/misterdownloadmanager/issues/22),
-  [#145](https://github.com/anefzaoui/misterdownloadmanager/issues/145)). The cause was in egui,
-  the toolkit MDM is drawn with ([emilk/egui#8470](https://github.com/emilk/egui/issues/8470)),
-  and is fixed in MDM's copy of it.
+  ([#22](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/22),
+  [#145](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/145)). The cause was in egui,
+  the toolkit NetGuard is drawn with ([emilk/egui#8470](https://github.com/emilk/egui/issues/8470)),
+  and is fixed in NetGuard's copy of it.
 - **A finished download no longer fails with "part file still in use" on a busy computer**
-  ([#201](https://github.com/anefzaoui/misterdownloadmanager/issues/201)): when the last bytes
+  ([#201](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/201)): when the last bytes
   came in, the connections still running were cut off. One cut off while it read or wrote the
   part file (checking the bytes before a reconnect, for example) left that read or write to finish
   on its own, with the file still open, and renaming the finished file failed. The connections are
   now told to stop and waited for, when a download completes and when it is stopped or fails, so
   none of them outlives it. A stopped download's last writes are also in its saved progress now.
 - **A download's progress file could be written again just after it stopped**
-  ([#106](https://github.com/anefzaoui/misterdownloadmanager/issues/106)), and **a download could
+  ([#106](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/106)), and **a download could
   fail as it finished, with "part file still in use"**
-  ([#116](https://github.com/anefzaoui/misterdownloadmanager/issues/116)). MDM saves a
+  ([#116](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/116)). NetGuard saves a
   download's progress every few seconds, in a file beside it. A download paused or finished
   during one of those saves could stop before the save was done; that save then wrote an old
   progress file a moment later, or, when the last bytes arrived during it, still held the file. A
   download now stops only once its save is done.
 - **A download too big for the drive is refused on a busy computer too**
-  ([#224](https://github.com/anefzaoui/misterdownloadmanager/issues/224)): before a download
-  starts, MDM checks the drive has room for it. It gave up checking after 5 seconds (a network
+  ([#224](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/224)): before a download
+  starts, NetGuard checks the drive has room for it. It gave up checking after 5 seconds (a network
   drive that no longer answers can hang), counted from when it asked; on a very busy computer
   the check could wait longer than that just to start, and a download too big for its drive
   started anyway. The 5 seconds now count from when the check runs, and it asks only the
@@ -1181,34 +1186,34 @@ This release tightens what MDM accepts from torrents.
   shared network folder (`\\server\share`) is checked too, which it wasn't before, and a
   folder that doesn't exist yet is checked on the drive it will be made on.
 - **A server without ranges no longer sends the file twice**
-  ([#136](https://github.com/anefzaoui/misterdownloadmanager/issues/136)): when the extra
+  ([#136](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/136)): when the extra
   connections' answers came late (a busy computer), the download could finish and then start over
-  on one connection, fetching the whole file again. MDM now stops its other connections once every
+  on one connection, fetching the whole file again. NetGuard now stops its other connections once every
   byte is in, and a server that never said it takes ranges is known for one at its first full
   answer (a CDN that says it does and misses a range now and then still gets several connections).
 - **Stopping a download under a low speed limit took seconds**: each connection first waited
   for its turn under the limit. Stop now ends those waits at once.
 - **Links that work only once** (or hosts that allow one download at a time) failed with "403
   Forbidden" after Download File Info had looked them up
-  ([#28](https://github.com/anefzaoui/misterdownloadmanager/issues/28)): the window's look and the
+  ([#28](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/28)): the window's look and the
   download each asked the server. The download now continues from the answer the window got,
   and asks again only if that connection has closed meanwhile.
 - A download whose address ends in a long token (file hosts such as AnkerGames' mirrors) failed
   with "the path is too long for Windows" before it started
-  ([#28](https://github.com/anefzaoui/misterdownloadmanager/issues/28)). Every new download's name
+  ([#28](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/28)). Every new download's name
   is now shortened to fit its folder (keeping the extension), and when nobody named the file
   (no name from the browser, no answer to the look-up, not edited), it gets the name the server
   gives, as in a browser: `Call-of-Duty-Infinite-Warfare-AnkerGames.zip` rather than the
   address's token.
 - **Resuming after a waiting page**: when a download's address had to be asked again (an expired
-  link), MDM now goes through the same waiting pages and redirects as the first time, instead
+  link), NetGuard now goes through the same waiting pages and redirects as the first time, instead
   of giving up on them.
 - **A Google Drive link saved Drive's web page** (a file named `view` or `download`) instead of
-  the file ([#34](https://github.com/anefzaoui/misterdownloadmanager/issues/34)).
+  the file ([#34](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/34)).
 - File names can no longer hide a right-to-left mark (`invoice‮fdp.exe`), and a server's
   Unicode `filename*` name wins over its plain fallback.
-- **A freeze while MDM handles a command is reported again**
-  ([#202](https://github.com/anefzaoui/misterdownloadmanager/issues/202)): since the clock and
+- **A freeze while NetGuard handles a command is reported again**
+  ([#202](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/202)): since the clock and
   what comes in from outside (a second launch, the browser, the automation API) run in every
   window state, a freeze there opened no crash report window and wrote no freeze report, minimized
   or not. The watchdog now times that part of each frame too.
@@ -1216,88 +1221,88 @@ This release tightens what MDM accepts from torrents.
 ##### The browser
 
 - **Waterfox (and Firefox set to ask what to do with each file): the download stayed in the
-  browser** ([#208](https://github.com/anefzaoui/misterdownloadmanager/issues/208)). Firefox's
+  browser** ([#208](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/208)). Firefox's
   family hands an extension the download only after its *What should … do with this file?*
-  dialog, by which time it has already downloaded the file behind the dialog. MDM now takes the
-  download as the server's answer arrives, before the dialog: for a file MDM takes, the dialog
+  dialog, by which time it has already downloaded the file behind the dialog. NetGuard now takes the
+  download as the server's answer arrives, before the dialog: for a file NetGuard takes, the dialog
   never shows and the browser downloads nothing. Other files open the dialog as before.
 - A second browser download arriving while Download File Info was open replaced the first, which
   was lost (the browser had already given it up). They now wait their turn, and those still
-  waiting when MDM quits are kept in the main queue (Download Later).
-- When Firefox started MDM for a download, closing its helper could close MDM too.
-- A download with very large cookies made the browser's helper start a second MDM and wait 5
-  seconds; MDM only starts now when it isn't running, and takes what the browser sends.
-- MDM listens for the browser before its window is up, and the browser's helper waits 20 seconds
+  waiting when NetGuard quits are kept in the main queue (Download Later).
+- When Firefox started NetGuard for a download, closing its helper could close NetGuard too.
+- A download with very large cookies made the browser's helper start a second NetGuard and wait 5
+  seconds; NetGuard only starts now when it isn't running, and takes what the browser sends.
+- NetGuard listens for the browser before its window is up, and the browser's helper waits 20 seconds
   for a slow first start instead of 5.
 - Browser downloads are no longer taken when the extension may not read the site (its access set
   to **On click**): without the site's cookies they would fail.
 - The extension's right-click menu, and its translation, are set up again cleanly after an
   update.
 - **The browser extension's Download video menu: an item's highlight ran past the menu's
-  edge** ([#81](https://github.com/anefzaoui/misterdownloadmanager/issues/81)).
+  edge** ([#81](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/81)).
 
 ##### Videos
 
 - **HLS and DASH videos from the browser, as their stream**
-  ([#155](https://github.com/anefzaoui/misterdownloadmanager/issues/155)): a video played as a
+  ([#155](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/155)): a video played as a
   stream (most sites' long videos) failed with yt-dlp's "Unsupported URL" when the extension sent
-  the page instead of the stream. **Download with Mister Download Manager** in the right-click
+  the page instead of the stream. **Download with NetGuard Download Manager** in the right-click
   menu on such a video now sends the stream its player loaded, as the button over videos and
   **Media on this page** do. In Firefox it did nothing at all. The cookies sent are those of the
   stream's own server, not the page's.
 - **Streams served as plain text, from addresses without .m3u8 or .mpd**
-  ([#171](https://github.com/anefzaoui/misterdownloadmanager/issues/171)): some players load
+  ([#171](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/171)): some players load
   their stream from such an address, and the extension didn't know it as one. The button over the
   video, the right-click menu and **Media on this page** then sent the page alone, which yt-dlp
   answered "Unsupported URL". Now, when one of them is used and no stream is known, the extension
   reads the start of what the player fetched (a few kilobytes, never on sight) and recognises an
   HLS playlist or a DASH manifest.
-- **Videos that need a sign-in** ([#229](https://github.com/anefzaoui/misterdownloadmanager/issues/229)):
+- **Videos that need a sign-in** ([#229](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/229)):
   - **from the button over them**: the button's cookies reached the Download video window's
     look-up but not the download's own, which then failed with "Sign in to confirm you're not a
     bot";
   - **from YouTube Music and YouTube's mobile site**: the button over a video on
     music.youtube.com or m.youtube.com passed the page's cookies for that host only, while yt-dlp
     asks www.youtube.com, so the sign-in didn't reach it. The extension now sends each cookie with
-    the domain the browser keeps it for, and MDM gives yt-dlp each one for that domain:
+    the domain the browser keeps it for, and NetGuard gives yt-dlp each one for that domain:
     youtube.com's sign-in reaches every YouTube host, and a host's own cookie stays with that
     host. With an older extension, a YouTube page's cookies (or a site's mobile page's, m. and
     mobile.) go to the whole site.
-- **A video download could fail in MDM while yt-dlp went on and finished it**
-  ([#79](https://github.com/anefzaoui/misterdownloadmanager/issues/79)). A line yt-dlp printed in
+- **A video download could fail in NetGuard while yt-dlp went on and finished it**
+  ([#79](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/79)). A line yt-dlp printed in
   the system's code page rather than UTF-8 (a title in Turkish or Russian on some Windows) ended
-  MDM's reading there, and the finished file was then "not said". yt-dlp now always writes
+  NetGuard's reading there, and the finished file was then "not said". yt-dlp now always writes
   UTF-8, every line is read to the end, and the saved file is also found by its name. Whenever
-  MDM gives a video download up, it ends yt-dlp and everything yt-dlp started, so nothing goes
+  NetGuard gives a video download up, it ends yt-dlp and everything yt-dlp started, so nothing goes
   on downloading unseen.
 - **Stopping a video download left yt-dlp downloading in the background** on Windows
-  ([#61](https://github.com/anefzaoui/misterdownloadmanager/issues/61)): `yt-dlp.exe` starts a
+  ([#61](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/61)): `yt-dlp.exe` starts a
   second process that does the work, and only the first was ended. Resuming then failed ("yt-dlp
   did not provide information") and a new try crawled, sharing the line with the old one. Each
   helper now runs in a job of its own that Stop ends whole.
-- **YouTube: "Requested format is not available" after MDM moved a video to another server**
-  ([#94](https://github.com/anefzaoui/misterdownloadmanager/issues/94)). When the servers this
-  computer can reach don't serve the chosen quality, MDM downloads the nearest quality below it
+- **YouTube: "Requested format is not available" after NetGuard moved a video to another server**
+  ([#94](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/94)). When the servers this
+  computer can reach don't serve the chosen quality, NetGuard downloads the nearest quality below it
   (always a video, never the sound alone) and says so in the download's log. With no video left
   at all, it tries the page's own servers. A server yt-dlp couldn't resolve or reach is avoided on
   the next look-up. The log also names the qualities a move left out.
 - **ffmpeg could fail to install** with "the release has no an LGPL Windows build": BtbN, whose
-  builds MDM installs, publishes a dated build each day and then remakes its `latest` release,
-  and meanwhile GitHub's "latest" is the dated one, whose files are named differently. MDM now
+  builds NetGuard installs, publishes a dated build each day and then remakes its `latest` release,
+  and meanwhile GitHub's "latest" is the dated one, whose files are named differently. NetGuard now
   reads BtbN's newest releases, either naming, and takes the newest complete build. Errors while
   installing yt-dlp or ffmpeg are also worded in the interface language now.
 
 ##### Torrents
 
-- **A magnet link could wait minutes for its file list** ([#92](https://github.com/anefzaoui/misterdownloadmanager/issues/92)):
-  in 0.2.4 on Windows, the DHT (how MDM finds peers without trackers) could stop for the rest
+- **A magnet link could wait minutes for its file list** ([#92](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/92)):
+  in 0.2.4 on Windows, the DHT (how NetGuard finds peers without trackers) could stop for the rest
   of the session once a computer it asked was gone, so a magnet its trackers didn't serve never
   got its file list. The updated torrent library keeps going, and a test keeps it that way.
   **Add torrent** now shows the wait: the peers found, from the trackers, the DHT or the local
   network, and how many answered. After 30 seconds without an answer, it says what may be in
   the way.
 - **Speed limits now work as they do for other downloads**
-  ([#39](https://github.com/anefzaoui/misterdownloadmanager/issues/39)): a limit set in a
+  ([#39](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/39)): a limit set in a
   torrent's progress window changed every torrent's limit, a remembered limit was ignored, the
   Speed Limiter's "for one file" was shared by all torrents together, and "Limit all downloads
   together" left torrents out. Each torrent now has a limit of its own, a remembered one applies
@@ -1313,29 +1318,29 @@ This release tightens what MDM accepts from torrents.
 ##### Screen readers
 
 - **Every row of a list, not only those in view**
-  ([#111](https://github.com/anefzaoui/misterdownloadmanager/issues/111)): a list's rows out of
+  ([#111](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/111)): a list's rows out of
   view (the last qualities of Download video, a long playlist, the downloads) are there too,
   named, with their place ("12 of 40"), and can be scrolled into view or selected. A list of
   thousands offers 300 rows around the view, so it stays as fast.
-- **Lists read as blank items** ([#95](https://github.com/anefzaoui/misterdownloadmanager/issues/95)):
+- **Lists read as blank items** ([#95](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/95)):
   the rows of Download video's qualities, Add torrent's files, the language picker, Options
   (browsers, sounds, the file-type and site lists), the Scheduler and Import now have their names
   (a format and its size, a file's name and size), their check boxes theirs, ticked or not, and
   their selected row; Download video's list is called Quality, Add torrent's Files and the
   sounds' Sounds. Choosing a row from a screen reader (UI Automation's Select) now shows the new
   choice at once: it used to wait for the next mouse move.
-- **List rows sit inside their list** ([#102](https://github.com/anefzaoui/misterdownloadmanager/issues/102)):
+- **List rows sit inside their list** ([#102](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/102)):
   they used to be listed beside it. A screen reader now says which row of how many ("4 of 12"),
   choosing from the list itself works (UI Automation's Selection), and a tree's check box belongs
   to its file's row. The language picker's list and the Options browser list and the Scheduler's
   two lists have names now too.
-- **The Categories pane and the menus** ([#113](https://github.com/anefzaoui/misterdownloadmanager/issues/113)):
+- **The Categories pane and the menus** ([#113](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/113)):
   the pane reads as a tree (each category named with its count, open or shut, selected), the menu
   bar and every right-click menu as menus whose items can be run, and **Shift+F10** or the
   **Menu** key opens the selected category's menu. A menu opened from the keyboard no longer stays
   invisible until the mouse moves.
 - **A window's contents the first time they read it**
-  ([#131](https://github.com/anefzaoui/misterdownloadmanager/issues/131)): a window read for the
+  ([#131](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/131)): a window read for the
   first time (Link grabber, Options, About...) showed only its title bar until it was drawn
   again. It now answers with what it shows at once, as soon as a screen reader is running.
 - **The progress window's Speed Limiter** took a speed set with a screen reader or UI Automation
@@ -1344,18 +1349,18 @@ This release tightens what MDM accepts from torrents.
 
 #### Security
 
-- **Torrents: file names are checked more strictly** ([#40](https://github.com/anefzaoui/misterdownloadmanager/issues/40)):
+- **Torrents: file names are checked more strictly** ([#40](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/40)):
   a torrent with names the system can't write safely is refused, saying which name, and so are
   torrents kept from an earlier run.
 - The torrent library is updated (librqbit 9.1.0).
-- **No silent overwrite**: when some of a torrent's files are already in the folder, MDM asks
+- **No silent overwrite**: when some of a torrent's files are already in the folder, NetGuard asks
   before writing into them (**No** is the default). The command line's `torrent-get` stops and
   names them, unless given `--use-existing`.
 - **Files from torrents are marked as downloaded from the internet**, as web downloads are:
   SmartScreen checks a program before it first runs, Office opens documents in Protected View,
   and Gatekeeper checks apps on a Mac.
 - Torrents' trackers on this computer or the local network aren't contacted, and a `.torrent`
-  file over 10 MB isn't read (it isn't one). Peers see MDM's major version only.
+  file over 10 MB isn't read (it isn't one). Peers see NetGuard's major version only.
 
 ## [0.2.4] - 2026-11-01
 
@@ -1370,7 +1375,7 @@ dark mode, which drew everything a little bigger and in other places than day mo
 
 ### Changed
 
-- **MDM's own downloads use its own downloader**: yt-dlp, ffmpeg, MDM's updates and a crash
+- **NetGuard's own downloads use its own downloader**: yt-dlp, ffmpeg, NetGuard's updates and a crash
   report's symbols now come down with several connections, resume after a cut connection and go
   through your proxy settings. Each file is still checked against its publisher's signed
   checksums before use.
@@ -1398,14 +1403,14 @@ next problem like it is caught and fixed sooner.
 
 ### Added
 
-- **Crash reports.** If MDM closes unexpectedly or stops responding, a report window opens. It
-  shows what happened and where in MDM's code, lets you read the whole report, and **Send on
+- **Crash reports.** If NetGuard closes unexpectedly or stops responding, a report window opens. It
+  shows what happened and where in NetGuard's code, lets you read the whole report, and **Send on
   GitHub** opens a crash report form in your browser, filled in. Nothing is sent by itself. When
-  the same problem was already reported, it takes you to that issue instead. A frozen MDM can be
+  the same problem was already reported, it takes you to that issue instead. A frozen NetGuard can be
   ended and restarted from there. Reports leave out your download addresses and file names. See
   [Crash reports](docs/crash-reports.md).
-- **A log**, kept in MDM's data folder (`logs`), so a report can show what led to a problem.
-- **MDM checks for updates every time it starts** (it was once a week), and once a day while it
+- **A log**, kept in NetGuard's data folder (`logs`), so a report can show what led to a problem.
+- **NetGuard checks for updates every time it starts** (it was once a week), and once a day while it
   stays open; a new version's window opens in front. **Check for updates at every start** in
   that window turns it off.
 
@@ -1420,11 +1425,11 @@ next problem like it is caught and fixed sooner.
 
 ### Fixed
 
-- **The window froze for seconds while a big download was writing**: MDM saved its list on the
+- **The window froze for seconds while a big download was writing**: NetGuard saved its list on the
   window's thread, and the save waited for the disk. It saves on a thread of its own now (the
   new crash reports caught it).
-- **Add URL froze MDM** (Tasks → Add new download, the toolbar's Add URL, Ctrl+N), and so did
-  Download File Info: their address and Save As boxes took the keyboard focus and MDM waited on
+- **Add URL froze NetGuard** (Tasks → Add new download, the toolbar's Add URL, Ctrl+N), and so did
+  Download File Info: their address and Save As boxes took the keyboard focus and NetGuard waited on
   itself. Everything clicked after that seemed to do nothing. A test now opens Add URL the way
   you do, and a stricter check looks for this kind of hang in the whole app.
 
@@ -1440,7 +1445,7 @@ and a long list of fixes found by reviewing all of it (issue #7 and more).
   how many are running and how fast in all. The tray icon's tip says the same.
 - **Drag and drop on the main window**: drop a link to add it, several links or a list
   (.txt, .ef2) to choose them in Import, a .torrent file to add it.
-- **MDM comes back as you left it**: the window's place and size, the Categories pane, its
+- **NetGuard comes back as you left it**: the window's place and size, the Categories pane, its
   open branches and the node shown.
 - **Download counts** in the Categories tree, **an empty list that says why** (with Clear
   filters or Add new download), **a right-click menu on the list's blank space**, a
@@ -1464,7 +1469,7 @@ and a long list of fixes found by reviewing all of it (issue #7 and more).
   outlined in red and set right when you leave the box (some were changed silently before).
 - **Things that fail say why**: opening a file that was moved, a file that can't be deleted or
   moved, the list that can't be saved, a computer that won't shut down, a check closed early.
-- **System file dialogs no longer freeze MDM's other windows** while they are open.
+- **System file dialogs no longer freeze NetGuard's other windows** while they are open.
 - **The mouse wheel scrolls as many lines a notch as Windows' mouse settings say**, in every
   list, tree and text box; Page Up / Page Down in the download list go to the edge of what's
   shown first, as in Explorer; text boxes of several lines have the lists' scroll bar.
@@ -1499,17 +1504,17 @@ and a long list of fixes found by reviewing all of it (issue #7 and more).
 
 ### Added
 
-- **Update now** in Help → Check for updates: MDM downloads the new version, checks it, puts it
+- **Update now** in Help → Check for updates: NetGuard downloads the new version, checks it, puts it
   in place and restarts, on Windows (setup, portable and plain zip), Mac and Linux (AppImage,
   .tar.gz; a .deb or .rpm opens in the system's installer). It installs only files listed in a
-  checksum list signed by MDM's release key, which every release now carries
+  checksum list signed by NetGuard's release key, which every release now carries
   (`SHA256SUMS.txt.sig`). The first update this way will be from 0.2.1 to the next version.
 
 ### Fixed
 
 - **Ghost windows while a menu is open** (issue #4): faded copies of the main window titled
   "egui window" opened and closed with every redraw of an open menu, and the toolbar's hover
-  flickered under them. On a Mac in full screen they opened a space of their own and froze MDM
+  flickered under them. On a Mac in full screen they opened a space of their own and froze NetGuard
   (issue #5). They came with 0.2.0's menu keyboard support, which asked about a submenu's window
   that wasn't open, and that made one.
 - **Check for updates**: the release notes scroll (the wheel, a trackpad, their scroll bar, and
@@ -1523,22 +1528,22 @@ and a long list of fixes found by reviewing all of it (issue #7 and more).
 
 ### Changed
 
-- **Help → Report a problem** opens GitHub's new bug report form with your MDM version, your
-  system and its version, how MDM was installed and its language filled in. Every report now
+- **Help → Report a problem** opens GitHub's new bug report form with your NetGuard version, your
+  system and its version, how NetGuard was installed and its language filled in. Every report now
   says which system and version it comes from.
 
 ## [0.2.0] - 2026-10-31
 
 Mac fixes from the first round of real use, found on every system and fixed there too; the
-menus and text boxes work as in any desktop program; and MDM works with AI assistants.
+menus and text boxes work as in any desktop program; and NetGuard works with AI assistants.
 
 ### Fixed
 
 - **Menus on macOS and Linux**: clicking a menu item did nothing (the click moved the focus to
   the menu's own window, which closed it first). The list's right-click menu and the toolbar's
   drop-downs had the same fault.
-- **Paste** from other programs into any text box (Ctrl+V, ⌘V): MDM kept a clipboard of its own.
-- **The app icon on macOS**: the Dock showed a small, blurry icon while MDM ran; it keeps the
+- **Paste** from other programs into any text box (Ctrl+V, ⌘V): NetGuard kept a clipboard of its own.
+- **The app icon on macOS**: the Dock showed a small, blurry icon while NetGuard ran; it keeps the
   app's own now. Elsewhere windows take their icon from a large size (sharp at any scaling).
 - **The download list's file icons** were drawn over the Categories pane when the list was
   scrolled sideways (the Categories tree and the Scheduler had the same fault).
@@ -1558,7 +1563,7 @@ menus and text boxes work as in any desktop program; and MDM works with AI assis
 - **Address** (Add URL) and **Save As** (Download File Info) list the last 20 addresses and folders
   from their arrows; **...** beside Save As chooses a folder, **+** beside Category makes one.
 - Help → Keyboard shortcuts shows the Mac's keys on a Mac.
-- **AI assistants**: `misterdownloadmanager-mcp`, an MCP server that comes with MDM, lets Claude,
+- **AI assistants**: `misterdownloadmanager-mcp`, an MCP server that comes with NetGuard, lets Claude,
   Cursor, VS Code and other MCP assistants list, add, pause, resume and remove the running
   app's downloads and start its queue, through the automation API
   ([how to set it up](docs/ai-assistants.md)).
@@ -1589,13 +1594,13 @@ Manager users expect, with experimental builds for macOS and Linux.
   connection's share, queues and the **Scheduler**, the speed limiter, Sites Logins, and
   **Options** where you expect them, every control working. Day and dark mode.
 - **Browser integration** for Chrome, Edge, Brave, Opera and Vivaldi (Firefox in testing):
-  downloads hand over to MDM with their cookies and referrer, right-click **Download with Mister
+  downloads hand over to NetGuard with their cookies and referrer, right-click **Download with Mister
   Download Manager**, and a **Download video** button over videos on any page, which can be
   dragged along the video's edge, hidden on a video or a site, or turned off in Options.
 - **Copy a link, get the download window**: copying a link to a file type on the **File types**
   list opens **Download File Info** with it, ready to start, also without the browser extension
   (**Options → General → Offer to download links copied to the clipboard**, on by default).
-- **Videos from web pages** through yt-dlp (installed and kept current from MDM, with ffmpeg for
+- **Videos from web pages** through yt-dlp (installed and kept current from NetGuard, with ffmpeg for
   the qualities that need merging), and **BitTorrent and magnet links** through librqbit: choose
   the files, see peers, trackers and pieces, keep sharing if you like.
 - **86 interface languages**, every language Windows 11 offers, chosen by flag on the first start
@@ -1610,7 +1615,7 @@ Manager users expect, with experimental builds for macOS and Linux.
 - **Downloads**: the Windows installer, a portable zip and a plain zip, the browser extension on
   its own (a zip for Chromium browsers, an `.xpi` for Firefox, always the app's version), and
   **macOS and Linux to try**: a universal `.dmg` and an AppImage, `.deb`, `.rpm` and `.tar.gz`,
-  marked `-experimental` because they are untested by us. There, MDM connects itself to Chrome,
+  marked `-experimental` because they are untested by us. There, NetGuard connects itself to Chrome,
   Edge, Brave, Vivaldi and Firefox, has its tray icon, follows the system's light or dark look and
   uses the system's fonts and ffmpeg. Tell us how they work for you.
 - **Help** opens the [user guide and tutorials](docs/README.md).

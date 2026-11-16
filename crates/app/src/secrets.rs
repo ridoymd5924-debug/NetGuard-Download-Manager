@@ -29,7 +29,7 @@ use crate::win32 as os;
 
 /// The keychain's name for NetGuard's entries (Credential Manager's targets start with it; Secret
 /// Service's `service` attribute; the macOS keychain's service).
-pub const SERVICE: &str = "Mister Download Manager"; // keystore service id: kept so saved sign-ins stay readable
+pub const SERVICE: &str = "NetGuard Download Manager";
 /// What the settings hold in a secret's place.
 pub const REF: &str = "keychain:";
 

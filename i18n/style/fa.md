@@ -1,4 +1,4 @@
-<!-- How Persian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Persian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - برای فرمان‌ها و دکمه‌های عملیاتی، صورت کوتاه و یکدستِ فعل را به کار ببرید؛ معمولاً مصدر بدون «کردن» مناسب است. از ترکیب چند صورت فعلی برای یک عمل پرهیز کنید. (Save → ذخیره; Open → باز کردن)
 - عنوان منوها را کوتاه و اسمی بنویسید؛ گزینه‌های اجرایی منو نیز مانند دکمه‌ها صورت کوتاه و همسان داشته باشند. (File → فایل; Add link → افزودن پیوند)
 - برچسب چک‌باکس باید روشن کند با انتخاب آن چه رفتاری فعال می‌شود. آن را به شکل عبارت توصیفی یا جملهٔ کوتاه بنویسید، نه فرمانی مستقل. (Start automatically → شروع خودکار; Open the file when the download finishes → پس از پایان بارگیری، فایل را باز کنید)

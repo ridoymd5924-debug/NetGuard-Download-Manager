@@ -1,7 +1,7 @@
-// The extension sending downloads to another MDM (#157), in a headless Chromium: its popup's
-// "Send downloads to" pairs with a remote MDM (an address and a code), then a download the
+// The extension sending downloads to another NetGuard (#157), in a headless Chromium: its popup's
+// "Send downloads to" pairs with a remote NetGuard (an address and a code), then a download the
 // browser starts is caught and goes there. Screenshots the popup in each language and theme.
-// A test client: Chromium accepts the MDM's self-signed certificate without asking (in real use,
+// A test client: Chromium accepts the NetGuard's self-signed certificate without asking (in real use,
 // the popup's "Open it" lets the person accept it once).
 //
 //   node tools/lab/extension-remote.mjs --url https://127.0.0.1:18464/ --code 12345678 \
@@ -126,7 +126,7 @@ try {
     await until(js, "!!document.getElementById('to-remote')", "the popup", 20000);
     await sleep(500);
     await js("document.getElementById('to-remote').click(); true");
-    check(await js("!document.getElementById('remote-form').hidden"), "Another MDM shows the address and code boxes");
+    check(await js("!document.getElementById('remote-form').hidden"), "Another NetGuard shows the address and code boxes");
     await js(`document.getElementById('remote-url').value = ${JSON.stringify(base)}; document.getElementById('remote-code').value = ${JSON.stringify(code)}; true`);
     await js("document.getElementById('remote-pair').click(); true");
     await until(js, "document.getElementById('remote-form').hidden && document.getElementById('status').classList.contains('ok')", "paired");
@@ -134,14 +134,14 @@ try {
     check(said.includes(new URL(base).host), `the status names the server: ${said}`);
     if (download) {
       // A tab that downloads (not attached to: it ends as the download starts). The extension
-      // hands it to the other MDM, whose list the caller checks.
+      // hands it to the other NetGuard, whose list the caller checks.
       const u = new URL(download);
       const t = await b.tab(`${u.origin}/page?link=${encodeURIComponent(u.pathname)}`);
       await until(t.js, "document.readyState === 'complete' && !!document.getElementById('link')", "the lab's page");
       await t.page("Runtime.evaluate", { expression: "document.getElementById('link').click()", userGesture: true });
       await sleep(6000);
       const left = fs.existsSync(path.join(b.profile, "dl")) ? fs.readdirSync(path.join(b.profile, "dl")) : [];
-      check(!left.some((f) => f.endsWith(path.basename(new URL(download).pathname))), "the browser didn't keep the file: the other MDM took it");
+      check(!left.some((f) => f.endsWith(path.basename(new URL(download).pathname))), "the browser didn't keep the file: the other NetGuard took it");
     }
     await b.close();
   }

@@ -5590,7 +5590,7 @@ column	Time left	Tempo restante
 #, machine
 column	Transfer rate	Taxa de transferencia
 #. text in the browser extension
-#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
 extension	Another NetGuard Download Manager (a server)	Outro NetGuard Download Manager (un servidor)
 #. text in the browser extension

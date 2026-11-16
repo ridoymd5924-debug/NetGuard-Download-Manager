@@ -1,16 +1,16 @@
 #!/bin/bash
 # The README's, docs' and site's Linux screenshots, on a real desktop: GNOME, KDE Plasma,
 # Cinnamon or Xfce in a lab VM (docs-shots-host.ps1 runs this from the Windows host and makes the
-# WebP files). The Linux counterpart of tools/lab/docs-shots.ps1: an MDM of its own (its own data
+# WebP files). The Linux counterpart of tools/lab/docs-shots.ps1: a NetGuard of its own (its own data
 # folder, MDM_DATA_DIR, and download folders), its own lab server with neutral files, every window
-# opened through MDM's own command line (`/show <window>`), at 1x.
+# opened through NetGuard's own command line (`/show <window>`), at 1x.
 #
 #   docs-shots.sh <label> [out folder] [light,dark] [main,add-url,...]
 #
 # <label>: a build in ~/lab/bin/<label>/ (tools/lab/wsl/deploy.ps1). Shots land in
 # <out folder>/<mode>/<name>.png (default ~/lab/shots/docs-<label>). The list (default: all):
 #   main  add-url  progress  options  scheduler  add-torrent  browser-offer  tray
-# `tray` (light only) is the top right of the screen with MDM's icon in the desktop's tray and its
+# `tray` (light only) is the top right of the screen with NetGuard's icon in the desktop's tray and its
 # menu open, clicked as a person would: real input inside the VM, never on the host.
 #
 # Captured inside the guest (ImageMagick's `import -window root`, cropped to the window's frame,
@@ -52,8 +52,8 @@ sleep 1
 # closed, the pointer at the screen's right edge (no hover or tooltip).
 banners=$(gsettings get org.gnome.desktop.notifications show-banners 2>/dev/null)
 gsettings set org.gnome.desktop.notifications show-banners false 2>/dev/null
-# The dark shots on a dark desktop, as someone in dark mode sees MDM: the window manager's title
-# bar follows the desktop's theme, not MDM's (GNOME; put back at the end).
+# The dark shots on a dark desktop, as someone in dark mode sees NetGuard: the window manager's title
+# bar follows the desktop's theme, not NetGuard's (GNOME; put back at the end).
 gtk_theme=$(gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null | tr -d "'")
 scheme=$(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null | tr -d "'")
 desktop_mode() {
@@ -176,9 +176,9 @@ PY
     if w=$(opened "$app" "$work/Open Movie Night.torrent"); then sleep 2; shoot "$w" add-torrent; else echo "  add-torrent: no window"; fi
     close_dialogs
   fi
-  # The tray: MDM's icon is the leftmost of the top bar's status icons that appeared with it. Its
+  # The tray: NetGuard's icon is the leftmost of the top bar's status icons that appeared with it. Its
   # menu opens with a click; the shot is the screen's top right (MDM_TRAY_W x MDM_TRAY_H), with
-  # MDM's window hidden to the tray first, so only the desktop is behind the menu.
+  # NetGuard's window hidden to the tray first, so only the desktop is behind the menu.
   if want tray && [ "$mode" = light ]; then
     tray=${MDM_TRAY_AT:-}
     if [ -n "$tray" ]; then

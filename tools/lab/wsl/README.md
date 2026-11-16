@@ -1,6 +1,6 @@
 # mdm-lab: Linux builds and window shots on WSL2
 
-`mdm-lab` is a WSL2 distribution (Ubuntu 24.04) of its own. It builds MDM for Linux at the PC's
+`mdm-lab` is a WSL2 distribution (Ubuntu 24.04) of its own. It builds NetGuard for Linux at the PC's
 full speed and screenshots its windows on a virtual screen (Xvfb) that never shows on Windows.
 The VirtualBox machines in [`../linux-vm/`](../linux-vm/) run on top of Hyper-V here (VirtualBox's
 NEM mode), about three times slower: builds there took 15 to 60 minutes and a shot about 40 s.
@@ -22,7 +22,7 @@ wsl --terminate mdm-lab     # its wsl.conf applies at the next start
 interop: nothing in mdm-lab can start a Windows program), installs the build's libraries (those of
 `ci.yml` and the VMs), Xvfb, Metacity, ImageMagick, xwd, xdotool, wmctrl, Mesa's software OpenGL
 and Vulkan (llvmpipe, lavapipe), ffmpeg, 7-Zip and an Ubuntu desktop's fonts with every script
-MDM's languages need, then, as `lab`: Rust, the VMs' `vmtest`
+NetGuard's languages need, then, as `lab`: Rust, the VMs' `vmtest`
 cargo profile, the checkout in `~/src/mdm` (the distribution's own ext4 disk: building from
 `/mnt/c` or `/mnt/d` goes through 9P and is many times slower) and the lab scripts in
 `~/lab/tools/`. Running it again only adds what's missing and refreshes the scripts.
@@ -60,7 +60,7 @@ wsl -d mdm-lab -- bash ~/lab/tools/shots.sh pr-199 --modes light,dark --theme ad
     --windows main,options-general=options:general,about
 ```
 
-One MDM per language and mode: each window opens through MDM's own `/show <window>` command line,
+One NetGuard per language and mode: each window opens through NetGuard's own `/show <window>` command line,
 is shot once it has painted (`capture.py`: two reads of it in a row the same, at most 2 s for a
 window that never settles, such as progress), with its title bar and borders, is closed from its
 title bar, then the next. No restart per shot. The default list is 21 windows: the main window and the 20
@@ -74,7 +74,7 @@ others. `--finished-only` leaves out the download still running (shots that must
 between runs); `--keep-list` reuses the label's last list (the same names and dates: two runs
 compared pixel by pixel). Shots land in `~/lab/shots/<label>/<lang>-<mode>/` with `timing.txt`.
 `MDM_SET` adds settings (a JSON object), as in `../linux-vm/win.sh`; other `MDM_*` variables
-(`MDM_RENDERER`, `MDM_OFFSCREEN`, ...) reach MDM.
+(`MDM_RENDERER`, `MDM_OFFSCREEN`, ...) reach NetGuard.
 
 `renderers.sh <label>` compares OpenGL and Vulkan (lavapipe) on nine windows, pixel by pixel
 (`pixdiff.py` from `../linux-vm/`), for builds with View → Draw with → Vulkan: forced, as the
@@ -88,7 +88,7 @@ compositor) for title bars and borders. For anything else on that screen:
 . ~/lab/tools/env.sh && bash ~/lab/tools/screen.sh start
 ~/lab/bin/main/misterdownloadmanager &        # on :99, never on Windows
 import -window root /tmp/screen.png        # or capture.py <window id> <out.png>
-bash ~/lab/tools/screen.sh stop               # MDM, the lab server and the screen ended
+bash ~/lab/tools/screen.sh stop               # NetGuard, the lab server and the screen ended
 ```
 
 ### Why nothing shows on Windows
@@ -117,11 +117,11 @@ own harnesses (`win.sh`, `shots.sh`, `streams.mjs`, ...) then run that build as 
 Builds and window shots, yes; a desktop, no. These still need the VMs in `../linux-vm/`:
 
 - **The desktop's portals and settings**: the GNOME and KDE file choosers (xdg-desktop-portal),
-  the system's dark mode, accent and contrast as MDM reads them, notifications.
+  the system's dark mode, accent and contrast as NetGuard reads them, notifications.
 - **The tray**: there is no StatusNotifier host or AppIndicator on Xvfb, so the tray icon, its
   menu and Hide to the notification area can't be checked here.
 - **Real browsers and native messaging**: the Snap Firefox, Chromium and Google Chrome with the
-  extension handing downloads and streams to MDM (`streams.mjs`, `store-check.mjs`, ...).
+  extension handing downloads and streams to NetGuard (`streams.mjs`, `store-check.mjs`, ...).
 - **Desktop-specific behaviour**: GNOME Shell's, KWin's, Cinnamon's or XFCE's own window
   placement, focus, frames and Wayland sessions; AT-SPI and screen readers; real hardware OpenGL.
   Metacity's frames look like GNOME's but are not GNOME Shell's.

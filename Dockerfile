@@ -45,5 +45,5 @@ VOLUME ["/config", "/downloads"]
 EXPOSE 8463
 # Any user works (`--user 99:100` on Unraid): it needs only to write /config and /downloads.
 USER 1000:1000
-# MDM handles docker stop's SIGTERM itself (it saves the list), so it runs as PID 1.
+# NetGuard handles docker stop's SIGTERM itself (it saves the list), so it runs as PID 1.
 ENTRYPOINT ["misterdownloadmanager", "--headless"]

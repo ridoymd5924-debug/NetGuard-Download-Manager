@@ -3,14 +3,14 @@
 # runs in a NetGuard Download Manager instance of its own (MDM_DATA_DIR, MDM_OFFSCREEN) whose list
 # holds that one download; the automation API starts it and /show progress opens its window,
 # so nothing is clicked or typed. The video comes from the labserver through yt-dlp (copied
-# from your own MDM's tools folder: Tasks → Download video from a page installs it); the
+# from your own NetGuard's tools folder: Tasks → Download video from a page installs it); the
 # torrent from the swarm example (seeders and a tracker on this computer):
 #
 #   cargo build --release -p mdm-app -p mdm-cli -p mdm-labserver
 #   cargo build --release -p mdm-torrent --example swarm
 #   tools\lab\progress-shots.ps1 -Bin target\release
 #
-# On a machine without MDM (GitHub's runner, docs-shots.yml), yt-dlp comes from -YtDlp:
+# On a machine without NetGuard (GitHub's runner, docs-shots.yml), yt-dlp comes from -YtDlp:
 #
 #   tools\lab\progress-shots.ps1 -Bin target\debug -YtDlp <yt-dlp.exe> -Work C:\Demo\p -At 40,40
 param(
@@ -27,7 +27,7 @@ param(
   # -Suffix ("-dark") after each.
   [switch]$Dark,
   [string]$Suffix = "",
-  # A yt-dlp.exe to use instead of your own MDM's (its tools folder): on a machine without MDM
+  # A yt-dlp.exe to use instead of your own NetGuard's (its tools folder): on a machine without NetGuard
   # (GitHub's runner, docs-shots.yml).
   [string]$YtDlp = "",
   # The run's temporary folder (its path shows in the torrent's window); default
@@ -146,13 +146,13 @@ try {
   if (Want "video") {
     $tools = Join-Path ([Environment]::GetFolderPath("ApplicationData")) "misterdownloadmanager\tools"
     if ($YtDlp) {
-      # A tools folder of the run's own, holding the given yt-dlp as MDM installs it.
+      # A tools folder of the run's own, holding the given yt-dlp as NetGuard installs it.
       $tools = Join-Path $work "tools"
       New-Item -ItemType Directory -Force "$tools\yt-dlp\given" | Out-Null
       Copy-Item (Resolve-Path $YtDlp).Path "$tools\yt-dlp\given\yt-dlp.exe"
       [IO.File]::WriteAllText("$tools\yt-dlp\current.json", (@{ version = "given"; exe = "$tools\yt-dlp\given\yt-dlp.exe" } | ConvertTo-Json))
     }
-    if (-not (Test-Path "$tools\yt-dlp\current.json")) { throw "no yt-dlp in ${tools}: install it from MDM first, or pass -YtDlp" }
+    if (-not (Test-Path "$tools\yt-dlp\current.json")) { throw "no yt-dlp in ${tools}: install it from NetGuard first, or pass -YtDlp" }
     $srv = Start-Process -PassThru -WindowStyle Hidden (Join-Path $bin "labserver.exe") -ArgumentList "--bind 127.0.0.1:$Port"
     $video = "open-movie-trailer.mp4"
     $item = @{
@@ -161,7 +161,7 @@ try {
       status = "Queued"; category = "Video"; description = ""; last_try = $null; error = $null
       resumable = $null; video = @{ selector = "b" }
     }
-    # yt-dlp (and ffmpeg) from your own MDM, each tool's current.json pointing at its copy.
+    # yt-dlp (and ffmpeg) from your own NetGuard, each tool's current.json pointing at its copy.
     $copyTools = {
       param($dir)
       foreach ($t in "yt-dlp", "ffmpeg") {
@@ -192,7 +192,7 @@ try {
     if ($lines.Count -lt 3) { throw "the swarm never got ready" }
     $torrent = $lines[0]
     $hash = ([regex]::Match($lines[1], '[0-9a-f]{40}')).Value
-    # MDM leaves out trackers on this computer (#40): an off-screen copy is handed the seeders
+    # NetGuard leaves out trackers on this computer (#40): an off-screen copy is handed the seeders
     # instead (MDM_LAB_PEERS, torrents.rs).
     $env:MDM_LAB_PEERS = $lines[2] -replace '^peers ', ''
     $name = "Open Movie Night"

@@ -1,4 +1,4 @@
-<!-- How French (Canada) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How French (Canada) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Formulez les commandes et les libellés de bouton à l’infinitif. N’ajoutez pas de point final. (Télécharger; Mettre en pause)
 - Dans les menus, utilisez un nom pour une rubrique et l’infinitif pour une action. (Fichier; Ouvrir le dossier)
 - Pour les cases à cocher, privilégiez un libellé bref qui décrit l’option ou l’action; évitez les phrases complètes et la ponctuation finale. (Démarrer avec Windows; Afficher les notifications)
@@ -15,5 +15,5 @@
 - Respectez les espaces typographiques françaises : aucune espace avant la virgule ou le point; une espace insécable avant les deux-points, le point-virgule, le point d’interrogation et le point d’exclamation. (Erreur : fichier introuvable; Continuer?)
 - Utilisez les guillemets français et une espace insécable à l’intérieur; préférez les apostrophes typographiques. (Le fichier « rapport » est prêt.; d’utilisateur)
 - Employez les points de suspension typographiques (…) pour indiquer une opération en cours ou un texte tronqué; ne les ajoutez pas automatiquement aux commandes. (Recherche en cours…; Télécharger)
-- Privilégiez les termes français établis plutôt que les emprunts à l’anglais. Conservez les noms de produits, les marques et les extensions de fichiers tels quels. (télécharger un fichier; Mister Download Manager)
+- Privilégiez les termes français établis plutôt que les emprunts à l’anglais. Conservez les noms de produits, les marques et les extensions de fichiers tels quels. (télécharger un fichier; NetGuard Download Manager)
 - Choisissez des formulations cohérentes pour les états et les actions apparentés; ne confondez pas une action avec son résultat. (Mettre en pause; En pause)

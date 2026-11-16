@@ -1,4 +1,4 @@
-<!-- How Malay writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Malay writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Tulis arahan sebagai kata kerja perintah, biasanya tanpa subjek atau kata sopan tambahan. (Pilih folder destinasi; Masukkan URL)
 - Mulakan label butang dengan kata kerja yang menyatakan tindakan; jangan letakkan tanda noktah. (Tambah muat turun; Jeda)
 - Gunakan frasa ringkas untuk item menu; gunakan kata kerja untuk tindakan dan kata nama untuk destinasi atau kategori. (Sambung semula; Tetapan)

@@ -2245,14 +2245,14 @@ mod host_copy_tests {
         let t = tempfile::tempdir().unwrap();
         let from = program(t.path(), "mount-host", "echo one");
         let dir = t.path().join("data/browser-host");
-        let image = Path::new("/home/u/Apps/NetGuard.AppImage");
+        let image = Path::new("/home/u/Apps/MDM.AppImage");
         let copy = install_host_copy(&from, &dir, image).unwrap();
         assert_eq!(copy, dir.join(HOST));
         assert!(runs(&copy));
         assert_eq!(std::fs::read(&copy).unwrap(), std::fs::read(&from).unwrap());
         assert_eq!(
             std::fs::read_to_string(dir.join("app-path")).unwrap(),
-            "/home/u/Apps/NetGuard.AppImage"
+            "/home/u/Apps/MDM.AppImage"
         );
         // Moved by an AppImage manager, and the copy deleted: both put right.
         std::fs::remove_file(&copy).unwrap();
@@ -2771,7 +2771,7 @@ fn rtc_offset() -> i64 {
 #[cfg(target_os = "linux")]
 pub fn wake_at(at: Option<i64>) -> Result<(), String> {
     // The alarm NetGuard set (in the chip's time), to tell it from another program's: kept in the
-    // data folder, so an alarm left by an NetGuard that was killed (or signed out of) is still ours.
+    // data folder, so an alarm left by a NetGuard that was killed (or signed out of) is still ours.
     let file = mdm_ipc::data_dir().map(|d| d.join("wake-alarm"));
     let mut ours = file
         .as_ref()

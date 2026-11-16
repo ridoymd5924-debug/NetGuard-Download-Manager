@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The people who make MDM possible, from GitHub's public record: everyone who opened a pull
+"""The people who make NetGuard possible, from GitHub's public record: everyone who opened a pull
 request (merged or not) or an issue, or commented on one. One module for every place that thanks
 them: the website (tools/website/build.py: the home page, /contributors.html, each release on the
 News page), the README (`readme` below) and each release's notes on GitHub (`thanks`, run by
@@ -43,8 +43,8 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-REPO = "anefzaoui/misterdownloadmanager"
-MAINTAINER = "anefzaoui"
+REPO = "ridoymd5924-debug/NetGuard-Download-Manager"
+MAINTAINER = "ridoymd5924-debug"
 API = "https://api.github.com"
 # The README's round avatars (`readme`), committed: GitHub can't round an image in a README.
 README_AVATARS = ROOT / "art" / "contributors"

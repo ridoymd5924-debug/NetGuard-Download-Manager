@@ -1,24 +1,24 @@
 #!/bin/bash
-# One MDM kept running while the host screenshots several of its windows in turn (faster than
-# shots.sh, which restarts MDM for each): start it once with a language, mode and theme, then
+# One NetGuard kept running while the host screenshots several of its windows in turn (faster than
+# shots.sh, which restarts NetGuard for each): start it once with a language, mode and theme, then
 # open, shoot and close windows one by one. Each `open` prints the window's frame as "X Y W H"
 # for the host to crop VirtualBox's screenshot to (shot-host.sh's way).
 #
-#   win.sh start <label> <lang> <light|dark|system> [theme]   MDM restarted with these settings
+#   win.sh start <label> <lang> <light|dark|system> [theme]   NetGuard restarted with these settings
 #                                       (system: Dark Mode support, following the desktop; theme:
 #                                       classic, native, high-contrast, metro, adwaita, breeze…)
 #   win.sh open <main|fileinfo|show name>              e.g. options, scheduler, addurl, progress,
 #                                       properties, about, menu:3:theme
-#   win.sh close                         every MDM window but the main one, closed as a person would
+#   win.sh close                         every NetGuard window but the main one, closed as a person would
 #   win.sh theme <id>                    View → Theme → <id>, live (/show theme:<id>)
 #   win.sh click|hover|press|release <x> <y>   real input at a point of the main window's frame
 #                                        (MDM_ON=last: of the window last opened)
 #   win.sh key <key>...                  keys to the focused window (xdotool names)
-#   win.sh stop                          MDM ended
+#   win.sh stop                          NetGuard ended
 #
 # MDM_STATE: a saved downloads.json put back first (as shots.sh); MDM_SET: more settings, a JSON
 # object (e.g. '{"net_adapter":"none0"}'). MDM_NATIVE_ACCENT and
-# MDM_NATIVE_CONTRAST pass through to MDM (the Native theme's stand-ins for the system's).
+# MDM_NATIVE_CONTRAST pass through to NetGuard (the Native theme's stand-ins for the system's).
 . ~/lab/env.sh
 data=$HOME/.local/share/misterdownloadmanager
 state=/tmp/mdm-win.state
@@ -36,7 +36,7 @@ case "$cmd" in
   start)
     label=$1; lang=$2; mode=$3; theme=${4:-classic}
     app=$HOME/lab/bin/$label/misterdownloadmanager
-    # The last MDM gone for good first: a new one started while it still ends hands its command
+    # The last NetGuard gone for good first: a new one started while it still ends hands its command
     # line to it and leaves, and nothing is left running.
     pkill -x misterdownloadm
     for _ in $(seq 20); do pgrep -x misterdownloadm >/dev/null || break; sleep 0.5; done

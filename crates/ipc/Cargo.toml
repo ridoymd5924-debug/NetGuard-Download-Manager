@@ -1,6 +1,6 @@
 [package]
 name = "mdm-ipc"
-description = "Command channel between MDM, its command line and the browser host"
+description = "Command channel between NetGuard, its command line and the browser host"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true

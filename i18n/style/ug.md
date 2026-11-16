@@ -1,4 +1,4 @@
-<!-- How Uyghur writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Uyghur writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use Uyghur Arabic script and natural Uyghur phrasing. Follow right-to-left layout; keep numbers, file paths, URLs, and placeholders intact and ensure mixed-direction text displays correctly. (چۈشۈرۈش تاماملاندى; {n} دانە ھۆججەت)
 - Phrase commands as concise, polite instructions, using the second-person imperative ending ـڭ. Do not add a subject unless needed. (ھۆججەتنى تاللاڭ; چۈشۈرۈش ئورنىنى ئۆزگەرتىڭ)
 - Use short action phrases for buttons, commonly a verbal noun ending in ـش, rather than a sentence or an instruction addressed to the user. (چۈشۈرۈشنى باشلاش; ساقلاش)
@@ -10,7 +10,7 @@
 - Use a concise ongoing-action form for progress and status text. Retain the ellipsis when the source indicates that an operation is continuing. (تەكشۈرۈۋاتىدۇ…; {n} دانە ھۆججەت چۈشۈرۈلۈۋاتىدۇ)
 - Write error messages as clear statements. For reusable error fragments, put the cause or detail after a colon and preserve the placeholder. (ئېچىش مۇمكىن بولمىدى: {error}; ئۇلىنىش مەغلۇپ بولدى.)
 - Write event log entries as brief, completed events, usually in the past tense. Include a final full stop for a complete sentence. (چۈشۈرۈش باشلاندى.; ھۆججەت ساقلاندى.)
-- Uyghur Arabic script has no uppercase or lowercase. Use the same spelling for a term throughout; preserve the official spelling of product and brand names. (Windows; Mister Download Manager)
+- Uyghur Arabic script has no uppercase or lowercase. Use the same spelling for a term throughout; preserve the official spelling of product and brand names. (Windows; NetGuard Download Manager)
 - Do not capitalize titles, months, or weekdays; capitalization does not apply in Uyghur script. Use ordinary Uyghur wording for their names. (يەكشەنبە; يانۋار)
 - Use Uyghur punctuation: ، for a comma, ؛ for a semicolon, and ؟ for a question mark. Do not put a space before punctuation; put one space after it when more text follows. (ئىسمى، چوڭلۇقى ۋە ھالىتى; داۋاملاشتۇرامسىز؟)
 - Use «…» for quotations, with no spaces just inside the quotation marks. Use an ellipsis (…) for a continuing operation and avoid repeated dots. («چۈشۈرۈش»; ئۇلىنىۋاتىدۇ…)

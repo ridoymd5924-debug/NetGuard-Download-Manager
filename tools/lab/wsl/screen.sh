@@ -4,7 +4,7 @@
 # the screen reads what was drawn). Nothing of it shows on Windows (env.sh).
 #
 #   screen.sh start     started if it isn't (shots.sh starts it itself)
-#   screen.sh stop      the screen ended, with every MDM, lab server and window on it (all of the
+#   screen.sh stop      the screen ended, with every NetGuard, lab server and window on it (all of the
 #                       lab user's: not while someone else's shots.sh runs, it holds ~/lab/screen.lock)
 #   screen.sh status
 . "$HOME/lab/tools/env.sh"

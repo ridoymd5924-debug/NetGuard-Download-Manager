@@ -532,7 +532,7 @@
         },
         "startup": {
           "default": false,
-          "description": "`/startup` (beyond IDM): started with the session (Options → General → Launch on\nstartup, or the installer's \"Start when Windows starts\", #226): MDM starts in the\nnotification area, its window hidden. Changes nothing in a running app.",
+          "description": "`/startup` (beyond IDM): started with the session (Options → General → Launch on\nstartup, or the installer's \"Start when Windows starts\", #226): NetGuard starts in the\nnotification area, its window hidden. Changes nothing in a running app.",
           "type": "boolean"
         },
         "token": {
@@ -595,9 +595,9 @@
       "type": "object"
     }
   },
-  "$id": "https://misterdownloadmanager.com/automation-api.schema.json",
+  "$id": "https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/docs/automation-api.schema.json",
   "$ref": "#/$defs/Request",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "One JSON line to the port in ipc.json (on 127.0.0.1), one line back. A request is `Request`. A command (an address to add, start_queue) is answered `ok`; a question is answered with the JSON object for it (`ListAnswer`, `ActAnswer`, `ApiAnswer`) or an `ErrorAnswer`. A wrong token is answered `denied`, an app that doesn't answer within 2 seconds `timeout`. Guide: https://misterdownloadmanager.com/help/command-line.html#the-automation-api",
+  "description": "One JSON line to the port in ipc.json (on 127.0.0.1), one line back. A request is `Request`. A command (an address to add, start_queue) is answered `ok`; a question is answered with the JSON object for it (`ListAnswer`, `ActAnswer`, `ApiAnswer`) or an `ErrorAnswer`. A wrong token is answered `denied`, an app that doesn't answer within 2 seconds `timeout`. Guide: https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/docs/command-line.md#the-automation-api",
   "title": "NetGuard Download Manager automation API"
 }

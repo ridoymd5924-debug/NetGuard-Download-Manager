@@ -1,5 +1,5 @@
 #!/bin/bash
-# Host side (Git Bash on Windows): one MDM window in the lab VM, cropped from VirtualBox's own
+# Host side (Git Bash on Windows): one NetGuard window in the lab VM, cropped from VirtualBox's own
 # screenshot (capturing an OpenGL window from inside the guest gives an empty image).
 #   shot-host.sh <vm> <label> <main|fileinfo|show name> <lang> <light|dark> <out.png>
 # MDM_STATE (a saved downloads.json in the guest) and MDM_SEEN (extension-seen lines) pass through

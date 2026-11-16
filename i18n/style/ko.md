@@ -1,4 +1,4 @@
-<!-- How Korean writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Korean writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - 명령과 버튼에는 짧은 동작명이나 동작 구를 사용하고, 문장형 종결어미와 마침표는 쓰지 않습니다. (다운로드; 모두 취소)
 - 메뉴 항목은 기능이나 동작을 간결하게 나타냅니다. 하위 메뉴는 >로 구분합니다. (파일 > 다운로드 추가)
 - 확인란에는 선택할 옵션이나 상태를 나타내는 구를 씁니다. 명령문이나 문장부호는 피합니다. (완료 후 창 닫기)

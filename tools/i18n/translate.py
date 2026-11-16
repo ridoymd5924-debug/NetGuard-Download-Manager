@@ -68,7 +68,7 @@ BATCH = 40
 REASONING = {"enabled": False}
 
 # Names that stay as they are in every language.
-KEEP = ["NetGuard Download Manager", "MDM", "IDM", "Internet Download Manager", "Windows",
+KEEP = ["NetGuard Download Manager", "NetGuard", "IDM", "Internet Download Manager", "Windows",
         "Chrome", "Edge", "Firefox", "Brave", "Opera", "yt-dlp", "ffmpeg", "BitTorrent",
         "GitHub", "librqbit", "URL", "HTTP", "HTTPS", "FTP", "SOCKS", "MD5", "SHA-1", "SHA-256",
         "DNS", "TLS", "TCP", "UDP", "IP", "Cloudflare", "Google", "Quad9", "AdGuard", "NextDNS",

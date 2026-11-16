@@ -360,7 +360,9 @@ impl ReportWindow {
             // i18n: crash report window heading: NetGuard's window doesn't answer (frozen)
             Kind::Freeze => crate::i18n::t("NetGuard Download Manager stopped responding"),
             // i18n: crash report window heading: an internal error, NetGuard still running
-            Kind::Panic if alive => crate::i18n::t("NetGuard Download Manager hit an internal error"),
+            Kind::Panic if alive => {
+                crate::i18n::t("NetGuard Download Manager hit an internal error")
+            }
             // i18n: crash report window heading: NetGuard crashed and is gone
             _ => crate::i18n::t("NetGuard Download Manager closed unexpectedly"),
         }

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build a branch, PR or commit of MDM in mdm-lab and copy its programs to ~/lab/bin/<label>/.
+# Build a branch, PR or commit of NetGuard in mdm-lab and copy its programs to ~/lab/bin/<label>/.
 #
 #   build.sh [--release] [<branch, pr/<number> or commit>] [<label>]    e.g. build.sh main
 #                                                                         build.sh pr/167 pr-167

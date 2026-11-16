@@ -28,10 +28,10 @@ fn main() {
         res.set_icon("assets/icons/app/mdm.ico")
             .set("ProductName", "NetGuard Download Manager")
             .set("FileDescription", "NetGuard Download Manager")
-            .set("CompanyName", "Ahmed Nefzaoui")
+            .set("CompanyName", "NetGuard")
             .set(
                 "LegalCopyright",
-                "Copyright (C) 2026 Ahmed Nefzaoui. GPL-3.0-or-later.",
+                "Copyright (C) 2026 Ahmed Nefzaoui and NetGuard contributors. GPL-3.0-or-later.",
             );
         if let Err(e) = res.compile() {
             // A missing resource compiler must not break the build; the window still sets

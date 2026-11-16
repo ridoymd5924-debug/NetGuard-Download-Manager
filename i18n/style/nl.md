@@ -1,4 +1,4 @@
-<!-- How Dutch writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Dutch writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Gebruik een neutrale, zakelijke en toegankelijke toon. Spreek de gebruiker aan met u; laat de aanspreekvorm weg als dat natuurlijk kan. (Wilt u deze download verwijderen?; Download voltooid.)
 - Formuleer opdrachten in menu's en als knopteksten doorgaans met een infinitief, niet als bevel. (Downloaden; Pauzeren)
 - Gebruik voor menu-items korte infinitieven of zelfstandige naamwoorden. Houd de formulering gelijk aan die van vergelijkbare opdrachten. (Bestand openen; Instellingen)

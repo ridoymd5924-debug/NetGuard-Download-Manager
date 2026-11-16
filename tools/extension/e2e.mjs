@@ -2,7 +2,7 @@
 // headless with its own new profile and loads the extension (target/extension, from pack.ps1);
 // the native messaging host (target/release) hands what it sends to a separate Mister Download
 // Manager instance (its own data folder, MDM_DATA_DIR; off the screens, MDM_OFFSCREEN). Each case
-// checks what MDM received (the lab server's request log, the files in MDM's folders, its list
+// checks what NetGuard received (the lab server's request log, the files in NetGuard's folders, its list
 // through the automation API, its Download video window through UI Automation) and that the
 // browser kept nothing.
 //
@@ -23,9 +23,9 @@
 // .m3u8 or .mpd, served as text/plain or octet-stream, #171), sniffed (#171 without yt-dlp: such
 // streams found only when asked, by the button and the media list, a text decoy never), media (the
 // toolbar button's list of the media a tab loaded: streams, files, a protected stream; #38), video (shown, clicked, dragged,
-// kept; "never on the site" in the last browser), start (MDM not running: the host starts it),
-// remote (Send downloads to → Another MDM, #157: paired from the popup, a link downloaded by a
-// headless MDM; E2E_REMOTE_URL for one running elsewhere, such as the Docker image: remoteServer).
+// kept; "never on the site" in the last browser), start (NetGuard not running: the host starts it),
+// remote (Send downloads to → Another NetGuard, #157: paired from the popup, a link downloaded by a
+// headless NetGuard; E2E_REMOTE_URL for one running elsewhere, such as the Docker image: remoteServer).
 //
 // Windows: the host is registered for the current user while it runs (nmhost --register, as the
 // installer does) and unregistered at the end. Every registry key that touches (the browsers'
@@ -417,7 +417,7 @@ async function firefox(bin, profile, dl, page, ready) {
       // An extension's host permissions are granted without asking (MV3 asks the user).
       pref("extensions.originControls.grantByDefault", true),
       // Alt+click saves the link, as in Chromium (Firefox's default ignores an Alt+click on a
-      // link: then nothing is downloaded at all, by the browser or MDM).
+      // link: then nothing is downloaded at all, by the browser or NetGuard).
       pref("browser.altClickSave", true),
       // The extension's address, known in advance (its popup opened in a tab).
       pref("extensions.webextensions.uuids", JSON.stringify({ [FIREFOX_ID]: FIREFOX_UUID })),
@@ -692,7 +692,7 @@ async function stopApp() {
   }
 }
 
-// The download named `file` in MDM's `sub` folder (under the test's Downloads), complete in its
+// The download named `file` in NetGuard's `sub` folder (under the test's Downloads), complete in its
 // list and on disk with `size` bytes; its list entry.
 async function arrived(file, size, sub = "Compressed", ms = 45000) {
   const want = path.join(downloads, sub, file);
@@ -701,16 +701,16 @@ async function arrived(file, size, sub = "Compressed", ms = 45000) {
     return await until(`${file} in NetGuard Download Manager`, ms, async () => {
       const item = (await mdmList().catch(() => [])).find((d) => d.file === file);
       last = item || last;
-      if (item && item.status === "Error") throw new Error(`${file}: MDM's download failed: ${item.error}`);
+      if (item && item.status === "Error") throw new Error(`${file}: NetGuard's download failed: ${item.error}`);
       if (!item || item.status !== "Complete") return null;
       if (path.resolve(item.path) !== path.resolve(want)) throw new Error(`${file} saved as ${item.path}, not ${want}`);
       return fs.existsSync(want) && fs.statSync(want).size === size && item;
     });
   } catch (e) {
-    if (last && !/MDM's|saved as/.test(e.message)) e.message += ` (MDM: ${last.status} ${last.downloaded}/${last.size} ${last.path})`;
+    if (last && !/MDM's|saved as/.test(e.message)) e.message += ` (NetGuard: ${last.status} ${last.downloaded}/${last.size} ${last.path})`;
     if (!last) {
       const list = await mdmList().catch(() => []);
-      e.message += ` (MDM's latest: ${list.slice(-2).map((d) => `${d.file} ${d.status} ${d.path}`).join("; ") || "none"})`;
+      e.message += ` (NetGuard's latest: ${list.slice(-2).map((d) => `${d.file} ${d.status} ${d.path}`).join("; ") || "none"})`;
     }
     throw e;
   }
@@ -760,13 +760,13 @@ async function remoteServer() {
     return a.code;
   };
   remote = { url: `https://127.0.0.1:${REMOTE_PORT}/`, downloads, code, proc, data: rdata };
-  await until("the headless MDM", 20000, () => code().then(() => true, () => false));
+  await until("the headless NetGuard", 20000, () => code().then(() => true, () => false));
   return remote;
 }
 async function stopRemote() {
   if (!remote || !remote.proc) return;
   await ipc({ exit: true }, remote.data).catch(() => {});
-  await until("the headless MDM to quit", 15000, () => remote.proc.exitCode !== null).catch(() => killTree(remote.proc));
+  await until("the headless NetGuard to quit", 15000, () => remote.proc.exitCode !== null).catch(() => killTree(remote.proc));
 }
 // The file `name` of `size` bytes somewhere in `dir` (a category's folder): its path.
 function findFile(dir, name, size) {
@@ -1075,7 +1075,7 @@ async function clickLink(t, link) {
   await t.session.evaluate("document.getElementById('link').click()");
 }
 
-// The requests MDM made for `p`: all but the browser's own first one.
+// The requests NetGuard made for `p`: all but the browser's own first one.
 async function mdmRequests(p) {
   const all = await requests(p);
   if (all.length < 2) throw new Error(`${p}: only the browser's request reached the server (${all.map(brief).join("; ")})`);
@@ -1083,7 +1083,7 @@ async function mdmRequests(p) {
 }
 
 // One file through the lab's host (lab.mdm.test, known to the test proxy only): how many of its
-// requests went through the proxy (the browser's own first; MDM's when it got the proxy).
+// requests went through the proxy (the browser's own first; NetGuard's when it got the proxy).
 async function throughProxy(t, label, wantMdm) {
   proxyLog.length = 0;
   const file = `e2e-proxy-${t.name}-${label}.xz`;
@@ -1095,7 +1095,7 @@ async function throughProxy(t, label, wantMdm) {
 }
 
 // With the switch on and a proxy set: an ordinary .zip link on the lab's own address (127.0.0.1,
-// which the browser itself never sends to a proxy) still reaches MDM. How many of its requests
+// which the browser itself never sends to a proxy) still reaches NetGuard. How many of its requests
 // went through the proxy.
 async function plainWhileProxied(t) {
   proxyLog.length = 0;
@@ -1113,7 +1113,7 @@ function vpnExtension() {
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(
     path.join(dir, "manifest.json"),
-    JSON.stringify({ manifest_version: 3, name: "MDM e2e stand-in VPN", version: "1.0", permissions: ["proxy"] }),
+    JSON.stringify({ manifest_version: 3, name: "NetGuard e2e stand-in VPN", version: "1.0", permissions: ["proxy"] }),
   );
   // Its page, driven over DevTools by e2e.mjs.
   fs.writeFileSync(path.join(dir, "page.html"), "<!doctype html><title>stand-in VPN</title>");
@@ -1129,7 +1129,7 @@ function firefoxVpnExtension() {
     path.join(dir, "manifest.json"),
     JSON.stringify({
       manifest_version: 2,
-      name: "MDM e2e stand-in VPN",
+      name: "NetGuard e2e stand-in VPN",
       version: "1.0",
       permissions: ["proxy", "<all_urls>"],
       background: { scripts: ["background.js"] },
@@ -1146,8 +1146,8 @@ function firefoxVpnExtension() {
 // #42 in Chrome and the other Chromium browsers: "proxy" is required there (Chrome can't make it
 // optional), and the popup's switch is the extension's own setting, off as installed. A stand-in
 // VPN extension sets the browser's proxy: a fixed server, then a PAC script (inline, then by its
-// address). Off, MDM gets nothing of it (only the browser's request goes through the proxy); on,
-// MDM downloads through the same proxy. Also: what Chrome warns about on install and update is
+// address). Off, NetGuard gets nothing of it (only the browser's request goes through the proxy); on,
+// NetGuard downloads through the same proxy. Also: what Chrome warns about on install and update is
 // the same with and without "proxy" (Chrome counts it as access to every site, which the
 // extension already has), so the update doesn't switch the extension off to ask.
 async function proxyInChromium(t) {
@@ -1157,7 +1157,7 @@ async function proxyInChromium(t) {
     await s.inExtension(`(async () => {
       const m = chrome.runtime.getManifest();
       // As a manifest on its own: its name in plain text, no locale folder to read.
-      const plain = (perms, hosts = m.host_permissions) => JSON.stringify({ manifest_version: 3, name: "MDM", version: m.version, permissions: perms, host_permissions: hosts });
+      const plain = (perms, hosts = m.host_permissions) => JSON.stringify({ manifest_version: 3, name: "NetGuard", version: m.version, permissions: perms, host_permissions: hosts });
       const warn = (...a) => new Promise((r) => chrome.management.getPermissionWarningsByManifest(plain(...a), r));
       const without = m.permissions.filter((p) => p !== "proxy");
       return JSON.stringify({ api: typeof chrome.proxy, perms: m.permissions, optional: m.optional_permissions || [], with: await warn(m.permissions), without: await warn(without), alone: await warn(["proxy"], []) });
@@ -1199,7 +1199,7 @@ async function proxyInChromium(t) {
     await until("the switch on", 5000, async () => (await popup.evaluate("chrome.storage.local.get('proxyOn').then((v) => v.proxyOn === true)")));
     const on = await throughProxy(t, "on", true);
     if (on < 2) throw new Error(`on: only ${on} request(s) through the proxy`);
-    done.push(`on, a fixed server: ${on} requests through it (the browser's, then MDM's)`);
+    done.push(`on, a fixed server: ${on} requests through it (the browser's, then NetGuard's)`);
     const local = await plainWhileProxied(t);
     if (local) throw new Error(`on: ${local} request(s) for 127.0.0.1 through the proxy (Chromium sends none there)`);
     done.push("on: an ordinary link on 127.0.0.1 taken, straight (the proxy bypassed, as the browser does)");
@@ -1239,7 +1239,7 @@ async function proxyInChromium(t) {
 
 const CASES = {
   // #42: the browser behind a proxy (a VPN or proxy extension's). The file's host (lab.mdm.test) is
-  // known to that proxy only, so MDM can download it only through the same proxy, which the
+  // known to that proxy only, so NetGuard can download it only through the same proxy, which the
   // extension hands over with the download, once the user switched that on: the popup's switch
   // asks for the optional "proxy" permission (Firefox). Chrome can't make it optional, so its
   // extension has it from the install and the switch is its own setting (proxyInChromium).
@@ -1255,7 +1255,7 @@ const CASES = {
     const popupUrl = `${s.base}popup.html`;
     const granted = async (popup) => popup.evaluate("browser.permissions.contains({ permissions: ['proxy'] })");
     // One file through the lab's host: how many of its requests went through the proxy (the
-    // browser's own first; MDM's when it got the proxy) after `wait` ms.
+    // browser's own first; NetGuard's when it got the proxy) after `wait` ms.
     const fetchFile = async (label, wantMdm) => {
       proxyLog.length = 0;
       const file = `e2e-proxy-${t.name}-${label}.xz`;
@@ -1300,21 +1300,21 @@ const CASES = {
         if (no !== 1) throw new Error(`refused: ${no} requests through the proxy`);
         done.push(`refused at the prompt (${ids.join(", ")}): off, the browser's request only`);
 
-        // Granted: the switch on, MDM downloads through the same proxy.
+        // Granted: the switch on, NetGuard downloads through the same proxy.
         await pref("extensions.webextOptionalPermissionPrompts", false);
         await popup.click("#proxy");
         await until("the permission granted", 10000, () => granted(popup));
         await until("the switch on", 5000, () => popup.evaluate("document.getElementById('proxy').checked"));
         const on = await fetchFile("on", true);
         if (on < 2) throw new Error(`granted: only ${on} request(s) through the proxy`);
-        done.push(`granted: ${on} requests through the browser's proxy (the browser's, then MDM's)`);
-        // An ordinary link on 127.0.0.1 is still taken (Firefox itself never proxies it; MDM
+        done.push(`granted: ${on} requests through the browser's proxy (the browser's, then NetGuard's)`);
+        // An ordinary link on 127.0.0.1 is still taken (Firefox itself never proxies it; NetGuard
         // may, the test proxy passes it on: said, not failed).
         const local = await plainWhileProxied(t);
         done.push(`granted: an ordinary link on 127.0.0.1 taken (${local} of its requests through the proxy)`);
 
         // Granted, the proxy set per request by a VPN extension (proxy.onRequest, as Firefox's
-        // proxy and VPN add-ons do) rather than in the browser's settings: MDM gets that one too.
+        // proxy and VPN add-ons do) rather than in the browser's settings: NetGuard gets that one too.
         await pref("network.proxy.type", 0);
         // A failure here is said at the end, after the other steps.
         const vpn = await s.install(firefoxVpnExtension());
@@ -1354,7 +1354,7 @@ const CASES = {
     }
   },
 
-  // A .zip link, throttled (the browser's download is held while MDM is asked: Firefox pauses it)
+  // A .zip link, throttled (the browser's download is held while NetGuard is asked: Firefox pauses it)
   // and at full speed.
   async link(t) {
     const done = [];
@@ -1393,7 +1393,7 @@ const CASES = {
       // The browser's own request (the first) was stopped before it had the file.
       const [own] = (await requests(`/gen/2M/${file}`)).filter((e) => e.method === "GET");
       if (!own || own.bytes_sent >= size) throw new Error(`the browser downloaded the file itself: ${own ? brief(own) : "no request"}`);
-      return `no dialog, MDM has it, the browser's request stopped after ${own.bytes_sent} bytes`;
+      return `no dialog, NetGuard has it, the browser's request stopped after ${own.bytes_sent} bytes`;
     } finally {
       await s.inBrowser(`(Services.prefs.setBoolPref(${always}, ${was === true}), "set")`).catch(() => {});
     }
@@ -1409,10 +1409,10 @@ const CASES = {
     await arrived(file, 1 << 20);
     const mdm = await mdmRequests(`/gen/1M/${file}`);
     for (const e of mdm) {
-      if (!/(^|;\s*)sid=1(;|$)/.test(e.cookie || "")) throw new Error(`MDM's request without the cookie: ${brief(e)} cookie=${e.cookie}`);
-      if (!(e.referer || "").startsWith(prefix)) throw new Error(`MDM's request without the referrer: ${brief(e)} referer=${e.referer}`);
-      if (e.user_agent !== t.ua) throw new Error(`MDM's User-Agent ${e.user_agent} is not the browser's ${t.ua}`);
-      if (e.status >= 400) throw new Error(`MDM's request refused: ${brief(e)}`);
+      if (!/(^|;\s*)sid=1(;|$)/.test(e.cookie || "")) throw new Error(`NetGuard's request without the cookie: ${brief(e)} cookie=${e.cookie}`);
+      if (!(e.referer || "").startsWith(prefix)) throw new Error(`NetGuard's request without the referrer: ${brief(e)} referer=${e.referer}`);
+      if (e.user_agent !== t.ua) throw new Error(`NetGuard's User-Agent ${e.user_agent} is not the browser's ${t.ua}`);
+      if (e.status >= 400) throw new Error(`NetGuard's request refused: ${brief(e)}`);
     }
     await keptNothing(t.dl);
     return `${mdm.length} request(s) with sid=1, the page as referrer, the browser's User-Agent`;
@@ -1438,32 +1438,32 @@ const CASES = {
     return `${plain}, ${star}, ${raw}`;
   },
 
-  // A redirect: MDM keeps the address clicked (it asks it again to renew the link).
+  // A redirect: NetGuard keeps the address clicked (it asks it again to renew the link).
   async redirect(t) {
     const file = `e2e-r-${t.name}.zip`;
     const link = `/redirect?to=${encodeURIComponent(`/gen/2M/${file}`)}`;
     await clickLink(t, link);
     const item = await arrived(file, 2 << 20);
-    if (item.url !== LAB + link) throw new Error(`MDM's address is ${item.url}, not the one clicked (${LAB + link})`);
+    if (item.url !== LAB + link) throw new Error(`NetGuard's address is ${item.url}, not the one clicked (${LAB + link})`);
     await mdmRequests(`/gen/2M/${file}`);
     await keptNothing(t.dl);
     return "the address clicked kept, the file from its target";
   },
 
-  // A page that goes to the file by script (#374): MDM gets the file's address, not the page's.
+  // A page that goes to the file by script (#374): NetGuard gets the file's address, not the page's.
   async leadon(t) {
     const file = `e2e-leadon-${t.name}.zip`;
     const page = `/leadon?to=${encodeURIComponent(`/gen/2M/${file}`)}`;
     await t.session.navigate(`${LAB}${page}`);
     const item = await arrived(file, 2 << 20);
-    if (item.url !== `${LAB}/gen/2M/${file}`) throw new Error(`MDM's address is ${item.url}, not the file's`);
+    if (item.url !== `${LAB}/gen/2M/${file}`) throw new Error(`NetGuard's address is ${item.url}, not the file's`);
     const asked = await requests(page.split("?")[0]);
     if (asked.length !== 1) throw new Error(`the page was asked ${asked.length} times (only the browser's expected)`);
     await keptNothing(t.dl);
     return "the file's address, the page asked by the browser only";
   },
 
-  // A form's download: MDM posts it again with the form's body; one answered 303 too.
+  // A form's download: NetGuard posts it again with the form's body; one answered 303 too.
   async form(t) {
     const name = `e2e-form-${t.name}.zip`;
     await t.session.navigate(`${LAB}/formpage?size=1M&name=${encodeURIComponent(name)}`);
@@ -1471,9 +1471,9 @@ const CASES = {
     await arrived(name, 1 << 20);
     const posts = await mdmRequests(`/form/1M/${name}`);
     for (const e of posts) {
-      if (e.method !== "POST") throw new Error(`MDM didn't post the form again: ${brief(e)}`);
-      if (!/(^|&)token=abc(&|$)/.test(e.req_body_head || "")) throw new Error(`MDM's post without token=abc: ${e.req_body_head}`);
-      if (e.status >= 400) throw new Error(`MDM's post refused: ${brief(e)}`);
+      if (e.method !== "POST") throw new Error(`NetGuard didn't post the form again: ${brief(e)}`);
+      if (!/(^|&)token=abc(&|$)/.test(e.req_body_head || "")) throw new Error(`NetGuard's post without token=abc: ${e.req_body_head}`);
+      if (e.status >= 400) throw new Error(`NetGuard's post refused: ${brief(e)}`);
     }
     await keptNothing(t.dl);
     // Posted, answered "303 See Other" with the file's address.
@@ -1486,7 +1486,7 @@ const CASES = {
     return `posted again with token=abc (${posts.length} request(s)); 303: ${seen.map((e) => `${e.method} ${e.path.split("/")[1]} ${e.status}`).join(", ")}`;
   },
 
-  // Alt+click: the browser keeps the download, MDM gets nothing.
+  // Alt+click: the browser keeps the download, NetGuard gets nothing.
   async alt(t) {
     const file = `e2e-alt-${t.name}.zip`;
     const p = `/gen/1M/${file}`;
@@ -1502,19 +1502,19 @@ const CASES = {
     } catch (e) {
       const item = (await mdmList()).find((d) => d.file === file);
       const tab = await t.session.evaluate("location.href").catch((x) => x.message);
-      e.message += ` (MDM: ${item ? `${item.status} ${item.path}` : "nothing"}; the tab: ${tab}; requests: ${(await requests(p)).map(brief).join("; ") || "none"}; the browser's folder: ${fs.readdirSync(t.dl).join(", ") || "empty"})`;
+      e.message += ` (NetGuard: ${item ? `${item.status} ${item.path}` : "nothing"}; the tab: ${tab}; requests: ${(await requests(p)).map(brief).join("; ") || "none"}; the browser's folder: ${fs.readdirSync(t.dl).join(", ") || "empty"})`;
       throw e;
     }
     await sleep(1500);
     const item = (await mdmList()).find((d) => d.file === file);
-    if (item) throw new Error(`MDM got it too: ${item.status} ${item.path}`);
+    if (item) throw new Error(`NetGuard got it too: ${item.status} ${item.path}`);
     const all = await requests(p);
     if (all.length !== 1) throw new Error(`${all.length} requests for it (only the browser's expected): ${all.map(brief).join("; ")}`);
     fs.rmSync(kept);
-    return "the browser's own download, MDM untouched";
+    return "the browser's own download, NetGuard untouched";
   },
 
-  // Files the browser would show or play, made downloads, MDM's (Chromium 128+, Firefox): typed
+  // Files the browser would show or play, made downloads, NetGuard's (Chromium 128+, Firefox): typed
   // into the address bar, the tab stays on its page. A PDF sent with "Content-Disposition:
   // inline; filename=..." (as many servers do), one sent without it, an MP3 sent inline.
   async opened(t) {
@@ -1608,7 +1608,7 @@ const CASES = {
     return `sent ${address.replace(LAB, "")}`;
   },
 
-  // #155: an HLS or DASH player (playing from a blob:) handed to MDM, by the button over it, the
+  // #155: an HLS or DASH player (playing from a blob:) handed to NetGuard, by the button over it, the
   // right-click menu and the toolbar button's media list: yt-dlp gets the stream's manifest, with
   // the cookie and the page as referrer, and reads it. Needs a yt-dlp (E2E_YTDLP, else one on
   // PATH): the test instance uses it as the person's own copy (Helpers).
@@ -1732,7 +1732,7 @@ const CASES = {
   // #38: the toolbar button's list of what the tab loaded. A page plays a video file (behind a
   // cookie and hotlink protection), a sound, an HLS stream, a DASH stream and a DRM-protected
   // one; the popup (its page, in a tab of its own) lists the five, each stream once with its
-  // qualities, the protected one without a Download button. The file downloads in MDM with the
+  // qualities, the protected one without a Download button. The file downloads in NetGuard with the
   // page's cookies and referrer; each stream opens the Download video window for its manifest.
   async media(t) {
     await t.session.navigate(`${LAB}/cookie?set=msid=7`);
@@ -1774,7 +1774,7 @@ const CASES = {
       const click = (name) =>
         popup.evaluate(`(() => { const li = [...document.querySelectorAll("#media-list li")].find((x) => x.querySelector(".name").textContent === ${JSON.stringify(name)});
           li.querySelector("button").click(); return true; })()`);
-      // The file: MDM downloads it with the page's cookie and referrer and the browser's UA.
+      // The file: NetGuard downloads it with the page's cookie and referrer and the browser's UA.
       await click(file);
       await arrived(file, 1 << 20, "Video");
       const mdm = (await requests(`/gen/1M/${file}`)).filter((e) => e.user_agent === t.ua && e.status < 400);
@@ -1823,7 +1823,7 @@ const CASES = {
     return videoButton(t.session, t.last);
   },
 
-  // MDM not running: the host starts it (off the screens, with the test's data folder: both
+  // NetGuard not running: the host starts it (off the screens, with the test's data folder: both
   // reach it through the browser's environment) and hands the download over.
   async start(t) {
     await stopApp();
@@ -1842,7 +1842,7 @@ const CASES = {
 
   // #157: Send downloads to → Another NetGuard Download Manager. The popup pairs with a server (its
   // address and a code); a link clicked then downloads there, into the server's folders, the
-  // browser's cookies not sent: neither the browser nor this computer's MDM keeps it. The popup
+  // browser's cookies not sent: neither the browser nor this computer's NetGuard keeps it. The popup
   // goes back to This computer at the end.
   async remote(t) {
     const r = await remoteServer();
@@ -1852,7 +1852,7 @@ const CASES = {
     try {
       await until("the popup", 10000, () => popup.evaluate(`document.readyState === "complete" && Boolean(document.getElementById("to-remote"))`).catch(() => false));
       await sleep(300);
-      // Another MDM chosen: its address and code boxes show (the popup's script may still be
+      // Another NetGuard chosen: its address and code boxes show (the popup's script may still be
       // starting: chosen again until they do).
       await until("the address and code boxes", 10000, () =>
         popup.evaluate(`(document.getElementById("remote-form").hidden && document.getElementById("to-remote").click(), !document.getElementById("remote-form").hidden)`),
@@ -1884,7 +1884,7 @@ const CASES = {
       const theirs = (await requests(`/gen/1M/${file}`)).filter((e) => e.user_agent !== t.ua);
       if (!theirs.length) throw new Error("no request from the server");
       if (theirs.some((e) => (e.cookie || "").length)) throw new Error(`a cookie went to the server's download: ${theirs.map((e) => e.cookie).join("; ")}`);
-      if ((await mdmList().catch(() => [])).some((d) => d.file === file)) throw new Error("this computer's MDM got it too");
+      if ((await mdmList().catch(() => [])).some((d) => d.file === file)) throw new Error("this computer's NetGuard got it too");
       await keptNothing(t.dl);
       return `paired (${said}); ${file} downloaded by the server into ${path.relative(r.downloads, at)} (${theirs.length} request(s), no cookie), not by this computer`;
     } finally {
@@ -2170,7 +2170,7 @@ async function run() {
       const bin = candidates.find((p) => fs.existsSync(p));
       // A Snap (Ubuntu's Firefox) reads its profile only from its own folder, and starts the host
       // through the desktop portal, without the browser's environment (MDM_DATA_DIR): the host
-      // would reach this computer's own MDM, not the test instance, so only the remote case runs.
+      // would reach this computer's own NetGuard, not the test instance, so only the remote case runs.
       const snap = Boolean(bin) && bin.startsWith("/snap/");
       const profile = snap ? path.join(process.env.HOME, "snap", name, "common", "mdm-e2e-profile") : path.join(work, `profile-${name}`);
       const dl = path.join(work, `browser-${name}`);
@@ -2214,7 +2214,7 @@ async function run() {
         const asks = session.inBrowser
           ? `, asks for new types: ${await session.inBrowser(`Services.prefs.getBoolPref("browser.download.always_ask_before_handling_new_types", false)`)}`
           : "";
-        results.push([name, "browser", "ok", `${kind} ${session.major} (to MDM: ${seenAs}), extension ${session.extension}${asks}`, Date.now() - started]);
+        results.push([name, "browser", "ok", `${kind} ${session.major} (to NetGuard: ${seenAs}), extension ${session.extension}${asks}`, Date.now() - started]);
         for (const [label, fn] of Object.entries(CASES)) {
           if (only.length && !only.includes(label)) continue;
           const at = Date.now();

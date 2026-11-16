@@ -5590,7 +5590,7 @@ column	Time left	Wā e toe ana
 #, machine
 column	Transfer rate	Reiti whakawhiti
 #. text in the browser extension
-#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
 extension	Another NetGuard Download Manager (a server)	Tētahi atu NetGuard Download Manager (he tūmau)
 #. text in the browser extension

@@ -74,7 +74,7 @@ mod xdgicons;
 /// The main window's title (dialogs find their owner by it).
 pub const MAIN_TITLE: &str = concat!("NetGuard Download Manager ", env!("CARGO_PKG_VERSION"));
 
-/// The app icon (art/, made with ChatGPT; sizes by tools/icon/build_icon.py), for windows that
+/// The app icon (NetGuard's official icon, assets/icons/app/mdm-256.png), for windows that
 /// show one as IDM's do: the 256 px size, which the system scales down for the title bar, the
 /// taskbar and Alt+Tab at any display scaling. On macOS none: the Dock keeps the app bundle's own
 /// icon (AppIcon.icns, every size, tools/installer/build-macos.sh), which an icon set at run

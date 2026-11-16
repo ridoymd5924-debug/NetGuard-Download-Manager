@@ -6,7 +6,7 @@ A **queue** is a list of downloads that run in order, a few at a time. The **Sch
 
 ## Queues
 
-MDM comes with two queues:
+NetGuard comes with two queues:
 
 - **Main download queue** — where **Download Later**, batch downloads and imported lists go. A download leaves it when it is finished.
 - **Synchronization queue** — finished downloads stay in it instead of leaving. It is the only queue that takes finished downloads.
@@ -33,8 +33,6 @@ A running queue starts its downloads in list order, a few at a time (four by def
 
 Open it with **Scheduler** on the toolbar or **Downloads → Scheduler**. Right-clicking a queue and choosing **Schedule** or **Edit queue** opens it on that queue.
 
-![The Scheduler: the queues on the left with Download limits, the selected queue's Schedule tab on the right](images/help/scheduler.webp)
-*1 the queues, 2 Download limits, 3 the queue's schedule, 4 its files.*
 
 The queues are on the left, with **Download limits** below them. The right side shows the selected queue on two tabs, **Schedule** and **Files in the queue**.
 
@@ -44,26 +42,26 @@ The queues are on the left, with **Download limits** below them. The right side 
 
 ## Schedule: starting and stopping on time
 
-- **Start download on NetGuard Download Manager startup** — start the queue whenever MDM starts.
+- **Start download on NetGuard Download Manager startup** — start the queue whenever NetGuard starts.
 - **Start download at** — a time, then either:
   - **Once at** a date, or
   - **Daily**, on the days you tick.
 - **Stop download at** — a time to stop the queue if it is still running.
-- **Number of retries for each file if downloading failed** — how often a failed download is tried again before the queue gives up on it. Without it, MDM keeps trying.
+- **Number of retries for each file if downloading failed** — how often a failed download is tried again before the queue gives up on it. Without it, NetGuard keeps trying.
 
 To set a time, click a part of it (hours, minutes, seconds) and use the arrows, the mouse wheel, **Up** / **Down** or the number keys. **Left** and **Right** move between the parts.
 
-MDM has to be running for a schedule to fire. It can sit in the tray: closing the main window doesn't quit it.
+NetGuard has to be running for a schedule to fire. It can sit in the tray: closing the main window doesn't quit it.
 
 ## Wake the computer to run a queue
 
 Tick **Wake the computer to run this queue**, under the start time, and a computer that is asleep at the start time is woken for it. It needs **Start download at**.
 
-- MDM wakes the computer a minute before the start time, so the network is back when the queue starts.
+- NetGuard wakes the computer a minute before the start time, so the network is back when the queue starts.
 - While the queue runs, the computer doesn't go to sleep. When the queue is done, the computer's own sleep settings apply again: a computer nobody is using goes back to sleep by itself. **Turn off computer when done → Sleep** sends it back to sleep at once.
 - The line under the option says when the computer will next be woken, or why it can't be.
-- MDM has to be running (it can sit in the notification area). The computer has to be asleep, not shut down.
-- The wake follows the schedule: change the start time or the days, untick the option or delete the queue, and the wake moves or goes away. MDM sets it again each time it starts. Nothing stays behind in the system when MDM quits or is uninstalled.
+- NetGuard has to be running (it can sit in the notification area). The computer has to be asleep, not shut down.
+- The wake follows the schedule: change the start time or the days, untick the option or delete the queue, and the wake moves or goes away. NetGuard sets it again each time it starts. Nothing stays behind in the system when NetGuard quits or is uninstalled.
 
 ### Windows
 
@@ -80,13 +78,13 @@ echo 'z /sys/class/rtc/rtc0/wakealarm 0664 root wakealarm -' | sudo tee /etc/tmp
 sudo systemd-tmpfiles --create /etc/tmpfiles.d/wakealarm.conf
 ```
 
-then signs out and in again. The setting stays after a restart. The computer has one wake alarm: if another program has set it, MDM leaves it alone and says so.
+then signs out and in again. The setting stays after a restart. The computer has one wake alarm: if another program has set it, NetGuard leaves it alone and says so.
 
-A user's systemd timer can't wake the computer, and `rtcwake` needs root, so without this setting MDM can't wake the computer. MDM never asks for an administrator's password.
+A user's systemd timer can't wake the computer, and `rtcwake` needs root, so without this setting NetGuard can't wake the computer. NetGuard never asks for an administrator's password.
 
 ### macOS
 
-On macOS only an administrator can schedule a wake, so the option is greyed. MDM doesn't ask for an administrator's password. An administrator can have the Mac wake every day a minute before the queue starts, for example at 10:59 PM for a queue that starts at 11:00 PM:
+On macOS only an administrator can schedule a wake, so the option is greyed. NetGuard doesn't ask for an administrator's password. An administrator can have the Mac wake every day a minute before the queue starts, for example at 10:59 PM for a queue that starts at 11:00 PM:
 
 ```sh
 sudo pmset repeat wakeorpoweron MTWRFSU 22:59:00
@@ -100,7 +98,7 @@ sudo pmset repeat wakeorpoweron MTWRFSU 22:59:00
 - **Hang up modem when done** — ends a dial-up connection, if you use one.
 - **Exit NetGuard Download Manager when done**.
 - **Turn off computer when done** — choose **Shut down**, **Sleep** or **Hibernate**.
-  - MDM first shows a 30-second countdown. **Cancel** stops it; **Turn off now** goes ahead at once.
+  - NetGuard first shows a 30-second countdown. **Cancel** stops it; **Turn off now** goes ahead at once.
   - **Force processes to terminate** closes programs that would otherwise hold Windows up.
 
 ## Files in the queue
@@ -116,7 +114,7 @@ For an internet plan with a data cap, select **Download limits** on the left:
 2. Fill in **Download no more than [N] MBytes every [H] hours**. It starts at 200 MBytes every 5 hours.
 3. Click **Apply**.
 
-When the limit is reached, MDM stops downloading. New downloads show **Waiting: the download limit is reached (Scheduler)**. Everything resumes on its own when the period is over. **Show warning before stopping downloads** tells you when this happens and when downloads will go on.
+When the limit is reached, NetGuard stops downloading. New downloads show **Waiting: the download limit is reached (Scheduler)**. Everything resumes on its own when the period is over. **Show warning before stopping downloads** tells you when this happens and when downloads will go on.
 
 The same setting is in **Options → Connection**.
 

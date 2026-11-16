@@ -1,4 +1,4 @@
-//! Real-Debrid against the lab server's fake (labserver `debrid`), end to end through MDM's
+//! Real-Debrid against the lab server's fake (labserver `debrid`), end to end through NetGuard's
 //! engine: the account, the host list, the unlock, the download, the device sign-in, and the
 //! service's refusals. The fake host `hoster.test` resolves nowhere: a download that completes
 //! came through the service's direct link.

@@ -1,15 +1,15 @@
-# The crash report form. MDM's crash report window (crates/app/src/crashui.rs) opens it filled in:
+# The crash report form. NetGuard's crash report window (crates/app/src/crashui.rs) opens it filled in:
 # the ids below are the address's parameters (mdm_crash::github, crashui::fields), keep them in
 # step. Text fields only: GitHub's page put a dropdown's value from the address back to none.
 name: Crash report
-description: MDM closed unexpectedly or stopped responding, and its crash report window opened this form.
+description: NetGuard closed unexpectedly or stopped responding, and its crash report window opened this form.
 labels: [bug, crash]
 body:
   - type: markdown
     attributes:
       value: |
         Thank you for sending this. **The crash report window filled this in**: please add the report's file (and the `.dmp` file, if you chose to) by dragging it into the **Report** box below.
-        No crash window? Use the [Bug report](https://github.com/anefzaoui/misterdownloadmanager/issues/new?template=bug.yml) form instead.
+        No crash window? Use the [Bug report](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/new?template=bug.yml) form instead.
   - type: input
     id: signature
     attributes:
@@ -25,7 +25,7 @@ body:
   - type: input
     id: version
     attributes:
-      label: MDM version
+      label: NetGuard version
     validations:
       required: true
   - type: input

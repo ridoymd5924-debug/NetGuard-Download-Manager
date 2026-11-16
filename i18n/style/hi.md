@@ -1,4 +1,4 @@
-<!-- How Hindi writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Hindi writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Commands and action buttons use a respectful imperative; do not add “कृपया” unless the source explicitly expresses politeness. Menu commands use the same form, usually with the object first. (डाउनलोड करें; फ़ाइल खोलें)
 - Checkbox labels describe an option or state rather than addressing the user. Use a concise noun phrase or infinitive. (डाउनलोड पूरा होने पर सूचना दिखाना; Windows के साथ प्रारंभ करें)
 - Address the user as “आप” and use respectful verb forms. Avoid “तुम” and conversational or overly formal honorifics. (क्या आप डाउनलोड हटाना चाहते हैं?; आपकी सेटिंग्स सहेजी गईं)

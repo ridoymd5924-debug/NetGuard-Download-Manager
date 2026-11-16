@@ -308,7 +308,7 @@ fn log_of(p: &mdm_tools::video::Progress) -> Vec<String> {
 fn job_checks(me: &Path) {
     let none = Subs::default();
 
-    // Silent for 30 s (ffmpeg merging a long video): no timeout of MDM's own ends it.
+    // Silent for 30 s (ffmpeg merging a long video): no timeout of NetGuard's own ends it.
     let (p, files, _o) = download_as(me, "quiet:30", &none, "b", "Talk");
     assert!(matches!(p.state, State::Done(_)), "quiet: {:?}", p.state);
     assert_eq!(files, ["Talk.mp4"]);

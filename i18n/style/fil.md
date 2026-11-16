@@ -1,4 +1,4 @@
-<!-- How Filipino writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Filipino writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Gawing malinaw na pautos ang mga command at button na nagsasagawa ng aksiyon. Gamitin ang pandiwang may unlaping I- kung natural ito sa Filipino. (I-download ang file; I-pause)
 - Gumamit ng pangngalan para sa menu item na nagbubukas ng lugar o seksiyon; gumamit ng pautos para sa aksiyon. (Mga Download; I-clear ang pila)
 - Isulat ang checkbox bilang maikling pahayag tungkol sa setting, hindi bilang tanong. (Awtomatikong simulan ang mga download)
@@ -8,7 +8,7 @@
 - Gumamit ng pandiwang Filipino at tatlong tuldok na ellipsis para sa kasalukuyang ginagawa. Ilarawan ang dami nang natural sa Filipino. (Sinusuri…; Nagda-download ng {n} file)
 - Panatilihing madaling dugtungan ang mga fragment ng error. Unahin ang malinaw na pahayag at sundan ito ng tutuldok kung may detalye o error na ipapakita. (Hindi mabuksan: {error})
 - Isulat ang mga entry sa event log bilang maiikling, kumpletong pahayag. Gamitin ang anyong angkop sa oras ng pangyayari. (Sinimulan ang pag-download ng {filename}.; Nakumpleto ang pag-download.)
-- Gamitin ang sentence case sa mga pamagat at label; malaking titik lamang sa unang salita at sa mga pangalang pantangi. (Mga setting ng pag-download; Mister Download Manager)
+- Gamitin ang sentence case sa mga pamagat at label; malaking titik lamang sa unang salita at sa mga pangalang pantangi. (Mga setting ng pag-download; NetGuard Download Manager)
 - Lagyan ng malaking titik ang mga pangalan ng araw at buwan sa Filipino. (Lunes; Enero)
 - Gumamit ng karaniwang bantas sa Filipino. Huwag maglagay ng espasyo bago ang kuwit, tuldok, tutuldok o tandang pananong; maglagay ng isa pagkatapos kapag nagpapatuloy ang pangungusap. (Error: hindi mabuksan ang file.; Subukan muli?)
 - Gumamit ng panipi lamang kapag talagang kailangan, gaya ng pagsipi sa eksaktong text sa interface. Gumamit ng “ ” at panatilihin ang espasyo sa labas ng panipi. (Piliin ang “I-download” para magpatuloy.)

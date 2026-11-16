@@ -461,14 +461,14 @@ fn left_pad(bytes: &[u8], len: usize) -> Option<Vec<u8>> {
 mod tests {
     use super::*;
 
-    const MDM_KEY: &[u8] = include_bytes!("../keys/mdm-release.asc");
+    const GALLERY_KEY: &[u8] = include_bytes!("../keys/gallery-dl.asc");
     const YTDLP_KEY: &[u8] = include_bytes!("../keys/yt-dlp.asc");
-    const MDM_SUMS: &[u8] = include_bytes!("../tests/fixtures/mdm-SHA256SUMS.txt");
-    const MDM_SIG: &[u8] = include_bytes!("../tests/fixtures/mdm-SHA256SUMS.txt.sig");
+    const GALLERY_SUMS: &[u8] = include_bytes!("../tests/fixtures/gallery-dl-SHA256SUMS");
+    const GALLERY_SIG: &[u8] = include_bytes!("../tests/fixtures/gallery-dl-SHA256SUMS.sig");
     const YTDLP_SUMS: &[u8] = include_bytes!("../tests/fixtures/SHA2-256SUMS");
     const YTDLP_SIG: &[u8] = include_bytes!("../tests/fixtures/SHA2-256SUMS.sig");
     const BOTH: [(&[u8], &[u8], &[u8]); 2] = [
-        (MDM_KEY, MDM_SUMS, MDM_SIG),
+        (GALLERY_KEY, GALLERY_SUMS, GALLERY_SIG),
         (YTDLP_KEY, YTDLP_SUMS, YTDLP_SIG),
     ];
 
@@ -504,10 +504,6 @@ mod tests {
             assert_eq!(keys.len(), 1);
             hex::encode_upper(keys[0].fingerprint)
         };
-        assert_eq!(
-            fingerprint(MDM_KEY),
-            "5826D399249DE856EA087D802E293C28E8A69D74"
-        );
         assert_eq!(
             fingerprint(YTDLP_KEY),
             "AC0CBBE6848D6A873464AF4E57CF65933B5A7581"
@@ -552,23 +548,23 @@ mod tests {
 
     #[test]
     fn each_key_signs_for_itself_only() {
-        assert!(!verify(YTDLP_KEY, MDM_SUMS, MDM_SIG));
-        assert!(!verify(MDM_KEY, YTDLP_SUMS, YTDLP_SIG));
-        assert!(!verify(MDM_KEY, MDM_SUMS, MDM_KEY));
-        assert!(!verify(MDM_SIG, MDM_SUMS, MDM_SIG));
+        assert!(!verify(YTDLP_KEY, GALLERY_SUMS, GALLERY_SIG));
+        assert!(!verify(GALLERY_KEY, YTDLP_SUMS, YTDLP_SIG));
+        assert!(!verify(GALLERY_KEY, GALLERY_SUMS, GALLERY_KEY));
+        assert!(!verify(GALLERY_SIG, GALLERY_SUMS, GALLERY_SIG));
     }
 
     #[test]
     fn armor_is_checked_by_its_checksum() {
-        let armored = armor(MDM_SIG, crc24(MDM_SIG));
-        assert!(verify(MDM_KEY, MDM_SUMS, armored.as_bytes()));
-        let wrong = armor(MDM_SIG, crc24(MDM_SIG) ^ 1);
-        assert!(!verify(MDM_KEY, MDM_SUMS, wrong.as_bytes()));
-        // A damaged key: "mDME" begins its data.
-        let key = String::from_utf8(MDM_KEY.to_vec())
+        let armored = armor(GALLERY_SIG, crc24(GALLERY_SIG));
+        assert!(verify(GALLERY_KEY, GALLERY_SUMS, armored.as_bytes()));
+        let wrong = armor(GALLERY_SIG, crc24(GALLERY_SIG) ^ 1);
+        assert!(!verify(GALLERY_KEY, GALLERY_SUMS, wrong.as_bytes()));
+        // A damaged key: "xsFN" begins its data.
+        let key = String::from_utf8(GALLERY_KEY.to_vec())
             .unwrap()
-            .replacen("mDME", "mDMF", 1);
-        assert!(!verify(key.as_bytes(), MDM_SUMS, MDM_SIG));
+            .replacen("xsFN", "xsFO", 1);
+        assert!(!verify(key.as_bytes(), GALLERY_SUMS, GALLERY_SIG));
     }
 
     #[test]
@@ -592,7 +588,7 @@ mod tests {
             assert!(!verify(&bytes, YTDLP_SUMS, YTDLP_SIG));
             let text: String = bytes.iter().map(|&b| char::from(b'+' + b % 80)).collect();
             let armored = format!("-----BEGIN PGP SIGNATURE-----\n\n{text}\n=");
-            assert!(!verify(MDM_KEY, MDM_SUMS, armored.as_bytes()));
+            assert!(!verify(GALLERY_KEY, GALLERY_SUMS, armored.as_bytes()));
         }
         // The real keys and signatures, each byte damaged in turn, and cut short.
         for (key, sums, sig) in BOTH {

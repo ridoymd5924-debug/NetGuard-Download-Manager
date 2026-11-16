@@ -4235,7 +4235,7 @@ column	Time left	الوقت المتبقي
 #. column title in the download list in the download list
 column	Transfer rate	معدل النقل
 #. text in the browser extension
-#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
 extension	Another NetGuard Download Manager (a server)	NetGuard Download Manager آخر (خادم)
 #. text in the browser extension

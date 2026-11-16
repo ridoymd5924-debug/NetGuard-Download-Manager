@@ -5579,7 +5579,7 @@ column	Time left	Masa tinggal
 #. column title in the download list in the download list
 column	Transfer rate	Kadar pemindahan
 #. text in the browser extension
-#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
 extension	Another NetGuard Download Manager (a server)	NetGuard Download Manager lain (pelayan)
 #. text in the browser extension

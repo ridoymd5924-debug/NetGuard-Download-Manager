@@ -1,0 +1,58 @@
+# NetGuard: NetGuard Download Manager's own look, the default. Dark Navy and Emerald: the classic
+# layout and controls kept exactly where they were, drawn in the brand's colours (colours only:
+# no shapes, sizes or icons change). It is also an example of a theme file: seeds for the colours
+# and a few roles set by hand. Its light side is the same palette turned around, for those who
+# switch View -> Always dark off on a light system.
+#
+#   Background           #0B1220   windows and dialogs
+#   Secondary background #111C2E   menu bar, column headers, title bar
+#   Panel background     #17243A   lists, text boxes, menus
+#   Primary accent       #10B981   focus, default buttons, check boxes, progress
+#   Secondary accent     #059669   the selection
+#   Main text            #F8FAFC
+#   Secondary text       #94A3B8
+#   Borders              #26354B
+
+name = "NetGuard"
+
+[seeds.dark]
+background = "#0b1220"
+surface = "#17243a"
+header = "#111c2e"
+text = "#f8fafc"
+accent = "#10b981"
+selection = "#059669"
+error = "#f87171"
+warning = "#fbbf24"
+success = "#10b981"
+
+[seeds.light]
+background = "#f8fafc"
+surface = "#ffffff"
+header = "#eef2f7"
+text = "#0b1220"
+accent = "#059669"
+selection = "#a7f3d0"
+error = "#b91c1c"
+warning = "#b45309"
+success = "#047857"
+
+[dark]
+# Secondary text.
+"text.muted" = "#94a3b8"
+# Every border and frame in the one border colour.
+"group.line" = "#26354b"
+"field.border" = "#26354b"
+"button.border" = "#26354b"
+"button.bottom" = "#26354b"
+"list.frame" = "#26354b"
+"header.line" = "#26354b"
+"header.sep" = "#26354b"
+"table.line" = "#26354b"
+"menu.border" = "#26354b"
+"menu.sep" = "#26354b"
+"menubar.line" = "#26354b"
+"toolbar.line" = "#26354b"
+"tree.frame" = "#26354b"
+"meter.edge" = "#26354b"
+"egui.window.border" = "#26354b"

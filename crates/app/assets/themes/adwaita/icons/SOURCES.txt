@@ -2,17 +2,17 @@ The Adwaita theme's icon set (#45).
 
 adwaita-icon-theme 51.0, the GNOME Project (AUTHORS, beside this file).
 https://gitlab.gnome.org/GNOME/adwaita-icon-theme, commit 70ecd52fbe844304ed4f845a04a1757fa6284884.
-Licence: GNU LGPL v3 or CC BY-SA 3.0 US, the recipient's choice (COPYING); MDM takes the LGPL v3
-(LICENSE, beside this file; the GNU GPL v3 it builds on is MDM's own LICENSE, at the top of the
+Licence: GNU LGPL v3 or CC BY-SA 3.0 US, the recipient's choice (COPYING); NetGuard takes the LGPL v3
+(LICENSE, beside this file; the GNU GPL v3 it builds on is NetGuard's own LICENSE, at the top of the
 repository).
 
-Each file is one of the theme's icons, unchanged, renamed to the need MDM uses it for
+Each file is one of the theme's icons, unchanged, renamed to the need NetGuard uses it for
 (crates/app/src/themeicons.rs lists them):
 - 16/<need>.png: Adwaita/16x16/<context>/<icon>.png, a colour picture.
 - 24/<need>.svg: Adwaita/scalable/<context>/<icon>.svg, a colour drawing (drawn at 24 pixels
   and up).
 - 16/ and 24/<need>-symbolic.svg: Adwaita/symbolic/<context>/<icon>-symbolic.svg, a one-colour
-  icon; MDM draws its greys in the theme's text colour as it reads it, as GNOME does.
+  icon; NetGuard draws its greys in the theme's text colour as it reads it, as GNOME does.
 
 Which icon each need is (and the stand-ins, where Adwaita has no icon of that meaning):
   tb-add-url: list-add-symbolic
@@ -66,7 +66,7 @@ Which icon each need is (and the stand-ins, where Adwaita has no icon of that me
   misc-down: go-down-symbolic
   misc-remove: list-remove-symbolic
 
-MDM's own, drawn for MDM in Adwaita's style and colours (GPL-3.0-or-later, as MDM), where
+NetGuard's own, drawn for NetGuard in Adwaita's style and colours (GPL-3.0-or-later, as NetGuard), where
 Adwaita has no icon of that meaning, at 16, 24, 32 and 48 pixels: ft-pdf (a page with a "PDF"
 label) and ft-torrent (a page with a magnet), colour pictures (<need>.png), and ui-to-tray (a
 window going down to the notification area), a one-colour picture (ui-to-tray-symbolic.png)

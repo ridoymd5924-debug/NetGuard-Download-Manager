@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Screenshots of MDM's windows on the lab's virtual screen: ONE MDM per language and mode, each
-# window opened by MDM's own command line (`/show <window>`, as tools/lab/docs-shots.ps1 does
+# Screenshots of NetGuard's windows on the lab's virtual screen: ONE NetGuard per language and mode, each
+# window opened by NetGuard's own command line (`/show <window>`, as tools/lab/docs-shots.ps1 does
 # on Windows), captured once it has painted, closed, then the next. Nothing shows on Windows
 # (env.sh), nothing is clicked: the pointer only moves at the screen's edge.
 #
@@ -13,7 +13,7 @@
 #
 # <label>: a build in ~/lab/bin (build.sh). Shots go to ~/lab/shots/<label>/<lang>-<mode>/<name>.png
 # (from Windows: \\wsl$\mdm-lab\home\lab\lab\shots\...), with timing.txt beside them. A window
-# name is the file's; `=<show>` is MDM's `/show` argument when it differs (default list: the
+# name is the file's; `=<show>` is NetGuard's `/show` argument when it differs (default list: the
 # README's 21 windows). `main` is the main window; a `menu:...` show is captured with the main
 # window, grown by MDM_GROW pixels (default 300) for menus past its edge.
 #
@@ -23,9 +23,9 @@
 # that must not change between runs: progress and the main window's speeds otherwise do);
 # --keep-list: the list of the label's last run again (the same names and dates: two runs
 # compared pixel by pixel, e.g. two renderers). MDM_SET: more settings, a JSON object; MDM_* in
-# the environment (MDM_RENDERER, ...) reach MDM.
+# the environment (MDM_RENDERER, ...) reach NetGuard.
 # MDM_OFFSCREEN passes through when set (Xvfb is off the user's screen already, so it's off by
-# default: the shots show MDM as a person sees it).
+# default: the shots show NetGuard as a person sees it).
 set -uo pipefail
 . "$HOME/lab/tools/env.sh"
 label=${1:?usage: shots.sh <label> [--langs ...] [--modes ...] [--windows ...] [--theme ...] [--out ...]}
@@ -84,7 +84,7 @@ mkdir -p "$work/Downloads"
 "$bin/labserver" --bind "127.0.0.1:$port" >"$work/labserver.log" 2>&1 9>&- &
 srv_pid=$!
 
-# --- Windows of our MDM (the process id wmctrl reads from _NET_WM_PID), newest last.
+# --- Windows of our NetGuard (the process id wmctrl reads from _NET_WM_PID), newest last.
 mine() { wmctrl -lp 2>/dev/null | awk -v p="$PID" '$3 == p {print $1}'; }
 # Capture `win` into `png` once it has painted (capture.py: two captures in a row the same, not
 # one colour; at most MDM_SHOT_WAIT seconds, default 2), raised and focused first as a newly
@@ -163,7 +163,7 @@ for lang in $langs; do
       sleep 0.1
     done
     MAIN=$(mine | head -1)
-    [ -z "$MAIN" ] && { echo "$lang-$mode: MDM showed no window (see $DATA/stdout.log)"; continue; }
+    [ -z "$MAIN" ] && { echo "$lang-$mode: NetGuard showed no window (see $DATA/stdout.log)"; continue; }
     [ -f "$work/items.json" ] || seed
     started=$(since "$combo_start")
     for entry in $windows; do

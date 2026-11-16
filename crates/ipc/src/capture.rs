@@ -601,7 +601,7 @@ mod tests {
         }
         .upgraded();
         for name in [
-            "NetGuard.dmg",
+            "MDM.dmg",
             "mdm_0.3.0_amd64.deb",
             "a.AppImage",
             "clip.webm",

@@ -1,12 +1,12 @@
 name: Feature idea
-description: Something MDM should do, or do differently.
+description: Something NetGuard should do, or do differently.
 labels: [enhancement]
 body:
   - type: textarea
     id: idea
     attributes:
       label: What you'd like
-      description: What MDM should do, in your own words.
+      description: What NetGuard should do, in your own words.
     validations:
       required: true
   - type: textarea
@@ -20,7 +20,7 @@ body:
     id: os
     attributes:
       label: System
-      description: Where you use MDM.
+      description: Where you use NetGuard.
       multiple: true
       options:
         - Windows
@@ -36,5 +36,5 @@ body:
     attributes:
       label: Before you send it
       options:
-        - label: I looked through the [open issues](https://github.com/anefzaoui/misterdownloadmanager/issues) and this idea isn't there yet.
+        - label: I looked through the [open issues](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues) and this idea isn't there yet.
           required: true

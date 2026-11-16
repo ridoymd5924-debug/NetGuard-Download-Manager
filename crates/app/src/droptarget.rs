@@ -11,7 +11,7 @@ use std::sync::{Arc, atomic::AtomicBool, atomic::Ordering};
 use egui::{Pos2, ViewportCommand, ViewportId, pos2, vec2};
 
 /// The window's title (its OLE target is found by it).
-const TITLE: &str = "Mister Download Manager drop target"; // not translated: an id
+const TITLE: &str = "NetGuard Download Manager drop target"; // not translated: an id
 const SIZE: f32 = 56.0;
 
 /// What was dropped: an address or a file path.

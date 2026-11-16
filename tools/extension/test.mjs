@@ -320,10 +320,10 @@ const ok = (what) => {
   await settle();
   assert.deepEqual(natives(calls), []);
   assert.deepEqual(steps(calls), []);
-  // Said, for MDM's log, under its own key and without an address.
+  // Said, for NetGuard's log, under its own key and without an address.
   assert.deepEqual(notices(calls), [{ why: "file-type", name: "page.html", site: "x" }]);
   assert.ok(!calls.some((c) => c[0] === "native" && c[2].declined && "url" in c[2]));
-  ok("a type not listed stays with the browser, and MDM's log hears why");
+  ok("a type not listed stays with the browser, and NetGuard's log hears why");
 }
 
 // Chrome: incognito downloads use the incognito store; the address asked for goes as the
@@ -1711,7 +1711,7 @@ const ask = (listeners) => (m, sender) => new Promise((r) => listeners.message(m
   assert.deepEqual(natives(calls).map((m) => m.proxy), [undefined, undefined, undefined, undefined, "http://10.0.0.9:3128"]);
   ok("Firefox: loopback addresses skip its proxy settings' proxy, as Firefox itself does");
 }
-// A type the app doesn't take: the browser goes on (its dialog shows), MDM's log hears why once,
+// A type the app doesn't take: the browser goes on (its dialog shows), NetGuard's log hears why once,
 // and the download after the dialog isn't paused or asked again.
 {
   const { api, calls, listeners } = fakeApi({ firefox: true });
@@ -1826,7 +1826,7 @@ const ask = (listeners) => (m, sender) => new Promise((r) => listeners.message(m
   assert.ok(en.popup_proxy && en.popup_proxy_title && en.popup_proxy_title_chromium, "the switch's texts");
   ok("manifests: proxy optional in Firefox, required in Chrome; the popup's switch in each");
 }
-// Another MDM (#157): the file types caught for it are the app's defaults, and every message
+// Another NetGuard (#157): the file types caught for it are the app's defaults, and every message
 // the pairing can end with is there.
 {
   const capture = readFileSync(new URL("../../crates/ipc/src/capture.rs", import.meta.url), "utf8");
@@ -1838,7 +1838,7 @@ const ask = (listeners) => (m, sender) => new Promise((r) => listeners.message(m
     assert.ok(english[`remote_${why}`], `remote_${why}`);
   }
   assert.ok(english.status_remote, "status_remote");
-  ok("another MDM: the app's file types, every pairing message");
+  ok("another NetGuard: the app's file types, every pairing message");
 }
 // Safari has no downloads API: the extension still starts, and a link page.js holds (a file type
 // Options lists) is offered to the app as a browser's download is; the app taking it is told to
@@ -1852,7 +1852,7 @@ const ask = (listeners) => (m, sender) => new Promise((r) => listeners.message(m
   const m = natives(calls)[0];
   assert.deepEqual([m.url, m.filename, m.referrer, m.cookies], ["https://x.test/files/a.zip", "a.zip", "https://page.test/dl", "sid=1"]);
   assert.ok(!("explicit" in m), "Options' rules apply, as for the browser's own downloads");
-  // Not a listed type: the click goes on, and MDM's log hears why.
+  // Not a listed type: the click goes on, and NetGuard's log hears why.
   calls.length = 0;
   assert.deepEqual(await send({ type: "link", url: "https://x.test/page.html" }, sender), { taken: false });
   await settle();

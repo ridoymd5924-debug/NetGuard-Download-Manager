@@ -1,4 +1,4 @@
-<!-- How Portuguese (Brazil) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Portuguese (Brazil) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use português do Brasil natural, claro e neutro. Prefira construções diretas e evite regionalismos e jargão desnecessário. (Baixar arquivo; O download foi concluído.)
 - Dirija-se à pessoa usuária de forma respeitosa e informal, sem usar tu. Evite você quando a frase funcionar sem pronome. (Selecione uma pasta.; Você pode alterar essa opção em Configurações.)
 - Formule comandos e itens de menu no infinitivo. Não use ponto final em comandos curtos. (Adicionar download; Abrir pasta)

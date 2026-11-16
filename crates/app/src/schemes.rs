@@ -551,7 +551,7 @@ palette:
 
     #[test]
     fn pywal_malformed_and_missing() {
-        let v: Value = serde_json::from_str(r#"{ "name": "An NetGuard theme" }"#).unwrap();
+        let v: Value = serde_json::from_str(r#"{ "name": "A NetGuard theme" }"#).unwrap();
         assert!(!is_pywal(&v));
         // NetGuard's own JSON theme files use `colors` too, for roles: not pywal's.
         let v: Value = serde_json::from_str(r##"{ "colors": { "accent": "#ff0000" } }"##).unwrap();

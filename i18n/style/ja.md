@@ -1,4 +1,4 @@
-<!-- How Japanese writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Japanese writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - ボタンは短い動作名で表します。動詞の「〜する」形より、名詞形や動作名を優先します。 (［ダウンロード］; ［一時停止］)
 - メニュー項目も簡潔な動作名にします。ボタンと同じ機能には同じ表現を使います。 (［ファイル］>［開く］; ［ダウンロードを再開］)
 - チェック ボックスのラベルは選択肢や設定内容を示す句にします。操作を命令する形にはしません。 (ダウンロード完了後にファイルを開く; プロキシ サーバーを使用する)

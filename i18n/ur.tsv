@@ -5590,7 +5590,7 @@ column	Time left	باقی وقت
 #, machine
 column	Transfer rate	منتقلی کی شرح
 #. text in the browser extension
-#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
 extension	Another NetGuard Download Manager (a server)	ایک اور NetGuard Download Manager (ایک سرور)
 #. text in the browser extension

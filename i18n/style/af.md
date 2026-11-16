@@ -1,4 +1,4 @@
-<!-- How Afrikaans writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Afrikaans writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Phrase commands as direct imperatives. Use the verb first; keep button text short. (Begin aflaai; Voeg skakel by)
 - Use the same imperative form for menu commands. Use a noun phrase only when the menu item names a view or category. (Lêer > Aflaai byvoeg; Gereedskap > Instellings)
 - Phrase check boxes as concise descriptions of the option, not as commands to the user. Omit terminal punctuation. (Begin aflaai wanneer die toepassing begin)

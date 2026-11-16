@@ -1668,7 +1668,7 @@ async fn a_slow_flush_does_not_stop_the_transfer() {
 }
 
 /// #372: a server that refuses a browser's User-Agent with 403 (seen on a public
-/// PDF) is asked once more with MDM's own, and the download goes on.
+/// PDF) is asked once more with NetGuard's own, and the download goes on.
 #[tokio::test]
 async fn a_refused_browser_agent_is_asked_again_as_mdm() {
     let s = server("rate=20M&refuse_agent=Chrome").await;
@@ -1692,7 +1692,7 @@ async fn a_refused_browser_agent_is_asked_again_as_mdm() {
         matches!(refused, Err(mdm_engine::Error::Status(s)) if s.as_u16() == 403),
         "{refused:?}"
     );
-    // With it, the same download succeeds under MDM's agent, every connection.
+    // With it, the same download succeeds under NetGuard's agent, every connection.
     let out = Download::start(
         Request {
             url: s.url("/gen/2M/a.bin?seed=372").parse().unwrap(),

@@ -1,4 +1,4 @@
-<!-- How French (France) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How French (France) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Rédigez les commandes sous forme d’infinitif, y compris sur les boutons. Gardez le libellé bref. (Télécharger; Ajouter un lien)
 - Utilisez également l’infinitif pour les actions des menus. (Fichier > Ouvrir; Téléchargement > Mettre en pause)
 - Formulez les cases à cocher comme une option ou une action à l’infinitif. (☐ Démarrer au lancement de Windows)
@@ -18,4 +18,4 @@
 - Dans les messages de progression, distinguez clairement l’action en cours du résultat final. (Téléchargement en cours…; Téléchargement terminé.)
 - Évitez les abréviations dans les libellés, sauf si elles sont usuelles et immédiatement compréhensibles. (Vitesse de téléchargement; Mo/s)
 - Dans les titres de fenêtre et les onglets, gardez une formulation descriptive et concise, sans point final. (Ajouter un téléchargement)
-- Ne traduisez pas les noms de marque ni les chaînes de protocole ou de format reconnues. (Mister Download Manager; HTTPS)
+- Ne traduisez pas les noms de marque ni les chaînes de protocole ou de format reconnues. (NetGuard Download Manager; HTTPS)

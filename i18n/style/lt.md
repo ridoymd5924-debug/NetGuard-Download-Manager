@@ -1,4 +1,4 @@
-<!-- How Lithuanian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Lithuanian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Commands, menu actions, and command buttons usually use the Lithuanian infinitive. Use the formal plural imperative in instructions addressed to the user. (Atsisiųsti; Pristabdyti)
 - Phrase check boxes as concise options, usually with an infinitive action or a short noun phrase. Keep the label clear about what enabling the box does. (Paleisti atsisiuntimą automatiškai; Rodyti pranešimus)
 - Address the user politely and consistently. Use the formal plural imperative for instructions; avoid informal singular forms and unnecessary pronouns. (Įveskite failo adresą.; Pasirinkite atsisiuntimo aplanką.)

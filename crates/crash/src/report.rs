@@ -725,7 +725,7 @@ mod tests {
                 }),
                 session: Some(Session {
                     version: "0.2.3".into(),
-                    exe: r"C:\Users\Someone\AppData\Local\NetGuard\mdm.exe".into(),
+                    exe: r"C:\Users\Someone\AppData\Local\MDM\mdm.exe".into(),
                     started: 1_793_505_000,
                     ..Default::default()
                 }),
@@ -741,7 +741,7 @@ mod tests {
         let t = text(&input, Some(Path::new(r"C:\Users\Someone")));
         assert!(t.contains("-- Window thread (frozen): main (1) --"));
         assert!(t.contains("at crates/app/src/winui.rs:2088"));
-        assert!(t.contains(r"Program: ~\AppData\Local\NetGuard\mdm.exe"));
+        assert!(t.contains(r"Program: ~\AppData\Local\MDM\mdm.exe"));
         assert!(!t.contains("Someone"));
         // The watchdog's thread is listed among the others.
         assert!(t.contains("-- Thread watchdog (2) --"));

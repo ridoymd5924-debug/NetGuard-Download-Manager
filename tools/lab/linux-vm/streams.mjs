@@ -1,8 +1,8 @@
 // #155/#167 on Linux: the Snap Firefox (headless, over WebDriver BiDi, as tools/extension/e2e.mjs
 // drives it) with an add-on, on the lab server's HLS and DASH player pages. Each hand-over path
 // (the button over the player, the right-click menu, the popup's media list) is triggered, then:
-// when the host started, when MDM's Download video window opened, the address yt-dlp was given,
-// and what yt-dlp asked the lab for once it finished. MDM must be running and not minimized.
+// when the host started, when NetGuard's Download video window opened, the address yt-dlp was given,
+// and what yt-dlp asked the lab for once it finished. NetGuard must be running and not minimized.
 //   node streams.mjs <xpi> [lab] [kinds]   lab: http://127.0.0.1:8097
 //   kinds: page flag and manifest path, default "hls:/hls/master.m3u8,dash:/dash/manifest.mpd";
 //   #171's streams without endings: "hls2:/hls2/playlist,dash2:/dash2/manifest"
@@ -172,7 +172,7 @@ try {
     const ok = windowAt && given && new URL(given).pathname === manifest && asked.some((e) => e.path === manifest) && !asked.some((e) => e.path === "/page");
     say(
       `${ok ? "OK  " : "FAIL"} ${what}${r ? ` (${r})` : ""}: host started ${hostAt ? `at ${hostAt} s` : "?"}, ` +
-        `MDM's window ${windowAt ? `at ${windowAt} s` : "NOT within 60 s"}; yt-dlp given ${given || "nothing"}, done at ${done} s; ` +
+        `NetGuard's window ${windowAt ? `at ${windowAt} s` : "NOT within 60 s"}; yt-dlp given ${given || "nothing"}, done at ${done} s; ` +
         `the lab saw ${seen.join(", ") || "nothing"}`,
     );
   };

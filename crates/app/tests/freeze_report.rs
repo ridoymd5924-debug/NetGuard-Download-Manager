@@ -1,4 +1,4 @@
-//! #202: a freeze while MDM handles a command must still be reported. Since #176 the incoming
+//! #202: a freeze while NetGuard handles a command must still be reported. Since #176 the incoming
 //! commands and the clock run in the app's `logic`, which egui calls every frame (and alone while
 //! the main window is minimized); the freeze watchdog timed only `ui`, so a command that hung
 //! never opened the crash report window nor wrote a freeze report. The real app, off the screens

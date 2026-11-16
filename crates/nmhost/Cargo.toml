@@ -1,6 +1,6 @@
 [package]
 name = "mdm-nmhost"
-description = "Browser native messaging host: hands captured downloads to MDM"
+description = "Browser native messaging host: hands captured downloads to NetGuard"
 version.workspace = true
 edition.workspace = true
 rust-version.workspace = true
@@ -16,7 +16,7 @@ path = "src/main.rs"
 mdm-ipc.workspace = true
 serde.workspace = true
 serde_json.workspace = true
-# The date on its lines in MDM's log, written as the app's own (crates/crash/src/logs.rs).
+# The date on its lines in NetGuard's log, written as the app's own (crates/crash/src/logs.rs).
 chrono.workspace = true
 
 # Letting the app come to the front (AllowSetForegroundWindow, src/win32.rs).

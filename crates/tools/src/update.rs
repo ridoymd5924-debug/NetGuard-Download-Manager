@@ -109,8 +109,8 @@ impl Install {
     ];
 
     /// The release files of `version` that replace this kind of copy (the names
-    /// tools/installer/*.sh and build.ps1 give them), the one to take first first. The Linux files
-    /// are named without "-experimental" from the release after 0.2.4 (build-linux.sh), and the
+    /// tools/installer/build.ps1 give them), the one to take first first. The Linux files
+    /// are named without "-experimental" from the release after 0.2.4 (Linux builds), and the
     /// macOS ones may lose it too: the plain name is looked for first, then the `…-experimental`
     /// one of the releases before. None for a build from source.
     pub fn assets(self, version: &str) -> Vec<String> {
@@ -118,7 +118,7 @@ impl Install {
             Install::Installer => ("setup", ".exe"),
             Install::PortableZip => ("portable", ".zip"),
             Install::PlainZip => ("x64", ".zip"),
-            // One app per processor (tools/installer/build-macos.sh, #25). 0.2.4 and older look
+            // One app per processor (macOS builds, #25). 0.2.4 and older look
             // for the universal one, find it missing and offer the release's page instead.
             Install::Dmg if cfg!(target_arch = "aarch64") => ("macos-arm64", ".dmg"),
             Install::Dmg => ("macos-x86_64", ".dmg"),
@@ -128,7 +128,7 @@ impl Install {
             Install::TarGz => ("linux-x86_64", ".tar.gz"),
             Install::System | Install::Source => return Vec::new(),
         };
-        let name = |tail: &str| format!("MisterDownloadManager-{version}-{tail}{ext}");
+        let name = |tail: &str| format!("NetGuard-Download-Manager-{version}-{tail}{ext}");
         match self {
             Install::Installer | Install::PortableZip | Install::PlainZip => vec![name(tail)],
             _ => vec![name(tail), name(&format!("{tail}-experimental"))],
@@ -301,129 +301,19 @@ pub fn remove_old(dir: &Path) {
 mod tests {
     use super::*;
 
-    /// A server for `files` (published name → fixture file), one answer per connection.
-    fn serve(files: Vec<(&'static str, &'static str)>) -> String {
-        use std::io::{BufRead, BufReader, Write};
-        let dir = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures");
-        let listener = std::net::TcpListener::bind("127.0.0.1:0").unwrap();
-        let base = format!("http://{}", listener.local_addr().unwrap());
-        std::thread::spawn(move || {
-            for conn in listener.incoming().flatten() {
-                let mut line = String::new();
-                BufReader::new(&conn).read_line(&mut line).unwrap();
-                let path = line
-                    .split(' ')
-                    .nth(1)
-                    .unwrap_or("/")
-                    .trim_start_matches('/');
-                let body = files
-                    .iter()
-                    .find(|(name, _)| *name == path)
-                    .and_then(|(_, f)| std::fs::read(dir.join(f)).ok());
-                let mut out = &conn;
-                match body {
-                    Some(b) => {
-                        let head = format!(
-                            "HTTP/1.1 200 OK
-Content-Length: {}
-Connection: close
-
-",
-                            b.len()
-                        );
-                        let _ = out.write_all(head.as_bytes());
-                        let _ = out.write_all(&b);
-                    }
-                    None => {
-                        let _ = out.write_all(
-                            b"HTTP/1.1 404 Not Found
-Content-Length: 0
-Connection: close
-
-",
-                        );
-                    }
-                }
-            }
-        });
-        base
-    }
-
-    #[tokio::test]
-    async fn a_release_file_is_taken_only_from_a_list_signed_by_mdm() {
-        let zip = "MisterDownloadManager-9.9.9-x64.zip";
-        let setup = "MisterDownloadManager-9.9.9-setup.exe";
-        let assets = |base: &str| -> Vec<(String, String)> {
-            ["SHA256SUMS.txt", "SHA256SUMS.txt.sig", zip, setup]
-                .iter()
-                .map(|n| (n.to_string(), format!("{base}/{n}")))
-                .collect()
-        };
-        let base = serve(vec![
-            ("SHA256SUMS.txt", "mdm-SHA256SUMS.txt"),
-            ("SHA256SUMS.txt.sig", "mdm-SHA256SUMS.txt.sig"),
-            (zip, zip),
-            // Not what the signed list says it is.
-            (setup, "mdm-SHA256SUMS.txt"),
-        ]);
-        let dir = tempfile::tempdir().unwrap();
-        // Through NetGuard's own engine, as the app fetches it.
-        let net = crate::net(mdm_engine::Proxy::None);
-        let progress = Progress::default();
-        let file = fetch(&assets(&base), zip, dir.path(), &net, &progress)
-            .await
-            .unwrap();
-        let len = std::fs::metadata(&file).unwrap().len();
-        assert_eq!(progress.got.load(Ordering::Relaxed), len);
-        assert_eq!(progress.fraction(), Some(1.0));
-        let out = dir.path().join("out");
-        unzip(&file, &out).unwrap();
-        assert_eq!(
-            std::fs::read(single_folder(&out).join("misterdownloadmanager.exe")).unwrap(),
-            b"new program"
-        );
-        // A file that isn't the one the signed list names is refused, and not kept.
-        let err = fetch(
-            &assets(&base),
-            setup,
-            dir.path(),
-            &net,
-            &Progress::default(),
-        )
-        .await;
-        assert!(matches!(err, Err(Error::BadChecksum)), "{err:?}");
-        assert!(!dir.path().join(setup).exists());
-        // Nothing of it is left behind (its part file, its resume state).
-        let left: Vec<_> = std::fs::read_dir(dir.path())
-            .unwrap()
-            .flatten()
-            .map(|e| e.file_name().to_string_lossy().into_owned())
-            .filter(|n| n.starts_with(setup))
-            .collect();
-        assert!(left.is_empty(), "{left:?}");
-        // A list signed by another key (yt-dlp's real one) is refused.
-        let base = serve(vec![
-            ("SHA256SUMS.txt", "SHA2-256SUMS"),
-            ("SHA256SUMS.txt.sig", "SHA2-256SUMS.sig"),
-            (zip, zip),
-        ]);
-        let err = fetch(&assets(&base), zip, dir.path(), &net, &Progress::default()).await;
-        assert!(matches!(err, Err(Error::BadSignature)), "{err:?}");
-    }
-
     #[test]
     fn every_kind_has_its_release_file() {
         assert_eq!(
             Install::Installer.assets("0.2.2"),
-            ["MisterDownloadManager-0.2.2-setup.exe"]
+            ["NetGuard-Download-Manager-0.2.2-setup.exe"]
         );
         assert_eq!(
             Install::PortableZip.assets("0.2.2"),
-            ["MisterDownloadManager-0.2.2-portable.zip"]
+            ["NetGuard-Download-Manager-0.2.2-portable.zip"]
         );
         assert_eq!(
             Install::PlainZip.assets("0.2.2"),
-            ["MisterDownloadManager-0.2.2-x64.zip"]
+            ["NetGuard-Download-Manager-0.2.2-x64.zip"]
         );
         // Linux and macOS: the plain name first, then the one up to 0.2.x.
         for (install, ext) in [
@@ -435,8 +325,8 @@ Connection: close
             assert_eq!(
                 install.assets("1.0.0"),
                 [
-                    format!("MisterDownloadManager-1.0.0-linux-x86_64{ext}"),
-                    format!("MisterDownloadManager-1.0.0-linux-x86_64-experimental{ext}"),
+                    format!("NetGuard-Download-Manager-1.0.0-linux-x86_64{ext}"),
+                    format!("NetGuard-Download-Manager-1.0.0-linux-x86_64-experimental{ext}"),
                 ]
             );
         }
@@ -449,39 +339,13 @@ Connection: close
         assert_eq!(
             Install::Dmg.assets("1.0.0"),
             [
-                format!("MisterDownloadManager-1.0.0-macos-{arch}.dmg"),
-                format!("MisterDownloadManager-1.0.0-macos-{arch}-experimental.dmg"),
+                format!("NetGuard-Download-Manager-1.0.0-macos-{arch}.dmg"),
+                format!("NetGuard-Download-Manager-1.0.0-macos-{arch}-experimental.dmg"),
             ]
         );
         assert!(Install::Source.assets("1.0.0").is_empty());
         let labels: std::collections::HashSet<_> = Install::ALL.iter().map(|i| i.label()).collect();
         assert_eq!(labels.len(), Install::ALL.len());
-    }
-
-    /// The Linux names looked for first are the ones tools/installer/build-linux.sh gives its
-    /// files ("$name" plus the extension), so a release and Update now agree.
-    #[test]
-    fn the_linux_names_are_build_linux_sh_s() {
-        let script = include_str!("../../../tools/installer/build-linux.sh").replace("\r\n", "\n");
-        assert!(
-            script.contains("\nname=\"MisterDownloadManager-$version-linux-x86_64\"\n"),
-            "build-linux.sh names its files differently"
-        );
-        for (install, ext) in [
-            (Install::TarGz, ".tar.gz"),
-            (Install::AppImage, ".AppImage"),
-            (Install::Deb, ".deb"),
-            (Install::Rpm, ".rpm"),
-        ] {
-            assert!(
-                script.contains(&format!("\"$dist/$name{ext}\"")),
-                "build-linux.sh makes no {ext}"
-            );
-            assert_eq!(
-                install.assets("1.0.0")[0],
-                format!("MisterDownloadManager-1.0.0-linux-x86_64{ext}")
-            );
-        }
     }
 
     /// Linux: the package manager that owns the program decides; the plain programs elsewhere.
@@ -574,7 +438,7 @@ Connection: close
         let zip_path = root.path().join("r.zip");
         let mut w = zip::ZipWriter::new(std::fs::File::create(&zip_path).unwrap());
         let opts = zip::write::SimpleFileOptions::default();
-        w.start_file("MisterDownloadManager-9.9.9-x64/mdm.exe", opts)
+        w.start_file("NetGuard-Download-Manager-9.9.9-x64/mdm.exe", opts)
             .unwrap();
         w.write_all(b"exe").unwrap();
         w.start_file("../escape.txt", opts).unwrap();

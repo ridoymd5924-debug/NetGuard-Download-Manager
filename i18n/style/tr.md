@@ -1,4 +1,4 @@
-<!-- How Turkish writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Turkish writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Komutlarda arayüz boyunca tutarlı, kısa emir biçimi kullanın; zamir eklemeyin. (İndirmeyi başlat; Bağlantıyı kopyala)
 - Düğme metinlerinde eylemi doğrudan ifade edin. Kısa ve yerleşik eylem adları kullanın. (Kaydet; Duraklat)
 - Menü öğelerinde komut biçimini koruyun; aynı eylemi düğmelerden farklı çevirmeyin. (Tümünü seç; Klasörü aç)
@@ -14,9 +14,9 @@
 - Ay ve gün adlarını cümle başında olmadıkça küçük harfle yazın. (12 mayıs; pazartesi günü)
 - Noktalama işaretlerini Türkçe yazım kurallarına göre kullanın: işaretten önce boşluk bırakmayın, sonrasında bir boşluk bırakın. Tam cümleleri noktayla bitirin; kısa arayüz etiketlerine nokta eklemeyin. (İndirme tamamlandı.; İndirme konumu)
 - Üç nokta yerine tek karakterli üç nokta (…) kullanın. Tırnak gereken yerlerde Türkçe tipografik çift tırnakları tercih edin. (Bağlantı denetleniyor…; “İndirmeyi başlat” seçeneği)
-- Özel ada gelen çekim ekini kesme işaretiyle ayırın; ürün adlarını değiştirmeyin. (Windows'ta; Mister Download Manager'ı)
+- Özel ada gelen çekim ekini kesme işaretiyle ayırın; ürün adlarını değiştirmeyin. (Windows'ta; NetGuard Download Manager'ı)
 - Özne bağlamdan belliyse Türkçede özneyi düşürebilirsiniz; yüklemi özneyle uyumlu kurun. Sayı bildiren çoğul öznelerle genellikle tekil yüklem kullanın. (İndirme duraklatıldı.; 3 dosya indiriliyor.)
 - Türkçenin doğal özne-nesne-yüklem sırasını izleyin; İngilizce sözcük dizilişini korumayın. (Dosya indiriliyor.; Bağlantıyı şimdi denetle.)
-- Yerleşik Türkçe karşılığı bulunan İngilizce sözcükleri kullanmayın. Kaçınılmaz teknik terimleri tutarlı kullanın; ürün ve dosya adlarını çevirmeyin. (klasör (folder değil); Mister Download Manager)
+- Yerleşik Türkçe karşılığı bulunan İngilizce sözcükleri kullanmayın. Kaçınılmaz teknik terimleri tutarlı kullanın; ürün ve dosya adlarını çevirmeyin. (klasör (folder değil); NetGuard Download Manager)
 - Sayı ve ölçü birimi arasında boşluk bırakın; Türkçe sayı ve yüzde yazımını kullanın. (10 MB; %50)
 - Eylem türlerini birbirinden ayırın: bir ayarı gözden geçirmek için denetlemek, doğruluğunu teyit etmek için doğrulamak, işlevi denemek için test etmek uygundur. (Güncelleştirmeleri denetle; Dosya bütünlüğünü doğrula)

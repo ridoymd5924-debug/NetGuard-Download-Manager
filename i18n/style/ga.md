@@ -1,4 +1,4 @@
-<!-- How Irish writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Irish writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the singular imperative for commands and action buttons. Keep button text concise and omit terminal punctuation. (Íoslódáil; Sábháil)
 - Phrase menu items as actions, usually with the same imperative form as buttons. (Oscail fillteán; Seiceáil le haghaidh nuashonruithe)
 - Phrase check-box labels as statements describing the setting, not as commands. Make clear what selecting the box will do. (Tosaigh íoslódálacha go huathoibríoch; Taispeáin fógraí)
@@ -8,7 +8,7 @@
 - Use a concise verbal phrase for progress and status. Use an ellipsis for an operation that is still in progress; do not make a status sound like a command. (Ag seiceáil…; Tá {n} comhad á n-íoslódáil)
 - Write errors in complete, natural Irish where possible. Keep the explanation or error detail after a colon. (Níorbh fhéidir an comhad a oscailt: {error})
 - Write event-log entries as clear statements, normally in the past tense. Include the affected item when it helps identify the event. (Cuireadh an comhad leis an scuaine.)
-- Use sentence case for interface text and headings, not English title case. Preserve the capitalization of product and proper names. (Socruithe íoslódála; Mister Download Manager)
+- Use sentence case for interface text and headings, not English title case. Preserve the capitalization of product and proper names. (Socruithe íoslódála; NetGuard Download Manager)
 - Capitalize names of weekdays and months; retain the capital in the name of a weekday after Dé. (Dé Luain; Eanáir)
 - Use Irish punctuation conventions consistently: no space before punctuation and one space after it. Use a single ellipsis character for an unfinished status. (Íoslódáil críochnaithe.; Ag nascadh…)
 - Use typographic double quotation marks for quoted interface text. Do not add spaces inside quotation marks. (Roghnaigh “Íoslódáil”.)

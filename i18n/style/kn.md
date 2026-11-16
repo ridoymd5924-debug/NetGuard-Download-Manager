@@ -1,4 +1,4 @@
-<!-- How Kannada writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Kannada writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - ಓದುಗರನ್ನು ಗೌರವಪೂರ್ಣ, ಔಪಚಾರಿಕ «ನೀವು» ರೂಪದಲ್ಲಿ ಸಂಬೋಧಿಸಿ. ಸಾಮಾನ್ಯ ಸೂಚನೆಗಳಲ್ಲಿ «ನೀವು» ಎಂದು ನೇರವಾಗಿ ಬರೆಯುವುದಕ್ಕಿಂತ ಕ್ರಿಯೆಯನ್ನು ನೇರವಾಗಿ ಹೇಳಿ. (ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ನಮೂದಿಸಿ.; ಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ.)
 - ಆಜ್ಞೆಗಳು ಮತ್ತು ದೀರ್ಘ ಸೂಚನೆಗಳಿಗೆ ಗೌರವಸೂಚಕ ಕ್ರಿಯಾಪದ ರೂಪ ಬಳಸಿ; ಸ್ಪಷ್ಟವಾಗಿ ಅರ್ಥವಾಗುವಂತೆ ಚಿಕ್ಕದಾಗಿರಲಿ. (ಡೌನ್‌ಲೋಡ್ ಪ್ರಾರಂಭಿಸಿ.; ಫೋಲ್ಡರ್ ತೆರೆಯಿರಿ.)
 - ಬಟನ್‌ಗಳಲ್ಲಿ ಸಾಧ್ಯವಾದಷ್ಟು ಚಿಕ್ಕ ಕ್ರಿಯಾಪದ ಅಥವಾ ಸ್ಥಿರ ಸಂಕ್ಷಿಪ್ತ ಪದ ಬಳಸಿ. ಒಂದೇ ಕಾರ್ಯಕ್ಕೆ ಒಂದೇ ರೂಪವನ್ನು ಎಲ್ಲೆಡೆ ಬಳಸಿ. (ಉಳಿಸಿ; ರದ್ದುಮಾಡಿ)

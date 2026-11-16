@@ -102,7 +102,8 @@ pub struct Settings {
     /// View → Always dark (#60): dark whatever the system says (a desktop that reports no
     /// preference, or a dark NetGuard on a light desktop).
     pub always_dark: bool,
-    /// The look (#45): a built-in theme's id ("classic", the default) or a theme file's name in
+    /// The look (#45): a built-in theme's id ("netguard", the default; "classic" is the original)
+    /// or a theme file's name in
     /// the data folder's `themes` folder (crate::themefile).
     pub theme: String,
     /// View → Draw with (#89): OpenGL or Direct3D (Windows only), used from the next start.
@@ -366,7 +367,7 @@ impl Default for Settings {
             view: None,
             dark_mode_support: true,
             always_dark: true,
-            theme: "classic".into(),
+            theme: "netguard".into(),
             renderer: None,
             interface_size: 100,
             limits_on: false,
@@ -450,7 +451,7 @@ impl Default for Settings {
             torrent_stop_ratio: 200,
             torrent_stop_minutes_on: false,
             torrent_stop_minutes: 1440,
-            update_check: true,
+            update_check: false,
             update_checked: 0,
             custom_categories: Vec::new(),
             builtin_categories: Vec::new(),

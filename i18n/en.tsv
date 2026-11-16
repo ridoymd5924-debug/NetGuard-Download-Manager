@@ -1991,7 +1991,6 @@
 #. text in crashui.rs
 	NetGuard Download Manager crash report	NetGuard Download Manager crash report
 #. text in crashui.rs
-#. crash report window heading: an internal error, NetGuard still running
 	NetGuard Download Manager hit an internal error	NetGuard Download Manager hit an internal error
 #. text in wake.rs
 #. why the computer isn't going to sleep, in the system's list of programs that keep it awake; {queue} = the queue's name
@@ -3039,7 +3038,7 @@
 #. text in the Options window; text in the Scheduler window
 	Sunday	Sunday
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
-	Support NetGuard on GitHub Sponsors	Support NetGuard on GitHub Sponsors
+	Support NetGuard on GitHub	Support NetGuard on GitHub
 #. text in countries.rs
 #. a country's name (where a download's server is)
 	Suriname	Suriname
@@ -4022,7 +4021,6 @@
 #. text in errors.rs
 	{problem} ({cause})	{problem} ({cause})
 #. text in errors.rs
-#. a debrid service's error: too many requests; NetGuard waits and retries
 	{service} asks to slow down; NetGuard will try again in a minute	{service} asks to slow down; NetGuard will try again in a minute
 #. text in errors.rs
 #. a debrid service's error: it wants the user to allow this computer (it sent an email)
@@ -4132,7 +4130,7 @@ column	Time left	Time left
 #. column title in the download list in the download list
 column	Transfer rate	Transfer rate
 #. text in the browser extension
-#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 extension	Another NetGuard Download Manager (a server)	Another NetGuard Download Manager (a server)
 #. text in the browser extension
 #. the name this browser gets in the other NetGuard's list of paired devices
@@ -4594,11 +4592,7 @@ menu	By Transfer &Rate	By Transfer &Rate
 #. the trailing ... means it opens a window: keep it
 menu	C&ustomize URL List...	C&ustomize URL List...
 #. menu command in the main window
-#. & marks the keyboard shortcut letter: keep one & before a letter of the translation
-#. the trailing ... means it opens a window: keep it
-menu	Check for &updates...	Check for &updates...
-#. menu command in the main window
-#. View → Theme: NetGuard's own look, the default (IDM's layout, Windows 11's controls)
+#. View → Theme: the original look (IDM's layout, Windows 11's controls)
 menu	Classic	Classic
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
@@ -4699,6 +4693,9 @@ menu	Move/Rename (Ctrl-M)	Move/Rename (Ctrl-M)
 #. menu command in the main window
 #. View → Theme: the system's own colours (its accent colour, its high contrast)
 menu	Native	Native
+#. menu command in the main window
+#. View → Theme: NetGuard's own look, the default (Dark Navy and Emerald); a name: keep "NetGuard" as written
+menu	NetGuard	NetGuard
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 menu	NetGuard Download Manager &Home Page	NetGuard Download Manager &Home Page

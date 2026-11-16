@@ -5590,7 +5590,7 @@ column	Time left	Kalan süre
 #, machine
 column	Transfer rate	Aktarım hızı
 #. text in the browser extension
-#. choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
+#. choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is
 #, machine
 extension	Another NetGuard Download Manager (a server)	Başka bir NetGuard Download Manager (bir sunucu)
 #. text in the browser extension

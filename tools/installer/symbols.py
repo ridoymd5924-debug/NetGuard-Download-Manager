@@ -1,4 +1,4 @@
-"""The release's symbols for crash reports: Breakpad .sym files of the programs MDM ships, in a
+"""The release's symbols for crash reports: Breakpad .sym files of the programs NetGuard ships, in a
 symbol store (<debug file>/<id>/<name>.sym, as rust-minidump and Mozilla's symbol servers read
 it), zipped as MisterDownloadManager-<version>-symbols-<platform>.zip beside the release's other
 downloads. The crash report window fetches the zip for its own version to make its stacks

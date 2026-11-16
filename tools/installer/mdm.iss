@@ -4,8 +4,8 @@
 ; Install for the current user (no administrator rights, %LOCALAPPDATA%\Programs) or for
 ; everyone (Program Files); the wizard asks. Tasks: browser integration (native messaging host
 ; for Chrome, Edge, Brave and Firefox), .torrent files and magnet links, start with Windows, a
-; desktop shortcut. A running MDM is asked to save and quit first (/exit). Uninstalling asks
-; whether to keep the download list and settings; removing them also removes MDM's sign-ins from
+; desktop shortcut. A running NetGuard is asked to save and quit first (/exit). Uninstalling asks
+; whether to keep the download list and settings; removing them also removes NetGuard's sign-ins from
 ; Windows Credential Manager (misterdownloadmanager --forget-sign-ins).
 
 #ifndef AppVersion
@@ -18,16 +18,16 @@
 #define Bin Root + "\target\release"
 
 [Setup]
-; Never change AppId: upgrades and the uninstaller find the installation by it.
-AppId={{667DB4D8-32C2-4487-A0E5-5825BF29778C}
+; Never change AppId: upgrades and the uninstaller find the installation by it. (NetGuard's own:
+; it is not Mister Download Manager's, so the two are separate installations.)
+AppId={{18E66589-88DE-4E12-9116-3E2CEBE09ADB}
 AppName={#AppName}
 AppVersion={#AppVersion}
 AppVerName={#AppName} {#AppVersion}
-AppPublisher=Ahmed Nefzaoui
-AppPublisherURL=https://github.com/anefzaoui/misterdownloadmanager
-AppSupportURL=https://github.com/anefzaoui/misterdownloadmanager/issues
-AppUpdatesURL=https://github.com/anefzaoui/misterdownloadmanager/releases
-AppCopyright=Copyright (C) 2026 Ahmed Nefzaoui
+AppPublisher=NetGuard
+AppPublisherURL=https://github.com/ridoymd5924-debug/NetGuard-Download-Manager
+AppSupportURL=https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues
+AppCopyright=Copyright (C) 2026 Ahmed Nefzaoui and NetGuard contributors
 DefaultDirName={autopf}\{#AppName}
 DisableProgramGroupPage=yes
 PrivilegesRequired=lowest
@@ -42,18 +42,18 @@ SetupIconFile={#Root}\crates\app\assets\icons\app\mdm.ico
 UninstallDisplayIcon={app}\{#AppExe}
 UninstallDisplayName={#AppName}
 OutputDir={#Root}\target\dist
-OutputBaseFilename=MisterDownloadManager-{#AppVersion}-setup
+OutputBaseFilename=NetGuard-Download-Manager-{#AppVersion}-setup
 ; A 64 MB dictionary (#25): an 8 MB one (lzma2/max) only finds what repeats close by in the
 ; solid archive. A few MB smaller; building needs about 750 MB of memory, installing 64 MB.
 Compression=lzma2/ultra64
 SolidCompression=yes
 ChangesAssociations=yes
-; A running MDM is asked to quit by [Code] (it holds the mutex MisterDownloadManager.Running);
+; A running NetGuard is asked to quit by [Code] (it holds the mutex MisterDownloadManager.Running);
 ; AppMutex isn't used because it would refuse to start before that. Restart Manager is the
 ; fallback for anything else holding the files (a browser running the host).
 CloseApplications=yes
 VersionInfoVersion={#AppVersion}
-VersionInfoCompany=Ahmed Nefzaoui
+VersionInfoCompany=NetGuard
 VersionInfoDescription={#AppName} setup
 VersionInfoProductName={#AppName}
 #ifdef Sign
@@ -104,7 +104,7 @@ Name: "{autodesktop}\{#AppName}"; Filename: "{app}\{#AppExe}"; Tasks: desktopico
 ; takes it on its first start, when it has no language setting yet (settings.rs), then deletes it.
 Root: HKCU; Subkey: "Software\MisterDownloadManager"; ValueType: string; ValueName: "InstallLanguage"; ValueData: "{language}"; Flags: uninsdeletevalue uninsdeletekeyifempty
 ; Start with Windows: the same value Options -> "Launch on startup" writes and reads, with the
-; argument that starts MDM in the notification area (#226; win32.rs startup_command).
+; argument that starts NetGuard in the notification area (#226; win32.rs startup_command).
 Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "MisterDownloadManager"; ValueData: """{app}\{#AppExe}"" /startup"; Flags: uninsdeletevalue; Tasks: startup
 ; .torrent files and magnet links (HKA: the user's or everyone's classes, as installed).
 Root: HKA; Subkey: "Software\Classes\MisterDownloadManager.torrent"; ValueType: string; ValueName: ""; ValueData: "Torrent file"; Flags: uninsdeletekey; Tasks: torrents
@@ -121,7 +121,7 @@ Root: HKA; Subkey: "Software\Classes\magnet\shell\open\command"; ValueType: stri
 Filename: "{app}\{#HostExe}"; Parameters: "--register"; Flags: runhidden; Tasks: browser; Check: not IsAdminInstallMode
 Filename: "{app}\{#HostExe}"; Parameters: "--register --all-users"; Flags: runhidden; Tasks: browser; Check: IsAdminInstallMode
 Filename: "{app}\{#AppExe}"; Description: "{cm:Launch}"; Flags: nowait postinstall skipifsilent
-; Update now in MDM runs this setup silently with /relaunch=1: MDM starts again once installed,
+; Update now in NetGuard runs this setup silently with /relaunch=1: NetGuard starts again once installed,
 ; as the user (not as the administrator an all-users update asked for).
 Filename: "{app}\{#AppExe}"; Parameters: "/updated"; Flags: nowait runasoriginaluser; Check: Relaunch
 
@@ -136,13 +136,13 @@ Type: files; Name: "{app}\com.misterdownloadmanager.host*.json"
 const
   RunningMutex = 'MisterDownloadManager.Running';
 
-{ /relaunch=1 on the command line (MDM's Update now): start MDM again after installing. }
+{ /relaunch=1 on the command line (NetGuard's Update now): start NetGuard again after installing. }
 function Relaunch: Boolean;
 begin
   Result := ExpandConstant('{param:relaunch|0}') = '1';
 end;
 
-{ Ask a running MDM to save and quit, and wait up to 15 s for it. }
+{ Ask a running NetGuard to save and quit, and wait up to 15 s for it. }
 procedure ExitRunningApp(Exe: String);
 var
   Code, Waited: Integer;
@@ -181,7 +181,7 @@ begin
     RegDeleteKeyIncludingSubkeys(HKA, Key);
 end;
 
-{ Asked before the files go (the sign-ins are removed by MDM itself), the list and settings
+{ Asked before the files go (the sign-ins are removed by NetGuard itself), the list and settings
   removed after. A silent uninstall keeps both. }
 var
   RemoveData: Boolean;
@@ -200,7 +200,7 @@ begin
     RemoveData := False;
     if DirExists(Data) and not UninstallSilent() then
       RemoveData := MsgBox(CustomMessage('KeepData'), mbConfirmation, MB_YESNO or MB_DEFBUTTON2) = IDYES;
-    { The sign-ins MDM keeps in Windows Credential Manager (only MDM's own entries). }
+    { The sign-ins NetGuard keeps in Windows Credential Manager (only NetGuard's own entries). }
     if RemoveData then
       Exec(ExpandConstant('{app}\{#AppExe}'), '--forget-sign-ins', '', SW_HIDE, ewWaitUntilTerminated, Code);
   end;

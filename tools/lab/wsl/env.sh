@@ -16,7 +16,7 @@ export DBUS_SESSION_BUS_ADDRESS=unix:path=$XDG_RUNTIME_DIR/bus
 # Software OpenGL (Mesa's llvmpipe), as on a machine without a GPU: the same pixels every run,
 # and nothing goes through WSL's GPU bridge to Windows.
 export LIBGL_ALWAYS_SOFTWARE=1 GALLIUM_DRIVER=llvmpipe
-# A browser or file manager MDM asks for (xdg-open) has nowhere to go: interop is off and none
+# A browser or file manager NetGuard asks for (xdg-open) has nowhere to go: interop is off and none
 # is installed; BROWSER says so plainly.
 export BROWSER=/bin/false
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

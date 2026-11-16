@@ -21,27 +21,27 @@ and clipboard are never touched; keep the VM's clipboard sharing and drag-and-dr
 In the guest (~/lab, from `setup`):
   build.sh <ref> [label]       a branch, PR (pr/<n>) or commit, built with the lab's vmtest profile
                                into ~/lab/bin/<label>/, in a terminal on the lab's desktop
-  restart-lab.sh <label>       the lab server and MDM from one build, restarted
+  restart-lab.sh <label>       the lab server and NetGuard from one build, restarted
   shots.sh <label> <window> <lang> <light|dark>   one window ready for a screenshot (its frame
                                printed); shot-host.sh, on the host, crops VirtualBox's screenshot
                                to it; pixdiff.py compares two folders of shots pixel by pixel
-  measure.sh <program> <label> MDM's start-up timings
-  streams.mjs, streams-chrome.mjs, run-streams.sh   HLS and DASH players handed to MDM from the
+  measure.sh <program> <label> NetGuard's start-up timings
+  streams.mjs, streams-chrome.mjs, run-streams.sh   HLS and DASH players handed to NetGuard from the
                                Snap Firefox and Google Chrome by the extension's three paths,
                                checked against the lab server's log
   proxy-optin.mjs, chrome-popup.mjs   the extension's popup: the proxy switch and its permission
                                prompt in Firefox; any check of the popup in Chrome
-  win.sh (with win-host.sh on the host)   one MDM kept running while several of its windows are
+  win.sh (with win-host.sh on the host)   one NetGuard kept running while several of its windows are
                                shot in turn: start with a language, mode and theme, open, close,
                                switch theme live, real clicks and keys inside the VM
   store-check.mjs              a store package (.xpi, unpacked Chrome zip) installed, its popup, an
-                               ordinary download handed to MDM
+                               ordinary download handed to NetGuard
   chrome-menu.mjs              an HLS stream from Google Chrome's right-click menu (a real right-click
                                in a Chrome window, which headless Chrome can't show)
   desktop.sh                   KDE Plasma, Cinnamon or XFCE beside GNOME in a clone, auto-login to it
-  handoff-minimized.sh, queue-minimized.sh   hand-overs and the Scheduler while MDM is minimized
+  handoff-minimized.sh, queue-minimized.sh   hand-overs and the Scheduler while NetGuard is minimized
   torrent-menu.sh              a torrent in the list with no network, for the torrent windows
-  use-system-helpers.sh        MDM uses the system's yt-dlp, ffmpeg and gallery-dl
+  use-system-helpers.sh        NetGuard uses the system's yt-dlp, ffmpeg and gallery-dl
 
 Snapshots for clones are taken powered off (`clone` shuts the VM down first when the snapshot
 doesn't exist yet): a live snapshot saves the whole memory, and under Hyper-V (VirtualBox's NEM
@@ -95,7 +95,7 @@ switch ($Action) {
             if (& $running) { throw "$vm did not shut down" }
         }
         # A USB tablet, so a viewer's pointer moves in and out without being captured. 8 CPUs,
-        # 12 GB and 3D (VMSVGA): GNOME and MDM's OpenGL drawn by the host's GPU rather than
+        # 12 GB and 3D (VMSVGA): GNOME and NetGuard's OpenGL drawn by the host's GPU rather than
         # llvmpipe (VirtualBox may run on Hyper-V here, which is slower). Clipboard and
         # drag-and-drop stay off: nothing crosses between the lab and the host.
         & $vbox modifyvm $vm --usb-ohci on --mouse usbtablet --cpus 8 --memory 12288 `

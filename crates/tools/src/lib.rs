@@ -25,10 +25,6 @@ use sha2::{Digest, Sha256};
 
 /// yt-dlp's release signing key, from its repository (`public.key`).
 const YTDLP_KEY: &str = include_str!("../keys/yt-dlp.asc");
-/// The upstream Mister Download Manager project's release signing key (Ed25519, fingerprint
-/// 5826D399249DE856EA087D802E293C28E8A69D74): release.yml signs each release's SHA256SUMS.txt
-/// with it (the MDM_RELEASE_KEY secret), and the app updates itself only from a list it signed.
-const MDM_KEY: &str = include_str!("../keys/mdm-release.asc");
 /// Where releases come from.
 const RELEASES: &str = "https://api.github.com/repos/yt-dlp/yt-dlp/releases/latest";
 
@@ -94,12 +90,10 @@ pub fn signed_by_ytdlp(sums: &[u8], sig: &[u8]) -> bool {
     signed_by(YTDLP_KEY, sums, sig)
 }
 
-/// Whether `sums` (a release's SHA256SUMS.txt) carries a valid signature `sig` by Mister
-/// Download Manager's release key.
+/// Whether `sums` (a release's SHA256SUMS.txt) carries a valid signature `sig` by NetGuard's
+/// release key. NetGuard has no release key yet (updates are switched off in this release), so
+/// nothing verifies: a future NetGuard updater pins its public key here.
 pub fn signed_by_mdm(sums: &[u8], sig: &[u8]) -> bool {
-    if signed_by(MDM_KEY, sums, sig) {
-        return true;
-    }
     // Update now's end-to-end tests (feature `test-update`, never in a release): a fake
     // release on a lab server, signed with a test key of their own.
     #[cfg(feature = "test-update")]
@@ -108,6 +102,7 @@ pub fn signed_by_mdm(sums: &[u8], sig: &[u8]) -> bool {
     {
         return signed_by(&key, sums, sig);
     }
+    let _ = (sums, sig);
     false
 }
 
@@ -412,15 +407,7 @@ mod tests {
     }
 
     #[test]
-    fn mdm_releases_are_checked_against_mdms_own_key() {
-        let sums = include_bytes!("../tests/fixtures/mdm-SHA256SUMS.txt");
-        let sig = include_bytes!("../tests/fixtures/mdm-SHA256SUMS.txt.sig");
-        assert!(signed_by_mdm(sums, sig));
-        let mut forged = sums.to_vec();
-        forged[0] = if forged[0] == b'0' { b'1' } else { b'0' };
-        assert!(!signed_by_mdm(&forged, sig));
-        // Each key signs for itself only.
-        assert!(!signed_by_ytdlp(sums, sig));
+    fn no_release_verifies_until_netguard_pins_its_own_key() {
         assert!(!signed_by_mdm(SUMS, SIG));
     }
 

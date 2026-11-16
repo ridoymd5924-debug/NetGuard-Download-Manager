@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# mdm-lab: a WSL2 distribution that builds MDM for Linux at the PC's full speed and screenshots
+# mdm-lab: a WSL2 distribution that builds NetGuard for Linux at the PC's full speed and screenshots
 # its windows on a virtual screen (Xvfb) that never shows on Windows. It replaces the VirtualBox
 # machines for builds and window shots (those run about 3x slower under Hyper-V); README.md says
 # what still needs them.
@@ -13,7 +13,7 @@
 set -euo pipefail
 [ "$(id -u)" = 0 ] || { echo "run as root: wsl -d mdm-lab -u root -- bash $0" >&2; exit 2; }
 user=lab
-repo_url=https://github.com/anefzaoui/misterdownloadmanager.git
+repo_url=https://github.com/ridoymd5924-debug/NetGuard-Download-Manager.git
 export DEBIAN_FRONTEND=noninteractive
 
 # --- The distribution's own settings (per distribution; .wslconfig is global and stays as it is).
@@ -21,7 +21,7 @@ export DEBIAN_FRONTEND=noninteractive
 # Windows' PATH stays out of builds. WSLg can't be turned off per distribution (guiApplications
 # is a .wslconfig key), so env.sh keeps every program off its display, sound and runtime folder.
 cat > /etc/wsl.conf <<'EOF'
-# mdm-lab: MDM's build and screenshot machine (tools/lab/wsl/setup.sh).
+# mdm-lab: NetGuard's build and screenshot machine (tools/lab/wsl/setup.sh).
 [boot]
 systemd=true
 
@@ -37,7 +37,7 @@ echo "$user ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/$user
 chmod 440 /etc/sudoers.d/$user
 
 # --- Packages: the build's libraries (the same as ci.yml, release.yml and the VMs' setup.sh),
-# the helpers MDM drives (ffmpeg, 7-Zip: their windows show what is found), the virtual screen
+# the helpers NetGuard drives (ffmpeg, 7-Zip: their windows show what is found), the virtual screen
 # with a window manager that frames windows as a desktop does (Metacity: GNOME's own frames,
 # without a compositor, so a capture reads the screen as drawn), capture and input tools, and
 # the fonts of an Ubuntu desktop with every script the languages need.

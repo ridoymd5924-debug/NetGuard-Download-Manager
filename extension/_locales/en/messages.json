@@ -251,7 +251,7 @@
   },
   "popup_send_remote": {
     "message": "Another NetGuard Download Manager (a server)",
-    "description": "choice under Send downloads to: an NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is"
+    "description": "choice under Send downloads to: a NetGuard running on another computer of the network, such as a home server; keep the name NetGuard Download Manager as it is"
   },
   "popup_remote_code": {
     "message": "Pairing code",

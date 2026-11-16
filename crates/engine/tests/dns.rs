@@ -48,7 +48,7 @@ fn answer(q: &[u8]) -> Option<(Vec<u8>, String)> {
     Some((r, name))
 }
 
-/// A DNS server over TCP on 127.0.0.1 (MDM asks plain DNS over TCP only), answering as
+/// A DNS server over TCP on 127.0.0.1 (NetGuard asks plain DNS over TCP only), answering as
 /// [`answer`] and recording each name asked and the address each connection came from.
 async fn fake_dns() -> (SocketAddr, Arc<Mutex<Vec<String>>>, Arc<Mutex<Vec<IpAddr>>>) {
     use tokio::io::{AsyncReadExt, AsyncWriteExt};

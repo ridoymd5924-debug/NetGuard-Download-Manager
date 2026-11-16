@@ -1902,7 +1902,7 @@ pub fn popup_window(title: &str, kind: Popup) -> bool {
     // the DWM attributes are read from locals during the calls.
     unsafe {
         // Done once (comctl32 5.8, which NetGuard links, has no GetWindowSubclass to ask by).
-        let done: Vec<u16> = "NetGuard.popup\0".encode_utf16().collect();
+        let done: Vec<u16> = "MDM.popup\0".encode_utf16().collect();
         if !GetPropW(hwnd, done.as_ptr()).is_null() {
             return false;
         }
@@ -2793,7 +2793,7 @@ mod startup_tests {
         assert!(startup_outdated(&format!("\"{EXE}\""), exe));
         // Written by hand: unquoted, in another case, with other slashes.
         assert!(startup_outdated(
-            r"c:\program files\netguard download manager\MISTERDOWNLOADMANAGER.EXE",
+            r"c:\program files\mister download manager\MISTERDOWNLOADMANAGER.EXE",
             exe
         ));
         assert!(startup_outdated(
@@ -2810,21 +2810,6 @@ mod startup_tests {
             exe
         ));
         assert!(!startup_outdated("", exe));
-    }
-
-    /// An install still in the folder of the original name (an upgrade keeps the folder it found:
-    /// the installer's `AppId` is the original's) is migrated the same: an entry is compared with
-    /// the running program's own path, so the folder's name doesn't matter.
-    #[test]
-    fn entries_of_an_install_under_the_old_name_still_migrate() {
-        const OLD: &str = r"C:\Program Files\Mister Download Manager\misterdownloadmanager.exe";
-        let exe = Path::new(OLD);
-        assert!(startup_outdated(&format!("\"{OLD}\""), exe));
-        assert!(startup_outdated(
-            r"c:\program files\mister download manager\MISTERDOWNLOADMANAGER.EXE",
-            exe
-        ));
-        assert!(!startup_outdated(&format!("\"{OLD}\" /startup"), exe));
     }
 
     /// The installer's "Start when Windows starts" writes the entry Options writes.

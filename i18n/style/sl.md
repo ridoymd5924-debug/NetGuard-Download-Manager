@@ -1,4 +1,4 @@
-<!-- How Slovenian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Slovenian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Za ukaze v gumbih in menijih uporabite kratko velelno obliko; ustaljeni ukazi so lahko v ednini. Menijske skupine so lahko poimenovane z samostalnikom. (Odpri; Prekliči)
 - Besedilo potrditvenega polja naj bo kratka oznaka ali ukaz, ki jasno pove, kaj možnost naredi. Piko izpustite. (Samodejno nadaljuj prenose; Zaženi ob zagonu sistema)
 - V navodilih in sporočilih uporabnika vikajte. Neposredno naslavljanje izpustite, kadar je besedilo brez njega jasnejše; za kratke kontrolnike uporabite ustaljeno kratko obliko. (Vnesite ime datoteke.; Izberite mapo za prenose.)

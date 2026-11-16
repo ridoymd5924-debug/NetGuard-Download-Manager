@@ -136,7 +136,7 @@ function Shot([int]$procId, [string]$title, [string]$name, [switch]$All) {
   "  $name.png  ($title)"
 }
 
-# MDM starts itself again when its renderer fails (a lost Direct3D device, renderer.rs): the
+# NetGuard starts itself again when its renderer fails (a lost Direct3D device, renderer.rs): the
 # shots go on in the new copy, ours too (our program, started after this run with /updated).
 $started = Get-Date
 function Ours { Get-CimInstance Win32_Process -Filter "Name='$(Split-Path -Leaf $Exe)'" |
@@ -144,8 +144,8 @@ function Ours { Get-CimInstance Win32_Process -Filter "Name='$(Split-Path -Leaf 
 function Follow {
   if (-not $script:app.HasExited) { return }
   $n = @(Ours | Where-Object { $_.CommandLine -like "*/updated*" })[0]
-  if (-not $n) { throw "MDM ended" }
-  Write-Warning "MDM started again (pid $($n.ProcessId)); the shots go on there"
+  if (-not $n) { throw "NetGuard ended" }
+  Write-Warning "NetGuard started again (pid $($n.ProcessId)); the shots go on there"
   $script:app = Get-Process -Id $n.ProcessId
   Start-Sleep 4
   $script:main = @(Titles $script:app.Id | Where-Object { $_ -like "NetGuard Download Manager*" })[0]
@@ -330,7 +330,7 @@ try {
     if ($Only.Count -eq 1) { Start-Sleep 10 }
     if (Want $name) { Shot $app.Id $main $name }
   }
-  # The crash report window, from a freeze on purpose (MDM_CRASH_TEST): last, as it leaves MDM
+  # The crash report window, from a freeze on purpose (MDM_CRASH_TEST): last, as it leaves NetGuard
   # frozen. The window is the crash monitor's, a process of its own, found by its title.
   $crashShot = if ($dark) { "crash-report-dark" } else { "crash-report" }
   if (Want $crashShot) {

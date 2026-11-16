@@ -540,7 +540,7 @@ mod tests {
         let s = load_from(&p, empty()).settings;
         assert_eq!(s.auto_types, mdm_ipc::capture::DEFAULT_AUTO_TYPES);
         assert!(
-            mdm_ipc::capture::type_listed(&s.auto_types, "NetGuard-0.3.0.dmg")
+            mdm_ipc::capture::type_listed(&s.auto_types, "MDM-0.3.0.dmg")
                 && mdm_ipc::capture::type_listed(&s.auto_types, "mdm_0.3.0_amd64.deb")
         );
         let edited = format!("{old} NZB");

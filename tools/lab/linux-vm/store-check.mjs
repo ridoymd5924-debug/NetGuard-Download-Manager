@@ -2,8 +2,8 @@
 // .xpi as a temporary add-on over WebDriver BiDi, as about:debugging loads one, since the Snap
 // Firefox wants signed add-ons for a normal install; Google Chrome: the unpacked folder over the
 // DevTools pipe), its version read back, its popup captured (PNG beside the output), and an
-// ordinary download handed to MDM: the browser asked for a lab file, MDM's Download File Info
-// window must open and the browser must not keep the download itself. MDM and the lab server must
+// ordinary download handed to NetGuard: the browser asked for a lab file, NetGuard's Download File Info
+// window must open and the browser must not keep the download itself. NetGuard and the lab server must
 // be running.
 //   node store-check.mjs firefox <file.xpi> [lab] [out folder]
 //   node store-check.mjs chrome <unpacked folder> [lab] [out folder]
@@ -39,18 +39,18 @@ const windows = () => run("wmctrl", ["-l"]);
 fs.mkdirSync(OUT, { recursive: true });
 const say = (s) => console.log(s);
 
-// The ordinary download: a lab file of its own name, MDM's window looked for, then closed.
+// The ordinary download: a lab file of its own name, NetGuard's window looked for, then closed.
 async function ordinary(navigate, downloadsDir) {
   run("wmctrl", ["-c", "Download File Info"]);
   await sleep(1000);
   const name = `store-${browser}-${Date.now() % 100000}.zip`;
   const t0 = Date.now();
   await navigate(`${LAB}/gen/1M/${name}`).catch(() => {});
-  const at = await until("MDM's Download File Info", 30000, async () => windows().includes("Download File Info") && ((Date.now() - t0) / 1000).toFixed(1)).catch(() => null);
+  const at = await until("NetGuard's Download File Info", 30000, async () => windows().includes("Download File Info") && ((Date.now() - t0) / 1000).toFixed(1)).catch(() => null);
   await sleep(2000);
   const kept = downloadsDir && fs.existsSync(downloadsDir) ? fs.readdirSync(downloadsDir).filter((f) => f.startsWith(name.replace(".zip", ""))) : [];
   run("wmctrl", ["-c", "Download File Info"]);
-  say(`${at ? "OK  " : "FAIL"} ordinary download ${name}: MDM's Download File Info ${at ? `at ${at} s` : "NOT within 30 s"}; ` + `the browser kept ${kept.length ? kept.join(", ") : "nothing"}`);
+  say(`${at ? "OK  " : "FAIL"} ordinary download ${name}: NetGuard's Download File Info ${at ? `at ${at} s` : "NOT within 30 s"}; ` + `the browser kept ${kept.length ? kept.join(", ") : "nothing"}`);
 }
 
 if (browser === "firefox") {

@@ -1,4 +1,4 @@
-<!-- How Bulgarian writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Bulgarian writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - В команди и текстове, които се обръщат към потребителя, използвайте учтивата форма за множествено число. Формулирайте действията с повелителен глагол; стандартните бутони може да са кратки установени названия. (Изберете папка; Отворете)
 - На бутоните използвайте кратък глагол в повелително наклонение или установено кратко название. Не добавяйте точка. (Изтеглете; Пауза)
 - В менютата използвайте ясни, кратки команди в учтива повелителна форма. Запазвайте многоточието само когато командата отваря допълнителен прозорец или изисква още информация. (Добавете връзка; Изберете папка…)

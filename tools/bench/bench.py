@@ -1,4 +1,4 @@
-"""IDM vs NetGuard Download Manager: the same downloads from the same local lab server, timed.
+"""IDM vs Mister Download Manager: the same downloads from the same local lab server, timed.
 
     python tools/bench/bench.py [--runs N] [--only scenario,...] [--out DIR]
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-# #176 on X11: a minimized MDM keeps working. Minimize to the notification area off, the main
+# #176 on X11: a minimized NetGuard keeps working. Minimize to the notification area off, the main
 # queue set to one file at a time and to start 75 s from now; three lab files (throttled, a few
 # seconds each) added to it, then the window minimized. Prints when the queue started, each
 # file's completion (order, time) and each "Download complete" window, and the main window's state.

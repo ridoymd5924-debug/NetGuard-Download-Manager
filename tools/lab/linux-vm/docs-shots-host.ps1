@@ -20,7 +20,7 @@ GNOME (-Desktop gnome, the default) publishes docs/images/<shot>-linux.webp (the
 as main-linux-dark.webp) and the site's pair website/assets/screens/main-linux-<light|dark>.webp;
 another desktop publishes its main window as docs/images/<desktop>-main-linux.webp.
 
-The tray's shot clicks MDM's icon in the top bar: -TrayAt "x y" is its place on the VM's screen
+The tray's shot clicks NetGuard's icon in the top bar: -TrayAt "x y" is its place on the VM's screen
 (a first run without it saves the top bar as topbar.png to find it). The VM's account comes from
 MDM_VM_USER / MDM_VM_PASSWORD or the local file deploy.ps1 reads, and is never printed.
 #>

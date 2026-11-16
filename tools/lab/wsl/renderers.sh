@@ -9,7 +9,7 @@
 # caret's blink), lavapipe (MDM_RENDERER: Vulkan forced onto the software driver), the saved
 # choice Vulkan (with no hardware driver: OpenGL, saying why), and the saved choice with
 # MDM_TEST_SOFTWARE_CARD=1 (an off-screen run that takes lavapipe for a card). Each run's
-# "drawing with" lines from MDM's log are printed under it.
+# "drawing with" lines from NetGuard's log are printed under it.
 label=${1:?usage: renderers.sh <label>}
 W=main,about,options-general=options:general,options-connection=options:connection,scheduler,add-url=addurl,speed-limiter=speedlimit,find,options-panels=options:panels
 out=$HOME/lab/vk/$label; rm -rf "$out"; mkdir -p "$out"

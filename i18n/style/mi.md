@@ -1,4 +1,4 @@
-<!-- How Maori writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Maori writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Whakamahia te kupu mahi hei whakahau. Whakamahia te whakahau hāngū ina whakaingoatia te mea ka pāngia. (Tikiake; Tikiakehia te kōnae.)
 - Kia poto ngā pātene, kia mārama hoki te mahi ka mahia. (Okioki; Whakatū anō)
 - I ngā tahua, tīmata ki te kupu mahi mō tētahi mahi; whakamahia he ingoa mō tētahi wāhanga tautuhinga. (Whakatuwhera te kōpaki; Tautuhinga)
@@ -16,6 +16,6 @@
 - Whakamahia ngā tohu kōrero āhua kōpiko mō ngā kupu e kōrerotia ana; kaua e tāpiri tohu kōrero ki ngā kupu UI noa. (Kōwhiria “Tikiake”.)
 - Kāore ngā tūmahi Māori e panoni i runga i te tangata, i te maha rānei o te kaupapa. Whakaaturia te kaupapa ina kore e mārama ko wai, ko ēhea rānei e pāngia ana. (Kua oti ngā tikiake.; Kua mukua te kōnae.)
 - Whakaritea te raupapa kupu Māori mā te tohu wā, te kupu mahi, kātahi ko te mea e pāngia ana, ina hāngai. (Kua tikiakehia te kōnae.; Kei te tirotiro te taupānga i te hononga.)
-- Whakamahia ngā kupu Māori kua taunga kē. Puritia ngā ingoa waitohu me ngā ingoa hangarau e kore e tika kia whakamāoritia; kaua e tāpiri “s” hei tohu maha. (ngā kōnae; Mister Download Manager)
+- Whakamahia ngā kupu Māori kua taunga kē. Puritia ngā ingoa waitohu me ngā ingoa hangarau e kore e tika kia whakamāoritia; kaua e tāpiri “s” hei tohu maha. (ngā kōnae; NetGuard Download Manager)
 - Whakamahia te papakupu Microsoft mēnā he tāurunga tika mō te horopaki. Kaua e kī he kupu mana nā Microsoft tētahi kupu kāore anō kia manatoko. (Manatokohia te kupu i te papakupu i mua i te tuku.)
 - He tūtohutanga ētita ēnei, ehara i te kerēme he aratohu Māori mana nā Microsoft. Me manatoko ngā kupu me ngā rerenga ki te rauemi Microsoft e hāngai ana, me tētahi kaitātari reo Māori. (Whakatūturua te kupu me te kaitātari reo Māori.)

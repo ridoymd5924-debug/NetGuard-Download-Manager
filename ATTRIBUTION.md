@@ -1,4 +1,17 @@
-# Third-party assets
+# Origin and third-party assets
+
+## Origin
+
+NetGuard Download Manager is a fork of **Mister Download Manager 0.5.2**
+(<https://github.com/anefzaoui/misterdownloadmanager>), Copyright (C) 2026 **Ahmed Nefzaoui**,
+released under the GNU General Public License, version 3 or later. This fork keeps that licence
+(see `LICENSE`) and the original copyright notices; it changes the product's name, logo, colour
+theme and distribution (Windows only). The download engine, the interface toolkit and every
+other part of the program are the original author's work. Some build dependencies (a fork of
+egui and of rqbit) are also the original author's repositories.
+
+## Third-party assets
+
 
 | Asset | Author | Licence | Where |
 |---|---|---|---|
@@ -7,31 +20,19 @@
 | flag-icons 7.6.0 (language flags: picker, View → Language, README) | Panayiotis Lipiridis and contributors, <https://github.com/lipis/flag-icons> | MIT — `crates/app/assets/flags/LICENSE` | `crates/app/assets/flags/` |
 | flag-icons 7.6.0, all 250 country flags in one picture (where a download's server is: Download File Info, the progress window, Properties), drawn by `crates/geo/examples/flag_atlas.rs` | Panayiotis Lipiridis and contributors, <https://github.com/lipis/flag-icons> | MIT — `crates/geo/data/LICENSE-flag-icons` | `crates/geo/data/flags.png` |
 | DB-IP IP to Country Lite, a monthly edition (which country a download's server is in, looked up on the computer, never sent anywhere), packed by `tools/geo/build.py` | DB-IP, <https://db-ip.com>: IP Geolocation by DB-IP | Creative Commons Attribution 4.0 International, <https://creativecommons.org/licenses/by/4.0/>; the edition used is in `crates/geo/data/SOURCE.txt` | `crates/geo/data/ipcountry.bin.xz` |
-| Patrick Hand (the README's hand-drawn pictures, as outlines; not in the app) | Patrick Wagesreiter | SIL Open Font License 1.1 — `tools/readme/node_modules/@fontsource/patrick-hand/LICENSE` | `docs/images/races-*.svg` |
-| *Big Buck Bunny* (the film in the README's pictures of the download button over a video; not in the app) | Blender Foundation, <https://peach.blender.org> | Creative Commons Attribution 3.0 | `docs/images/video-button-*.png` |
 | Silk icon set 1.3 (Categories tree) | Mark James, <http://www.famfamfam.com/lab/icons/silk/> | Creative Commons Attribution 2.5 — `crates/app/assets/icons/silk/readme.txt` | `crates/app/assets/icons/silk/` |
 | Fluent UI System Icons 1.1.345, 49 of its icons (the Metro theme's toolbar, categories, file types and title-bar buttons), recoloured white to be tinted | Microsoft Corporation, <https://github.com/microsoft/fluentui-system-icons> (commit 9eb184e) | MIT — `crates/app/assets/themes/metro/icons/LICENSE` | `crates/app/assets/themes/metro/icons/` (its magnet, Torrents, torrent-file and Hide to the notification area icons are MDM's own) |
 | adwaita-icon-theme 51.0, 50 of its icons (the Adwaita theme's toolbar, categories, file types and title-bar buttons), unchanged; its one-colour icons are drawn in the theme's text colour when read | The GNOME Project, <https://gitlab.gnome.org/GNOME/adwaita-icon-theme> (commit 70ecd52) | LGPL-3.0 (of LGPL-3.0 or CC BY-SA 3.0 US) — `crates/app/assets/themes/adwaita/icons/LICENSE`, `COPYING` | `crates/app/assets/themes/adwaita/icons/` (its PDF, torrent-file and Hide to the notification area icons are MDM's own) |
 | breeze-icons 6.31, 51 of its icons (the Breeze theme's toolbar, categories, file types and title-bar buttons), unchanged; its one-colour icons are drawn in the theme's text colour when read | Uri Herrera and the KDE Visual Design Group, <https://invent.kde.org/frameworks/breeze-icons> (commit 60ca517) | LGPL-3.0-or-later — `crates/app/assets/themes/breeze/icons/LICENSE` | `crates/app/assets/themes/breeze/icons/` (its PDF and Hide to the notification area icons are MDM's own) |
 
-## NetGuard Download Manager (fork)
-
-NetGuard Download Manager is a fork of Mister Download Manager 0.5.2, Copyright (C) Ahmed
-Nefzaoui and contributors, licensed under the GNU General Public License v3.0 or later. All
-original copyright notices and the `LICENSE` file are kept unchanged; the changes made in the
-fork are listed in `NETGUARD-FORK.md`, and NetGuard is distributed under the same licence.
-
-The NetGuard logo (`art/NetGuard Download Manager.png`) and every app icon size are original
-artwork for NetGuard, drawn by code in `tools/icon/make_netguard_logo.py` (a shield with a
-download arrow) and built into each size by `tools/icon/build_icon.py`. They contain nothing
-from the Mister Download Manager icon, which is no longer in the project.
+The app icon, the tray icon, the installer's icon and the browser extension's icons
+(`crates/app/assets/icons/app/`, `extension/icons/`) are NetGuard Download Manager's official
+logo, supplied by the NetGuard project. Mister Download Manager's own icon is not part of this
+project.
 
 The Luna, Aero and Aqua themes' icons (`crates/app/assets/themes/luna/icons/`, `aero/icons/`,
-`aqua/icons/`) were drawn for Mister Download Manager, as were the Metro, Adwaita and Breeze
-icons named MDM's own above; each set's `SOURCES.txt` lists them.
-
-The README's block icons (`docs/images/icons/`: arrow, globe, gift, magnet) were made for it
-with OpenAI's GPT-5 Image Mini by `tools/readme/icons.py`, given the app icon as the style to follow.
+`aqua/icons/`) were drawn for Mister Download Manager by its author, Ahmed Nefzaoui, as were the
+Metro, Adwaita and Breeze icons named "MDM's own" above; each set's `SOURCES.txt` lists them.
 
 ## Archive extraction (mdm-extract)
 

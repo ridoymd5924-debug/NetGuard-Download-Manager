@@ -1,6 +1,6 @@
-//! Real gallery-dl releases against the lab server, as MDM starts them (#236: a distribution's
-//! gallery-dl may be older than MDM's own copy). Each release MDM can drive is chosen, reads an
-//! address (and says when it can't), and saves a picture with MDM's User-Agent; one older than
+//! Real gallery-dl releases against the lab server, as NetGuard starts them (#236: a distribution's
+//! gallery-dl may be older than NetGuard's own copy). Each release NetGuard can drive is chosen, reads an
+//! address (and says when it can't), and saves a picture with NetGuard's User-Agent; one older than
 //! `gallery::OLDEST` is refused when chosen.
 //!
 //! Ignored: it needs `MDM_TEST_GALLERYDLS`, the programs separated as in PATH (`:` or `;`):
@@ -90,7 +90,7 @@ fn every_release_mdm_can_drive_saves_a_gallery() {
             .unwrap_or_else(|| panic!("{v}: no request"));
         assert_eq!(get.user_agent.as_deref(), Some(USER_AGENT), "{v}");
         rows.push(format!(
-            "{v}: chosen, reads and refuses addresses, saved {} with MDM's User-Agent",
+            "{v}: chosen, reads and refuses addresses, saved {} with NetGuard's User-Agent",
             saved[0].file_name().to_string_lossy()
         ));
     }

@@ -1,6 +1,6 @@
 //! #174: while the main window is minimized (not to the notification area), egui runs only the
 //! app's logic, never its UI. The queues, the Scheduler's starts and the list's saving ran in the
-//! UI, so a minimized MDM started nothing until it was restored. The real app, off the screens
+//! UI, so a minimized NetGuard started nothing until it was restored. The real app, off the screens
 //! (MDM_OFFSCREEN), with a data folder of its own and the lab server on 127.0.0.1: its main
 //! window minimized (`/show minimized`, no input), a queue of three files, one at a time,
 //! scheduled to start a few seconds ahead. Every file must come down, one after the other, and

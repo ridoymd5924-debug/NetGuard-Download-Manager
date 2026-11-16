@@ -1,6 +1,6 @@
 // The remote control's page (#141) in a headless Chromium as a phone sees it: pairs with a code
-// MDM shows, adds downloads, pauses and starts one, and screenshots each step in the languages
-// and themes asked for. Exits non-zero when a step fails. A test client: it accepts MDM's
+// NetGuard shows, adds downloads, pauses and starts one, and screenshots each step in the languages
+// and themes asked for. Exits non-zero when a step fails. A test client: it accepts NetGuard's
 // self-signed certificate without asking (its own profile, deleted afterwards).
 //
 //   node tools/lab/remote-page.mjs --url https://127.0.0.1:18463/ --code 12345678 --out shots \

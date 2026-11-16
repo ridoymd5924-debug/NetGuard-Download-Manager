@@ -1,4 +1,4 @@
-<!-- How Lao writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Lao writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Write commands as short verb-led phrases. Use the same concise form on buttons and menu items; do not add politeness words. (Download → ດາວໂຫຼດ; Pause → ຢຸດຊົ່ວຄາວ)
 - Phrase check box captions as brief actions or conditions, not as instructions to the user. Keep the caption meaningful when the box is selected. (Start with Windows → ເລີ່ມພ້ອມ Windows)
 - Address users neutrally and respectfully. Omit a pronoun when the meaning is clear; use ທ່ານ only when addressing the user is necessary. Avoid overly familiar forms. (You can change this later → ສາມາດປ່ຽນສິ່ງນີ້ໄດ້ພາຍຫຼັງ)

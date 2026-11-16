@@ -3,7 +3,7 @@
 # person wrote or checked; tools/i18n/learn.py proposes more from reviewed catalog rows.
 link	collegamento	general web/download links; but 'magnet link' = 'link magnet'
 magnet link	link magnet	never 'collegamento magnet(ico)'
-scheduler	Pianificatore	MDM's Scheduler window/tool; not 'Utilità di pianificazione' (Windows feature)
+scheduler	Pianificatore	NetGuard's Scheduler window/tool; not 'Utilità di pianificazione' (Windows feature)
 helpers	Programmi di supporto	window/feature name for yt-dlp, ffmpeg, gallery-dl; 'helper' = programma di supporto
 link grabber	Link grabber	feature name kept in English
 file host	file hosting	masculine: 'il file hosting', 'questo file hosting'

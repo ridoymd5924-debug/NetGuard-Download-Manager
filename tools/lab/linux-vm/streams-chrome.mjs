@@ -1,4 +1,4 @@
-// #155/#167 on Linux with Google Chrome (.deb; Ubuntu's Chromium is a Snap, which can't reach MDM):
+// #155/#167 on Linux with Google Chrome (.deb; Ubuntu's Chromium is a Snap, which can't reach NetGuard):
 // headless over the DevTools pipe (as tools/extension/e2e.mjs drives it), the unpacked extension
 // loaded, the lab's HLS and DASH player pages; the button over the player and the popup's media
 // list (Chrome's own right-click menu can't be driven). Same checks as streams.mjs.
@@ -73,7 +73,7 @@ const profile = path.join(process.env.HOME, "lab/chrome-streams");
 fs.rmSync(profile, { recursive: true, force: true });
 fs.mkdirSync(path.join(profile, "Default"), { recursive: true });
 // With --user-data-dir, Chrome on Linux reads host manifests from <user-data-dir>/NativeMessagingHosts
-// (not ~/.config/google-chrome/): the one MDM registered, copied there.
+// (not ~/.config/google-chrome/): the one NetGuard registered, copied there.
 const hosts = path.join(profile, "NativeMessagingHosts");
 fs.mkdirSync(hosts, { recursive: true });
 const registered = path.join(process.env.HOME, ".config/google-chrome/NativeMessagingHosts/com.misterdownloadmanager.host.json");
@@ -149,7 +149,7 @@ try {
     const seen = asked.map((e) => `${e.path}${e.query ? "?" + e.query : ""} ${e.status}${(e.cookie || "").includes(cookie) ? " +cookie" : ""}${e.referer === page ? " +referrer" : ""}`);
     const ok = windowAt && given && new URL(given).pathname === manifest && asked.some((e) => e.path === manifest) && !asked.some((e) => e.path === "/page");
     say(
-      `${ok ? "OK  " : "FAIL"} ${what}${r ? ` (${r})` : ""}: MDM's window ${windowAt ? `at ${windowAt} s` : "NOT within 60 s"}; ` +
+      `${ok ? "OK  " : "FAIL"} ${what}${r ? ` (${r})` : ""}: NetGuard's window ${windowAt ? `at ${windowAt} s` : "NOT within 60 s"}; ` +
         `yt-dlp given ${given || "nothing"}, done at ${done} s; the lab saw ${seen.join(", ") || "nothing"}`,
     );
   };

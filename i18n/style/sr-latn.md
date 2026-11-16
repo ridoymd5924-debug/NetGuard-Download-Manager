@@ -1,4 +1,4 @@
-<!-- How Serbian (Latin) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Serbian (Latin) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the formal second-person plural when addressing the user; omit the pronoun unless it is needed for clarity. Phrase instructions as polite imperatives. (Izaberite fasciklu za preuzimanje.; Unesite adresu veze.)
 - Use the formal imperative for action buttons and menu commands. Keep labels concise and omit terminal punctuation. (Preuzmite; Pauzirajte)
 - Phrase check boxes as short descriptions of an option or state, not as questions. Use a verb only when it makes the option clearer. (Pokretanje aplikacije pri pokretanju sistema; Prikaži obaveštenja)

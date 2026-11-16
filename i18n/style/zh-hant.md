@@ -1,4 +1,4 @@
-<!-- How Chinese (Traditional) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Chinese (Traditional) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - 命令、按鈕與功能表項目使用精簡的動作詞或動詞片語；同一動作在各處用詞一致，不加句號。 (Download → 下載; Pause → 暫停)
 - 核取方塊標籤描述啟用後的選項或狀態，簡潔明確；不要寫成對使用者的指令。 (Start automatically → 自動啟動; Play a sound when complete → 完成時播放音效)
 - 以「您」稱呼使用者，採親切、清楚、尊重的語氣；避免過度正式或口語化。 (您可以在此變更下載位置。; 請選取要下載的檔案。)

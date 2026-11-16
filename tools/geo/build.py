@@ -1,4 +1,4 @@
-"""Build MDM's IP-to-country table (#140) from DB-IP's IP to Country Lite CSV.
+"""Build NetGuard's IP-to-country table (#140) from DB-IP's IP to Country Lite CSV.
 
   python tools/geo/build.py [dbip-country-lite-YYYY-MM.csv.gz]
       with no file: this month's edition, downloaded (else last month's, early in a month)
@@ -13,7 +13,7 @@ The countries keep the order of crates/geo/data/countries.txt, which is the flag
 moves a flag. A country the new data has and that file doesn't is added at its end, with a
 warning: the app shows its code and no flag until the flags and the names are drawn again
 (flag_atlas, then tools/geo/countries.py). The data is DB-IP's,
-under CC BY 4.0 (https://db-ip.com, "IP Geolocation by DB-IP"); MDM credits it where the
+under CC BY 4.0 (https://db-ip.com, "IP Geolocation by DB-IP"); NetGuard credits it where the
 location shows. Only the table ships: the app looks addresses up in it, on this computer, and
 never sends one anywhere.
 

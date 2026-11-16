@@ -21,7 +21,7 @@ use serde_json::json;
     about = "NetGuard Download Manager command line",
     long_about = "NetGuard Download Manager command line: downloads, videos and torrents without the \
                   window, and the running app's automation API. Guide: \
-                  https://misterdownloadmanager.com/help/command-line.html"
+                  https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/docs/command-line.md"
 )]
 struct Cli {
     /// Print JSON for programs: one object per line (`progress` events, then `done`, `paused`
@@ -532,7 +532,9 @@ async fn run(cmd: Cmd, json: bool, accounts: Option<&dyn Accounts>) -> anyhow::R
                 )
             });
             let tool = mdm_tools::gallery::installed(&dir).ok_or_else(|| match &old {
-                Some(why) => anyhow::anyhow!("{why}; run install-gallery-dl for NetGuard's own copy"),
+                Some(why) => {
+                    anyhow::anyhow!("{why}; run install-gallery-dl for NetGuard's own copy")
+                }
                 None => anyhow::anyhow!("gallery-dl is not installed: run install-gallery-dl"),
             })?;
             if let Some(why) = &old {

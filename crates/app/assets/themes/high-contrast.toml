@@ -3,7 +3,7 @@
 # (WCAG 2.1 AAA), every control's edge in the text's colour.
 #
 # A theme file names only what it changes. This one gives a few seed colours per variant and
-# lets MDM derive every other colour from them; `contrast = "high"` draws every edge in the
+# lets NetGuard derive every other colour from them; `contrast = "high"` draws every edge in the
 # text's colour and keeps greyed text readable.
 
 name = "High contrast"

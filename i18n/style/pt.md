@@ -1,4 +1,4 @@
-<!-- How Portuguese (Portugal) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Portuguese (Portugal) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use português europeu e a terminologia corrente do Windows: «ficheiro», «ecrã» e «transferir». Evite variantes do português do Brasil. (Transferir ficheiros; Guardar na pasta)
 - Formule comandos autónomos com o infinitivo. Mantenha a formulação concisa e use a mesma forma em ações equivalentes. (Abrir; Copiar)
 - Nos botões, use normalmente o infinitivo; escolha rótulos breves e claros. (Transferir; Guardar)

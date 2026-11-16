@@ -1,5 +1,5 @@
 //! AllDebrid and Premiumize against the lab server's fakes (labserver `debrid`), end to end
-//! through MDM's engine, as `realdebrid.rs` does for Real-Debrid. The fake host `hoster.test`
+//! through NetGuard's engine, as `realdebrid.rs` does for Real-Debrid. The fake host `hoster.test`
 //! resolves nowhere: a download that completes came through the service's direct link.
 
 use std::sync::Arc;

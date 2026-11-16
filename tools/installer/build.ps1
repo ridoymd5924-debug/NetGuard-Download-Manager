@@ -1,8 +1,8 @@
 # Builds the Windows release into target/dist/:
-#   MisterDownloadManager-<version>-setup.exe     the installer (tools/installer/mdm.iss)
-#   MisterDownloadManager-<version>-portable.zip  the same programs with a `data` folder (portable
+#   NetGuard-Download-Manager-<version>-setup.exe     the installer (tools/installer/mdm.iss)
+#   NetGuard-Download-Manager-<version>-portable.zip  the same programs with a `data` folder (portable
 #                                                 mode: settings beside the exe, no registry)
-#   MisterDownloadManager-<version>-x64.zip       the same programs, data in %APPDATA% as installed
+#   NetGuard-Download-Manager-<version>-x64.zip       the same programs, data in %APPDATA% as installed
 #   SHA256SUMS.txt
 # Needs Inno Setup 6 (ISCC.exe on PATH, in $env:ISCC, or in its default folders).
 # Code signing: set $env:MDM_SIGN_COMMAND to a signtool command line with $f for the file, e.g.
@@ -96,11 +96,11 @@ use the profile instead. Browser integration needs the installer.
   }
 }
 Add-Type -AssemblyName System.IO.Compression, System.IO.Compression.FileSystem
-New-Zip "MisterDownloadManager-$version-portable" $true
-New-Zip "MisterDownloadManager-$version-x64" $false
+New-Zip "NetGuard-Download-Manager-$version-portable" $true
+New-Zip "NetGuard-Download-Manager-$version-x64" $false
 Remove-Item -LiteralPath (Join-Path $dist "stage") -Recurse -Force
 
-$files = Get-ChildItem $dist -File | Where-Object { $_.Name -like "MisterDownloadManager-$version-*" }
+$files = Get-ChildItem $dist -File | Where-Object { $_.Name -like "NetGuard-Download-Manager-$version-*" }
 $files | ForEach-Object { "{0}  {1}" -f (Get-FileHash $_.FullName -Algorithm SHA256).Hash.ToLower(), $_.Name } |
   Set-Content -Encoding ascii (Join-Path $dist "SHA256SUMS.txt")
 $files | ForEach-Object { "{0}  {1:N1} MB" -f $_.Name, ($_.Length / 1MB) }

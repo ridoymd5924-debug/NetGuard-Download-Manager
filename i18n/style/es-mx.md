@@ -1,4 +1,4 @@
-<!-- How Spanish (Mexico) writes Mister Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
+<!-- How Spanish (Mexico) writes NetGuard Download Manager: sent with every translation request in this language (lingo.style). Learned from reviews in the model's knowledge, not yet reviewed; a person checks every rule. -->
 - Use the infinitive for standalone actions in buttons and menu items. Keep the label concise and start it with a capital letter. (Descargar; Reanudar)
 - Phrase check box labels as concise options, usually with an infinitive. Do not add a period. (Iniciar con Windows; Mostrar notificaciones)
 - Address the user as tú in a friendly, direct register. In instructions, use the tú form; omit the pronoun unless needed for emphasis. (Selecciona una carpeta; Elige dónde guardar los archivos)
@@ -8,7 +8,7 @@
 - For counts, use a natural Spanish construction rather than attaching a gerund directly to a number. (3 descargas en curso; Descargando 3 archivos)
 - Keep error messages clear and direct. A fragment may omit the subject; preserve the placeholder and introduce its detail with a colon. (No se pudo abrir: {error}; No se encontró el archivo)
 - Write event-log entries as concise, complete past-tense statements. Use sentence case and a period. (Se inició la descarga de {file}.; Se completó la descarga.)
-- Use sentence case for interface text: capitalize the first word and proper names, not every word in a title or label. (Configuración de descargas; Mister Download Manager)
+- Use sentence case for interface text: capitalize the first word and proper names, not every word in a title or label. (Configuración de descargas; NetGuard Download Manager)
 - Write months and weekdays in lowercase, except at the beginning of a sentence. (martes, 14 de mayo; La descarga terminó el viernes.)
 - Use standard Spanish punctuation. Do not put a space before a comma, period, colon, semicolon, or closing question mark; put one space after punctuation when the text continues. (Estado: En pausa; ¿Quieres continuar?)
 - Use an ellipsis character for unfinished progress text, with no space before it. Do not add an extra period. (Conectando…; Buscando actualizaciones…)

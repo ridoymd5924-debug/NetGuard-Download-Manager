@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# The Linux test machine: an Ubuntu 24.04 desktop (GNOME on Xorg) that builds and runs MDM, with
+# The Linux test machine: an Ubuntu 24.04 desktop (GNOME on Xorg) that builds and runs NetGuard, with
 # the browsers for the extension and AT-SPI automation for the windows. Run it inside the machine
 # as its desktop user (it asks sudo for the system parts); running it again only adds what's
 # missing and updates the checkout.
@@ -20,7 +20,7 @@ while [ $# -gt 0 ]; do
   shift
 done
 
-repo_url=https://github.com/anefzaoui/misterdownloadmanager.git
+repo_url=https://github.com/ridoymd5924-debug/NetGuard-Download-Manager.git
 checkout="$HOME/mdm"
 # sudo_ takes the password from MDM_SUDO_PASSWORD when set (through stdin, so never pipe into it).
 sudo_() { if [ -n "${MDM_SUDO_PASSWORD:-}" ]; then echo "$MDM_SUDO_PASSWORD" | sudo -S -p '' "$@"; else sudo "$@"; fi; }
@@ -58,7 +58,7 @@ fi
 # A login keyring with an empty password (auto-login unlocks nothing): gnome-keyring keeps it
 # unencrypted and unlocked, so a browser asking the Secret Service (Chrome's "Safe Storage")
 # never stops a test with "Choose a password for your new keyring". Test browsers also run with
-# --password-store=basic. MDM itself doesn't use the Secret Service.
+# --password-store=basic. NetGuard itself doesn't use the Secret Service.
 keyrings="$HOME/.local/share/keyrings"
 mkdir -p "$keyrings" && chmod 700 "$keyrings"
 if [ ! -f "$keyrings/login.keyring" ]; then
@@ -69,7 +69,7 @@ if [ ! -f "$keyrings/login.keyring" ]; then
 fi
 
 # --- Packages: the build's libraries (the same as ci.yml and release.yml), the packaging tools,
-# the helpers MDM drives (ffmpeg, 7-Zip, gallery-dl), the AppImage runtime (FUSE 2), and the
+# the helpers NetGuard drives (ffmpeg, 7-Zip, gallery-dl), the AppImage runtime (FUSE 2), and the
 # automation and screen-reader tools.
 sudo_ apt-get update -q
 sudo_ apt-get install -y -q \

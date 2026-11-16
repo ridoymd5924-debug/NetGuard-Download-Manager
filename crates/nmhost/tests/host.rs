@@ -186,7 +186,7 @@ fn options_and_a_refusing_app_start_nothing() {
     let _ = std::fs::remove_dir_all(&dir);
 }
 
-/// #208: every download left to the browser is in MDM's log with why, whether the host refused
+/// #208: every download left to the browser is in NetGuard's log with why, whether the host refused
 /// it or the extension left it alone by the same rules (and only told the host); none reaches
 /// the app. A private window's is logged without its site or name.
 #[test]

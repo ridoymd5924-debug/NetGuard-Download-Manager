@@ -1,5 +1,5 @@
 //! Torrents through each service (#44), end to end against the lab server's fakes: a magnet link
-//! sent to the account, its files downloaded over HTTP by MDM's engine into the torrent's folder,
+//! sent to the account, its files downloaded over HTTP by NetGuard's engine into the torrent's folder,
 //! byte for byte, and the torrent removed from the account's list afterwards. Nothing connects to
 //! a peer. Also: a torrent that dies at the service, and one whose file names climb out of the
 //! folder (refused, nothing written outside it).
