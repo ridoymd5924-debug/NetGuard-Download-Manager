@@ -507,7 +507,13 @@ impl Settings {
         for (a, d) in self.debrid_accounts.iter().zip(&mut disk.debrid_accounts) {
             d.secret = kept(
                 format!("debrid/{}", a.id),
-                &|| format!("NetGuard Download Manager: {} ({})", a.service.name(), a.user),
+                &|| {
+                    format!(
+                        "NetGuard Download Manager: {} ({})",
+                        a.service.name(),
+                        a.user
+                    )
+                },
                 &a.secret,
             );
         }

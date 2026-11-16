@@ -290,7 +290,10 @@ mod tests {
             Some("NetGuard-Download-Manager-0.2.2-setup.exe")
         );
         // An unsigned release, another kind's file, a build from source: no.
-        let unsigned = a(&["NetGuard-Download-Manager-0.2.2-setup.exe", "SHA256SUMS.txt"]);
+        let unsigned = a(&[
+            "NetGuard-Download-Manager-0.2.2-setup.exe",
+            "SHA256SUMS.txt",
+        ]);
         assert_eq!(asset_for(Install::Installer, "0.2.2", &unsigned), None);
         assert_eq!(asset_for(Install::PortableZip, "0.2.2", &full), None);
         assert_eq!(asset_for(Install::Source, "0.2.2", &full), None);
