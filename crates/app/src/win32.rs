@@ -2793,7 +2793,7 @@ mod startup_tests {
         assert!(startup_outdated(&format!("\"{EXE}\""), exe));
         // Written by hand: unquoted, in another case, with other slashes.
         assert!(startup_outdated(
-            r"c:\program files\mister download manager\MISTERDOWNLOADMANAGER.EXE",
+            r"c:\program files\netguard download manager\MISTERDOWNLOADMANAGER.EXE",
             exe
         ));
         assert!(startup_outdated(
@@ -2810,6 +2810,17 @@ mod startup_tests {
             exe
         ));
         assert!(!startup_outdated("", exe));
+    }
+
+    /// NetGuard installs beside Mister Download Manager (its own installer id and folder), not over
+    /// it: an entry of that installation belongs to its program, not to NetGuard to rewrite; one
+    /// for the very same file (NetGuard put into the old folder) is migrated like any old entry.
+    #[test]
+    fn a_mister_download_manager_entry_is_rewritten_only_for_its_own_file() {
+        let old = r"C:\Program Files\Mister Download Manager\misterdownloadmanager.exe";
+        let entry = format!("\"{old}\"");
+        assert!(!startup_outdated(&entry, Path::new(EXE)));
+        assert!(startup_outdated(&entry, Path::new(old)));
     }
 
     /// The installer's "Start when Windows starts" writes the entry Options writes.
