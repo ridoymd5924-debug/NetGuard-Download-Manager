@@ -14,6 +14,7 @@ use mdm_tools::playlist::{Entry, Listing, PAGE};
 use mdm_tools::resolve::ListPage;
 
 use crate::dialogs::{Confirm, Outcome};
+use crate::videodlg::{EDGE, LIST_W, LIST_Y, NOTE_Y, STATUS_Y};
 use crate::winui::{self, ButtonKind, r};
 
 /// Adding more than this many downloads at once is asked first.
@@ -45,6 +46,11 @@ struct Pick {
 const HEIGHTS: [u32; 6] = [2160, 1440, 1080, 720, 480, 360];
 /// The one chosen at first: Up to 1080p.
 const DEFAULT_PICK: usize = 3;
+
+/// The list of videos is 100 px high (a video's own choices have 130, videodlg.rs), the buttons
+/// under it 8 px below, and the rows after them (Save to...) start 10 px under those.
+const LIST_H: f32 = 100.0;
+const BUTTONS_Y: f32 = LIST_Y + LIST_H + 8.0;
 
 fn picks(merge: bool) -> Vec<Pick> {
     let mut out = vec![Pick {
@@ -312,7 +318,7 @@ impl PlaylistView {
     /// Listing (a spinner, how far) or listed (the title, how many).
     fn status_line(&self, ui: &mut Ui, o: Pos2, right: f32) {
         let p = ui.painter().clone();
-        let line_y = o.y + 70.0;
+        let line_y = o.y + STATUS_Y;
         let n = self.entries.len();
         let status = if self.listing.is_some() {
             crate::torrentdlg::spinner(ui, pos2(o.x + 18.0, line_y - 4.0), 6.0);
@@ -400,10 +406,10 @@ impl PlaylistView {
             ui,
             &p,
             o.x + 11.0,
-            o.y + 86.0,
+            o.y + NOTE_Y,
             &text,
             color,
-            o.x + 489.0,
+            o.x + EDGE,
             "playlist-note",
         );
         winui::readable(ui, rc, "playlist-note", &text);
@@ -421,7 +427,7 @@ impl PlaylistView {
         let ev = winui::row_list(
             ui,
             "playlist-rows",
-            r(o, 11.0, 94.0, 478.0, 120.0),
+            r(o, 11.0, LIST_Y, LIST_W, LIST_H),
             n,
             17.0,
             &mut self.rows,
@@ -508,7 +514,7 @@ impl PlaylistView {
         };
         let all = winui::button(
             ui,
-            r(o, all_at.0, 222.0, all_at.1, 21.0),
+            r(o, all_at.0, BUTTONS_Y, all_at.1, 21.0),
             // i18n: button in Download video for a playlist: tick every video
             "Select all",
             ButtonKind::Normal,
@@ -518,7 +524,7 @@ impl PlaylistView {
         .clicked();
         let none = winui::button(
             ui,
-            r(o, none_at.0, 222.0, none_at.1, 21.0),
+            r(o, none_at.0, BUTTONS_Y, none_at.1, 21.0),
             // i18n: button in Download video for a playlist: untick every video
             "Select none",
             ButtonKind::Normal,
@@ -536,7 +542,7 @@ impl PlaylistView {
         if self.listing.is_some() {
             if winui::button(
                 ui,
-                r(o, third_at.0, 222.0, third_at.1, 21.0),
+                r(o, third_at.0, BUTTONS_Y, third_at.1, 21.0),
                 stop,
                 ButtonKind::Normal,
                 false,
@@ -553,7 +559,7 @@ impl PlaylistView {
         } else if self.more
             && winui::button(
                 ui,
-                r(o, third_at.0, 222.0, third_at.1, 21.0),
+                r(o, third_at.0, BUTTONS_Y, third_at.1, 21.0),
                 third,
                 ButtonKind::Normal,
                 false,
@@ -573,7 +579,13 @@ impl PlaylistView {
                 ("total", &crate::i18n::integer(n as u64)),
             ],
         );
-        winui::text_right(&p, o.x + 489.0, o.y + 236.0, &chosen, winui::MUTED());
+        winui::text_right(
+            &p,
+            o.x + EDGE,
+            o.y + BUTTONS_Y + 14.0,
+            &chosen,
+            winui::MUTED(),
+        );
     }
 
     /// The Quality drop-down (where a single video has its File name).
@@ -665,6 +677,20 @@ impl Drop for PlaylistView {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    /// A playlist's list and its buttons end above the Save to row the Download video window
+    /// shares with a single video (videodlg.rs), with the same gap and the same margins.
+    #[test]
+    fn the_playlist_list_and_buttons_fit_above_save_to() {
+        // 8 px under the list, a button 21 px high, and "n of m chosen" inside its row.
+        assert_eq!(BUTTONS_Y, LIST_Y + LIST_H + 8.0);
+        assert!(
+            BUTTONS_Y + 21.0 + 8.0 <= crate::videodlg::SAVE_Y,
+            "Save to starts under the buttons"
+        );
+        // Its list shows five whole 17 px rows at least.
+        assert!(LIST_H / 17.0 >= 5.0);
+    }
 
     /// The qualities for a whole list: with ffmpeg the merged ones and MP3, without it only
     /// single files; heights as "at most".

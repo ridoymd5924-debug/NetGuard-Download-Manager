@@ -431,6 +431,17 @@ fn close_action(keep: bool, tray: bool, shown: bool, linux: bool) -> CloseAction
     }
 }
 
+/// Whether closing treats NetGuard's tray icon as one a user can click. `reported`: what the shell
+/// says when asked for the icon's rectangle. On Windows that answer is not trusted: an icon in the
+/// taskbar's overflow flyout (the default for a new icon on Windows 11) or one the shell has not
+/// placed yet reports no rectangle though it is there, and the answer used to send the window to
+/// the taskbar instead of the tray, leaving a taskbar button after the X. Windows has a tray, so
+/// the icon object existing (`has_icon`) is enough there, and a window hidden with no icon to click
+/// still comes back: a second launch shows it (ipc). Elsewhere the shell's answer decides.
+fn tray_usable_for_close(has_icon: bool, reported: bool, windows: bool) -> bool {
+    has_icon && (windows || reported)
+}
+
 /// Hand the memory the process isn't using now back to the system (#72).
 fn trim_memory() {
     #[cfg(windows)]
@@ -2325,9 +2336,11 @@ impl App {
             cmd.url = Some(file);
         }
         // The browser's download button over a video: the Download video window, looking the
-        // page up at once.
+        // page up at once. Only that window: the main window stays as it is (hidden in the
+        // tray, or open behind), as for Download File Info. The dialog is a window of its own
+        // that comes forward by itself (dialogs.rs), and stays on the screen while the main
+        // window is hidden (dialogs::QUEUE_GATES).
         if let Some(page) = cmd.video_page.as_deref() {
-            self.show_window(ctx);
             let dir = self.settings.category_dir(Category::Video, &self.downloads);
             crate::videodlg::refresh_ytdlp(&self.rt);
             let page = page.to_owned();
@@ -3113,15 +3126,18 @@ impl App {
             };
             self.run(cmd, None, ctx);
         }
-        // Closing hides the window in the tray; downloads and queues go on. With no icon the shell
-        // shows (Windows, macOS: a tray that exists but says it has none) the window goes to the
-        // taskbar or the Dock instead: still reachable, downloads still going. Everywhere else
+        // Closing hides the window in the tray; downloads and queues go on. Windows always hides
+        // it (the shell's answer about the icon is not trusted there, tray_usable_for_close). On
+        // macOS, with no icon the shell shows (a tray that exists but says it has none) the window
+        // goes to the Dock instead: still reachable, downloads still going. Everywhere else
         // closing closes, as any window's does: Options' "Keep running when closing the window"
         // off, no tray at all, or Linux with no tray host (#59: a hidden window couldn't come
         // back, and one that merely minimized could never be closed).
         if !self.exiting && ctx.input(|i| i.viewport().close_requested()) {
             let has_tray = self.tray.is_some();
-            let shown = has_tray && self.tray_shown_now();
+            // Windows doesn't ask the shell (tray_usable_for_close): the X hides the window.
+            let reported = !cfg!(windows) && has_tray && self.tray_shown_now();
+            let shown = tray_usable_for_close(has_tray, reported, cfg!(windows));
             let linux = cfg!(target_os = "linux");
             match close_action(self.settings.close_to_tray, has_tray, shown, linux) {
                 CloseAction::HideToTray => {
@@ -9123,7 +9139,7 @@ mod at_login_tests {
 
 #[cfg(test)]
 mod close_tests {
-    use super::{CloseAction, close_action};
+    use super::{CloseAction, close_action, tray_usable_for_close};
 
     /// Closing the window is the same for a start by hand and a start with the session: nothing in
     /// it knows how NetGuard was started, only whether the icon exists and is shown.
@@ -9142,6 +9158,56 @@ mod close_tests {
         // Options' "Keep running when closing the window" off: closing closes.
         assert_eq!(close_action(false, true, true, false), Quit);
         assert_eq!(close_action(false, false, false, false), Quit);
+    }
+
+    /// The X must hide the window from the taskbar on Windows even when the shell gives no
+    /// rectangle for the icon (an icon in the overflow flyout, or one not placed yet): that answer
+    /// used to turn the close into Minimize, which leaves a taskbar button.
+    #[test]
+    fn on_windows_the_x_hides_to_the_tray_whatever_the_shell_reports() {
+        use CloseAction::*;
+        // An icon object exists, the shell reports no rectangle: still the tray.
+        let shown = tray_usable_for_close(true, false, true);
+        assert!(shown);
+        assert_eq!(close_action(true, true, shown, false), HideToTray);
+        // The shell reports it: the tray, as before.
+        assert!(tray_usable_for_close(true, true, true));
+        // No icon object at all: nothing to hide to; the window is not hidden into nothing.
+        let shown = tray_usable_for_close(false, false, true);
+        assert!(!shown);
+        assert_eq!(close_action(true, false, shown, false), Minimize);
+        // Options' "Keep running when closing the window" off: closing still quits.
+        assert_eq!(close_action(false, true, true, false), Quit);
+    }
+
+    /// Elsewhere the shell's answer still decides (Linux's tray host, macOS's menu bar).
+    #[test]
+    fn off_windows_the_shells_answer_still_decides() {
+        assert!(tray_usable_for_close(true, true, false));
+        assert!(!tray_usable_for_close(true, false, false));
+        assert!(!tray_usable_for_close(false, true, false));
+    }
+
+    /// A video request from the browser opens the Download video window only: the main window is
+    /// neither shown nor brought forward for it (it stays hidden in the tray, or where it is).
+    /// A source-level guard: the window itself is drawn by the platform and can't be asserted
+    /// here.
+    #[test]
+    fn a_video_request_does_not_show_the_main_window() {
+        let src = include_str!("app.rs");
+        let start = src
+            .find("if let Some(page) = cmd.video_page.as_deref() {")
+            .expect("handle_command's video branch");
+        let branch = &src[start..];
+        let branch = &branch[..branch.find("return;").expect("the branch returns")];
+        assert!(
+            branch.contains("VideoDialog::for_page"),
+            "the branch opens the dialog"
+        );
+        assert!(
+            !branch.contains("show_window"),
+            "the video branch must not show the main window"
+        );
     }
 }
 

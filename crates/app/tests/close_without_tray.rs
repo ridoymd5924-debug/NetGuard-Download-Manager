@@ -1,9 +1,9 @@
-//! The close button follows Options' close-to-tray choice and the icon the shell really shows:
-//! off quits; on hides; on with no visible icon minimizes to the taskbar instead (downloads
-//! continue, and the window stays reachable); with no tray at all it quits, as ever. The real app,
-//! off the screens, with data folders of its own; a tray object whose visibility
-//! MDM_TEST_TRAY_VISIBLE decides, or no tray object. Windows only (WM_CLOSE), so it runs on
-//! request:
+//! The close button follows Options' close-to-tray choice: off quits; on hides the window to the
+//! notification area (off the taskbar too), also when the shell reports no rectangle for the icon
+//! (MDM_TEST_TRAY_VISIBLE=0: an icon in the overflow flyout, or not placed yet; Windows doesn't
+//! trust that answer); with no tray at all it quits, as ever. The real app, off the screens, with
+//! data folders of its own; a tray object, or no tray object. Windows only (WM_CLOSE), so it
+//! runs on request:
 //! `cargo test -p mdm-app --test close_without_tray -- --ignored`.
 
 #![cfg(windows)]
@@ -194,8 +194,9 @@ fn closing_follows_the_option_and_the_tray_icon() {
         .status();
     let _ = wait_exit(&mut app, Duration::from_secs(20));
 
-    // The option on but no icon the shell shows: keeping running leaves the window in the
-    // taskbar, not hidden and not quitting; downloads carry on and /exit still quits.
+    // The option on, the icon there but the shell reports no rectangle for it: the window still
+    // hides to the notification area (no taskbar button left), not quitting; downloads carry on
+    // and /exit still quits.
     let data3 = data(dir.path(), "no-icon", true);
     let mut app = Process(env(&mut Command::new(APP), &data3, false).spawn().unwrap());
     wait_for(&mut app, &data3, "tray icon shown", wait);
@@ -203,12 +204,17 @@ fn closing_follows_the_option_and_the_tray_icon() {
     wait_for(
         &mut app,
         &data3,
-        "close: no visible tray icon; minimizing to the taskbar",
+        "close: hidden to the notification area",
         Duration::from_secs(10),
     );
     assert!(
+        !log(&data3).contains("minimizing to the taskbar"),
+        "the window went to the taskbar:\n{}",
+        log(&data3)
+    );
+    assert!(
         app.try_wait().unwrap().is_none(),
-        "the app quit instead of minimizing"
+        "the app quit instead of hiding"
     );
     let _ = env(&mut Command::new(APP), &data3, false)
         .arg("/exit")

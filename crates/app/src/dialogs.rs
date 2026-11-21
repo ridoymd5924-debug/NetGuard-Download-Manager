@@ -201,11 +201,14 @@ fn window_was_gone(ctx: &egui::Context, key: egui::Id) -> bool {
     last.is_none_or(|l| pass.saturating_sub(l) > 1)
 }
 
-/// The dialogs later downloads wait behind (`Download File Info`, the duplicate question): they
-/// must be on the screen, even while the main window is minimized (Windows hides a window's owned
-/// windows with it, leaving the downloads waiting behind one nobody can see, #440).
+/// The dialogs a browser's request opens, and later downloads wait behind (`Download File Info`,
+/// the duplicate question, the Download video window): they must be on the screen, even while the
+/// main window is minimized or hidden in the tray (Windows hides a window's owned windows with
+/// it, leaving the downloads waiting behind one nobody can see, #440). The Download video window
+/// opens for the browser's video button without the main window being shown, so it needs this
+/// too.
 #[cfg(windows)]
-const QUEUE_GATES: [&str; 2] = ["file-info", "duplicate"];
+const QUEUE_GATES: [&str; 3] = ["file-info", "duplicate", "video-page"];
 
 /// A window that must be on the screen and isn't (hidden, not minimized): shown again after a
 /// moment, however it got that way, directly: winit believes it is still visible and ignores
@@ -3084,6 +3087,17 @@ pub fn ensure_folder<T>(
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    /// The browser's video button opens the Download video window without showing the main
+    /// window, so on Windows (where the main window owns its dialogs and hides them with it) the
+    /// window must be among those kept on the screen.
+    #[cfg(windows)]
+    #[test]
+    fn the_video_window_stays_on_the_screen_while_the_main_window_is_hidden() {
+        assert!(QUEUE_GATES.contains(&"video-page"));
+        assert!(QUEUE_GATES.contains(&"file-info"));
+        assert!(QUEUE_GATES.contains(&"duplicate"));
+    }
 
     /// #440: Download File Info behind the Create folder question ended without a closing pass,
     /// and the next one opened as a new, hidden window that was never told to show: later

@@ -15,6 +15,28 @@ use crate::winui::{self, ButtonKind, r, text};
 
 type Slot<T> = Arc<Mutex<Option<Result<T, String>>>>;
 
+// The Download video window's layout, in English pixels from the client's top-left; the playlist's
+// list (playlistdlg.rs) shares it. Compact: 460 wide (was 500), 351 high (was 391), 11 px margins.
+/// The client's width and height.
+pub(crate) const WIDTH: f32 = 460.0;
+const HEIGHT: f32 = 351.0;
+/// Where the right margin is: the right edge of every box and button.
+pub(crate) const EDGE: f32 = WIDTH - 11.0;
+/// The width of the list of choices (or of a playlist's videos).
+pub(crate) const LIST_W: f32 = EDGE - 11.0;
+/// The status line's baseline (a button beside it is 13 px above), and the note under it.
+pub(crate) const STATUS_Y: f32 = 66.0;
+pub(crate) const NOTE_Y: f32 = 82.0;
+/// The list's top, and its height for a video's choices (7 rows of 17 px, and a border).
+pub(crate) const LIST_Y: f32 = 90.0;
+const CHOICES_H: f32 = 130.0;
+/// The rows below the list: Save to, File name (Quality), Subtitles; 27 px apart.
+pub(crate) const SAVE_Y: f32 = 229.0;
+const NAME_Y: f32 = SAVE_Y + 27.0;
+const SUBS_Y: f32 = NAME_Y + 27.0;
+/// The bottom row of buttons.
+const BUTTONS_Y: f32 = SUBS_Y + 35.0;
+
 /// What Download Now or Later adds: a video, or a playlist's (#69).
 pub enum VideoOut {
     One(VideoAdd),
@@ -298,8 +320,8 @@ impl VideoDialog {
         });
         if let Some(i) = found {
             self.chosen = i;
-            // The list shows 8 rows.
-            self.rows.show_row(i, 8);
+            // The list shows 7 rows.
+            self.rows.show_row(i, 7);
             self.name_from_choice();
         }
     }
@@ -379,7 +401,7 @@ impl VideoDialog {
             ctx,
             "video-page",
             "Download video from a page",
-            [500.0, 391.0],
+            [WIDTH, HEIGHT],
             false,
             winui::BG(),
             |ui, o| self.body(ui, o, rt),
@@ -486,7 +508,7 @@ impl VideoDialog {
         );
         // Look up is as wide as its label in this language (#172); the address ends 8 px before.
         let (look_x, look_w) =
-            winui::buttons_to_right(&p, 489.0, 8.0, &[("Look up", 90.0)], 160.0)[0];
+            winui::buttons_to_right(&p, EDGE, 8.0, &[("Look up", 90.0)], 160.0)[0];
         let edit = winui::edit(
             ui,
             r(o, 11.0, 28.0, look_x - 8.0 - 11.0, 21.0),
@@ -559,7 +581,7 @@ impl VideoDialog {
         }
 
         // The status line: a helper missing or installing / looking up / the title.
-        let line_y = o.y + 70.0;
+        let line_y = o.y + STATUS_Y;
         let installing = self.install.as_ref().map(|(t, _)| *t);
         let offer = match (&ytdlp, &ffmpeg) {
             (None, _) => Some((
@@ -594,9 +616,9 @@ impl VideoDialog {
             .as_ref()
             .filter(|(_, label, _)| !label.is_empty() && installing.is_none())
             .map(|(_, label, _)| {
-                winui::buttons_to_right(&p, 489.0, 8.0, &[(label, 90.0)], 200.0)[0]
+                winui::buttons_to_right(&p, EDGE, 8.0, &[(label, 90.0)], 200.0)[0]
             });
-        let status_right = install_at.map_or(489.0, |(x, _)| x - 9.0);
+        let status_right = install_at.map_or(EDGE, |(x, _)| x - 9.0);
         // #351: a page whose better videos need ffmpeg says so in place of its title (still in
         // File name): YouTube without a JavaScript runtime leaves nothing but the sound to offer
         // here, and the list alone gives no reason.
@@ -664,7 +686,7 @@ impl VideoDialog {
             && let Some((x, w)) = install_at
             && winui::button(
                 ui,
-                r(o, x, 57.0, w, 21.0),
+                r(o, x, STATUS_Y - 13.0, w, 21.0),
                 label,
                 ButtonKind::Normal,
                 false,
@@ -677,7 +699,7 @@ impl VideoDialog {
         }
         if let Some(e) = &self.error {
             let (rect, cut) =
-                winui::text_fit(&p, o.x + 11.0, o.y + 86.0, e, winui::ERROR(), o.x + 489.0);
+                winui::text_fit(&p, o.x + 11.0, o.y + NOTE_Y, e, winui::ERROR(), o.x + EDGE);
             if cut {
                 winui::full_on_hover(ui, rect, "video-error", e);
             }
@@ -692,13 +714,13 @@ impl VideoDialog {
                 ui,
                 &p,
                 o.x + 11.0,
-                o.y + 86.0,
+                o.y + NOTE_Y,
                 // i18n: a note in Download video while FLAC is chosen: FLAC keeps the site's (already lossy) sound exactly, it can't make it better, the file is only bigger
                 crate::i18n::t(
                     "FLAC keeps the sound exactly, but it can't add quality the site's sound doesn't have: the file is only bigger.",
                 ),
                 winui::MUTED(),
-                o.x + 489.0,
+                o.x + EDGE,
                 "video-flac",
             );
         }
@@ -709,7 +731,7 @@ impl VideoDialog {
             list.middle(ui, o, installing.is_none().then_some(status_right));
         } else {
             // The choices: the shared row list.
-            let list = r(o, 11.0, 94.0, 478.0, 150.0);
+            let list = r(o, 11.0, LIST_Y, LIST_W, CHOICES_H);
             let mut picked = None;
             let choices = self.video.as_ref().map_or(&[][..], |(_, c)| c.as_slice());
             self.rows.selected = Some(self.chosen).filter(|c| *c < choices.len());
@@ -798,17 +820,17 @@ impl VideoDialog {
                 ("video-label", y as i32),
             );
         };
-        label(ui, 266.0, labels[0], winui::TEXT());
+        label(ui, SAVE_Y + 13.0, labels[0], winui::TEXT());
         winui::edit(
             ui,
-            r(o, bx, 253.0, 459.0 - bx, 21.0),
+            r(o, bx, SAVE_Y, EDGE - 30.0 - bx, 21.0),
             &mut self.folder,
             true,
             false,
         );
         if winui::button(
             ui,
-            r(o, 467.0, 253.0, 22.0, 21.0),
+            r(o, EDGE - 22.0, SAVE_Y, 22.0, 21.0),
             "...",
             ButtonKind::Normal,
             false,
@@ -824,14 +846,14 @@ impl VideoDialog {
         if let Some(d) = winui::picked(ui.ctx(), "video-folder") {
             self.folder = d.display().to_string();
         }
-        label(ui, 297.0, labels[1], winui::TEXT());
+        label(ui, NAME_Y + 13.0, labels[1], winui::TEXT());
         if let Some(list) = &mut self.list {
             // One quality for every video; their names are their titles (no subtitles).
-            list.quality_row(ui, r(o, bx, 284.0, 489.0 - bx, 21.0), ffmpeg.is_some());
+            list.quality_row(ui, r(o, bx, NAME_Y, EDGE - bx, 21.0), ffmpeg.is_some());
         } else {
             winui::edit(
                 ui,
-                r(o, bx, 284.0, 489.0 - bx, 21.0),
+                r(o, bx, NAME_Y, EDGE - bx, 21.0),
                 &mut self.name,
                 true,
                 false,
@@ -842,7 +864,7 @@ impl VideoDialog {
             } else {
                 winui::TEXT_DISABLED()
             };
-            label(ui, 328.0, labels[2], shade);
+            label(ui, SUBS_Y + 13.0, labels[2], shade);
         }
 
         // The choices belong to the address looked up: an edited address is looked up first
@@ -867,7 +889,7 @@ impl VideoDialog {
         // left, as wide as the room before Download Now allows.
         let [now_at, later_at, cancel_at] = winui::buttons_to_right(
             &p,
-            489.0,
+            EDGE,
             8.0,
             &[("Download Now", 105.0), ("Later", 73.0), ("Cancel", 73.0)],
             160.0,
@@ -884,7 +906,7 @@ impl VideoDialog {
         // Where yt-dlp and ffmpeg come from: NetGuard's own copies or the person's (#51).
         if winui::button(
             ui,
-            r(o, helpers_at.0, 358.0, helpers_at.1, 21.0),
+            r(o, helpers_at.0, BUTTONS_Y, helpers_at.1, 21.0),
             // i18n: button in Download video: where NetGuard takes yt-dlp and ffmpeg from
             "Helpers...",
             ButtonKind::Normal,
@@ -897,7 +919,7 @@ impl VideoDialog {
         }
         let now = winui::button(
             ui,
-            r(o, now_at.0, 358.0, now_at.1, 21.0),
+            r(o, now_at.0, BUTTONS_Y, now_at.1, 21.0),
             "Download Now",
             kind(true),
             false,
@@ -910,7 +932,7 @@ impl VideoDialog {
             || (ready && winui::enter_pressed(ui));
         let later = winui::button(
             ui,
-            r(o, later_at.0, 358.0, later_at.1, 21.0),
+            r(o, later_at.0, BUTTONS_Y, later_at.1, 21.0),
             // i18n: button: add it now, start downloading later
             "Later",
             kind(false),
@@ -920,7 +942,7 @@ impl VideoDialog {
         .clicked();
         let cancel = winui::button(
             ui,
-            r(o, cancel_at.0, 358.0, cancel_at.1, 21.0),
+            r(o, cancel_at.0, BUTTONS_Y, cancel_at.1, 21.0),
             "Cancel",
             ButtonKind::Normal,
             false,
@@ -970,7 +992,7 @@ impl VideoDialog {
         let pick = if on { self.sub_pick } else { 0 };
         if let Some(i) = winui::combo_light(
             ui,
-            r(o, bx, 315.0, 200.0, 21.0),
+            r(o, bx, SUBS_Y, 200.0, 21.0),
             &shown,
             pick.min(shown.len().saturating_sub(1)),
             on,
@@ -985,12 +1007,12 @@ impl VideoDialog {
         let mut embed = self.embed && chosen && ffmpeg && holds;
         let resp = winui::checkbox_until(
             ui,
-            pos2(o.x + bx + 212.0, o.y + 319.0),
+            pos2(o.x + bx + 212.0, o.y + SUBS_Y + 4.0),
             &mut embed,
             // i18n: checkbox in Download video: subtitles go inside the video file instead of a separate .srt file beside it
             "Put them into the video",
             chosen && ffmpeg && holds,
-            Some(o.x + 489.0),
+            Some(o.x + EDGE),
         );
         let resp = winui::why_disabled(
             resp,
@@ -1216,6 +1238,35 @@ pub(crate) fn choice_label(label: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    /// The Download video window is compact: about 440 to 480 px wide, no taller than its rows
+    /// need, every control inside the margins, and each row clear of the one before it (the
+    /// layout is absolute, so the numbers are what is checked).
+    #[test]
+    fn the_window_is_compact_and_its_rows_do_not_overlap() {
+        assert!((440.0..=480.0).contains(&WIDTH), "width {WIDTH}");
+        assert!(HEIGHT <= 360.0, "height {HEIGHT}");
+        // The margins are the same on both sides, and the list spans them.
+        assert_eq!(EDGE, WIDTH - 11.0);
+        assert_eq!(LIST_W, WIDTH - 22.0);
+        // Top to bottom: address (28..49), status line and its button, note, choices, then the
+        // three rows and the buttons: each starts below the one above it.
+        let address_end = 28.0 + 21.0;
+        assert!(
+            STATUS_Y - 13.0 >= address_end,
+            "the Install button under the address"
+        );
+        assert!(NOTE_Y > STATUS_Y, "the note under the status line");
+        assert!(LIST_Y > NOTE_Y, "the list under the note");
+        assert!(SAVE_Y >= LIST_Y + CHOICES_H, "Save to under the choices");
+        assert!(NAME_Y >= SAVE_Y + 21.0 + 4.0);
+        assert!(SUBS_Y >= NAME_Y + 21.0 + 4.0);
+        assert!(BUTTONS_Y >= SUBS_Y + 21.0 + 8.0);
+        // The buttons end inside the window, with a margin.
+        assert!(BUTTONS_Y + 21.0 + 8.0 <= HEIGHT);
+        // The choices list shows whole rows of 17 px.
+        assert!(CHOICES_H / 17.0 >= 7.0);
+    }
 
     /// #229: yt-dlp's refusals and its trouble with a browser's cookies, in NetGuard's words, saying
     /// which cookies it had.
