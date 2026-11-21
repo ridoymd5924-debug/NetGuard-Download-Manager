@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Дебрид хезмәте файл хостының сылтамасын сезнең түләүле хисап язмагыз белән йөкләп ала һәм MDMга туры сылтама бирә. Үзегезнең хисап язмагызны гына кулланыгыз: хисап язмасын яки аның сылтамаларын уртаклашу хезмәтләрнең шартларын боза һәм аның туктатылуына китерергә мөмкин. Браузер инде башлаган йөкләмәләр үзгәрешсез кала.
+	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Дебрид хезмәте файл хостының сылтамасын сезнең түләүле хисап язмагыз белән йөкләп ала һәм NetGuardга туры сылтама бирә. Үзегезнең хисап язмагызны гына кулланыгыз: хисап язмасын яки аның сылтамаларын уртаклашу хезмәтләрнең шартларын боза һәм аның туктатылуына китерергә мөмкин. Браузер инде башлаган йөкләмәләр үзгәрешсез кала.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -1419,7 +1419,7 @@
 #. text in crashui.rs
 #. crash report window button: end the frozen NetGuard and start it again
 #, machine
-	End and restart NetGuard	MDMны тәмамлау һәм яңадан башлау
+	End and restart NetGuard	NetGuardны тәмамлау һәм яңадан башлау
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	Магнит сылтамасын кертегез яки .torrent файлын сайлагыз
@@ -2991,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach NetGuard.	Сүндерелгән: челтәрдә бернәрсә дә MDMга ирешә алмый.
+	Off: nothing on the network can reach NetGuard.	Сүндерелгән: челтәрдә бернәрсә дә NetGuardга ирешә алмый.
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	Буфер алмашу тактасына күчерелгән сылтамаларны йөкләүне тәкъдим итәргә
@@ -3067,7 +3067,7 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Бары тик парлы җайланмалар гына берәр нәрсәне күрә яки үзгәртә ала. Беренче тапкыр, телефон браузеры MDMның үз сертификаты турында кисәтә: аның бармак эзе өстәге кебек.
+	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Бары тик парлы җайланмалар гына берәр нәрсәне күрә яки үзгәртә ала. Беренче тапкыр, телефон браузеры NetGuardның үз сертификаты турында кисәтә: аның бармак эзе өстәге кебек.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than NetGuard lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
@@ -3478,7 +3478,7 @@
 #. text in crashui.rs
 #. crash report window button: start NetGuard again
 #, machine
-	Restart NetGuard	MDMны яңадан башлау
+	Restart NetGuard	NetGuardны яңадан башлау
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	Урнаштырылган категорияләрне торгызу
@@ -4846,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	Бу кодны {page} битенә кертегез һәм MDMга рөхсәт итегез; сезне көтәм (кодның вакыты {time} эчендә бетә).
+	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	Бу кодны {page} битенә кертегез һәм NetGuardга рөхсәт итегез; сезне көтәм (кодның вакыты {time} эчендә бетә).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4943,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy NetGuard downloads and checks itself
 #, machine
-	Use NetGuard's own copy	MDMның үз күчермәсен кулланыгыз
+	Use NetGuard's own copy	NetGuardның үз күчермәсен кулланыгыз
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine

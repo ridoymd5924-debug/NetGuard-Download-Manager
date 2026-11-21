@@ -302,15 +302,13 @@ fn zen_and_helium_alone_are_registered() {
         serde_json::from_str(&std::fs::read_to_string(&file).unwrap()).unwrap()
     };
     assert!(manifest(&mozilla_hosts)["allowed_extensions"].is_array());
-    // Both copies of the extension connect: the Chrome Web Store's and the app folder's.
+    // The app folder's extension connects; the Chrome Web Store copy of the project NetGuard was
+    // forked from does not.
     let origins = manifest(&helium_hosts)["allowed_origins"].clone();
-    for id in [
-        "ejoleppdfgjdndddcjoehopknmlglojp",
-        "oogbclbbninliongijffeeggalppliok",
-    ] {
-        let origin = serde_json::json!(format!("chrome-extension://{id}/"));
-        assert!(origins.as_array().unwrap().contains(&origin), "{origins}");
-    }
+    let origin = |id: &str| serde_json::json!(format!("chrome-extension://{id}/"));
+    let origins = origins.as_array().unwrap();
+    assert!(origins.contains(&origin("oogbclbbninliongijffeeggalppliok")));
+    assert!(!origins.contains(&origin("ejoleppdfgjdndddcjoehopknmlglojp")));
     host("--unregister");
     for dir in [&mozilla_hosts, &helium_hosts] {
         assert!(!dir.join("com.misterdownloadmanager.host.json").exists());

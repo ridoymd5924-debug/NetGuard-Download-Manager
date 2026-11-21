@@ -2860,7 +2860,7 @@
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	કોઈ સિસ્ટમ કીરીંગે જવાબ આપ્યો નથી, તેથી સાઇન-ઇન અને પાસવર્ડ MDMની સેટિંગ્સમાં રાખવામાં આવે છે, જે ફક્ત તમે જ વાંચી શકો છો.
+	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	કોઈ સિસ્ટમ કીરીંગે જવાબ આપ્યો નથી, તેથી સાઇન-ઇન અને પાસવર્ડ NetGuardની સેટિંગ્સમાં રાખવામાં આવે છે, જે ફક્ત તમે જ વાંચી શકો છો.
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -4463,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (NetGuard never unlocks it: that would ask for its password), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	સિસ્ટમ કીરીંગ લૉક છે અને NetGuard તેને અનલૉક કરતું નથી, તેથી સાઇન-ઇન અને પાસવર્ડ MDMની સેટિંગ્સમાં રાખવામાં આવે છે, જે ફક્ત તમે જ વાંચી શકો છો.
+	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	સિસ્ટમ કીરીંગ લૉક છે અને NetGuard તેને અનલૉક કરતું નથી, તેથી સાઇન-ઇન અને પાસવર્ડ NetGuardની સેટિંગ્સમાં રાખવામાં આવે છે, જે ફક્ત તમે જ વાંચી શકો છો.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4943,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy NetGuard downloads and checks itself
 #, machine
-	Use NetGuard's own copy	MDMની પોતાની કૉપિનો ઉપયોગ કરો
+	Use NetGuard's own copy	NetGuardની પોતાની કૉપિનો ઉપયોગ કરો
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5139,7 +5139,7 @@
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in NetGuard's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows ક્રેડેન્શિયલ મેનેજરે જવાબ આપ્યો નથી, તેથી સાઇન-ઇન અને પાસવર્ડ MDMની સેટિંગ્સમાં રાખવામાં આવે છે, જે તમારા Windows એકાઉન્ટ માટે એન્ક્રિપ્ટેડ છે.
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows ક્રેડેન્શિયલ મેનેજરે જવાબ આપ્યો નથી, તેથી સાઇન-ઇન અને પાસવર્ડ NetGuardની સેટિંગ્સમાં રાખવામાં આવે છે, જે તમારા Windows એકાઉન્ટ માટે એન્ક્રિપ્ટેડ છે.
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine

@@ -8,38 +8,35 @@ Set up the extension once, and every download link you click in Firefox, Chrome,
 
 On Windows, NetGuard must be installed with the setup, with **Set up browser integration (Chrome, Edge, Brave, Firefox)** ticked. It is ticked by default. If you're not sure, run the setup again. A portable copy can't do this. On Linux and macOS, start NetGuard once: it sets browser integration up itself.
 
-NetGuard's **Add NetGuard Download Manager to your browser** window, which opens at each start until a browser's extension has reached NetGuard, does the steps below for you: **Add the extension** opens the store's page in that browser.
+NetGuard's **Add NetGuard Download Manager to your browser** window, which opens at each start until a browser's extension has reached NetGuard, shows the steps below: **Show me how** opens this tutorial.
 
 Once it is set up, a download link goes like this:
 
 <!-- steps -->
 
 
-## In Firefox
-
-1. Open the add-on's page on addons.mozilla.org, [the extension's store listing (published by the original Mister Download Manager project)](https://addons.mozilla.org/firefox/addon/mister-download-manager/), and click **Add to Firefox**. Zen and LibreWolf use the same page.
-2. Firefox asks to confirm: click **Add**. Firefox keeps the add-on up to date.
-3. Go to a web page and click a download link, for example a ZIP or an EXE: NetGuard opens **Download File Info**. Click **Start Download**.
-
 ## In Chrome, Edge, Brave, Opera or Vivaldi
 
-1. Open the extension's page in the Chrome Web Store, [the extension's store listing (published by the original Mister Download Manager project)](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp), and click **Add to Chrome**. In Edge the button is **Get**, and Edge first asks to **Allow extensions from other stores**: click **Allow**.
-2. The browser asks to confirm: click **Add extension**. It keeps the extension up to date.
-3. Go to a web page and click a download link, for example a ZIP or an EXE: NetGuard opens **Download File Info**. Click **Start Download**.
-
-## Without the store
-
-When a browser can't use its store (a computer managed by an organization, or a build of your own), add the extension by hand:
+NetGuard carries its own extension: the setup puts it in NetGuard's folder, and you add it to the browser once. (NetGuard is not in the Chrome Web Store yet, and NetGuard does not accept the extension listed there by the project it was forked from.)
 
 1. Open your browser's extensions page: type `chrome://extensions`, `edge://extensions` or `brave://extensions` in the address bar.
 2. Turn on **Developer mode**.
 3. Click **Load unpacked**.
-4. Choose the `extension\chromium` folder inside NetGuard's folder. If you installed NetGuard for yourself, that is `%LOCALAPPDATA%\Programs\NetGuard Download Manager\extension\chromium`; you can paste that path into the folder box.
+4. Choose the `extension\chromium` folder inside NetGuard's folder. If you installed NetGuard for yourself, that is `%LOCALAPPDATA%\Programs\NetGuard Download Manager\extension\chromium`; you can paste that path into the folder box. If you installed it for everyone, it is `C:\Program Files\NetGuard Download Manager\extension\chromium`.
 5. **NetGuard Download Manager** appears. Make sure it is turned on.
-6. Go to a web page and click a download link, for example a ZIP or an EXE.
-7. NetGuard opens **Download File Info** instead of the browser downloading the file. Click **Start Download**.
+6. Go to a web page and click a download link, for example a ZIP or an EXE: NetGuard opens **Download File Info**. Click **Start Download**.
 
-You don't need to start NetGuard first: if it isn't running, it starts by itself.
+You don't need to start NetGuard first: if it isn't running, it starts by itself. Every release also has the extension as its own download, `...-extension-chromium.zip` (unzip it first, then choose the unzipped folder in step 4).
+
+## In Firefox
+
+Firefox only keeps add-ons signed by Mozilla, and NetGuard has no listing there yet. The add-on, `extension\mdm-firefox.xpi` in NetGuard's folder (or the `...-extension-firefox.xpi` download of a release), can be added for the current Firefox session, or kept in Firefox Developer Edition, Nightly or ESR with `xpinstall.signatures.required` set to `false` in `about:config`:
+
+1. Type `about:debugging#/runtime/this-firefox` in the address bar.
+2. Click **Load Temporary Add-on...** and choose the `.xpi` file.
+3. Go to a web page and click a download link: NetGuard opens **Download File Info**.
+
+A temporary add-on is removed when Firefox closes. Firefox 140 or later is needed.
 
 ## Choose what NetGuard takes
 

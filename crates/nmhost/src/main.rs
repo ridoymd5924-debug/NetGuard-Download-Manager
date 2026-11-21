@@ -1089,25 +1089,19 @@ mod tests {
         assert_eq!(bundle_of(std::path::Path::new("/usr/bin/nmhost")), None);
     }
 
-    /// The Chrome Web Store's copy and the app folder's (unpacked) both connect, and both are
-    /// served: the manifest's allowed_origins and the host's own caller check agree.
+    /// The app folder's extension (unpacked) connects and is served: the manifest's
+    /// allowed_origins and the host's own caller check agree. The Chrome Web Store copy of the
+    /// project NetGuard was forked from does not connect.
     #[test]
-    fn store_and_unpacked_extensions_both_allowed() {
+    fn only_the_unpacked_extension_is_allowed() {
         let manifest = chromium_manifest(&this_program().unwrap());
-        for id in [
-            "ejoleppdfgjdndddcjoehopknmlglojp",
-            "oogbclbbninliongijffeeggalppliok",
-        ] {
-            let o = format!("chrome-extension://{id}/");
-            assert!(
-                manifest["allowed_origins"]
-                    .as_array()
-                    .unwrap()
-                    .contains(&serde_json::json!(o)),
-                "{manifest}"
-            );
-            assert!(our_caller(&[o]));
-        }
+        let origins = manifest["allowed_origins"].as_array().unwrap();
+        let ours = "chrome-extension://oogbclbbninliongijffeeggalppliok/".to_owned();
+        assert!(origins.contains(&serde_json::json!(ours)), "{manifest}");
+        assert!(our_caller(&[ours]));
+        let theirs = "chrome-extension://ejoleppdfgjdndddcjoehopknmlglojp/".to_owned();
+        assert!(!origins.contains(&serde_json::json!(theirs)), "{manifest}");
+        assert!(!our_caller(&[theirs]));
         assert!(!our_caller(&[
             "chrome-extension://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/".into()
         ]));

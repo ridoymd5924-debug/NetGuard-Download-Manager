@@ -28,7 +28,7 @@ Every version is on the [Releases](https://github.com/ridoymd5924-debug/NetGuard
 
 If NetGuard is already running, the setup asks it to save and close first. To update, download the setup of the new version from the Releases page and run it over the old one; your list and settings stay. (This release has no automatic updates.)
 
-Browser integration needs one more step in each browser: adding the extension. In Firefox, click **Add to Firefox** on [its page on addons.mozilla.org](https://addons.mozilla.org/firefox/addon/mister-download-manager/); in Chrome, Edge, Brave, Opera and Vivaldi, **Add to Chrome** on [its page in the Chrome Web Store](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp). [Browser integration](browser-integration.md) shows how.
+Browser integration needs one more step in each browser: adding NetGuard's own extension from its folder (**Load unpacked** in Chrome, Edge, Brave, Opera and Vivaldi; a temporary add-on in Firefox). [Browser integration](browser-integration.md) shows how.
 
 ### Uninstall
 

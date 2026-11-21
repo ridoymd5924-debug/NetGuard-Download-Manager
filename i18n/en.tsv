@@ -3268,6 +3268,8 @@
 #. \\n starts a new line: break lines where they fit the translation
 	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?	The selected download is not complete. Are you sure you want to delete\nit from NetGuard Download Manager list of downloads?
 #. text in errors.rs
+	the server answered with an error (HTTP {status})	the server answered with an error (HTTP {status})
+#. text in errors.rs
 	the server answered {status}	the server answered {status}
 #. text in errors.rs
 	the server can't send parts of the file, so it can't be resumed	the server can't send parts of the file, so it can't be resumed

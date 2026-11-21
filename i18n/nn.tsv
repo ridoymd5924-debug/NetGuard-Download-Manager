@@ -3067,7 +3067,7 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Berre para einheiter ser eller endrar noko. Første gongen åtvarar telefonens nettlesar om MDMs eige sertifikat: fingeravtrykket er det over.
+	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Berre para einheiter ser eller endrar noko. Første gongen åtvarar telefonens nettlesar om NetGuards eige sertifikat: fingeravtrykket er det over.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than NetGuard lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)

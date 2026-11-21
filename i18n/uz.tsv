@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Debrid xizmati fayl xostining havolasini oʻzingizning pullik hisobingiz bilan yuklab oladi va MDMga toʻgʻridan-toʻgʻri havola beradi. Faqat oʻzingizning hisobingizdan foydalaning: hisobni yoki uning havolalarini boʻlishish xizmat shartlarini buzadi va uning toʻxtatilishiga olib kelishi mumkin. Brauzer allaqachon boshlagan yuklamalar oʻz holicha qoladi.
+	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	Debrid xizmati fayl xostining havolasini oʻzingizning pullik hisobingiz bilan yuklab oladi va NetGuardga toʻgʻridan-toʻgʻri havola beradi. Faqat oʻzingizning hisobingizdan foydalaning: hisobni yoki uning havolalarini boʻlishish xizmat shartlarini buzadi va uning toʻxtatilishiga olib kelishi mumkin. Brauzer allaqachon boshlagan yuklamalar oʻz holicha qoladi.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -1419,7 +1419,7 @@
 #. text in crashui.rs
 #. crash report window button: end the frozen NetGuard and start it again
 #, machine
-	End and restart NetGuard	MDMni yakunlash va qayta ishga tushirish
+	End and restart NetGuard	NetGuardni yakunlash va qayta ishga tushirish
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	Magnit havolasini kiriting yoki .torrent faylini tanlang
@@ -2261,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control NetGuard	Mahalliy tarmoqdagi telefon va kompyuterlarga MDMni boshqarishga ruxsat berish
+	Let phones and computers on the local network control NetGuard	Mahalliy tarmoqdagi telefon va kompyuterlarga NetGuardni boshqarishga ruxsat berish
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2479,7 +2479,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: the remote control isn't listening (no network, port taken): the Remote page says why
 #, machine
-	NetGuard can't be reached on the network now: Options → Remote says why.	MDMga hozir tarmoq orqali ulanib boʻlmaydi: Parametrlar → Masofaviy boʻlimida sababi koʻrsatilgan.
+	NetGuard can't be reached on the network now: Options → Remote says why.	NetGuardga hozir tarmoq orqali ulanib boʻlmaydi: Parametrlar → Masofaviy boʻlimida sababi koʻrsatilgan.
 #. text in remote.rs
 #. remote control page (on a phone): the address typed isn't one NetGuard downloads (not http, https, ftp or magnet)
 #, machine
@@ -2991,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach NetGuard.	Oʻchirilgan: tarmoqdagi hech narsa MDMga ulanolmaydi.
+	Off: nothing on the network can reach NetGuard.	Oʻchirilgan: tarmoqdagi hech narsa NetGuardga ulanolmaydi.
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	Vaqtinchalik xotiraga nusxalangan havolalarni yuklab olishni taklif qilish
@@ -3067,7 +3067,7 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Faqat ulangan qurilmalar biror narsani koʻrishi yoki oʻzgartirishi mumkin. Birinchi marta, telefon brauzeri MDMning oʻz sertifikati haqida ogohlantiradi: uning barmoq izi yuqoridagi bilan bir xil.
+	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Faqat ulangan qurilmalar biror narsani koʻrishi yoki oʻzgartirishi mumkin. Birinchi marta, telefon brauzeri NetGuardning oʻz sertifikati haqida ogohlantiradi: uning barmoq izi yuqoridagi bilan bir xil.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than NetGuard lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
@@ -3478,7 +3478,7 @@
 #. text in crashui.rs
 #. crash report window button: start NetGuard again
 #, machine
-	Restart NetGuard	MDMni qayta ishga tushirish
+	Restart NetGuard	NetGuardni qayta ishga tushirish
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	Oʻrnatilgan toifalarni tiklash
@@ -4846,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	Ushbu kodni {page} sahifasiga kiriting va MDMga ruxsat bering; sizni kutmoqda (kodning muddati {time} da tugaydi).
+	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	Ushbu kodni {page} sahifasiga kiriting va NetGuardga ruxsat bering; sizni kutmoqda (kodning muddati {time} da tugaydi).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4943,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy NetGuard downloads and checks itself
 #, machine
-	Use NetGuard's own copy	MDMning oʻz nusxasidan foydalanish
+	Use NetGuard's own copy	NetGuardning oʻz nusxasidan foydalanish
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5171,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in NetGuard and try again.	Notoʻgʻri kod. MDMda yangi kodni koʻrsating va qayta urinib koʻring.
+	Wrong code. Show a new code in NetGuard and try again.	Notoʻgʻri kod. NetGuardda yangi kodni koʻrsating va qayta urinib koʻring.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5229,7 +5229,7 @@
 #. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest NetGuard can use
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	Sizning dasturingiz ({version}) juda eski: MDMga {oldest} yoki undan yangirogʻi kerak
+	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	Sizning dasturingiz ({version}) juda eski: NetGuardga {oldest} yoki undan yangirogʻi kerak
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -5324,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control NetGuard now.	{device} juftlandi. Endi u MDMni boshqarishi mumkin.
+	{device} is paired. It can control NetGuard now.	{device} juftlandi. Endi u NetGuardni boshqarishi mumkin.
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5419,7 +5419,7 @@
 #. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one NetGuard can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
 #, machine
-	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version} juda eski: MDMga {oldest} yoki undan yangirogʻi kerak
+	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version} juda eski: NetGuardga {oldest} yoki undan yangirogʻi kerak
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)

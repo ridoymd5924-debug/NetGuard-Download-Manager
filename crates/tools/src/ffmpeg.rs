@@ -108,16 +108,9 @@ pub async fn install_latest(
             "ffmpeg build for this system (install ffmpeg)".into(),
         ));
     }
-    let client = mdm_engine::net::client_builder(&net.dns, &net.route, RELEASES)?
-        .user_agent(crate::USER_AGENT)
-        .build()?;
-    let body = client
-        .get(RELEASES)
-        .send()
-        .await?
-        .error_for_status()?
-        .bytes()
-        .await?;
+    let builder = mdm_engine::net::client_builder(&net.dns, &net.route, RELEASES)?;
+    let client = crate::release_client(builder)?;
+    let body = crate::get_bytes(&client, RELEASES).await?;
     let mut releases: Vec<Release> =
         serde_json::from_slice(&body).map_err(|e| Error::BadRelease(e.to_string()))?;
     // Newest first (RFC 3339 times sort as text); the first with a build and its checksums.
@@ -148,13 +141,8 @@ pub async fn install_latest(
         .iter()
         .find(|a| a.name == "checksums.sha256")
         .ok_or_else(|| Error::Missing("checksums.sha256".into()))?;
-    let sums = client
-        .get(&sums.browser_download_url)
-        .send()
-        .await?
-        .error_for_status()?
-        .text()
-        .await?;
+    let sums = crate::get_bytes(&client, &sums.browser_download_url).await?;
+    let sums = String::from_utf8_lossy(&sums);
     let expected = sum_for(&sums, &asset.name)
         .ok_or_else(|| Error::Missing(format!("checksum for {}", asset.name)))?;
     if let Some(d) = asset

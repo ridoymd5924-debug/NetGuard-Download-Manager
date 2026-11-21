@@ -1,9 +1,10 @@
 //! The browser extension's offer: at each start, until a browser's extension has reached the
 //! app (the native host notes it: mdm_ipc::extension::seen), a window lists the browsers
-//! installed and opens the extension's page in the one picked (addons.mozilla.org for Firefox
-//! and its family, the Chrome Web Store for Chrome, Edge, Brave, Opera and Vivaldi), with the
-//! tutorial that adds it by hand as the fallback. Chrome may ask by itself too: registering the
-//! host also names the store's extension to it (crates/nmhost). "Don't ask again" stops the
+//! installed and opens the extension's page in the one picked (the Chrome Web Store for Chrome,
+//! Edge, Brave, Opera and Vivaldi once NetGuard is listed there), else the tutorial that adds it
+//! from the app's folder (Firefox and its family always: NetGuard has no add-on listing). Chrome
+//! may ask by itself too once a listing exists: registering the host then names the store's
+//! extension to it (crates/nmhost). "Don't ask again" stops the
 //! offer; `/show extension` brings it back.
 //!
 //! Safari (macOS) has its extension in the app already (tools/safari): its row says "How to
@@ -63,8 +64,8 @@ fn is_seen(seen: &[String], row: &str) -> bool {
     seen.iter().any(|b| b == named)
 }
 
-/// A row for a browser of Firefox's family (Firefox, Zen, LibreWolf …): it gets the add-on's
-/// page on addons.mozilla.org, not the Chrome Web Store.
+/// A row for a browser of Firefox's family (Firefox, Zen, LibreWolf …): it gets the tutorial,
+/// never the Chrome Web Store's page.
 fn is_gecko(row: &str) -> bool {
     mdm_ipc::browsers::named(row).is_some_and(|b| b.family == mdm_ipc::browsers::Family::Gecko)
 }
@@ -180,16 +181,12 @@ impl Extension {
         let o = o + egui::vec2(0.0, extra);
 
         // One row per browser: its name, and the button that opens the extension's page in it:
-        // Firefox's on addons.mozilla.org, the Chrome Web Store's for the others (the tutorial
-        // while STORE_ID is a placeholder, as in a build of its own).
+        // the Chrome Web Store's once NetGuard is listed there, else (as now, STORE_ID being a
+        // placeholder) the tutorial that adds the extension from the app's folder.
         let store = mdm_ipc::extension::store_page();
         for (k, (name, program)) in self.browsers.iter().enumerate() {
             let y = BANNER + 16.0 + k as f32 * ROW;
-            let page = if is_gecko(name) {
-                Some(mdm_ipc::extension::FIREFOX_PAGE.to_owned())
-            } else {
-                store.clone()
-            };
+            let page = if is_gecko(name) { None } else { store.clone() };
             winui::text_font(
                 &p,
                 winui::tahoma_bold(),

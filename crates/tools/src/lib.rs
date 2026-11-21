@@ -19,6 +19,7 @@ pub mod update;
 pub mod video;
 
 use std::path::{Path, PathBuf};
+use std::time::Duration;
 
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
@@ -32,6 +33,9 @@ const RELEASES: &str = "https://api.github.com/repos/yt-dlp/yt-dlp/releases/late
 pub enum Error {
     #[error("network: {0}")]
     Http(#[from] reqwest::Error),
+    /// A server answered a small request (a release's data, its checksums) with an error status.
+    #[error("the server answered HTTP {0}")]
+    Status(u16),
     #[error("disk: {0}")]
     Io(#[from] std::io::Error),
     #[error("the release's checksum list is not signed by its publisher's key")]
@@ -112,16 +116,108 @@ pub fn signed_by(key: &str, data: &[u8], sig: &[u8]) -> bool {
     openpgp::verify(key.as_bytes(), data, sig)
 }
 
-/// `url`'s body.
+/// How many times a release's small files (its data, its checksums) are asked for before the
+/// error is shown.
+const ATTEMPTS: u32 = 5;
+/// The longest a server's own "try again in" is waited for; asking for more shows the error.
+const LONGEST_WAIT: Duration = Duration::from_secs(60);
+/// How long a connection to a release's server may take, and a whole small request.
+const CONNECT_TIMEOUT: Duration = Duration::from_secs(20);
+const REQUEST_TIMEOUT: Duration = Duration::from_secs(60);
+
+/// The client for a release's small files: `builder` (its route, DNS and proxy) as NetGuard, with
+/// time limits, so a connection that goes quiet fails (and is tried again) instead of hanging.
+pub(crate) fn release_client(builder: reqwest::ClientBuilder) -> Result<reqwest::Client, Error> {
+    Ok(builder
+        .user_agent(USER_AGENT)
+        .connect_timeout(CONNECT_TIMEOUT)
+        .timeout(REQUEST_TIMEOUT)
+        .build()?)
+}
+
+/// One failed try at a small file: why, whether another try may pass, and how long the server
+/// asked to wait.
+struct Failed {
+    error: Error,
+    retry: bool,
+    wait: Option<Duration>,
+}
+
+impl From<reqwest::Error> for Failed {
+    fn from(e: reqwest::Error) -> Self {
+        // A connection that failed or was cut, a timeout, a body that stopped: another try may
+        // pass. A request that can't be built, or a redirect that never ends, will not.
+        Failed {
+            retry: !e.is_builder() && !e.is_redirect(),
+            error: Error::Http(e),
+            wait: None,
+        }
+    }
+}
+
+/// Whether a server's answer is one to ask again after: it was busy or failing (408, 425, 429,
+/// 500, 502, 503, 504), or GitHub said the rate limit ran out (403 with no requests left, or a
+/// Retry-After). A 404, 401 or 410 is final, and so is any other 403.
+fn status_passes(status: reqwest::StatusCode, headers: &reqwest::header::HeaderMap) -> bool {
+    match status.as_u16() {
+        408 | 425 | 429 | 500 | 502 | 503 | 504 => true,
+        403 => {
+            let left = headers.get("x-ratelimit-remaining");
+            left.is_some_and(|v| v == "0") || headers.contains_key(reqwest::header::RETRY_AFTER)
+        }
+        _ => false,
+    }
+}
+
+/// The seconds a server's Retry-After asks for (a date isn't understood: the usual pause applies).
+fn asked_wait(headers: &reqwest::header::HeaderMap) -> Option<Duration> {
+    let seconds = headers.get(reqwest::header::RETRY_AFTER)?.to_str().ok()?;
+    let seconds = seconds.trim().parse::<u64>().ok();
+    seconds.map(Duration::from_secs)
+}
+
+/// One try at `url`'s body.
+async fn get_once(client: &reqwest::Client, url: &str) -> Result<Vec<u8>, Failed> {
+    let response = client.get(url).send().await?;
+    let status = response.status();
+    if !status.is_success() {
+        return Err(Failed {
+            retry: status_passes(status, response.headers()),
+            wait: asked_wait(response.headers()),
+            error: Error::Status(status.as_u16()),
+        });
+    }
+    Ok(response.bytes().await?.to_vec())
+}
+
+/// `url`'s body, asked for again when the failure may pass (a connection that failed or was cut, a
+/// timeout, a busy or failing server, a rate limit that resets soon): after 2, 4, 8 and 16
+/// seconds, or what the server asked for, up to `ATTEMPTS` tries. An answer that won't change (a
+/// 404) is shown at once.
 pub(crate) async fn get_bytes(client: &reqwest::Client, url: &str) -> Result<Vec<u8>, Error> {
-    Ok(client
-        .get(url)
-        .send()
-        .await?
-        .error_for_status()?
-        .bytes()
-        .await?
-        .to_vec())
+    get_bytes_paced(client, url, Duration::from_secs(1)).await
+}
+
+/// [`get_bytes`] with `unit` as the first pause's half (the tests use a short one).
+async fn get_bytes_paced(
+    client: &reqwest::Client,
+    url: &str,
+    unit: Duration,
+) -> Result<Vec<u8>, Error> {
+    let mut attempt = 1;
+    loop {
+        let failed = match get_once(client, url).await {
+            Ok(body) => return Ok(body),
+            Err(failed) => failed,
+        };
+        let wait = failed.wait;
+        let pause = wait.unwrap_or(unit * (1 << attempt));
+        if !failed.retry || attempt >= ATTEMPTS || pause > LONGEST_WAIT {
+            return Err(failed.error);
+        }
+        tokio::time::sleep(pause).await;
+        attempt += 1;
+    }
 }
 
 /// A release's checksum list (`hash  name` lines), fetched with its detached signature and
@@ -158,6 +254,29 @@ pub fn net(proxy: mdm_engine::Proxy) -> mdm_engine::Options {
 /// it, and so do we, on the finished file). An earlier attempt cut off is resumed from where it
 /// stopped. A file that doesn't match is removed.
 pub(crate) async fn fetch_verified(
+    url: &str,
+    path: &Path,
+    expected: [u8; 32],
+    net: &mdm_engine::Options,
+    progress: Option<&update::Progress>,
+) -> Result<(), Error> {
+    // The engine retries a connection that fails or is cut. A file that arrives whole but is not
+    // the one signed for (a flaky connection or proxy altered it) is fetched again, up to three
+    // times in all; one that does not match is never kept, and neither is a half file.
+    let mut attempt = 1;
+    loop {
+        match fetch_verified_once(url, path, expected, net, progress).await {
+            Err(Error::BadChecksum) if attempt < 3 => {
+                attempt += 1;
+                tokio::time::sleep(Duration::from_secs(2)).await;
+            }
+            done => return done,
+        }
+    }
+}
+
+/// One try of [`fetch_verified`].
+async fn fetch_verified_once(
     url: &str,
     path: &Path,
     expected: [u8; 32],
@@ -269,16 +388,9 @@ pub async fn install_latest(
     if let Some(mine) = chosen::chosen(dir, chosen::Helper::YtDlp) {
         return Ok(mine);
     }
-    let client = mdm_engine::net::client_builder(&net.dns, &net.route, RELEASES)?
-        .user_agent(USER_AGENT)
-        .build()?;
-    let body = client
-        .get(RELEASES)
-        .send()
-        .await?
-        .error_for_status()?
-        .bytes()
-        .await?;
+    let builder = mdm_engine::net::client_builder(&net.dns, &net.route, RELEASES)?;
+    let client = release_client(builder)?;
+    let body = get_bytes(&client, RELEASES).await?;
     let release: Release =
         serde_json::from_slice(&body).map_err(|e| Error::BadRelease(e.to_string()))?;
     if let Some(current) = own_ytdlp(dir)
@@ -400,6 +512,115 @@ mod tests {
 
     const SUMS: &[u8] = include_bytes!("../tests/fixtures/SHA2-256SUMS");
     const SIG: &[u8] = include_bytes!("../tests/fixtures/SHA2-256SUMS.sig");
+
+    type Seen = std::sync::Arc<std::sync::atomic::AtomicUsize>;
+
+    /// A local server: each request gets the next of `script` (the last repeats), a whole answer,
+    /// or None to hang up without one. Returns its address and how many requests it has seen.
+    async fn serve(script: Vec<Option<String>>) -> (String, Seen) {
+        use std::sync::atomic::Ordering::SeqCst;
+        use tokio::io::{AsyncReadExt, AsyncWriteExt};
+        let listener = tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let base = format!("http://{}", listener.local_addr().unwrap());
+        let seen = Seen::default();
+        let count = seen.clone();
+        tokio::spawn(async move {
+            while let Ok((mut socket, _)) = listener.accept().await {
+                let k = count.fetch_add(1, SeqCst);
+                let reply = script[k.min(script.len() - 1)].clone();
+                let mut head = [0u8; 2048];
+                let _ = socket.read(&mut head).await;
+                if let Some(text) = reply {
+                    let _ = socket.write_all(text.as_bytes()).await;
+                }
+                let _ = socket.shutdown().await;
+            }
+        });
+        (base, seen)
+    }
+
+    /// An answer with `status_and_headers` (after "HTTP/1.1 ") and no body.
+    fn bare(status_and_headers: &str) -> Option<String> {
+        let tail = "Content-Length: 0\r\nConnection: close\r\n\r\n";
+        Some(format!("HTTP/1.1 {status_and_headers}\r\n{tail}"))
+    }
+
+    /// A good answer: the two bytes "ok".
+    fn fine() -> Option<String> {
+        Some("HTTP/1.1 200 OK\r\nContent-Length: 2\r\nConnection: close\r\n\r\nok".into())
+    }
+
+    /// Asks the server `script` describes for `/file`, with 1 ms pauses: the outcome and how many
+    /// requests it took.
+    async fn ask(script: Vec<Option<String>>) -> (Result<Vec<u8>, Error>, usize) {
+        let (base, seen) = serve(script).await;
+        let client = reqwest::Client::builder().no_proxy().build().unwrap();
+        let url = format!("{base}/file");
+        let got = get_bytes_paced(&client, &url, Duration::from_millis(1)).await;
+        (got, seen.load(std::sync::atomic::Ordering::SeqCst))
+    }
+
+    #[tokio::test]
+    async fn a_busy_server_is_asked_again_until_it_answers() {
+        let busy = bare("503 Service Unavailable");
+        let (got, requests) = ask(vec![busy.clone(), busy, fine()]).await;
+        assert_eq!(got.unwrap(), b"ok");
+        assert_eq!(requests, 3);
+    }
+
+    #[tokio::test]
+    async fn a_server_that_never_recovers_is_given_up_on() {
+        let (got, requests) = ask(vec![bare("503 Service Unavailable")]).await;
+        assert!(matches!(got, Err(Error::Status(503))), "{got:?}");
+        assert_eq!(requests, ATTEMPTS as usize);
+    }
+
+    #[tokio::test]
+    async fn a_permanent_error_is_not_retried() {
+        let (got, requests) = ask(vec![bare("404 Not Found"), fine()]).await;
+        assert!(matches!(got, Err(Error::Status(404))), "{got:?}");
+        assert_eq!(requests, 1);
+        // A 403 with no rate limit behind it is a refusal, not a wait.
+        let (got, requests) = ask(vec![bare("403 Forbidden"), fine()]).await;
+        assert!(matches!(got, Err(Error::Status(403))), "{got:?}");
+        assert_eq!(requests, 1);
+    }
+
+    #[tokio::test]
+    async fn a_spent_github_rate_limit_is_waited_out() {
+        let limit = bare("403 Forbidden\r\nx-ratelimit-remaining: 0");
+        let (got, requests) = ask(vec![limit, fine()]).await;
+        assert_eq!(got.unwrap(), b"ok");
+        assert_eq!(requests, 2);
+    }
+
+    #[tokio::test]
+    async fn a_wait_the_server_asks_for_is_kept_unless_it_is_too_long() {
+        let soon = bare("429 Too Many Requests\r\nRetry-After: 0");
+        let (got, requests) = ask(vec![soon, fine()]).await;
+        assert_eq!(got.unwrap(), b"ok");
+        assert_eq!(requests, 2);
+        let later = bare("429 Too Many Requests\r\nRetry-After: 3600");
+        let (got, requests) = ask(vec![later, fine()]).await;
+        assert!(matches!(got, Err(Error::Status(429))), "{got:?}");
+        assert_eq!(requests, 1);
+    }
+
+    #[tokio::test]
+    async fn a_connection_that_is_cut_is_asked_again() {
+        // Hung up without an answer, then an answer that stops short of its length.
+        let short = "HTTP/1.1 200 OK\r\nContent-Length: 10\r\nConnection: close\r\n\r\nab";
+        let (got, requests) = ask(vec![None, Some(short.into()), fine()]).await;
+        assert_eq!(got.unwrap(), b"ok");
+        assert!(requests >= 3, "{requests}");
+    }
+
+    #[tokio::test]
+    async fn a_redirect_is_followed() {
+        let (got, requests) = ask(vec![bare("302 Found\r\nLocation: /final"), fine()]).await;
+        assert_eq!(got.unwrap(), b"ok");
+        assert_eq!(requests, 2);
+    }
 
     #[test]
     fn a_real_release_checksum_list_is_signed_by_the_pinned_key() {

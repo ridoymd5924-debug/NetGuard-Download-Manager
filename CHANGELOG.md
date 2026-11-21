@@ -5,6 +5,22 @@
 > first release changes the name, logo, colour theme and distribution (Windows only), and
 > switches the updater off: see [README.md](README.md) and [ATTRIBUTION.md](ATTRIBUTION.md).
 
+## NetGuard Download Manager fixes (after the fork)
+
+- **Browser extension:** NetGuard no longer registers, links to or accepts the Chrome Web Store and
+  Firefox add-on listings of the project it was forked from (they carry that project's name and
+  icon). It carries its own, NetGuard-branded extension in its folder (`extension\chromium`,
+  `extension\mdm-firefox.xpi`); the tutorial in Help shows how to add it.
+- **Video helpers (yt-dlp, ffmpeg):** a release's data and checksums are asked for again, with
+  growing pauses, when a connection fails or a server is busy or rate-limited (5 tries); a
+  permanent error (404) is shown at once; the error now says the server's HTTP status; the
+  requests have time limits; a file that arrives altered is fetched again (3 tries).
+- **Start with Windows:** a slow login (the taskbar later than 30 s) no longer shows the main
+  window: it stays hidden while the tray icon waits for the shell. A tray icon that could not be
+  made at login is tried again every 5 s for two minutes.
+- **Closing the window:** with "Keep running when closing the window" on, the X button never exits
+  on Windows, whether or not a tray icon exists: only Exit does.
+
 Each release's notes on GitHub come from its section here (`## [X.Y.Z]`, see
 `.github/workflows/release.yml`).
 

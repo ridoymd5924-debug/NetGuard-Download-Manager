@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	デブリットサービスは、お客様ご自身の有料アカウントを使用してファイルホストのリンクをダウンロードし、MDMに直接リンクを提供します。ご自身のアカウントのみを使用してください。アカウントまたはそのリンクを共有すると、サービスの規約に違反し、アカウントが停止される可能性があります。ブラウザーが既に開始したダウンロードは、そのまま維持されます。
+	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	デブリットサービスは、お客様ご自身の有料アカウントを使用してファイルホストのリンクをダウンロードし、NetGuardに直接リンクを提供します。ご自身のアカウントのみを使用してください。アカウントまたはそのリンクを共有すると、サービスの規約に違反し、アカウントが停止される可能性があります。ブラウザーが既に開始したダウンロードは、そのまま維持されます。
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -2860,7 +2860,7 @@
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	システムキーリングが応答しなかったため、サインインとパスワードはMDMの設定に保存されます。これはあなただけが読み取ることができます。
+	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	システムキーリングが応答しなかったため、サインインとパスワードはNetGuardの設定に保存されます。これはあなただけが読み取ることができます。
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -4463,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (NetGuard never unlocks it: that would ask for its password), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	システムキーリングはロックされており、MDMはロックを解除しないため、サインインとパスワードはMDMの設定に保存されます。これはあなただけが読み取ることができます。
+	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	システムキーリングはロックされており、NetGuardはロックを解除しないため、サインインとパスワードはNetGuardの設定に保存されます。これはあなただけが読み取ることができます。
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -5139,7 +5139,7 @@
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in NetGuard's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows資格情報マネージャーが応答しなかったため、サインインとパスワードはMDMの設定に保存され、Windowsアカウント用に暗号化されます。
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows資格情報マネージャーが応答しなかったため、サインインとパスワードはNetGuardの設定に保存され、Windowsアカウント用に暗号化されます。
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine

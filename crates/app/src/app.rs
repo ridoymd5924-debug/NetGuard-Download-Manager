@@ -393,6 +393,44 @@ fn at_login(since: Duration, icon: Option<Duration>, host: bool) -> AtLogin {
     }
 }
 
+/// Whether a start with the session keeps waiting for the shell instead of showing the window once
+/// [`TRAY_GRACE`] has passed. Windows: NetGuard's icon exists (`has_icon`) and the shell adds it
+/// the moment its taskbar does, however late a slow login brings that (the tray library waits for
+/// the taskbar to be created), so the window stays hidden: it is never shown by a slow desktop.
+/// Without an icon object (the tray could not be made) there is nothing to wait for, and the
+/// window shows minimized: a way back.
+fn waits_for_the_shell(has_icon: bool) -> bool {
+    cfg!(windows) && has_icon
+}
+
+/// What closing the main window (the X button, Alt+F4) does.
+#[derive(Debug, PartialEq, Eq)]
+enum CloseAction {
+    /// The window hides in the notification area; NetGuard, its downloads and its queues go on.
+    HideToTray,
+    /// The window goes to the taskbar, still reachable, everything going on.
+    Minimize,
+    /// NetGuard exits.
+    Quit,
+}
+
+/// The same decision however NetGuard was started (by hand or with the session). `keep`: Options'
+/// "Keep running when closing the window"; `tray`: NetGuard has a tray icon; `shown`: the shell
+/// shows it; `linux`: no tray host means a hidden window couldn't come back and a minimized one
+/// could never be closed (#59), so there closing closes. Elsewhere closing never exits while
+/// `keep` is on, whether or not the icon exists or is shown: only Exit does.
+fn close_action(keep: bool, tray: bool, shown: bool, linux: bool) -> CloseAction {
+    if !keep {
+        CloseAction::Quit
+    } else if tray && shown {
+        CloseAction::HideToTray
+    } else if linux {
+        CloseAction::Quit
+    } else {
+        CloseAction::Minimize
+    }
+}
+
 /// Hand the memory the process isn't using now back to the system (#72).
 fn trim_memory() {
     #[cfg(windows)]
@@ -584,6 +622,10 @@ pub struct App {
     /// a real exit under way (closing the window otherwise only hides it, as IDM does).
     tray: Option<crate::tray::Tray>,
     tray_limiter: Option<bool>,
+    /// The tray icon could not be made (the shell not up yet at login): when to try again, and
+    /// how many times it has failed.
+    tray_retry: Option<Instant>,
+    tray_failures: u32,
     hidden: bool,
     /// Hidden to the tray: when to hand the window's memory back to the system next (#72), and
     /// how many times it was since the window hid.
@@ -1141,6 +1183,8 @@ impl App {
             clip_reading: None,
             tray: None,
             tray_limiter: None,
+            tray_retry: None,
+            tray_failures: 0,
             // Started with the session (#226): hidden from the first frame.
             hidden: start == crate::Start::Session,
             trim_when_hidden: (start == crate::Start::Session)
@@ -2965,6 +3009,7 @@ impl App {
                 );
                 self.at_login = None;
             }
+            AtLogin::Minimize if waits_for_the_shell(self.tray.is_some()) => {}
             AtLogin::Minimize => {
                 tracing::info!(
                     "started with the session: no notification area within {} s of the icon: minimized ({} ms on)",
@@ -2986,7 +3031,11 @@ impl App {
         // the session shows the icon, and no window).
         let wanted =
             !crate::offscreen() || std::env::var_os("MDM_TEST_TRAY").is_some_and(|v| v == "1");
-        if self.tray.is_none() && self.tray_limiter.is_none() && wanted {
+        if self.tray.is_none()
+            && self.tray_limiter.is_none()
+            && wanted
+            && self.tray_retry.is_none_or(|t| Instant::now() >= t)
+        {
             // The notification area's own icon (tray.png, 32 px), else the window's.
             const TRAY_PNG: &[u8] = include_bytes!("../assets/icons/app/tray.png");
             let icon = eframe::icon_data::from_png_bytes(TRAY_PNG)
@@ -2998,9 +3047,20 @@ impl App {
                 icon.width,
                 self.settings.speed_limit_on,
             );
-            self.tray_limiter = Some(self.settings.speed_limit_on);
             if self.tray.is_some() {
+                self.tray_limiter = Some(self.settings.speed_limit_on);
                 tracing::info!("tray icon shown");
+            } else {
+                // At login the shell may not take an icon yet: asked again every 5 s for two
+                // minutes, not never; then it is given up on for this run.
+                self.tray_failures += 1;
+                if self.tray_failures < 24 {
+                    tracing::warn!("tray icon could not be made; trying again in 5 s");
+                    self.tray_retry = Some(Instant::now() + Duration::from_secs(5));
+                } else {
+                    tracing::warn!("tray icon could not be made; giving up");
+                    self.tray_limiter = Some(self.settings.speed_limit_on);
+                }
             }
         }
         if let Some(t) = &self.tray
@@ -3060,18 +3120,24 @@ impl App {
         // off, no tray at all, or Linux with no tray host (#59: a hidden window couldn't come
         // back, and one that merely minimized could never be closed).
         if !self.exiting && ctx.input(|i| i.viewport().close_requested()) {
-            let keep = self.tray.is_some() && self.settings.close_to_tray;
-            if keep && self.tray_shown_now() {
-                tracing::info!("close: hidden to the notification area");
-                ctx.send_viewport_cmd(egui::ViewportCommand::CancelClose);
-                self.hide_to_tray(ctx);
-            } else if keep && cfg!(not(target_os = "linux")) {
-                tracing::info!("close: no visible tray icon; minimizing to the taskbar");
-                ctx.send_viewport_cmd(egui::ViewportCommand::CancelClose);
-                ctx.send_viewport_cmd(egui::ViewportCommand::Minimized(true));
-            } else {
-                tracing::info!("close: quitting");
-                self.exiting = true;
+            let has_tray = self.tray.is_some();
+            let shown = has_tray && self.tray_shown_now();
+            let linux = cfg!(target_os = "linux");
+            match close_action(self.settings.close_to_tray, has_tray, shown, linux) {
+                CloseAction::HideToTray => {
+                    tracing::info!("close: hidden to the notification area");
+                    ctx.send_viewport_cmd(egui::ViewportCommand::CancelClose);
+                    self.hide_to_tray(ctx);
+                }
+                CloseAction::Minimize => {
+                    tracing::info!("close: no visible tray icon; minimizing to the taskbar");
+                    ctx.send_viewport_cmd(egui::ViewportCommand::CancelClose);
+                    ctx.send_viewport_cmd(egui::ViewportCommand::Minimized(true));
+                }
+                CloseAction::Quit => {
+                    tracing::info!("close: quitting");
+                    self.exiting = true;
+                }
             }
         }
         // Options → General → "Minimize to the notification area" (#63): Minimize hides the
@@ -9010,7 +9076,7 @@ mod same_name_tests {
 
 #[cfg(test)]
 mod at_login_tests {
-    use super::{AtLogin, TRAY_GRACE, at_login};
+    use super::{AtLogin, TRAY_GRACE, at_login, waits_for_the_shell};
     use std::time::Duration;
 
     /// Where a start with the session leaves the window (#226), in each order its tray icon and
@@ -9042,6 +9108,40 @@ mod at_login_tests {
         // No icon at all (the tray couldn't be made): the grace from the start.
         assert_eq!(at_login(TRAY_GRACE, None, false), AtLogin::Minimize);
         assert_eq!(at_login(s(60), None, true), AtLogin::Minimize);
+    }
+
+    /// A slow login on Windows (the taskbar late by more than the grace period) leaves the window
+    /// hidden while NetGuard's icon waits for the shell; with no icon at all it shows minimized.
+    #[test]
+    fn a_slow_windows_login_never_shows_the_window() {
+        let s = Duration::from_secs;
+        assert_eq!(at_login(s(90), Some(s(90)), false), AtLogin::Minimize);
+        assert_eq!(waits_for_the_shell(true), cfg!(windows));
+        assert!(!waits_for_the_shell(false));
+    }
+}
+
+#[cfg(test)]
+mod close_tests {
+    use super::{CloseAction, close_action};
+
+    /// Closing the window is the same for a start by hand and a start with the session: nothing in
+    /// it knows how NetGuard was started, only whether the icon exists and is shown.
+    #[test]
+    fn closing_hides_to_the_tray_and_only_exit_quits() {
+        use CloseAction::*;
+        // The icon is there and shown: the window hides, NetGuard goes on.
+        assert_eq!(close_action(true, true, true, false), HideToTray);
+        assert_eq!(close_action(true, true, true, true), HideToTray);
+        // The icon exists but the shell shows none, or no icon was made (a login before the
+        // taskbar was there): the window goes to the taskbar; it never quits (Linux excepted).
+        assert_eq!(close_action(true, true, false, false), Minimize);
+        assert_eq!(close_action(true, false, false, false), Minimize);
+        assert_eq!(close_action(true, true, false, true), Quit);
+        assert_eq!(close_action(true, false, false, true), Quit);
+        // Options' "Keep running when closing the window" off: closing closes.
+        assert_eq!(close_action(false, true, true, false), Quit);
+        assert_eq!(close_action(false, false, false, false), Quit);
     }
 }
 

@@ -2860,7 +2860,7 @@
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Ingen systemnøkkelring svarte, så pålogginger og passord lagres i MDMs innstillinger, som bare du kan lese.
+	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Ingen systemnøkkelring svarte, så pålogginger og passord lagres i NetGuards innstillinger, som bare du kan lese.
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -3067,7 +3067,7 @@
 #. text in the Options window
 #. Options → Remote, at the bottom of the page
 #, machine
-	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Bare parede enheter ser eller endrer noe. Første gang advarer telefonens nettleser om MDMs eget sertifikat: fingeravtrykket er det ovenfor.
+	Only paired devices see or change anything. The first time, the phone's browser warns about NetGuard's own certificate: its fingerprint is the one above.	Bare parede enheter ser eller endrer noe. Første gang advarer telefonens nettleser om NetGuards eget sertifikat: fingeravtrykket er det ovenfor.
 #. text in playlistdlg.rs
 #. in Download video, a list longer than NetGuard lists: only its first {n} videos are shown
 #. {n} = a number (keep the braces as they are)
@@ -4463,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (NetGuard never unlocks it: that would ask for its password), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Systemnøkkelringen er låst, og NetGuard låser den ikke opp, så pålogginger og passord lagres i MDMs innstillinger, som bare du kan lese.
+	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	Systemnøkkelringen er låst, og NetGuard låser den ikke opp, så pålogginger og passord lagres i NetGuards innstillinger, som bare du kan lese.
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4943,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy NetGuard downloads and checks itself
 #, machine
-	Use NetGuard's own copy	Bruk MDMs egen kopi
+	Use NetGuard's own copy	Bruk NetGuards egen kopi
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5139,7 +5139,7 @@
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in NetGuard's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows legitimasjonsbehandling svarte ikke, så pålogginger og passord lagres i MDMs innstillinger, kryptert for din Windows-konto.
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows legitimasjonsbehandling svarte ikke, så pålogginger og passord lagres i NetGuards innstillinger, kryptert for din Windows-konto.
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine

@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	ଡିବ୍ରିଡ୍ ସେବା ଆପଣଙ୍କ ନିଜର ପେଡ୍ ଆକାଉଣ୍ଟ୍ ବ୍ୟବହାର କରି ଫାଇଲ୍ ହୋଷ୍ଟରୁ ଫାଇଲ୍ ଡାଉନଲୋଡ୍ କରେ ଏବଂ MDMକୁ ସିଧାସଳଖ ଲିଙ୍କ୍ ଦିଏ। କେବଳ ନିଜ ଆକାଉଣ୍ଟ୍ ବ୍ୟବହାର କରନ୍ତୁ: ଆକାଉଣ୍ଟ୍ କିମ୍ବା ଏହାର ଲିଙ୍କ୍ ସେୟାର୍ କରିବା ସେବାଗୁଡ଼ିକର ସର୍ତ୍ତାବଳୀ ଉଲ୍ଲଂଘନ କରେ ଏବଂ ଆକାଉଣ୍ଟ୍‌କୁ ନିଲମ୍ବିତ କରାଇପାରେ। ବ୍ରାଉଜର୍ ପୂର୍ବରୁ ଆରମ୍ଭ କରିଥିବା ଡାଉନଲୋଡ୍‌ଗୁଡ଼ିକ ଯେପରି ଅଛି ସେହିପରି ରହିବ।
+	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	ଡିବ୍ରିଡ୍ ସେବା ଆପଣଙ୍କ ନିଜର ପେଡ୍ ଆକାଉଣ୍ଟ୍ ବ୍ୟବହାର କରି ଫାଇଲ୍ ହୋଷ୍ଟରୁ ଫାଇଲ୍ ଡାଉନଲୋଡ୍ କରେ ଏବଂ NetGuardକୁ ସିଧାସଳଖ ଲିଙ୍କ୍ ଦିଏ। କେବଳ ନିଜ ଆକାଉଣ୍ଟ୍ ବ୍ୟବହାର କରନ୍ତୁ: ଆକାଉଣ୍ଟ୍ କିମ୍ବା ଏହାର ଲିଙ୍କ୍ ସେୟାର୍ କରିବା ସେବାଗୁଡ଼ିକର ସର୍ତ୍ତାବଳୀ ଉଲ୍ଲଂଘନ କରେ ଏବଂ ଆକାଉଣ୍ଟ୍‌କୁ ନିଲମ୍ବିତ କରାଇପାରେ। ବ୍ରାଉଜର୍ ପୂର୍ବରୁ ଆରମ୍ଭ କରିଥିବା ଡାଉନଲୋଡ୍‌ଗୁଡ଼ିକ ଯେପରି ଅଛି ସେହିପରି ରହିବ।
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -4943,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy NetGuard downloads and checks itself
 #, machine
-	Use NetGuard's own copy	MDMର ନିଜସ୍ୱ କପି ବ୍ୟବହାର କରନ୍ତୁ
+	Use NetGuard's own copy	NetGuardର ନିଜସ୍ୱ କପି ବ୍ୟବହାର କରନ୍ତୁ
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5815,7 +5815,7 @@ extension	Sent to NetGuard Download Manager	NetGuard Download Managerକୁ ପ�
 #. text in the browser extension
 #. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (NetGuard is free; this is an optional donation)
 #, machine
-extension	Support NetGuard	MDMକୁ ସମର୍ଥନ କରନ୍ତୁ
+extension	Support NetGuard	NetGuardକୁ ସମର୍ଥନ କରନ୍ତୁ
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine

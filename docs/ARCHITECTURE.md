@@ -152,10 +152,11 @@ it, and the extension says why.
 The host serves only NetGuard's own extension. Its IDs are in one place, `mdm_ipc::extension`
 (`crates/ipc/src/extension.rs`): the unpacked copy's (`UNPACKED_ID`, from the manifest's public
 key), the Chrome Web Store's (`STORE_ID`, signed with the store's own key: `pack.ps1` leaves the
-manifest's key out of the store's copy), the Firefox add-on's (`FIREFOX_ID`) and its
-addons.mozilla.org page; the Edge and Opera stores' are placeholders, never served, until the
-extension is listed there. The host writes each browser's manifest with those IDs, and the app
-offers the store's copy (Add to Chrome, Add to Firefox) before the unpacked one.
+manifest's key out of the store's copy) and the Firefox add-on's (`FIREFOX_ID`). NetGuard has no
+store listing yet, so `STORE_ID` is a placeholder, never served, registered or linked (the Edge and
+Opera stores' are too), until the extension is listed there; the Chrome Web Store copy of the
+project NetGuard was forked from is not accepted. The host writes each browser's manifest with
+those IDs, and the app offers the tutorial that loads the unpacked copy from its folder.
 
 ## Remote control
 

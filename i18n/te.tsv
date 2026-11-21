@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	డీబ్రిడ్ సేవ మీ స్వంత చెల్లింపు ఖాతాతో ఫైల్ హోస్ట్ లింక్‌ను డౌన్‌లోడ్ చేస్తుంది మరియు MDMకి డైరెక్ట్ లింక్‌ను అందిస్తుంది. మీ స్వంత ఖాతాను మాత్రమే ఉపయోగించండి: ఖాతాను లేదా దాని లింక్‌లను షేర్ చేయడం వలన సేవల నిబంధనలు ఉల్లంఘించబడతాయి మరియు అది సస్పెండ్ చేయబడవచ్చు. బ్రౌజర్ ఇప్పటికే ప్రారంభించిన డౌన్‌లోడ్‌లు యథాతథంగా ఉంటాయి.
+	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	డీబ్రిడ్ సేవ మీ స్వంత చెల్లింపు ఖాతాతో ఫైల్ హోస్ట్ లింక్‌ను డౌన్‌లోడ్ చేస్తుంది మరియు NetGuardకి డైరెక్ట్ లింక్‌ను అందిస్తుంది. మీ స్వంత ఖాతాను మాత్రమే ఉపయోగించండి: ఖాతాను లేదా దాని లింక్‌లను షేర్ చేయడం వలన సేవల నిబంధనలు ఉల్లంఘించబడతాయి మరియు అది సస్పెండ్ చేయబడవచ్చు. బ్రౌజర్ ఇప్పటికే ప్రారంభించిన డౌన్‌లోడ్‌లు యథాతథంగా ఉంటాయి.
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -1038,7 +1038,7 @@
 	Customize "Download progress" dialog	"డౌన్‌లోడ్ పురోగతి" డైలాగ్‌ను అనుకూలీకరించండి
 #. text in the Options window
 #, machine
-	Customize keys to prevent or force downloading with NetGuard	MDMతో డౌన్‌లోడ్ చేయడాన్ని నిరోధించడానికి లేదా బలవంతం చేయడానికి కీలను అనుకూలీకరించండి
+	Customize keys to prevent or force downloading with NetGuard	NetGuardతో డౌన్‌లోడ్ చేయడాన్ని నిరోధించడానికి లేదా బలవంతం చేయడానికి కీలను అనుకూలీకరించండి
 #. text in the Options window
 #, machine
 	Customize NetGuard Download panels in browsers	బ్రౌజర్‌లలో NetGuard డౌన్‌లోడ్ ప్యానెల్‌లను అనుకూలీకరించండి
@@ -1419,7 +1419,7 @@
 #. text in crashui.rs
 #. crash report window button: end the frozen NetGuard and start it again
 #, machine
-	End and restart NetGuard	MDMను ముగించి, మళ్లీ ప్రారంభించండి
+	End and restart NetGuard	NetGuardను ముగించి, మళ్లీ ప్రారంభించండి
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	మాగ్నెట్ లింక్‌ను నమోదు చేయండి లేదా .torrent ఫైల్‌ను ఎంచుకోండి
@@ -2261,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control NetGuard	స్థానిక నెట్‌వర్క్‌లోని ఫోన్‌లు మరియు కంప్యూటర్‌లు MDMని నియంత్రించడానికి అనుమతించు
+	Let phones and computers on the local network control NetGuard	స్థానిక నెట్‌వర్క్‌లోని ఫోన్‌లు మరియు కంప్యూటర్‌లు NetGuardని నియంత్రించడానికి అనుమతించు
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2991,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach NetGuard.	ఆఫ్: నెట్‌వర్క్‌లో ఏదీ MDMని చేరుకోదు.
+	Off: nothing on the network can reach NetGuard.	ఆఫ్: నెట్‌వర్క్‌లో ఏదీ NetGuardని చేరుకోదు.
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	క్లిప్‌బోర్డ్‌కు కాపీ చేసిన లింక్‌లను డౌన్‌లోడ్ చేయడానికి ఆఫర్ చేయండి
@@ -3478,7 +3478,7 @@
 #. text in crashui.rs
 #. crash report window button: start NetGuard again
 #, machine
-	Restart NetGuard	MDMను పునఃప్రారంభించండి
+	Restart NetGuard	NetGuardను పునఃప్రారంభించండి
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	అంతర్నిర్మిత వర్గాలను పునరుద్ధరించండి
@@ -4114,7 +4114,7 @@
 	Sunday	ఆదివారం
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Support NetGuard on GitHub Sponsors	GitHub స్పాన్సర్‌ల ద్వారా MDMకి మద్దతు ఇవ్వండి
+	Support NetGuard on GitHub Sponsors	GitHub స్పాన్సర్‌ల ద్వారా NetGuardకి మద్దతు ఇవ్వండి
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -4846,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	{page} వద్ద ఈ కోడ్‌ను టైప్ చేయండి మరియు MDMని అనుమతించండి; మీ కోసం వేచి ఉంది (కోడ్ {time}లో గడువు ముగుస్తుంది).
+	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	{page} వద్ద ఈ కోడ్‌ను టైప్ చేయండి మరియు NetGuardని అనుమతించండి; మీ కోసం వేచి ఉంది (కోడ్ {time}లో గడువు ముగుస్తుంది).
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -5171,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in NetGuard and try again.	తప్పు కోడ్. MDMలో కొత్త కోడ్‌ని చూపించి, మళ్లీ ప్రయత్నించండి.
+	Wrong code. Show a new code in NetGuard and try again.	తప్పు కోడ్. NetGuardలో కొత్త కోడ్‌ని చూపించి, మళ్లీ ప్రయత్నించండి.
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5229,7 +5229,7 @@
 #. Video helpers: the person's own gallery-dl is too old and not used; {version} = its version, {oldest} = the oldest NetGuard can use
 #. {version} = a version number (keep the braces as they are)
 #, machine
-	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	మీ స్వంత ప్రోగ్రామ్ ({version}) చాలా పాతది: MDMకి {oldest} లేదా కొత్తది అవసరం
+	Your own program ({version}) is too old: NetGuard needs {oldest} or newer	మీ స్వంత ప్రోగ్రామ్ ({version}) చాలా పాతది: NetGuardకి {oldest} లేదా కొత్తది అవసరం
 #. text in helpers.rs
 #. Video helpers: {path} = the program the person chose, {version} = its version
 #. {version} = a version number (keep the braces as they are)
@@ -5324,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control NetGuard now.	{device} జత చేయబడింది. ఇది ఇప్పుడు MDMని నియంత్రించగలదు.
+	{device} is paired. It can control NetGuard now.	{device} జత చేయబడింది. ఇది ఇప్పుడు NetGuardని నియంత్రించగలదు.
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5419,7 +5419,7 @@
 #. error: a program chosen as a helper is too old; {name} = gallery-dl, {version} = its version, {oldest} = the oldest one NetGuard can use
 #. {name} = a file name; {version} = a version number (keep the braces as they are)
 #, machine
-	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version} చాలా పాతది: MDMకి {oldest} లేదా కొత్తది అవసరం
+	{name} {version} is too old: NetGuard needs {oldest} or newer	{name} {version} చాలా పాతది: NetGuardకి {oldest} లేదా కొత్తది అవసరం
 #. text in the Options window
 #. a number of connections the app learned by itself for a server
 #. {n} = a number (keep the braces as they are)
@@ -5815,7 +5815,7 @@ extension	Sent to NetGuard Download Manager	NetGuard Download Managerకు ప�
 #. text in the browser extension
 #. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (NetGuard is free; this is an optional donation)
 #, machine
-extension	Support NetGuard	MDMకి మద్దతు ఇవ్వండి
+extension	Support NetGuard	NetGuardకి మద్దతు ఇవ్వండి
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine
@@ -6472,7 +6472,7 @@ menu	Stop Download	డౌన్‌లోడ్‌ను ఆపండి
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Support &NetGuard	&MDMకి మద్దతు ఇవ్వండి
+menu	Support &NetGuard	&NetGuardకి మద్దతు ఇవ్వండి
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

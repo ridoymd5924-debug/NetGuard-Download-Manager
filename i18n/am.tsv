@@ -186,7 +186,7 @@
 #. text in the Options window
 #. Options → Accounts: what these accounts are, and the services' rule against sharing
 #, machine
-	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	የዲብሪድ አገልግሎት የፋይል አስተናጋጅ ማገናኛን በራስዎ የሚከፈልበት መለያ ያወርዳል እና ለMDM ቀጥተኛ ማገናኛ ይሰጣል። የራስዎን መለያ ብቻ ይጠቀሙ፡ መለያ ወይም ማገናኛዎቹን ማጋራት የአገልግሎቶቹን ውሎች ይጥሳል እና ሊታገድ ይችላል። አሳሹ አስቀድሞ የጀመራቸው ውርዶች እንዳሉ ይቆያሉ።
+	A debrid service downloads a file host's link with your own paid account and gives NetGuard a direct link. Use only your own account: sharing an account or its links breaks the services' terms and can get it suspended. Downloads the browser already started stay as they are.	የዲብሪድ አገልግሎት የፋይል አስተናጋጅ ማገናኛን በራስዎ የሚከፈልበት መለያ ያወርዳል እና ለNetGuard ቀጥተኛ ማገናኛ ይሰጣል። የራስዎን መለያ ብቻ ይጠቀሙ፡ መለያ ወይም ማገናኛዎቹን ማጋራት የአገልግሎቶቹን ውሎች ይጥሳል እና ሊታገድ ይችላል። አሳሹ አስቀድሞ የጀመራቸው ውርዶች እንዳሉ ይቆያሉ።
 #. text in errors.rs
 #. a torrent through a debrid service: one of its files has a name that would be written outside its folder; nothing was written. {name} the file's name as the service gave it
 #. {name} = a file name (keep the braces as they are)
@@ -823,7 +823,7 @@
 #. text in the Options window
 #. tooltip of the close-setting: checked keeps NetGuard running when the window closes, in the notification area when available or else the taskbar; downloads continue; unchecked closing quits
 #, machine
-	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	ምልክት ከተደረገበት፣ መስኮቱን ሲዘጉ NetGuard እየሰራ ይቆያል፦ ሲገኝ በማሳወቂያ አካባቢው ይደበቃል፣ አለበለዚያ ወደ ተግባር አሞሌው ይቀነሳል፣ ማውረዶችም ይቀጥላሉ፤ ምልክት ካልተደረገበት፣ መስኮቱን መዝጋት MDMን ያቆማል።
+	Checked, closing the window keeps NetGuard running: it hides in the notification area when available, or minimizes to the taskbar otherwise, and downloads continue; unchecked, closing quits NetGuard	ምልክት ከተደረገበት፣ መስኮቱን ሲዘጉ NetGuard እየሰራ ይቆያል፦ ሲገኝ በማሳወቂያ አካባቢው ይደበቃል፣ አለበለዚያ ወደ ተግባር አሞሌው ይቀነሳል፣ ማውረዶችም ይቀጥላሉ፤ ምልክት ካልተደረገበት፣ መስኮቱን መዝጋት NetGuardን ያቆማል።
 #. message or event log entry in the main window
 #. event log entry after Recheck: {have} and {total} are sizes ("1.2 GB of 4 GB there")
 #, machine
@@ -1038,13 +1038,13 @@
 	Customize "Download progress" dialog	"የማውረድ ሂደት" መገናኛን ያብጁ
 #. text in the Options window
 #, machine
-	Customize keys to prevent or force downloading with NetGuard	በMDM ማውረድን ለመከላከል ወይም ለማስገደድ ቁልፎችን ያብጁ
+	Customize keys to prevent or force downloading with NetGuard	በNetGuard ማውረድን ለመከላከል ወይም ለማስገደድ ቁልፎችን ያብጁ
 #. text in the Options window
 #, machine
-	Customize NetGuard Download panels in browsers	በአሳሾች ውስጥ የMDM ማውረድ ፓነሎችን ያብጁ
+	Customize NetGuard Download panels in browsers	በአሳሾች ውስጥ የNetGuard ማውረድ ፓነሎችን ያብጁ
 #. text in the Options window
 #, machine
-	Customize NetGuard menu items in context menu of browsers	በአሳሾች የአውድ ምናሌ ውስጥ የMDM ምናሌ ንጥሎችን ያብጁ
+	Customize NetGuard menu items in context menu of browsers	በአሳሾች የአውድ ምናሌ ውስጥ የNetGuard ምናሌ ንጥሎችን ያብጁ
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -1419,7 +1419,7 @@
 #. text in crashui.rs
 #. crash report window button: end the frozen NetGuard and start it again
 #, machine
-	End and restart NetGuard	MDMን ጨርስ እና እንደገና አስጀምር
+	End and restart NetGuard	NetGuardን ጨርስ እና እንደገና አስጀምር
 #. text in the Add torrent window
 #, machine
 	Enter a magnet link or choose a .torrent file	መግነጢሳዊ አገናኝ ያስገቡ ወይም .torrent ፋይል ይምረጡ
@@ -2261,7 +2261,7 @@
 #. checkbox in the Options window
 #. Options → Remote check box (off by default)
 #, machine
-	Let phones and computers on the local network control NetGuard	በአካባቢያዊ አውታረ መረብ ላይ ያሉ ስልኮች እና ኮምፒውተሮች MDMን እንዲቆጣጠሩ ፍቀድ
+	Let phones and computers on the local network control NetGuard	በአካባቢያዊ አውታረ መረብ ላይ ያሉ ስልኮች እና ኮምፒውተሮች NetGuardን እንዲቆጣጠሩ ፍቀድ
 #. option (radio button) in the Batch download window
 #. the * in the address runs through letters
 #, machine
@@ -2860,7 +2860,7 @@
 #. text in the Options window
 #. Options → Accounts: no system keyring/keychain answered (none runs, e.g. a desktop without one), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	ምንም የስርዓት ቁልፍ መያዣ ምላሽ አልሰጠም፣ ስለዚህ የመግቢያ መረጃዎች እና የይለፍ ቃሎች እርስዎ ብቻ ሊያነቧቸው በሚችሉት የMDM ቅንብሮች ውስጥ ይቀመጣሉ።
+	No system keyring answered, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	ምንም የስርዓት ቁልፍ መያዣ ምላሽ አልሰጠም፣ ስለዚህ የመግቢያ መረጃዎች እና የይለፍ ቃሎች እርስዎ ብቻ ሊያነቧቸው በሚችሉት የNetGuard ቅንብሮች ውስጥ ይቀመጣሉ።
 #. message or event log entry in the main window
 #. event log entry: Add trackers changed nothing, the torrent had them all
 #, machine
@@ -2991,7 +2991,7 @@
 #. text in the Options window
 #. Options → Remote → Status: the remote control is off
 #, machine
-	Off: nothing on the network can reach NetGuard.	ጠፍቷል: በአውታረ መረቡ ላይ ምንም ነገር MDMን ሊደርስበት አይችልም።
+	Off: nothing on the network can reach NetGuard.	ጠፍቷል: በአውታረ መረቡ ላይ ምንም ነገር NetGuardን ሊደርስበት አይችልም።
 #. text in the Options window
 #, machine
 	Offer to download links copied to the clipboard	ወደ ቅንጥብ ሰሌዳ የተገለበጡ አገናኞችን ለማውረድ ያቅርቡ
@@ -3478,7 +3478,7 @@
 #. text in crashui.rs
 #. crash report window button: start NetGuard again
 #, machine
-	Restart NetGuard	MDMን እንደገና ያስጀምሩ
+	Restart NetGuard	NetGuardን እንደገና ያስጀምሩ
 #. button in the Options window; text in the Options window
 #, machine
 	Restore the built-in categories	አብሮ የተሰሩ ምድቦችን ይመልሱ
@@ -4114,7 +4114,7 @@
 	Sunday	እሑድ
 #. link (opens a web page) in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
-	Support NetGuard on GitHub Sponsors	MDMን በGitHub ስፖንሰሮች ይደግፉ
+	Support NetGuard on GitHub Sponsors	NetGuardን በGitHub ስፖንሰሮች ይደግፉ
 #. text in countries.rs
 #. a country's name (where a download's server is)
 #, machine
@@ -4463,7 +4463,7 @@
 #. text in the Options window
 #. Options → Accounts (Linux): the system keyring is locked (NetGuard never unlocks it: that would ask for its password), so the sign-ins stay in NetGuard's settings folder, which only the user's account may read
 #, machine
-	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	የስርዓት ቁልፍ መያዣው ተቆልፏል፣ MDMም አይከፍተውም፤ ስለዚህ የመግቢያ መረጃዎችና የይለፍ ቃሎች እርስዎ ብቻ ሊያነቧቸው በሚችሉበት የMDM ቅንብሮች ውስጥ ይቀመጣሉ።
+	The system keyring is locked and NetGuard doesn't unlock it, so sign-ins and passwords are kept in NetGuard's settings, which only you can read.	የስርዓት ቁልፍ መያዣው ተቆልፏል፣ NetGuardም አይከፍተውም፤ ስለዚህ የመግቢያ መረጃዎችና የይለፍ ቃሎች እርስዎ ብቻ ሊያነቧቸው በሚችሉበት የNetGuard ቅንብሮች ውስጥ ይቀመጣሉ።
 #. text in the Options window
 #. Options → Connection → DNS: the operating system's own DNS (the default)
 #, machine
@@ -4846,7 +4846,7 @@
 #. Options → Add an account: waiting while the user types the code at the service's page; {page} its address, {time} minutes:seconds left
 #. {time} = a time of day (keep the braces as they are)
 #, machine
-	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	ይህን ኮድ በ{page} ላይ ይተይቡ እና MDMን ይፍቀዱ፤ እርስዎን በመጠበቅ ላይ (ኮዱ በ{time} ጊዜው ያበቃል)።
+	Type this code at {page} and allow NetGuard; waiting for you (the code expires in {time}).	ይህን ኮድ በ{page} ላይ ይተይቡ እና NetGuardን ይፍቀዱ፤ እርስዎን በመጠበቅ ላይ (ኮዱ በ{time} ጊዜው ያበቃል)።
 #. tooltip (why a control is greyed) in the Find window
 #. tooltip of the greyed Find button
 #, machine
@@ -4943,7 +4943,7 @@
 #. button in helpers.rs
 #. Video helpers: button: go back to the copy NetGuard downloads and checks itself
 #, machine
-	Use NetGuard's own copy	የMDM የራሱን ቅጂ ይጠቀሙ
+	Use NetGuard's own copy	የNetGuard የራሱን ቅጂ ይጠቀሙ
 #. text in the Batch download window
 #. why Batch download's OK is greyed
 #, machine
@@ -5139,7 +5139,7 @@
 #. text in the Options window
 #. Options → Accounts: Windows Credential Manager didn't answer, so the sign-ins stay in NetGuard's settings, encrypted so that only this Windows account can read them
 #, machine
-	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows Credential Manager ምላሽ አልሰጠም፣ ስለዚህ የመግቢያ መረጃዎች እና የይለፍ ቃሎች በMDM ቅንብሮች ውስጥ ይቀመጣሉ፣ ለWindows መለያዎ የተመሰጠሩ ናቸው።
+	Windows Credential Manager didn't answer, so sign-ins and passwords are kept in NetGuard's settings, encrypted for your Windows account.	Windows Credential Manager ምላሽ አልሰጠም፣ ስለዚህ የመግቢያ መረጃዎች እና የይለፍ ቃሎች በNetGuard ቅንብሮች ውስጥ ይቀመጣሉ፣ ለWindows መለያዎ የተመሰጠሩ ናቸው።
 #. text in a dialog box
 #. why the computer could not be put to sleep (fills {error})
 #, machine
@@ -5171,7 +5171,7 @@
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed and the code is void now
 #, machine
-	Wrong code. Show a new code in NetGuard and try again.	የተሳሳተ ኮድ። በMDM ውስጥ አዲስ ኮድ ያሳዩ እና እንደገና ይሞክሩ።
+	Wrong code. Show a new code in NetGuard and try again.	የተሳሳተ ኮድ። በNetGuard ውስጥ አዲስ ኮድ ያሳዩ እና እንደገና ይሞክሩ።
 #. text in remote.rs
 #. remote control page (on a phone): pairing failed; {n} = how many more codes may be tried
 #. {n} = a number (keep the braces as they are)
@@ -5324,7 +5324,7 @@
 #. text in the Options window
 #. Options → Remote → Pair a device: done; {device} = the name it was given
 #, machine
-	{device} is paired. It can control NetGuard now.	{device} ተጣምሯል። አሁን MDMን መቆጣጠር ይችላል።
+	{device} is paired. It can control NetGuard now.	{device} ተጣምሯል። አሁን NetGuardን መቆጣጠር ይችላል።
 #. text in remote.rs
 #. remote control page (on a phone): progress; {done} and {size} are sizes ("1.2 MB of 7.5 MB")
 #. {size} = a file size such as "4.2 MB" (keep the braces as they are)
@@ -5815,7 +5815,7 @@ extension	Sent to NetGuard Download Manager	ወደ NetGuard Download Manager ተ
 #. text in the browser extension
 #. link at the foot of the toolbar button's popup to the creator's GitHub Sponsors page (NetGuard is free; this is an optional donation)
 #, machine
-extension	Support NetGuard	MDMን ይደግፉ
+extension	Support NetGuard	NetGuardን ይደግፉ
 #. text in the browser extension
 #. check box in the toolbar button's popup: on, downloads go to the app; off, the browser keeps them
 #, machine
@@ -6472,7 +6472,7 @@ menu	Stop Download	ማውረድ አቁም
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine
-menu	Support &NetGuard	MDMን ይ&ደግፉ
+menu	Support &NetGuard	NetGuardን ይ&ደግፉ
 #. menu command in the main window
 #. & marks the keyboard shortcut letter: keep one & before a letter of the translation
 #, machine

@@ -6,14 +6,14 @@
 pub const UNPACKED_ID: &str = "oogbclbbninliongijffeeggalppliok";
 /// Its ID in the Chrome Web Store, which signs it with the store's own key
 /// (tools/extension/pack.ps1 leaves the manifest's key out of the store's copy). [`store_id`] is
-/// `None` while this is not a valid ID (a placeholder), and then nothing names it.
-pub const STORE_ID: &str = "ejoleppdfgjdndddcjoehopknmlglojp";
+/// `None` while this is not a valid ID (a placeholder), and then nothing names it: not the host's
+/// allowed origins, not Chrome's external-install entry, not a link. NetGuard has no listing
+/// yet, and the listing of the project it was forked from is another developer's extension,
+/// under another name: it is neither offered nor served. Set the real ID here once listed.
+pub const STORE_ID: &str = "STORE_ID_PENDING";
 /// Its IDs in Microsoft Edge Add-ons and Opera add-ons, which give their own; placeholders until
 /// listed there, never served then (`valid_id`).
 pub const OTHER_STORE_IDS: [&str; 2] = ["EDGE_ADDONS_ID_PENDING", "OPERA_ADDONS_ID_PENDING"];
-/// The Firefox add-on's page on addons.mozilla.org (listed: Firefox installs and updates it from
-/// there).
-pub const FIREFOX_PAGE: &str = "https://addons.mozilla.org/firefox/addon/mister-download-manager/";
 /// The Firefox add-on's ID (extension/manifest.firefox.json).
 pub const FIREFOX_ID: &str = "integration@misterdownloadmanager.com";
 /// Chrome's update service: an external-install entry naming it makes Chrome offer the store's
@@ -43,7 +43,7 @@ pub fn chromium_ids() -> Vec<&'static str> {
 /// install from it), once it is listed: the listing's own address, its name then its ID.
 pub fn store_page() -> Option<String> {
     store_id()
-        .map(|id| format!("https://chromewebstore.google.com/detail/mister-download-manager/{id}"))
+        .map(|id| format!("https://chromewebstore.google.com/detail/netguard-download-manager/{id}"))
 }
 
 /// The tutorial that adds the extension: from the stores, and by hand (a build of its own, or
@@ -121,23 +121,15 @@ mod tests {
         assert_eq!(store_page().is_some(), store_id().is_some());
     }
 
-    /// The store's copy and the app folder's (unpacked) both reach the host: the manifests'
-    /// allowed_origins and the host's own caller check are this list.
+    /// NetGuard has no store listing yet: only the extension of the app folder (unpacked) is
+    /// served, never the Chrome Web Store copy of the project it was forked from.
     #[test]
-    fn store_and_unpacked_both_served() {
-        assert_eq!(STORE_ID, "ejoleppdfgjdndddcjoehopknmlglojp");
+    fn only_the_unpacked_extension_is_served() {
         assert_eq!(UNPACKED_ID, "oogbclbbninliongijffeeggalppliok");
-        let ids = chromium_ids();
-        assert!(
-            ids.contains(&UNPACKED_ID) && ids.contains(&STORE_ID),
-            "{ids:?}"
-        );
-        assert_eq!(
-            store_page().as_deref(),
-            Some(
-                "https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp"
-            )
-        );
+        assert_eq!(chromium_ids(), vec![UNPACKED_ID]);
+        assert_eq!(store_id(), None);
+        assert_eq!(store_page(), None);
+        assert!(!chromium_ids().contains(&"ejoleppdfgjdndddcjoehopknmlglojp"));
     }
 
     #[test]

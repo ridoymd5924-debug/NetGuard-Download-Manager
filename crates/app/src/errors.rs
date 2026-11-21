@@ -256,6 +256,11 @@ pub fn tools(e: &mdm_tools::Error) -> String {
             t("its files could not be written: {error}"),
             &[("error", &e.to_string())],
         ),
+        // i18n: error installing yt-dlp or ffmpeg; {status} = the HTTP status number the server answered, e.g. 403 or 503
+        E::Status(code) => fmt(
+            t("the server answered with an error (HTTP {status})"),
+            &[("status", &code.to_string())],
+        ),
         E::BadSignature => {
             t("the release's checksum list is not signed by its publisher's key").to_owned()
         }

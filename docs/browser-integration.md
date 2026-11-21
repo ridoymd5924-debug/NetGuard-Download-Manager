@@ -13,24 +13,22 @@ Browsers built on them work too: Chromium and Helium take the extension as Chrom
 Browser integration has two parts: a small helper program that the browser talks to, and the extension itself.
 
 1. Install NetGuard with the setup and keep **Set up browser integration (Chrome, Edge, Brave, Firefox)** ticked. This registers the helper. (The portable copy can't do this; see [Portable mode](portable.md).) On Linux and macOS NetGuard registers it itself, each time it starts, for the browsers installed then.
-2. Add the extension to each browser you use, as below: Firefox from its add-ons store, the others from the Chrome Web Store. Until a browser's extension has reached NetGuard, NetGuard's **Add NetGuard Download Manager to your browser** window opens at each start: it lists the browsers it found, and **Add the extension** opens the store's page in that browser. **Install it by hand** opens the steps for loading it without the store; **Don't ask again** stops the window.
+2. Add the extension to each browser you use, as below (NetGuard carries its own extension in its folder). Until a browser's extension has reached NetGuard, NetGuard's **Add NetGuard Download Manager to your browser** window opens at each start: it lists the browsers it found, and **Add the extension** opens the store's page in that browser. **Install it by hand** opens the steps for loading it without the store; **Don't ask again** stops the window.
 
-
-### Firefox
-
-Firefox 140 or later is needed. Install the add-on from its page on addons.mozilla.org, [the extension's store listing (published by the original Mister Download Manager project)](https://addons.mozilla.org/firefox/addon/mister-download-manager/): click **Add to Firefox**. Firefox keeps it updated. Zen and LibreWolf install it from the same page. (NetGuard's **Add NetGuard Download Manager to your browser** window opens that page for you.)
 
 ### Chrome, Edge, Brave, Opera and Vivaldi
 
-Install the extension from its page in the Chrome Web Store, [the extension's store listing (published by the original Mister Download Manager project)](https://chromewebstore.google.com/detail/mister-download-manager/ejoleppdfgjdndddcjoehopknmlglojp): click **Add to Chrome**. In Edge the button is **Get**: Edge first asks to **Allow extensions from other stores** (click **Allow**), then **Add extension**. The browser keeps it updated. NetGuard's **Add NetGuard Download Manager to your browser** window opens that page in each browser for you, and Chrome may offer it by itself at its next start once NetGuard is installed.
-
-To load it by hand instead (a browser that can't use the store, or a build of your own): its files are in the `extension` folder where NetGuard is installed: `%LOCALAPPDATA%\Programs\NetGuard Download Manager\extension` if you installed it for yourself, or `Program Files\NetGuard Download Manager\extension` if you installed it for everyone. Every release also has them as their own download, `...-extension-chromium.zip` (unzip it first).
+NetGuard is not in the Chrome Web Store yet, and it does not accept the extension listed there by the project it was forked from: load NetGuard's own. Its files are in the `extension` folder where NetGuard is installed: `%LOCALAPPDATA%\Programs\NetGuard Download Manager\extension` if you installed it for yourself, or `Program Files\NetGuard Download Manager\extension` if you installed it for everyone. Every release also has them as their own download, `...-extension-chromium.zip` (unzip it first).
 
 1. Open the extensions page: `chrome://extensions`, `edge://extensions` or `brave://extensions`.
 2. Turn on **Developer mode**.
 3. Click **Load unpacked** and choose the `extension\chromium` folder.
 
-**NetGuard Download Manager** appears in the list. Leave it turned on. Pin its button to the toolbar to see at a glance whether the browser reaches NetGuard.
+**NetGuard Download Manager** appears in the list. Leave it turned on. Pin its button to the toolbar to see at a glance whether the browser reaches NetGuard. NetGuard's **Add NetGuard Download Manager to your browser** window opens the tutorial that shows this.
+
+### Firefox
+
+Firefox 140 or later is needed. Firefox only keeps add-ons signed by Mozilla, and NetGuard has no listing there yet, so add `extension\mdm-firefox.xpi` from NetGuard's folder for the current session (`about:debugging#/runtime/this-firefox`, **Load Temporary Add-on...**), or keep it in Firefox Developer Edition, Nightly or ESR with `xpinstall.signatures.required` set to `false` in `about:config`. Zen and LibreWolf work the same way.
 
 ### Safari (macOS)
 

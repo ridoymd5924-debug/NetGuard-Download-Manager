@@ -4300,7 +4300,7 @@
 #. message or event log entry in the main window
 #. {error} = an error message (keep the braces as they are)
 #, machine
-	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	无法保存下载列表：{error}。MDM运行时将保留更改。
+	The download list could not be saved: {error}. Changes are kept while NetGuard runs.	无法保存下载列表：{error}。NetGuard运行时将保留更改。
 #. text in the Help menu's windows (About, updates, shortcuts, Tell a friend)
 #, machine
 	The download manager you already know, rebuilt to be faster. Free and open source under the GNU GPL, version 3 or later. Videos are found by yt-dlp; torrents run on librqbit.	您熟悉的下载管理器，经过重建，速度更快。基于 GNU GPL 第 3 版或更高版本免费开源。视频由 yt-dlp 查找；种子由 librqbit 处理。
