@@ -153,7 +153,8 @@ The host serves only NetGuard's own extension. Its IDs are in one place, `mdm_ip
 (`crates/ipc/src/extension.rs`): the unpacked copy's (`UNPACKED_ID`, from the manifest's public
 key), the Chrome Web Store's (`STORE_ID`, signed with the store's own key: `pack.ps1` leaves the
 manifest's key out of the store's copy) and the Firefox add-on's (`FIREFOX_ID`). NetGuard has no
-store listing yet, so `STORE_ID` is a placeholder, never served, registered or linked (the Edge and
+store listing yet, so `STORE_ID` is a placeholder, never served or registered, and `STORE_PAGE` is
+`None`, so nothing links to a store (the Edge and
 Opera stores' are too), until the extension is listed there; the Chrome Web Store copy of the
 project NetGuard was forked from is not accepted. The host writes each browser's manifest with
 those IDs, and the app offers the tutorial that loads the unpacked copy from its folder.

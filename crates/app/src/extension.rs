@@ -181,8 +181,8 @@ impl Extension {
         let o = o + egui::vec2(0.0, extra);
 
         // One row per browser: its name, and the button that opens the extension's page in it:
-        // the Chrome Web Store's once NetGuard is listed there, else (as now, STORE_ID being a
-        // placeholder) the tutorial that adds the extension from the app's folder.
+        // the Chrome Web Store's once NetGuard is listed there (`STORE_PAGE`), else (as now) the
+        // tutorial that adds the extension from the app's folder.
         let store = mdm_ipc::extension::store_page();
         for (k, (name, program)) in self.browsers.iter().enumerate() {
             let y = BANNER + 16.0 + k as f32 * ROW;

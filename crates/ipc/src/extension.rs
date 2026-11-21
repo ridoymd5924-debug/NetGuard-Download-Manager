@@ -39,11 +39,16 @@ pub fn chromium_ids() -> Vec<&'static str> {
         .collect()
 }
 
-/// The extension's page in the Chrome Web Store (Chrome, Edge, Brave, Opera and Vivaldi all
-/// install from it), once it is listed: the listing's own address, its name then its ID.
+/// NetGuard's own page in the Chrome Web Store (Chrome, Edge, Brave, Opera and Vivaldi all install
+/// from it): the listing's address exactly as the store gives it, set here once the extension is
+/// published. `None` until then: NetGuard has no listing, so no address is made up, and the app
+/// offers the tutorial that adds the extension from its folder instead. Never the listing of the
+/// project NetGuard was forked from.
+pub const STORE_PAGE: Option<&str> = None;
+
+/// [`STORE_PAGE`], for the app's "Add the extension" button.
 pub fn store_page() -> Option<String> {
-    let id = store_id()?;
-    Some(format!("https://chromewebstore.google.com/detail/netguard-download-manager/{id}"))
+    STORE_PAGE.map(str::to_owned)
 }
 
 /// The tutorial that adds the extension: from the stores, and by hand (a build of its own, or
@@ -118,7 +123,6 @@ mod tests {
         // A placeholder store ID is never served, registered or linked.
         assert_eq!(store_id().is_some(), valid_id(STORE_ID));
         assert!(chromium_ids().iter().all(|id| valid_id(id)));
-        assert_eq!(store_page().is_some(), store_id().is_some());
     }
 
     /// NetGuard has no store listing yet: only the extension of the app folder (unpacked) is
@@ -128,6 +132,8 @@ mod tests {
         assert_eq!(UNPACKED_ID, "oogbclbbninliongijffeeggalppliok");
         assert_eq!(chromium_ids(), vec![UNPACKED_ID]);
         assert_eq!(store_id(), None);
+        // No listing, no address: the app falls back to the tutorial.
+        assert_eq!(STORE_PAGE, None);
         assert_eq!(store_page(), None);
         assert!(!chromium_ids().contains(&"ejoleppdfgjdndddcjoehopknmlglojp"));
     }
