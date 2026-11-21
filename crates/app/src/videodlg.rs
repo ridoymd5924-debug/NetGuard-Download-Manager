@@ -1244,28 +1244,36 @@ mod tests {
     /// layout is absolute, so the numbers are what is checked).
     #[test]
     fn the_window_is_compact_and_its_rows_do_not_overlap() {
-        assert!((440.0..=480.0).contains(&WIDTH), "width {WIDTH}");
-        assert!(HEIGHT <= 360.0, "height {HEIGHT}");
         // The margins are the same on both sides, and the list spans them.
         assert_eq!(EDGE, WIDTH - 11.0);
         assert_eq!(LIST_W, WIDTH - 22.0);
-        // Top to bottom: address (28..49), status line and its button, note, choices, then the
-        // three rows and the buttons: each starts below the one above it.
-        let address_end = 28.0 + 21.0;
-        assert!(
-            STATUS_Y - 13.0 >= address_end,
-            "the Install button under the address"
-        );
-        assert!(NOTE_Y > STATUS_Y, "the note under the status line");
-        assert!(LIST_Y > NOTE_Y, "the list under the note");
-        assert!(SAVE_Y >= LIST_Y + CHOICES_H, "Save to under the choices");
-        assert!(NAME_Y >= SAVE_Y + 21.0 + 4.0);
-        assert!(SUBS_Y >= NAME_Y + 21.0 + 4.0);
-        assert!(BUTTONS_Y >= SUBS_Y + 21.0 + 8.0);
-        // The buttons end inside the window, with a margin.
-        assert!(BUTTONS_Y + 21.0 + 8.0 <= HEIGHT);
-        // The choices list shows whole rows of 17 px.
-        assert!(CHOICES_H / 17.0 >= 7.0);
+        // The numbers are constants: checked when this compiles (clippy::assertions_on_constants).
+        const {
+            // About 440 to 480 px wide, and no taller than the rows need.
+            assert!(WIDTH >= 440.0, "the window is at least 440 px wide");
+            assert!(WIDTH <= 480.0, "the window is at most 480 px wide");
+            assert!(HEIGHT <= 360.0, "the window is at most 360 px high");
+            // Top to bottom: address (28..49), status line and its button, note, choices, then
+            // the three rows and the buttons: each starts below the one above it.
+            let address_end = 28.0 + 21.0;
+            assert!(
+                STATUS_Y - 13.0 >= address_end,
+                "the Install button under the address"
+            );
+            assert!(NOTE_Y > STATUS_Y, "the note under the status line");
+            assert!(LIST_Y > NOTE_Y, "the list under the note");
+            assert!(SAVE_Y >= LIST_Y + CHOICES_H, "Save to under the choices");
+            assert!(NAME_Y >= SAVE_Y + 21.0 + 4.0, "File name under Save to");
+            assert!(SUBS_Y >= NAME_Y + 21.0 + 4.0, "Subtitles under File name");
+            assert!(BUTTONS_Y >= SUBS_Y + 21.0 + 8.0, "buttons under Subtitles");
+            // The buttons end inside the window, with a margin.
+            assert!(
+                BUTTONS_Y + 21.0 + 8.0 <= HEIGHT,
+                "the buttons end inside the window"
+            );
+            // The choices list shows whole rows of 17 px.
+            assert!(CHOICES_H / 17.0 >= 7.0, "the choices show 7 whole rows");
+        }
     }
 
     /// #229: yt-dlp's refusals and its trouble with a browser's cookies, in NetGuard's words, saying

@@ -684,12 +684,15 @@ mod tests {
     fn the_playlist_list_and_buttons_fit_above_save_to() {
         // 8 px under the list, a button 21 px high, and "n of m chosen" inside its row.
         assert_eq!(BUTTONS_Y, LIST_Y + LIST_H + 8.0);
-        assert!(
-            BUTTONS_Y + 21.0 + 8.0 <= crate::videodlg::SAVE_Y,
-            "Save to starts under the buttons"
-        );
-        // Its list shows five whole 17 px rows at least.
-        assert!(LIST_H / 17.0 >= 5.0);
+        // The numbers are constants: checked when this compiles (clippy::assertions_on_constants).
+        const {
+            assert!(
+                BUTTONS_Y + 21.0 + 8.0 <= crate::videodlg::SAVE_Y,
+                "Save to starts under the buttons"
+            );
+            // Its list shows five whole 17 px rows at least.
+            assert!(LIST_H / 17.0 >= 5.0, "the list shows 5 whole rows");
+        }
     }
 
     /// The qualities for a whole list: with ffmpeg the merged ones and MP3, without it only
