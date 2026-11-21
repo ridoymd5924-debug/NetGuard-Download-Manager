@@ -21,7 +21,7 @@ pub enum Next {
     /// NetGuard closes once this has started: the new copy (or the installer, which starts it).
     /// Started by the window when it takes the result, so an update cancelled meanwhile starts
     /// nothing.
-    Restart(Command),
+    Restart(Box<Command>),
     /// Handed to the system's package installer (a .deb or .rpm): NetGuard stays open.
     Opened,
 }
@@ -140,7 +140,7 @@ fn apply(install: Install, file: &Path) -> Result<Next, String> {
     let restart = |program: &Path| -> Result<Next, String> {
         let mut cmd = Command::new(program);
         cmd.arg(UPDATED);
-        Ok(Next::Restart(cmd))
+        Ok(Next::Restart(Box::new(cmd)))
     };
     match install {
         // The installer closes NetGuard itself (/exit), installs where it was (the same install
@@ -153,7 +153,7 @@ fn apply(install: Install, file: &Path) -> Result<Next, String> {
                 "/NORESTART",
                 "/relaunch=1",
             ]);
-            Ok(Next::Restart(cmd))
+            Ok(Next::Restart(Box::new(cmd)))
         }
         Install::PortableZip | Install::PlainZip => {
             let out = unpack_dir()?;
@@ -222,7 +222,7 @@ fn apply(install: Install, file: &Path) -> Result<Next, String> {
             std::fs::rename(&staged, &bundle).map_err(|e| e.to_string())?;
             let mut cmd = Command::new("open");
             cmd.arg("-n").arg(&bundle).args(["--args", UPDATED]);
-            Ok(Next::Restart(cmd))
+            Ok(Next::Restart(Box::new(cmd)))
         }
         // Installing a package needs the administrator: the system's installer asks.
         Install::Deb | Install::Rpm => {
