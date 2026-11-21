@@ -65,6 +65,11 @@ jobs:
       - name: Clippy
         run: cargo clippy --workspace --all-targets -- -D warnings
 
+      # The crash tests start examples/crashy: built here, before them, so a missing program shows
+      # as a build error and not as a test that can't start it.
+      - name: Build the crash tests' example
+        run: cargo build -p mdm-crash --example crashy
+
       - name: Tests
         run: cargo test --workspace
 
