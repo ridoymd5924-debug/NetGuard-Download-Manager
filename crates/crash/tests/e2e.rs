@@ -7,16 +7,24 @@ use std::process::{Command, Stdio};
 use std::sync::OnceLock;
 use std::time::{Duration, Instant};
 
-/// Where the profile's examples are, beside this test program: the test is
-/// target/[<triple>/]<profile>/deps/e2e-… and crashy is target/[<triple>/]<profile>/examples/crashy
-/// (with the system's program extension, `.exe` on Windows).
+/// The profile's folder, target/[<triple>/]<profile>, found from this test program. Cargo keeps
+/// the test in `<profile>/deps/` (its older layout) or in `<profile>/build/<crate>/<hash>/out/`
+/// (its newer one): the folder above the nearest `deps` or `build`.
+fn profile_dir() -> PathBuf {
+    let exe = std::env::current_exe().unwrap();
+    exe.ancestors()
+        .find(|a| a.file_name().is_some_and(|n| n == "deps" || n == "build"))
+        .and_then(Path::parent)
+        .unwrap_or_else(|| exe.parent().unwrap())
+        .to_owned()
+}
+
+/// Where cargo puts the profile's examples, whichever layout the test is in: examples/crashy (with
+/// the system's program extension, `.exe` on Windows) in the profile's folder.
 fn crashy_beside_the_test() -> PathBuf {
-    let mut p = std::env::current_exe().unwrap();
-    p.pop();
-    p.pop();
-    p.push("examples");
-    p.push(format!("crashy{}", std::env::consts::EXE_SUFFIX));
-    p
+    profile_dir()
+        .join("examples")
+        .join(format!("crashy{}", std::env::consts::EXE_SUFFIX))
 }
 
 /// Builds examples/crashy (with this crate's default features, as the test needs its native
@@ -24,10 +32,8 @@ fn crashy_beside_the_test() -> PathBuf {
 /// the program. Whatever the target directory, the current directory, the profile or the
 /// extension: cargo names the file itself.
 fn build_crashy() -> PathBuf {
-    let profile_dir = crashy_beside_the_test()
-        .parent()
-        .and_then(Path::parent)
-        .and_then(Path::file_name)
+    let profile_dir = profile_dir()
+        .file_name()
         .map(|n| n.to_string_lossy().into_owned())
         .unwrap_or_default();
     let mut cmd = Command::new(std::env::var_os("CARGO").unwrap_or_else(|| "cargo".into()));
@@ -94,9 +100,7 @@ fn report(mode: &str) -> String {
             .arg(mode)
             .arg(data.path())
             .spawn()
-            .unwrap_or_else(|e| {
-                panic!("examples/crashy ({}) starts: {e}", crashy().display())
-            }),
+            .unwrap_or_else(|e| panic!("examples/crashy ({}) starts: {e}", crashy().display())),
     );
     let crashes = data.path().join("crashes");
     let deadline = Instant::now() + Duration::from_secs(90);
