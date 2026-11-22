@@ -143,15 +143,3 @@ The user guide is in [`docs/`](docs/README.md). Bug reports and ideas are welcom
 [Issues](https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/issues/new/choose):
 **Help → Report a problem** in the app fills in your version and system. Security problems:
 see [SECURITY.md](SECURITY.md).
-
-## Credits and licence
-
-NetGuard Download Manager is a fork of **Mister Download Manager 0.5.2**
-(<https://github.com/anefzaoui/misterdownloadmanager>), Copyright (C) 2026 Ahmed Nefzaoui. It is
-free software under the **GNU General Public License, version 3 or later** ([LICENSE](LICENSE)):
-you may use, study, share and change it under those terms. Third-party assets and libraries
-are listed in [ATTRIBUTION.md](ATTRIBUTION.md).
-
-NetGuard is an independent program. It is not affiliated with, endorsed by or connected to
-Tonec Inc.; "Internet Download Manager" and "IDM" are trademarks of their owner, named only to
-describe the layout people already know.
