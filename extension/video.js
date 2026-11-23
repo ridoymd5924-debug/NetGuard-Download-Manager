@@ -454,9 +454,9 @@ button:focus-visible { outline: 2px solid #2a78d6; outline-offset: -2px; }
     const over =
       pointer.x >= r.left && pointer.x <= r.right && pointer.y >= r.top && pointer.y <= r.bottom;
     const onButton = root.matches(":hover");
-    if (!onButton && !menuOpen && !dragging && !keyboardOn() && (!over || Date.now() - lastMove > IDLE_MS)) {
-      return hide();
-    }
+  //  if (!onButton && !menuOpen && !dragging && !keyboardOn() && (!over || Date.now() - lastMove > IDLE_MS)) {
+  //    return hide();
+  //  }
     position();
     raf = requestAnimationFrame(tick);
   }
