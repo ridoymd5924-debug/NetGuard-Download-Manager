@@ -14,7 +14,7 @@ path = "src/lib.rs"
 
 # The launcher: starts the app's program for them (std only, but for Ctrl+C on Windows).
 [[bin]]
-name = "misterdownloadmanager-cli"
+name = "netguard-cli"
 path = "src/main.rs"
 
 [dependencies]

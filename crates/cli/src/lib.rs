@@ -362,7 +362,7 @@ fn act(action: &str, ids: Vec<u64>) -> anyhow::Result<()> {
 pub const FLAG: &str = "--cli";
 
 /// The launcher's name, which the commands' help and messages show.
-pub const NAME: &str = "misterdownloadmanager-cli";
+pub const NAME: &str = "netguard-cli";
 
 /// The app's program, started for the command line.
 pub struct Launch {

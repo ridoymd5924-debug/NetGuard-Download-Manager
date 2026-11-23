@@ -11,7 +11,7 @@
 // (the rules, the status, the pause) is kept in storage, not in memory.
 
 const ext = globalThis.browser ?? globalThis.chrome;
-const HOST = "com.misterdownloadmanager.host";
+const HOST = "com.netguard.host";
 const VERSION = ext.runtime.getManifest().version;
 const HELP = "https://github.com/ridoymd5924-debug/NetGuard-Download-Manager/blob/main/docs/browser-help.md";
 const action = ext.action ?? ext.browserAction;

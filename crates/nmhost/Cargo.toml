@@ -9,7 +9,7 @@ authors.workspace = true
 publish.workspace = true
 
 [[bin]]
-name = "misterdownloadmanager-nmhost"
+name = "netguard-nmhost"
 path = "src/main.rs"
 
 [dependencies]

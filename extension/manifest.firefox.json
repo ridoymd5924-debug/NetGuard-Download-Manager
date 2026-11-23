@@ -6,7 +6,7 @@
     "description": "__MSG_description__",
     "browser_specific_settings": {
         "gecko": {
-            "id": "integration@misterdownloadmanager.com",
+            "id": "integration@netguarddownloadmanager.com",
             "strict_min_version": "140.0",
             "data_collection_permissions": {
                 "required": [

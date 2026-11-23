@@ -24,7 +24,7 @@ fn main() {
 /// /usr/bin, a Mac app's Contents/MacOS); started through a link, in the folder it points into.
 fn program() -> Option<PathBuf> {
     let exe = std::env::current_exe().ok()?;
-    let name = format!("misterdownloadmanager{}", std::env::consts::EXE_SUFFIX);
+    let name = format!("netguard{}", std::env::consts::EXE_SUFFIX);
     [Some(exe.clone()), std::fs::canonicalize(&exe).ok()]
         .into_iter()
         .flatten()

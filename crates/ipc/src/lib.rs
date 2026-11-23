@@ -232,7 +232,7 @@ pub fn data_dir() -> Option<PathBuf> {
         return Some(dir);
     }
     let base = dirs::data_dir()?;
-    let dir = base.join("misterdownloadmanager");
+    let dir = base.join("netguard");
     let legacy = base.join("idmnext");
     if !dir.exists() && legacy.is_dir() {
         let _ = std::fs::rename(&legacy, &dir);
