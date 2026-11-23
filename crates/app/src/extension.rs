@@ -567,7 +567,7 @@ pub fn set_up(ctx: &egui::Context) {
             if let Ok(exe) = std::env::current_exe() {
                 crate::launch::run_within(
                     std::process::Command::new(exe.with_file_name("netguard-nmhost.exe"))
-                     .arg("--register"),
+                        .arg("--register"),
                     SET_UP_LIMIT,
                 );
             }
