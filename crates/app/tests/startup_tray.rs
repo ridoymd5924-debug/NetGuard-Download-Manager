@@ -14,7 +14,7 @@ use std::path::Path;
 use std::process::{Child, Command};
 use std::time::{Duration, Instant};
 
-const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
+const APP: &str = env!("CARGO_BIN_EXE_netguard");
 /// The main window's title (main.rs MAIN_TITLE).
 const MAIN: &str = concat!("NetGuard Download Manager ", env!("CARGO_PKG_VERSION"));
 

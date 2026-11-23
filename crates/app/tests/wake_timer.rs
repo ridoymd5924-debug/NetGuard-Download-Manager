@@ -14,7 +14,7 @@ use std::time::{Duration, Instant};
 
 use mdm_labserver::{Config, LabServer};
 
-const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
+const APP: &str = env!("CARGO_BIN_EXE_netguard");
 
 /// The app's log so far (every file of `logs/`).
 fn log(data: &Path) -> String {

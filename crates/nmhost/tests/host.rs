@@ -9,7 +9,7 @@ use std::process::{Command, Stdio};
 use std::sync::mpsc;
 use std::time::Duration;
 
-const HOST: &str = env!("CARGO_BIN_EXE_misterdownloadmanager-nmhost");
+const HOST: &str = env!("CARGO_BIN_EXE_netguard-nmhost");
 const CALLER: &str = "chrome-extension://oogbclbbninliongijffeeggalppliok/";
 const UA: &str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/141.0.0.0 Safari/537.36";
 
@@ -375,7 +375,7 @@ fn a_host_inside_an_appimage_mount_is_not_registered() {
     assert!(String::from_utf8_lossy(&out.stderr).contains("AppImage"));
     assert!(
         !home
-            .join(".config/google-chrome/NativeMessagingHosts/com.misterdownloadmanager.host.json")
+            .join(".config/google-chrome/NativeMessagingHosts/com.netguard.host.json")
             .exists()
     );
     let _ = std::fs::remove_dir_all(&home);

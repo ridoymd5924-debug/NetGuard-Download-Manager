@@ -55,7 +55,7 @@ struct Mcp {
 
 impl Mcp {
     fn start(data: &std::path::Path) -> Self {
-        let mut child = Command::new(env!("CARGO_BIN_EXE_misterdownloadmanager-mcp"))
+        let mut child = Command::new(env!("CARGO_BIN_EXE_netguard-mcp"))
             .env("MDM_DATA_DIR", data)
             .stdin(Stdio::piped())
             .stdout(Stdio::piped())

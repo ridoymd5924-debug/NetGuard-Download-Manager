@@ -11,7 +11,7 @@ use std::path::Path;
 use std::process::Command;
 use std::time::{Duration, Instant};
 
-const APP: &str = env!("CARGO_BIN_EXE_misterdownloadmanager");
+const APP: &str = env!("CARGO_BIN_EXE_netguard");
 
 fn item(id: u64, name: &str, status: &str, downloaded: u64, dir: &Path) -> serde_json::Value {
     serde_json::json!({

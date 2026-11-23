@@ -6,7 +6,7 @@
 use std::io::{Read, Write};
 use std::process::{Command, Stdio};
 
-const LAUNCHER: &str = env!("CARGO_BIN_EXE_misterdownloadmanager-cli");
+const LAUNCHER: &str = env!("CARGO_BIN_EXE_netguard-cli");
 
 fn main() {
     if let Some(launch) = mdm_cli::launched(std::env::args_os().collect()) {
