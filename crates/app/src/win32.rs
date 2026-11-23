@@ -2827,9 +2827,9 @@ mod startup_tests {
     #[test]
     fn the_installer_writes_the_same_entry() {
         let iss = include_str!("../../../tools/installer/mdm.iss");
-        assert!(iss.contains(
-            r#"ValueName: "NetGuard"; ValueData: """{app}\{#AppExe}"" /startup""#
-        ));
+        assert!(
+            iss.contains(r#"ValueName: "NetGuard"; ValueData: """{app}\{#AppExe}"" /startup""#)
+        );
     }
 }
 
